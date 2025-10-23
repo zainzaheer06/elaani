@@ -1,0 +1,633 @@
+{% extends "base.html" %}
+
+{% block title %}Financial & Billing - Elaani{% endblock %}
+
+{% block page_title %}Financial & Billing Management{% endblock %}
+{% block page_subtitle %}Track revenue, manage invoices, and monitor financial performance in Saudi Arabia{% endblock %}
+
+{% block content %}
+<!-- Action Bar -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <button onclick="generateInvoice()" 
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                <i class="fas fa-file-invoice mr-2"></i>
+                Generate Invoice
+            </button>
+            <button onclick="exportFinancialReport()" 
+                    class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                <i class="fas fa-download mr-2"></i>
+                Export Report
+            </button>
+            <button onclick="sendPaymentReminder()" 
+                    class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                <i class="fas fa-bell mr-2"></i>
+                Payment Reminders
+            </button>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <!-- Date Range Filter -->
+            <select id="dateRange" 
+                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+                <option value="month" selected>This Month</option>
+                <option value="quarter">This Quarter</option>
+                <option value="year">This Year</option>
+            </select>
+            
+            <!-- Quick Actions -->
+            <button onclick="reconcileAccounts()" 
+                   class="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-200">
+                <i class="fas fa-balance-scale mr-2"></i>
+                Reconcile
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Financial Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-coins text-green-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">231,500 ريال</div>
+                <div class="text-sm font-medium text-gray-600">Total Revenue</div>
+                <div class="text-xs text-green-600 font-medium mt-1">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    +15.3% from last month
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-file-invoice-dollar text-blue-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">45,750 ريال</div>
+                <div class="text-sm font-medium text-gray-600">Outstanding Invoices</div>
+                <div class="text-xs text-yellow-600 font-medium mt-1">
+                    <i class="fas fa-clock mr-1"></i>
+                    12 invoices pending
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-percentage text-yellow-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">34,725 ريال</div>
+                <div class="text-sm font-medium text-gray-600">VAT Collected (15%)</div>
+                <div class="text-xs text-blue-600 font-medium mt-1">
+                    <i class="fas fa-info-circle mr-1"></i>
+                    Due: End of month
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-chart-line text-purple-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">185,775 ريال</div>
+                <div class="text-sm font-medium text-gray-600">Net Profit</div>
+                <div class="text-xs text-green-600 font-medium mt-1">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    +22.1% margin
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-8">
+    <!-- Revenue Chart -->
+    <div class="xl:col-span-2 bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Revenue Analytics</h3>
+                    <p class="text-sm text-gray-600 mt-1">Monthly revenue trends and projections</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-elaani-primary">
+                        Revenue
+                    </button>
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                        Profit
+                    </button>
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                        Expenses
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="h-80 flex items-center justify-center bg-gray-50 rounded-lg">
+                <div class="text-center">
+                    <i class="fas fa-chart-area text-gray-400 text-5xl mb-4"></i>
+                    <p class="text-gray-600 font-medium text-lg">Revenue Analytics Chart</p>
+                    <p class="text-sm text-gray-500">Interactive chart with monthly breakdown</p>
+                    <div class="grid grid-cols-3 gap-6 mt-6 text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-green-600">+15.3%</div>
+                            <div class="text-sm text-gray-600">Growth</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-blue-600">231.5K</div>
+                            <div class="text-sm text-gray-600">This Month</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-purple-600">250K</div>
+                            <div class="text-sm text-gray-600">Projected</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Status -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Payment Status</h3>
+                    <p class="text-sm text-gray-600 mt-1">Outstanding and recent payments</p>
+                </div>
+                <button onclick="viewAllPayments()" 
+                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                    View All
+                </button>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="space-y-4">
+                <!-- Outstanding Payment -->
+                <div class="p-4 bg-red-50 border border-red-200 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="font-semibold text-red-800">Al-Rajhi School</div>
+                            <div class="text-sm text-red-600">Invoice #INV-2025-0234</div>
+                            <div class="text-xs text-red-500 mt-1">Due: Sep 25, 2025</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-red-800">4,500 ريال</div>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                Overdue
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pending Payment -->
+                <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="font-semibold text-yellow-800">Riyadh Events Co.</div>
+                            <div class="text-sm text-yellow-600">Invoice #INV-2025-0235</div>
+                            <div class="text-xs text-yellow-500 mt-1">Due: Sep 30, 2025</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-yellow-800">22,500 ريال</div>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                Pending
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paid -->
+                <div class="p-4 bg-green-50 border border-green-200 rounded-xl">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <div class="font-semibold text-green-800">Tech Conference</div>
+                            <div class="text-sm text-green-600">Invoice #INV-2025-0233</div>
+                            <div class="text-xs text-green-500 mt-1">Paid: Sep 20, 2025</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-green-800">18,750 ريال</div>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                <i class="fas fa-check mr-1"></i>
+                                Paid
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Payment Actions -->
+                <div class="pt-4 border-t border-gray-200">
+                    <div class="flex space-x-2">
+                        <button onclick="sendPaymentReminder()" 
+                                class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                            <i class="fas fa-bell mr-1"></i>
+                            Send Reminder
+                        </button>
+                        <button onclick="markAsPaid()" 
+                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                            <i class="fas fa-check mr-1"></i>
+                            Mark Paid
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Invoice Management -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
+    <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center justify-between">
+            <div>
+                <h3 class="text-xl font-semibold text-gray-900">Invoice Management</h3>
+                <p class="text-sm text-gray-600 mt-1">Track and manage all invoices and billing</p>
+            </div>
+            <div class="flex space-x-2">
+                <button onclick="toggleInvoiceView('all')" id="allInvoicesBtn"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
+                    All Invoices
+                </button>
+                <button onclick="toggleInvoiceView('outstanding')" id="outstandingBtn"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                    Outstanding
+                </button>
+                <button onclick="toggleInvoiceView('paid')" id="paidBtn"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                    Paid
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">VAT (15%)</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Due Date</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-elaani-primary">#INV-2025-0234</div>
+                        <div class="text-sm text-gray-500">Sep 20, 2025</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-8 w-8">
+                                <div class="h-8 w-8 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center">
+                                    <span class="text-white font-medium text-xs">AR</span>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <div class="text-sm font-medium text-gray-900">Al-Rajhi School</div>
+                                <div class="text-sm text-gray-500">LED Display Rental</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">4,500 ريال</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">675 ريال</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">5,175 ريال</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Sep 25, 2025</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                            Overdue
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button onclick="viewInvoice('INV-2025-0234')" 
+                                    class="text-elaani-primary hover:text-elaani-secondary transition-colors"
+                                    title="View Invoice">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button onclick="downloadInvoice('INV-2025-0234')" 
+                                    class="text-blue-600 hover:text-blue-700 transition-colors"
+                                    title="Download">
+                                <i class="fas fa-download"></i>
+                            </button>
+                            <button onclick="sendInvoice('INV-2025-0234')" 
+                                    class="text-green-600 hover:text-green-700 transition-colors"
+                                    title="Send">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hover:bg-gray-50 transition-colors">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-elaani-primary">#INV-2025-0235</div>
+                        <div class="text-sm text-gray-500">Sep 22, 2025</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-8 w-8">
+                                <div class="h-8 w-8 rounded-full bg-gradient-to-r from-purple-500 to-purple-600 flex items-center justify-center">
+                                    <span class="text-white font-medium text-xs">RE</span>
+                                </div>
+                            </div>
+                            <div class="ml-3">
+                                <div class="text-sm font-medium text-gray-900">Riyadh Events Co.</div>
+                                <div class="text-sm text-gray-500">Mobile LED Truck</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">22,500 ريال</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">3,375 ريال</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">25,875 ريال</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Sep 30, 2025</td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                            Pending
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button onclick="viewInvoice('INV-2025-0235')" 
+                                    class="text-elaani-primary hover:text-elaani-secondary transition-colors"
+                                    title="View Invoice">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button onclick="downloadInvoice('INV-2025-0235')" 
+                                    class="text-blue-600 hover:text-blue-700 transition-colors"
+                                    title="Download">
+                                <i class="fas fa-download"></i>
+                            </button>
+                            <button onclick="sendInvoice('INV-2025-0235')" 
+                                    class="text-green-600 hover:text-green-700 transition-colors"
+                                    title="Send">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Tax & Compliance -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- VAT Summary -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <h3 class="text-xl font-semibold text-gray-900">VAT Summary (15%)</h3>
+            <p class="text-sm text-gray-600 mt-1">Saudi Arabia VAT compliance tracking</p>
+        </div>
+        <div class="p-6">
+            <div class="space-y-4">
+                <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
+                    <div>
+                        <div class="font-medium text-blue-800">VAT Collected</div>
+                        <div class="text-sm text-blue-600">From client payments</div>
+                    </div>
+                    <div class="text-xl font-bold text-blue-800">34,725 ريال</div>
+                </div>
+                
+                <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
+                    <div>
+                        <div class="font-medium text-green-800">VAT Paid</div>
+                        <div class="text-sm text-green-600">On business expenses</div>
+                    </div>
+                    <div class="text-xl font-bold text-green-800">8,450 ريال</div>
+                </div>
+                
+                <div class="flex justify-between items-center p-4 bg-yellow-50 rounded-lg border-2 border-yellow-200">
+                    <div>
+                        <div class="font-medium text-yellow-800">Net VAT Due</div>
+                        <div class="text-sm text-yellow-600">Due: End of month</div>
+                    </div>
+                    <div class="text-xl font-bold text-yellow-800">26,275 ريال</div>
+                </div>
+                
+                <button onclick="generateVATReport()" 
+                        class="w-full bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium py-3 px-4 rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                    <i class="fas fa-file-alt mr-2"></i>
+                    Generate VAT Report
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expense Tracking -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Expense Tracking</h3>
+                    <p class="text-sm text-gray-600 mt-1">Business expenses and costs</p>
+                </div>
+                <button onclick="addExpense()" 
+                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                    <i class="fas fa-plus mr-1"></i>
+                    Add Expense
+                </button>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-truck text-red-600 text-sm"></i>
+                        </div>
+                        <div>
+                            <div class="font-medium text-gray-900">Transportation</div>
+                            <div class="text-sm text-gray-600">Delivery & setup costs</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-semibold text-gray-900">12,500 ريال</div>
+                        <div class="text-xs text-gray-500">This month</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-tools text-orange-600 text-sm"></i>
+                        </div>
+                        <div>
+                            <div class="font-medium text-gray-900">Maintenance</div>
+                            <div class="text-sm text-gray-600">Equipment servicing</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-semibold text-gray-900">8,750 ريال</div>
+                        <div class="text-xs text-gray-500">This month</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between p-3 border border-gray-200 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-building text-blue-600 text-sm"></i>
+                        </div>
+                        <div>
+                            <div class="font-medium text-gray-900">Office & Utilities</div>
+                            <div class="text-sm text-gray-600">Rent, electricity, etc.</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-semibold text-gray-900">15,200 ريال</div>
+                        <div class="text-xs text-gray-500">This month</div>
+                    </div>
+                </div>
+                
+                <div class="pt-3 border-t border-gray-200">
+                    <div class="flex justify-between items-center">
+                        <span class="font-medium text-gray-900">Total Expenses</span>
+                        <span class="text-lg font-bold text-red-600">36,450 ريال</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Financial management functions
+    function generateInvoice() {
+        showNotification('Opening invoice generator...', 'info');
+        // In a real app, this would open an invoice creation modal
+    }
+    
+    function exportFinancialReport() {
+        showNotification('Generating financial report...', 'info');
+        setTimeout(() => {
+            showNotification('Financial report exported successfully!', 'success');
+        }, 2000);
+    }
+    
+    function sendPaymentReminder() {
+        showNotification('Sending payment reminders to overdue clients...', 'info');
+        setTimeout(() => {
+            showNotification('Payment reminders sent successfully!', 'success');
+        }, 1500);
+    }
+    
+    function reconcileAccounts() {
+        showNotification('Starting account reconciliation...', 'info');
+        setTimeout(() => {
+            showNotification('Accounts reconciled successfully!', 'success');
+        }, 2500);
+    }
+    
+    function viewAllPayments() {
+        showNotification('Loading all payment records...', 'info');
+    }
+    
+    function markAsPaid() {
+        showNotification('Marking selected invoices as paid...', 'success');
+    }
+    
+    // Invoice management
+    function toggleInvoiceView(view) {
+        const allBtn = document.getElementById('allInvoicesBtn');
+        const outstandingBtn = document.getElementById('outstandingBtn');
+        const paidBtn = document.getElementById('paidBtn');
+        
+        // Reset all buttons
+        [allBtn, outstandingBtn, paidBtn].forEach(btn => {
+            btn.classList.remove('text-white', 'bg-elaani-primary');
+            btn.classList.add('text-gray-700', 'bg-gray-100');
+        });
+        
+        // Activate selected button
+        let activeBtn;
+        switch(view) {
+            case 'all':
+                activeBtn = allBtn;
+                break;
+            case 'outstanding':
+                activeBtn = outstandingBtn;
+                break;
+            case 'paid':
+                activeBtn = paidBtn;
+                break;
+        }
+        
+        activeBtn.classList.remove('text-gray-700', 'bg-gray-100');
+        activeBtn.classList.add('text-white', 'bg-elaani-primary');
+        
+        showNotification(`Filtering invoices: ${view}`, 'info');
+    }
+    
+    function viewInvoice(invoiceId) {
+        showNotification(`Opening invoice ${invoiceId}...`, 'info');
+    }
+    
+    function downloadInvoice(invoiceId) {
+        showNotification(`Downloading invoice ${invoiceId}...`, 'info');
+        setTimeout(() => {
+            showNotification('Invoice downloaded successfully!', 'success');
+        }, 1000);
+    }
+    
+    function sendInvoice(invoiceId) {
+        showNotification(`Sending invoice ${invoiceId} to client...`, 'info');
+        setTimeout(() => {
+            showNotification('Invoice sent successfully!', 'success');
+        }, 1500);
+    }
+    
+    // VAT and compliance
+    function generateVATReport() {
+        showNotification('Generating VAT report for ZATCA compliance...', 'info');
+        setTimeout(() => {
+            showNotification('VAT report generated successfully!', 'success');
+        }, 2000);
+    }
+    
+    function addExpense() {
+        showNotification('Opening expense entry form...', 'info');
+    }
+    
+    // Date range filter
+    document.getElementById('dateRange').addEventListener('change', function() {
+        const range = this.value;
+        showNotification(`Filtering financial data for: ${range}`, 'info');
+        // In a real app, this would filter all financial data
+    });
+    
+    // Initialize default view
+    document.addEventListener('DOMContentLoaded', function() {
+        toggleInvoiceView('all');
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,201 @@
+
+<!-- =============================================== -->
+<!-- templates/advertiser/booking.html -->
+{% extends "base_public.html" %}
+
+{% block title %}Book {{ screen.title }} - Elaani{% endblock %}
+
+{% block content %}
+<div class="bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Complete Your Booking</h1>
+            <p class="text-gray-600">{{ screen.title }}</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Booking Form -->
+            <div class="lg:col-span-2">
+                <form class="space-y-6">
+                    <!-- Campaign Details -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Campaign Details</h2>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Campaign Name</label>
+                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="Enter campaign name">
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Start Date</label>
+                                    <input type="date" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">End Date</label>
+                                    <input type="date" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Start Time</label>
+                                    <input type="time" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">End Time</label>
+                                    <input type="time" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Creative Upload -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Upload Your Creative</h2>
+                        
+                        <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                            <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                            <h3 class="text-lg font-medium text-gray-900 mb-2">Upload your ad creative</h3>
+                            <p class="text-gray-600 mb-4">Drag and drop your files here, or click to browse</p>
+                            <button type="button" class="bg-elaani-primary text-white px-6 py-2 rounded-md hover:bg-elaani-dark transition-colors">
+                                Choose Files
+                            </button>
+                            <p class="text-sm text-gray-500 mt-2">Supported formats: JPG, PNG, MP4, MOV (Max 50MB)</p>
+                        </div>
+                    </div>
+
+                    <!-- Billing Information -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Billing Information</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Company Name (Optional)</label>
+                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">Payment Method</h2>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <input type="radio" name="payment" value="card" class="text-elaani-primary focus:ring-elaani-primary" checked>
+                                <label class="text-gray-900">Credit/Debit Card</label>
+                                <div class="flex space-x-2 ml-auto">
+                                    <i class="fab fa-cc-visa text-2xl text-blue-600"></i>
+                                    <i class="fab fa-cc-mastercard text-2xl text-red-600"></i>
+                                    <i class="fab fa-cc-amex text-2xl text-blue-500"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="pl-6 space-y-3">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Card Number</label>
+                                    <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="1234 5678 9012 3456">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">Expiry Date</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="MM/YY">
+                                    </div>
+                                    <div>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">CVV</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="123">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center space-x-3">
+                                <input type="radio" name="payment" value="bank" class="text-elaani-primary focus:ring-elaani-primary">
+                                <label class="text-gray-900">Bank Transfer</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow p-6 sticky top-8">
+                    <h2 class="text-xl font-semibold text-gray-900 mb-4">Order Summary</h2>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-lg flex items-center justify-center mr-3">
+                                <i class="fas fa-tv text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-gray-900">{{ screen.title }}</h3>
+                                <p class="text-sm text-gray-600">{{ screen.location }}</p>
+                                <p class="text-sm text-gray-500">{{ screen.size }} • {{ screen.type }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Duration:</span>
+                            <span class="font-semibold">3 days</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Rate:</span>
+                            <span class="font-semibold">{{ screen.price_per_day }} SAR/day</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Subtotal:</span>
+                            <span class="font-semibold">{{ screen.price_per_day * 3 }} SAR</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">Platform fee:</span>
+                            <span class="font-semibold">150 SAR</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">VAT (15%):</span>
+                            <span class="font-semibold">{{ ((screen.price_per_day * 3 + 150) * 0.15)|round|int }} SAR</span>
+                        </div>
+                    </div>
+
+                    <div class="border-t pt-4 mb-6">
+                        <div class="flex justify-between text-lg font-bold">
+                            <span>Total:</span>
+                            <span class="text-elaani-primary">{{ ((screen.price_per_day * 3 + 150) * 1.15)|round|int }} SAR</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-elaani-primary text-white py-3 rounded-lg font-semibold hover:bg-elaani-dark transition-colors">
+                        Complete Booking
+                    </button>
+
+                    <div class="mt-4 text-center">
+                        <p class="text-xs text-gray-500">
+                            By completing this booking, you agree to our Terms of Service and Privacy Policy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

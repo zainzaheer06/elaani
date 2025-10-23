@@ -1,0 +1,635 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics - Elaani{% endblock %}
+
+{% block page_title %}Business Analytics & Insights{% endblock %}
+{% block page_subtitle %}Track performance, analyze trends, and make data-driven decisions for your Saudi Arabia operations{% endblock %}
+
+{% block content %}
+<!-- Action Bar -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <button onclick="generateReport()" 
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                <i class="fas fa-chart-line mr-2"></i>
+                Generate Report
+            </button>
+            <button onclick="exportAnalytics()" 
+                    class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                <i class="fas fa-download mr-2"></i>
+                Export Data
+            </button>
+            <button onclick="scheduleReport()" 
+                    class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                <i class="fas fa-calendar-alt mr-2"></i>
+                Schedule Reports
+            </button>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <!-- Date Range Filter -->
+            <select id="analyticsDateRange" 
+                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                <option value="today">Today</option>
+                <option value="week">This Week</option>
+                <option value="month" selected>This Month</option>
+                <option value="quarter">This Quarter</option>
+                <option value="year">This Year</option>
+                <option value="custom">Custom Range</option>
+            </select>
+            
+            <!-- Quick Insights -->
+            <button onclick="refreshData()" 
+                   class="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-200">
+                <i class="fas fa-sync-alt mr-2"></i>
+                Refresh
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Key Performance Indicators -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-chart-line text-green-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">685,500 ريال</div>
+                <div class="text-sm font-medium text-gray-600">Total Revenue (YTD)</div>
+                <div class="text-xs text-green-600 font-medium mt-1">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    +24.5% from last year
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-users text-blue-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">156</div>
+                <div class="text-sm font-medium text-gray-600">Total Customers</div>
+                <div class="text-xs text-blue-600 font-medium mt-1">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    +15 new this month
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-calendar-check text-purple-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">234</div>
+                <div class="text-sm font-medium text-gray-600">Total Bookings (YTD)</div>
+                <div class="text-xs text-purple-600 font-medium mt-1">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    +18.2% booking rate
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-star text-yellow-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">4.8</div>
+                <div class="text-sm font-medium text-gray-600">Customer Satisfaction</div>
+                <div class="text-xs text-yellow-600 font-medium mt-1">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    +0.3 from last quarter
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Section -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8 mb-8">
+    <!-- Revenue Trends -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Revenue Trends</h3>
+                    <p class="text-sm text-gray-600 mt-1">Monthly revenue performance over time</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-elaani-primary">
+                        Revenue
+                    </button>
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                        Bookings
+                    </button>
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                        Clients
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="h-80 flex items-center justify-center bg-gray-50 rounded-lg">
+                <div class="text-center">
+                    <i class="fas fa-chart-area text-gray-400 text-5xl mb-4"></i>
+                    <p class="text-gray-600 font-medium text-lg">Revenue Trend Analysis</p>
+                    <p class="text-sm text-gray-500 mb-6">Interactive chart showing monthly growth patterns</p>
+                    
+                    <!-- Sample Data Points -->
+                    <div class="grid grid-cols-3 gap-6 text-center">
+                        <div>
+                            <div class="text-2xl font-bold text-green-600">231.5K</div>
+                            <div class="text-sm text-gray-600">This Month</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-blue-600">198.3K</div>
+                            <div class="text-sm text-gray-600">Last Month</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl font-bold text-purple-600">+16.7%</div>
+                            <div class="text-sm text-gray-600">Growth Rate</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customer Analytics -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Customer Analytics</h3>
+                    <p class="text-sm text-gray-600 mt-1">Customer segments and behavior analysis</p>
+                </div>
+                <button onclick="viewCustomerDetails()" 
+                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                    View Details
+                </button>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="space-y-6">
+                <!-- Customer Segments -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Customer Segments</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-700">Educational (45%)</span>
+                                <span class="text-sm font-bold text-blue-600">308,475 ريال</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-700">Corporate (30%)</span>
+                                <span class="text-sm font-bold text-green-600">205,650 ريال</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-700">Event Planning (20%)</span>
+                                <span class="text-sm font-bold text-purple-600">137,100 ريال</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full" style="width: 20%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-sm font-medium text-gray-700">Government (5%)</span>
+                                <span class="text-sm font-bold text-orange-600">34,275 ريال</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 5%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Geographic Distribution -->
+                <div class="pt-4 border-t border-gray-200">
+                    <h4 class="font-semibold text-gray-900 mb-4">Geographic Distribution</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-3 bg-green-50 rounded-lg">
+                            <div class="text-lg font-bold text-green-600">65%</div>
+                            <div class="text-sm text-green-700">Riyadh</div>
+                        </div>
+                        <div class="text-center p-3 bg-blue-50 rounded-lg">
+                            <div class="text-lg font-bold text-blue-600">20%</div>
+                            <div class="text-sm text-blue-700">Jeddah</div>
+                        </div>
+                        <div class="text-center p-3 bg-purple-50 rounded-lg">
+                            <div class="text-lg font-bold text-purple-600">10%</div>
+                            <div class="text-sm text-purple-700">Dammam</div>
+                        </div>
+                        <div class="text-center p-3 bg-yellow-50 rounded-lg">
+                            <div class="text-lg font-bold text-yellow-600">5%</div>
+                            <div class="text-sm text-yellow-700">Others</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Equipment Performance -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
+    <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center justify-between">
+            <div>
+                <h3 class="text-xl font-semibold text-gray-900">Equipment Performance Analytics</h3>
+                <p class="text-sm text-gray-600 mt-1">Utilization rates and revenue per equipment type</p>
+            </div>
+            <div class="flex space-x-2">
+                <button onclick="toggleEquipmentView('utilization')" id="utilizationBtn"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
+                    Utilization
+                </button>
+                <button onclick="toggleEquipmentView('revenue')" id="revenueBtn"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                    Revenue
+                </button>
+                <button onclick="toggleEquipmentView('maintenance')" id="maintenanceBtn"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                    Maintenance
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- LED Displays -->
+            <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-tv text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">LED Displays</h4>
+                            <p class="text-sm text-gray-600">65" & 85" Units</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Utilization Rate</span>
+                        <span class="font-semibold text-blue-600">87%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full" style="width: 87%"></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-sm text-gray-600">Monthly Revenue</span>
+                        <span class="font-bold text-green-600">125,500 ريال</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile LED Trucks -->
+            <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-truck text-green-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Mobile LED Trucks</h4>
+                            <p class="text-sm text-gray-600">Large Format</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Utilization Rate</span>
+                        <span class="font-semibold text-green-600">92%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full" style="width: 92%"></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-sm text-gray-600">Monthly Revenue</span>
+                        <span class="font-bold text-green-600">78,000 ريال</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LCD Video Walls -->
+            <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-th text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">LCD Video Walls</h4>
+                            <p class="text-sm text-gray-600">Multi-Panel Setup</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Utilization Rate</span>
+                        <span class="font-semibold text-purple-600">74%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full" style="width: 74%"></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-sm text-gray-600">Monthly Revenue</span>
+                        <span class="font-bold text-green-600">45,200 ريال</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Outdoor Displays -->
+            <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-sun text-orange-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Outdoor Displays</h4>
+                            <p class="text-sm text-gray-600">Weather Resistant</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-gray-600">Utilization Rate</span>
+                        <span class="font-semibold text-orange-600">68%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 68%"></div>
+                    </div>
+                    <div class="flex justify-between items-center pt-2">
+                        <span class="text-sm text-gray-600">Monthly Revenue</span>
+                        <span class="font-bold text-green-600">32,800 ريال</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Business Intelligence Dashboard -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Seasonal Trends -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Seasonal Trends</h3>
+                    <p class="text-sm text-gray-600 mt-1">Demand patterns and peak seasons</p>
+                </div>
+                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-elaani-primary">
+                    <option>2025</option>
+                    <option>2024</option>
+                    <option>2023</option>
+                </select>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-green-50 to-green-100 rounded-lg border border-green-200">
+                    <div>
+                        <div class="font-medium text-green-800">Peak Season</div>
+                        <div class="text-sm text-green-600">Wedding Season (Jun - Sep)</div>
+                    </div>
+                    <div class="text-xl font-bold text-green-700">+45%</div>
+                </div>
+                
+                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-blue-100 rounded-lg border border-blue-200">
+                    <div>
+                        <div class="font-medium text-blue-800">School Events</div>
+                        <div class="text-sm text-blue-600">Academic Year (Sep - May)</div>
+                    </div>
+                    <div class="text-xl font-bold text-blue-700">+30%</div>
+                </div>
+                
+                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg border border-purple-200">
+                    <div>
+                        <div class="font-medium text-purple-800">Corporate Events</div>
+                        <div class="text-sm text-purple-600">Business Quarter (Q1, Q4)</div>
+                    </div>
+                    <div class="text-xl font-bold text-purple-700">+25%</div>
+                </div>
+                
+                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-lg border border-yellow-200">
+                    <div>
+                        <div class="font-medium text-yellow-800">Ramadan Events</div>
+                        <div class="text-sm text-yellow-600">Holy Month Period</div>
+                    </div>
+                    <div class="text-xl font-bold text-yellow-700">+20%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Predictive Analytics -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Predictive Analytics</h3>
+                    <p class="text-sm text-gray-600 mt-1">AI-powered business forecasts</p>
+                </div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    <i class="fas fa-robot mr-1"></i>
+                    AI Powered
+                </span>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="space-y-6">
+                <!-- Revenue Forecast -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Next Quarter Forecast</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-green-50 rounded-lg border border-green-200">
+                            <div class="text-2xl font-bold text-green-600">295,000</div>
+                            <div class="text-sm text-green-700">Predicted Revenue (ريال)</div>
+                            <div class="text-xs text-green-600 mt-1">+27% growth</div>
+                        </div>
+                        <div class="text-center p-4 bg-blue-50 rounded-lg border border-blue-200">
+                            <div class="text-2xl font-bold text-blue-600">87</div>
+                            <div class="text-sm text-blue-700">Expected Bookings</div>
+                            <div class="text-xs text-blue-600 mt-1">+15% increase</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Demand Predictions -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-3">Equipment Demand Predictions</h4>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">LED Displays</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                High Demand
+                            </span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Mobile LED Trucks</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                Medium Demand
+                            </span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-600">Video Walls</span>
+                            <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                Stable Demand
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recommendations -->
+                <div class="pt-4 border-t border-gray-200">
+                    <h4 class="font-semibold text-gray-900 mb-3">AI Recommendations</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-start space-x-2 text-sm">
+                            <i class="fas fa-lightbulb text-yellow-500 mt-0.5"></i>
+                            <span class="text-gray-700">Consider adding 2 more LED displays for peak season</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm">
+                            <i class="fas fa-lightbulb text-yellow-500 mt-0.5"></i>
+                            <span class="text-gray-700">Focus marketing on corporate clients in Q4</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm">
+                            <i class="fas fa-lightbulb text-yellow-500 mt-0.5"></i>
+                            <span class="text-gray-700">Schedule maintenance for video walls in low season</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Analytics management functions
+    function generateReport() {
+        showNotification('Generating comprehensive analytics report...', 'info');
+        setTimeout(() => {
+            showNotification('Analytics report generated successfully!', 'success');
+        }, 2500);
+    }
+    
+    function exportAnalytics() {
+        showNotification('Exporting analytics data...', 'info');
+        setTimeout(() => {
+            showNotification('Analytics data exported to Excel!', 'success');
+        }, 2000);
+    }
+    
+    function scheduleReport() {
+        showNotification('Opening report scheduler...', 'info');
+    }
+    
+    function refreshData() {
+        showNotification('Refreshing analytics data...', 'info');
+        setTimeout(() => {
+            showNotification('Data refreshed successfully!', 'success');
+            // In a real app, this would update all charts and metrics
+        }, 1500);
+    }
+    
+    function viewCustomerDetails() {
+        showNotification('Loading detailed customer analytics...', 'info');
+    }
+    
+    // Equipment performance view toggle
+    function toggleEquipmentView(view) {
+        const utilizationBtn = document.getElementById('utilizationBtn');
+        const revenueBtn = document.getElementById('revenueBtn');
+        const maintenanceBtn = document.getElementById('maintenanceBtn');
+        
+        // Reset all buttons
+        [utilizationBtn, revenueBtn, maintenanceBtn].forEach(btn => {
+            btn.classList.remove('text-white', 'bg-elaani-primary');
+            btn.classList.add('text-gray-700', 'bg-gray-100');
+        });
+        
+        // Activate selected button
+        let activeBtn;
+        switch(view) {
+            case 'utilization':
+                activeBtn = utilizationBtn;
+                break;
+            case 'revenue':
+                activeBtn = revenueBtn;
+                break;
+            case 'maintenance':
+                activeBtn = maintenanceBtn;
+                break;
+        }
+        
+        activeBtn.classList.remove('text-gray-700', 'bg-gray-100');
+        activeBtn.classList.add('text-white', 'bg-elaani-primary');
+        
+        showNotification(`Viewing equipment ${view} analytics`, 'info');
+    }
+    
+    // Date range filter
+    document.getElementById('analyticsDateRange').addEventListener('change', function() {
+        const range = this.value;
+        showNotification(`Filtering analytics data for: ${range}`, 'info');
+        
+        if (range === 'custom') {
+            // In a real app, this would open a date picker modal
+            showNotification('Opening custom date range picker...', 'info');
+        }
+    });
+    
+    // Simulate real-time data updates
+    setInterval(() => {
+        // In a real app, this would fetch updated analytics data
+        console.log('Updating analytics data...');
+    }, 60000); // Update every minute
+    
+    // Initialize default view
+    document.addEventListener('DOMContentLoaded', function() {
+        toggleEquipmentView('utilization');
+    });
+</script>
+{% endblock %}

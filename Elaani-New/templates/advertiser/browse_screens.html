@@ -1,0 +1,130 @@
+
+<!-- =============================================== -->
+<!-- templates/advertiser/browse_screens.html -->
+{% extends "base_public.html" %}
+
+{% block title %}Browse Screens - Elaani{% endblock %}
+
+{% block content %}
+<div class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <div class="bg-white shadow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <h1 class="text-3xl font-bold text-gray-900">Browse Digital Screens</h1>
+            <p class="text-gray-600">Find the perfect screens for your advertising campaign</p>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Filters -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                    <select class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                        <option>All Riyadh</option>
+                        <option>King Fahd Road</option>
+                        <option>Olaya Street</option>
+                        <option>Tahlia Street</option>
+                        <option>King Abdullah Road</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Screen Type</label>
+                    <select class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                        <option>All Types</option>
+                        <option>LED Billboard</option>
+                        <option>Indoor LED</option>
+                        <option>Digital Display</option>
+                        <option>Mall Screen</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Price Range</label>
+                    <select class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                        <option>Any Price</option>
+                        <option>Under 200 SAR/hour</option>
+                        <option>200-300 SAR/hour</option>
+                        <option>300+ SAR/hour</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Availability</label>
+                    <input type="date" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
+                </div>
+            </div>
+            <div class="mt-4 flex justify-between items-center">
+                <button class="bg-elaani-primary text-white px-6 py-2 rounded-md hover:bg-elaani-dark transition-colors">
+                    Apply Filters
+                </button>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm text-gray-600">{{ screens|length }} screens found</span>
+                    <button class="text-elaani-primary hover:text-elaani-dark">
+                        <i class="fas fa-map mr-2"></i>Map View
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for screen in screens %}
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <div class="h-48 bg-gradient-to-r from-elaani-primary to-elaani-secondary flex items-center justify-center">
+                    <div class="text-white text-center">
+                        <i class="fas fa-tv text-4xl mb-2"></i>
+                        <div class="text-lg">{{ screen.size }}</div>
+                        {% if not screen.available %}
+                        <div class="bg-red-500 text-white px-2 py-1 rounded text-sm mt-2">Unavailable</div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="text-xl font-semibold text-gray-900">{{ screen.title }}</h3>
+                        <div class="flex items-center text-yellow-500">
+                            <i class="fas fa-star"></i>
+                            <span class="ml-1 text-gray-700">{{ screen.rating }}</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-2">
+                        <i class="fas fa-map-marker-alt mr-2 text-elaani-primary"></i>{{ screen.location }}
+                    </p>
+                    <p class="text-sm text-gray-500 mb-4">{{ screen.type }} • {{ screen.owner }}</p>
+                    
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <span class="text-2xl font-bold text-elaani-primary">{{ screen.price_per_hour }} SAR</span>
+                            <span class="text-gray-500">/hour</span>
+                        </div>
+                        <div class="text-right text-sm text-gray-600">
+                            {{ screen.price_per_day }} SAR/day
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-1 mb-4">
+                        {% for feature in screen.features[:2] %}
+                        <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">{{ feature }}</span>
+                        {% endfor %}
+                        {% if screen.features|length > 2 %}
+                        <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">+{{ screen.features|length - 2 }} more</span>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="flex gap-2">
+                        <a href="{{ url_for('screen_details', screen_id=screen.id) }}" class="flex-1 bg-gray-100 text-gray-700 text-center py-2 rounded-md hover:bg-gray-200 transition-colors">
+                            View Details
+                        </a>
+                        {% if screen.available %}
+                        <a href="{{ url_for('book_screen', screen_id=screen.id) }}" class="flex-1 bg-elaani-primary text-white text-center py-2 rounded-md hover:bg-elaani-dark transition-colors">
+                            Book Now
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

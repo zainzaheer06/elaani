@@ -1,0 +1,776 @@
+{% extends "base.html" %}
+
+{% block title %}Bookings & Rentals - Elaani{% endblock %}
+
+{% block page_title %}Bookings & Rentals Management{% endblock %}
+{% block page_subtitle %}Manage your rental bookings, track active rentals, and process new reservations{% endblock %}
+
+{% block content %}
+<!-- Action Bar -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <button onclick="openModal('newBookingModal')" 
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                <i class="fas fa-plus mr-2"></i>
+                New Booking
+            </button>
+            <button onclick="exportBookings()" 
+                    class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                <i class="fas fa-download mr-2"></i>
+                Export Data
+            </button>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <!-- Search -->
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+                <input type="text" 
+                       placeholder="Search bookings..." 
+                       id="bookingSearch"
+                       class="block w-full sm:w-64 pl-12 pr-4 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary shadow-sm hover:border-gray-400 transition-all duration-200">
+            </div>
+            
+            <!-- Filters -->
+            <select id="statusFilter" 
+                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                <option value="">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="active">Active</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+            
+            <input type="date" id="dateFilter" 
+                   class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+        </div>
+    </div>
+</div>
+
+<!-- Booking Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-clock text-yellow-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">
+                    {{ bookings|selectattr("status", "equalto", "pending")|list|length }}
+                </div>
+                <div class="text-sm font-medium text-gray-600">Pending Approval</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">
+                    {{ bookings|selectattr("status", "equalto", "confirmed")|list|length }}
+                </div>
+                <div class="text-sm font-medium text-gray-600">Confirmed</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-play-circle text-blue-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">
+                    {{ bookings|selectattr("status", "equalto", "active")|list|length }}
+                </div>
+                <div class="text-sm font-medium text-gray-600">Currently Active</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-xl flex items-center justify-center">
+                    <i class="fas fa-money-bill-wave text-white text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">
+                    ريال{{ bookings|sum(attribute='total_amount')|format_currency_simple }}
+                </div>
+                <div class="text-sm font-medium text-gray-600">Total Revenue</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Toggle -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
+    <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center justify-between">
+            <h3 class="text-xl font-semibold text-gray-900">All Bookings</h3>
+            <div class="flex space-x-2">
+                <button onclick="toggleView('table')" id="tableViewBtn"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
+                    <i class="fas fa-table mr-2"></i>
+                    Table View
+                </button>
+                <button onclick="toggleView('card')" id="cardViewBtn"
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                    <i class="fas fa-th-large mr-2"></i>
+                    Card View
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Table View -->
+    <div id="tableView" class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Booking</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Screen</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dates</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                {% for booking in bookings %}
+                <tr class="hover:bg-gray-50 transition-colors" 
+                    data-booking-id="{{ booking.id }}" 
+                    data-status="{{ booking.status }}" 
+                    data-client="{{ booking.client_name|lower }}" 
+                    data-start-date="{{ booking.start_date }}">
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="text-sm font-medium text-elaani-primary">#{{ booking.id|zfill(4) }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 h-10 w-10">
+                                <div class="h-10 w-10 rounded-full bg-gradient-to-r from-elaani-primary to-elaani-secondary flex items-center justify-center">
+                                    <span class="text-white font-medium text-sm">{{ booking.client_name[0] }}</span>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <div class="text-sm font-medium text-gray-900">{{ booking.client_name }}</div>
+                                <div class="text-sm text-gray-500">{{ booking.contact }}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                            {{ booking.event_type }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        {% for screen in screens %}
+                            {% if screen.id == booking.screen_id %}{{ screen.name }}{% endif %}
+                        {% endfor %}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                        <div>{{ booking.start_date }}</div>
+                        <div class="text-gray-500">to {{ booking.end_date }}</div>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {{ booking.total_amount|format_sar }}
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                            {% if booking.status == 'pending' %}bg-yellow-100 text-yellow-800
+                            {% elif booking.status == 'confirmed' %}bg-green-100 text-green-800
+                            {% elif booking.status == 'active' %}bg-blue-100 text-blue-800
+                            {% elif booking.status == 'completed' %}bg-gray-100 text-gray-800
+                            {% else %}bg-red-100 text-red-800{% endif %}">
+                            {{ booking.status.title() }}
+                        </span>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <div class="flex space-x-2">
+                            <button onclick="viewBookingDetails({{ booking.id }})" 
+                                    class="text-elaani-primary hover:text-elaani-secondary transition-colors"
+                                    title="View Details">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            {% if booking.status == 'pending' %}
+                            <button onclick="approveBooking({{ booking.id }})" 
+                                    class="text-green-600 hover:text-green-700 transition-colors"
+                                    title="Approve">
+                                <i class="fas fa-check"></i>
+                            </button>
+                            <button onclick="rejectBooking({{ booking.id }})" 
+                                    class="text-red-600 hover:text-red-700 transition-colors"
+                                    title="Reject">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            {% elif booking.status == 'confirmed' %}
+                            <button onclick="startRental({{ booking.id }})" 
+                                    class="text-blue-600 hover:text-blue-700 transition-colors"
+                                    title="Start Rental">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            {% elif booking.status == 'active' %}
+                            <button onclick="endRental({{ booking.id }})" 
+                                    class="text-purple-600 hover:text-purple-700 transition-colors"
+                                    title="End Rental">
+                                <i class="fas fa-stop"></i>
+                            </button>
+                            {% endif %}
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Card View -->
+    <div id="cardView" class="hidden p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for booking in bookings %}
+            <div class="bg-gray-50 rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300"
+                 data-booking-id="{{ booking.id }}" 
+                 data-status="{{ booking.status }}" 
+                 data-client="{{ booking.client_name|lower }}" 
+                 data-start-date="{{ booking.start_date }}">
+                
+                <!-- Booking Header -->
+                <div class="flex items-center justify-between mb-4">
+                    <div class="text-lg font-semibold text-elaani-primary">#{{ booking.id|zfill(4) }}</div>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                        {% if booking.status == 'pending' %}bg-yellow-100 text-yellow-800
+                        {% elif booking.status == 'confirmed' %}bg-green-100 text-green-800
+                        {% elif booking.status == 'active' %}bg-blue-100 text-blue-800
+                        {% elif booking.status == 'completed' %}bg-gray-100 text-gray-800
+                        {% else %}bg-red-100 text-red-800{% endif %}">
+                        {{ booking.status.title() }}
+                    </span>
+                </div>
+                
+                <!-- Client Info -->
+                <div class="flex items-center mb-4">
+                    <div class="flex-shrink-0 h-10 w-10">
+                        <div class="h-10 w-10 rounded-full bg-gradient-to-r from-elaani-primary to-elaani-secondary flex items-center justify-center">
+                            <span class="text-white font-medium text-sm">{{ booking.client_name[0] }}</span>
+                        </div>
+                    </div>
+                    <div class="ml-3">
+                        <div class="text-sm font-medium text-gray-900">{{ booking.client_name }}</div>
+                        <div class="text-sm text-gray-500">{{ booking.event_type }}</div>
+                    </div>
+                </div>
+                
+                <!-- Booking Details -->
+                <div class="space-y-3 mb-4">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-600">Screen:</span>
+                        <span class="font-medium">
+                            {% for screen in screens %}
+                                {% if screen.id == booking.screen_id %}{{ screen.name }}{% endif %}
+                            {% endfor %}
+                        </span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-600">Duration:</span>
+                        <span class="font-medium">{{ booking.start_date }} to {{ booking.end_date }}</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-gray-600">Amount:</span>
+                        <span class="font-semibold text-elaani-primary">{{ booking.total_amount|format_sar }}</span>
+                    </div>
+                </div>
+                
+                <!-- Actions -->
+                <div class="flex space-x-2">
+                    <button onclick="viewBookingDetails({{ booking.id }})" 
+                            class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                        <i class="fas fa-eye mr-1"></i>
+                        View
+                    </button>
+                    {% if booking.status == 'pending' %}
+                    <button onclick="approveBooking({{ booking.id }})" 
+                            class="flex-1 bg-green-100 hover:bg-green-200 text-green-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                        <i class="fas fa-check mr-1"></i>
+                        Approve
+                    </button>
+                    {% elif booking.status == 'confirmed' %}
+                    <button onclick="startRental({{ booking.id }})" 
+                            class="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                        <i class="fas fa-play mr-1"></i>
+                        Start
+                    </button>
+                    {% elif booking.status == 'active' %}
+                    <button onclick="endRental({{ booking.id }})" 
+                            class="flex-1 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                        <i class="fas fa-stop mr-1"></i>
+                        End
+                    </button>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<!-- New Booking Modal -->
+<div id="newBookingModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        
+        <div class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full sm:p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-semibold text-gray-900">Create New Booking</h3>
+                <button type="button" onclick="closeModal('newBookingModal')" 
+                        class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <form id="newBookingForm" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Client Information -->
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-medium text-gray-900">Client Information</h4>
+                        
+                        <div>
+                            <label for="clientName" class="block text-sm font-medium text-gray-700 mb-2">Client Name *</label>
+                            <input type="text" id="clientName" name="clientName" required
+                                   class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="clientContact" class="block text-sm font-medium text-gray-700 mb-2">Contact Number *</label>
+                            <input type="tel" id="clientContact" name="clientContact" required
+                                   class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        </div>
+                        
+                        <div>
+                            <label for="eventType" class="block text-sm font-medium text-gray-700 mb-2">Event Type *</label>
+                            <select id="eventType" name="eventType" required
+                                    class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                <option value="">Select Event Type</option>
+                                <option value="School Event">School Event</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Corporate">Corporate Event</option>
+                                <option value="Exhibition">Exhibition</option>
+                                <option value="Conference">Conference</option>
+                                <option value="Concert">Concert</option>
+                                <option value="Sports">Sports Event</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Booking Details -->
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-medium text-gray-900">Booking Details</h4>
+                        
+                        <div>
+                            <label for="screenSelect" class="block text-sm font-medium text-gray-700 mb-2">Select Screen *</label>
+                            <select id="screenSelect" name="screenSelect" required onchange="calculateTotal()"
+                                    class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                <option value="">Choose Available Screen</option>
+                                {% for screen in screens %}
+                                    {% if screen.status == 'available' %}
+                                    <option value="{{ screen.id }}" data-price="{{ screen.price_per_day }}">
+                                        {{ screen.name }} - {{ screen.price_per_day|format_sar }}/day
+                                    </option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label for="startDate" class="block text-sm font-medium text-gray-700 mb-2">Start Date *</label>
+                                <input type="date" id="startDate" name="startDate" required onchange="calculateTotal()"
+                                       class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="endDate" class="block text-sm font-medium text-gray-700 mb-2">End Date *</label>
+                                <input type="date" id="endDate" name="endDate" required onchange="calculateTotal()"
+                                       class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="eventDetails" class="block text-sm font-medium text-gray-700 mb-2">Event Details</label>
+                    <textarea id="eventDetails" name="eventDetails" rows="3" 
+                              placeholder="Describe the event, special requirements, setup instructions..."
+                              class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                </div>
+                
+                <!-- Pricing Summary -->
+                <div class="bg-gradient-to-r from-elaani-light to-green-50 rounded-xl p-6 border border-green-200">
+                    <h4 class="text-lg font-semibold text-elaani-primary mb-4">Pricing Summary</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="text-sm text-gray-600">Daily Rate</div>
+                            <div class="text-xl font-bold text-gray-900" id="dailyRate">0 ريال</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-sm text-gray-600">Number of Days</div>
+                            <div class="text-xl font-bold text-gray-900" id="numberOfDays">0</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-sm text-gray-600">Total Amount</div>
+                            <div class="text-2xl font-bold text-elaani-primary" id="totalAmount">0 ريال</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Modal Actions -->
+                <div class="flex justify-end space-x-4 pt-6">
+                    <button type="button" onclick="closeModal('newBookingModal')" 
+                            class="px-6 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                        Cancel
+                    </button>
+                    <button type="submit" 
+                            class="px-6 py-3 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg text-sm hover:from-elaani-secondary hover:to-elaani-primary transition-all shadow-lg hover:shadow-xl">
+                        Create Booking
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Booking Details Modal -->
+<div id="bookingDetailsModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        
+        <div class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full sm:p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-semibold text-gray-900">Booking Details</h3>
+                <button type="button" onclick="closeModal('bookingDetailsModal')" 
+                        class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="bookingDetailsContent" class="space-y-6">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Current view state
+    let currentView = 'table';
+    
+    // Filter functionality
+    function filterBookings() {
+        const searchTerm = document.getElementById('bookingSearch').value.toLowerCase();
+        const statusFilter = document.getElementById('statusFilter').value;
+        const dateFilter = document.getElementById('dateFilter').value;
+        
+        const selector = currentView === 'table' ? '#tableView tbody tr' : '#cardView > div > div';
+        const bookingItems = document.querySelectorAll(selector);
+        
+        bookingItems.forEach(item => {
+            const client = item.dataset.client;
+            const status = item.dataset.status;
+            const startDate = item.dataset.startDate;
+            
+            const matchesSearch = client.includes(searchTerm);
+            const matchesStatus = !statusFilter || status === statusFilter;
+            const matchesDate = !dateFilter || startDate === dateFilter;
+            
+            if (matchesSearch && matchesStatus && matchesDate) {
+                item.style.display = '';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+    
+    // Event listeners for filters
+    document.getElementById('bookingSearch').addEventListener('input', filterBookings);
+    document.getElementById('statusFilter').addEventListener('change', filterBookings);
+    document.getElementById('dateFilter').addEventListener('change', filterBookings);
+    
+    // Toggle between table and card view
+    function toggleView(viewType) {
+        const tableView = document.getElementById('tableView');
+        const cardView = document.getElementById('cardView');
+        const tableBtn = document.getElementById('tableViewBtn');
+        const cardBtn = document.getElementById('cardViewBtn');
+        
+        currentView = viewType;
+        
+        if (viewType === 'table') {
+            tableView.classList.remove('hidden');
+            cardView.classList.add('hidden');
+            
+            tableBtn.classList.add('text-white', 'bg-elaani-primary');
+            tableBtn.classList.remove('text-gray-700', 'bg-gray-100');
+            
+            cardBtn.classList.remove('text-white', 'bg-elaani-primary');
+            cardBtn.classList.add('text-gray-700', 'bg-gray-100');
+        } else {
+            tableView.classList.add('hidden');
+            cardView.classList.remove('hidden');
+            
+            cardBtn.classList.add('text-white', 'bg-elaani-primary');
+            cardBtn.classList.remove('text-gray-700', 'bg-gray-100');
+            
+            tableBtn.classList.remove('text-white', 'bg-elaani-primary');
+            tableBtn.classList.add('text-gray-700', 'bg-gray-100');
+        }
+        
+        // Re-apply filters
+        filterBookings();
+    }
+    
+    // Calculate total amount for new booking
+    function calculateTotal() {
+        const screenSelect = document.getElementById('screenSelect');
+        const startDate = document.getElementById('startDate').value;
+        const endDate = document.getElementById('endDate').value;
+        
+        if (screenSelect.value && startDate && endDate) {
+            const dailyRate = parseInt(screenSelect.selectedOptions[0].dataset.price);
+            const start = new Date(startDate);
+            const end = new Date(endDate);
+            const diffTime = Math.abs(end - start);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+            
+            const totalAmount = dailyRate * diffDays;
+            
+            document.getElementById('dailyRate').textContent = `${dailyRate.toLocaleString()} ريال`;
+            document.getElementById('numberOfDays').textContent = diffDays;
+            document.getElementById('totalAmount').textContent = `${totalAmount.toLocaleString()} ريال`;
+        } else {
+            document.getElementById('dailyRate').textContent = '0 ريال';
+            document.getElementById('numberOfDays').textContent = '0';
+            document.getElementById('totalAmount').textContent = '0 ريال';
+        }
+    }
+    
+    // View booking details
+    function viewBookingDetails(bookingId) {
+        const bookingData = {
+            id: bookingId,
+            client_name: 'Sample Client',
+            event_type: 'Corporate Event',
+            start_date: '2025-09-23',
+            end_date: '2025-09-25',
+            status: 'confirmed',
+            total_amount: 1500,
+            contact: '+966-12-345-6789'
+        };
+        
+        const content = `
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Booking Information</h4>
+                        <div class="bg-gray-50 rounded-xl p-4 space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Booking ID:</span>
+                                <span class="font-semibold">#${String(bookingData.id).padStart(4, '0')}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Client:</span>
+                                <span class="font-semibold">${bookingData.client_name}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Contact:</span>
+                                <span class="font-semibold">${bookingData.contact}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Event Type:</span>
+                                <span class="font-semibold">${bookingData.event_type}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Status:</span>
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${bookingData.status === 'confirmed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}">${bookingData.status.charAt(0).toUpperCase() + bookingData.status.slice(1)}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Event Details</h4>
+                        <div class="bg-gray-50 rounded-xl p-4 space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Start Date:</span>
+                                <span class="font-semibold">${formatDate(bookingData.start_date)}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">End Date:</span>
+                                <span class="font-semibold">${formatDate(bookingData.end_date)}</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Duration:</span>
+                                <span class="font-semibold">3 days</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600">Total Amount:</span>
+                                <span class="font-bold text-elaani-primary text-lg">${bookingData.total_amount.toLocaleString()} ريال</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-end space-x-4 pt-6 border-t border-gray-200">
+                ${bookingData.status === 'pending' ? 
+                    `<button onclick="rejectBooking(${bookingData.id})" class="px-6 py-2 border border-red-300 text-red-700 font-medium rounded-lg hover:bg-red-50 transition-colors">Reject</button>
+                     <button onclick="approveBooking(${bookingData.id})" class="px-6 py-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-medium rounded-lg hover:from-green-600 hover:to-green-700 transition-all">Approve</button>` : 
+                    `<button onclick="editBooking(${bookingData.id})" class="px-6 py-2 bg-blue-100 text-blue-700 font-medium rounded-lg hover:bg-blue-200 transition-colors">Edit Booking</button>`}
+            </div>
+        `;
+        
+        document.getElementById('bookingDetailsContent').innerHTML = content;
+        openModal('bookingDetailsModal');
+    }
+    
+    // Booking actions
+    function approveBooking(bookingId) {
+        showNotification(`Booking #${String(bookingId).padStart(4, '0')} approved successfully!`, 'success');
+        closeModal('bookingDetailsModal');
+        updateBookingStatus(bookingId, 'confirmed');
+    }
+    
+    function rejectBooking(bookingId) {
+        if (confirm('Are you sure you want to reject this booking?')) {
+            showNotification(`Booking #${String(bookingId).padStart(4, '0')} rejected.`, 'warning');
+            closeModal('bookingDetailsModal');
+            updateBookingStatus(bookingId, 'cancelled');
+        }
+    }
+    
+    function startRental(bookingId) {
+        showNotification(`Rental started for booking #${String(bookingId).padStart(4, '0')}!`, 'success');
+        updateBookingStatus(bookingId, 'active');
+    }
+    
+    function endRental(bookingId) {
+        showNotification(`Rental completed for booking #${String(bookingId).padStart(4, '0')}!`, 'success');
+        updateBookingStatus(bookingId, 'completed');
+    }
+    
+    function updateBookingStatus(bookingId, newStatus) {
+        // Update table view
+        const tableRow = document.querySelector(`#tableView tr[data-booking-id="${bookingId}"]`);
+        if (tableRow) {
+            tableRow.dataset.status = newStatus;
+            const statusCell = tableRow.querySelector('td:nth-child(7) span');
+            if (statusCell) {
+                statusCell.className = `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusClasses(newStatus)}`;
+                statusCell.textContent = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+            }
+        }
+        
+        // Update card view
+        const cardItem = document.querySelector(`#cardView div[data-booking-id="${bookingId}"]`);
+        if (cardItem) {
+            cardItem.dataset.status = newStatus;
+            const statusBadge = cardItem.querySelector('.inline-flex');
+            if (statusBadge) {
+                statusBadge.className = `inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getStatusClasses(newStatus)}`;
+                statusBadge.textContent = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+            }
+        }
+    }
+    
+    function getStatusClasses(status) {
+        const statusClasses = {
+            'pending': 'bg-yellow-100 text-yellow-800',
+            'confirmed': 'bg-green-100 text-green-800',
+            'active': 'bg-blue-100 text-blue-800',
+            'completed': 'bg-gray-100 text-gray-800',
+            'cancelled': 'bg-red-100 text-red-800'
+        };
+        return statusClasses[status] || 'bg-gray-100 text-gray-800';
+    }
+    
+    // New booking form submission
+    document.getElementById('newBookingForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const bookingData = Object.fromEntries(formData.entries());
+        
+        // Update currency formatting
+        function formatCurrency(amount) {
+            return `${amount.toLocaleString()} ريال`;
+        }
+        
+        const totalAmountText = document.getElementById('totalAmount').textContent;
+        bookingData.total_amount = parseInt(totalAmountText.replace(/[ريال,]/g, ''));
+        
+        try {
+            const response = await apiCall('/api/booking/create', {
+                method: 'POST',
+                body: JSON.stringify(bookingData)
+            });
+            
+            showNotification('Booking created successfully!', 'success');
+            closeModal('newBookingModal');
+            this.reset();
+            
+            setTimeout(() => {
+                location.reload();
+            }, 1500);
+        } catch (error) {
+            showNotification('Failed to create booking', 'error');
+        }
+    });
+    
+    // Export bookings
+    function exportBookings() {
+        showNotification('Exporting bookings data...', 'info');
+        setTimeout(() => {
+            showNotification('Bookings exported successfully!', 'success');
+        }, 2000);
+    }
+    
+    // Set minimum date to today for new bookings
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('startDate').min = today;
+    document.getElementById('endDate').min = today;
+    
+    // Update end date minimum when start date changes
+    document.getElementById('startDate').addEventListener('change', function() {
+        document.getElementById('endDate').min = this.value;
+        calculateTotal();
+    });
+    
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set initial view button states
+        toggleView('table');
+    });
+</script>
+{% endblock %}

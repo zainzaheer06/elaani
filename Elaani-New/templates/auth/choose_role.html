@@ -1,0 +1,116 @@
+<!-- =============================================== -->
+<!-- templates/auth/choose_role.html -->
+{% extends "base_public.html" %}
+
+{% block title %}Choose Your Role - Elaani{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <div class="mx-auto h-16 w-16 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-lg flex items-center justify-center mb-6">
+                <i class="fas fa-users text-white text-2xl"></i>
+            </div>
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
+                Choose Your Role
+            </h2>
+            <p class="text-xl text-gray-600">
+                Select how you want to use Elaani marketplace
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Advertiser Card -->
+            <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border-2 border-transparent hover:border-elaani-primary cursor-pointer" onclick="selectRole('advertiser')">
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-bullhorn text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">I'm an Advertiser</h3>
+                    <p class="text-gray-600 mb-6">
+                        I want to promote my business by booking digital screens for advertising campaigns.
+                    </p>
+                    
+                    <div class="text-left space-y-3 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Browse available screens</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Book advertising slots</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Track campaign performance</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Manage multiple campaigns</span>
+                        </div>
+                    </div>
+                    
+                    <a href="{{ url_for('advertiser_dashboard') }}" class="block w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                        Start Advertising
+                    </a>
+                </div>
+            </div>
+
+            <!-- Screen Owner Card -->
+            <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow border-2 border-transparent hover:border-elaani-primary cursor-pointer" onclick="selectRole('vendor')">
+                <div class="text-center">
+                    <div class="bg-elaani-primary bg-opacity-10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tv text-3xl text-elaani-primary"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">I Own Digital Screens</h3>
+                    <p class="text-gray-600 mb-6">
+                        I have digital screens and want to rent them out to advertisers to generate revenue.
+                    </p>
+                    
+                    <div class="text-left space-y-3 mb-8">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">List your screens</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Set your own pricing</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Manage availability</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-500 mr-3"></i>
+                            <span class="text-gray-700">Track earnings</span>
+                        </div>
+                    </div>
+                    
+                    <a href="{{ url_for('vendor_dashboard') }}" class="block w-full bg-elaani-primary text-white py-3 rounded-lg font-semibold hover:bg-elaani-dark transition-colors">
+                        List Your Screens
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-12">
+            <p class="text-gray-600 mb-4">
+                Not sure which option is right for you?
+            </p>
+            <a href="#" class="text-elaani-primary hover:text-elaani-dark font-semibold">
+                Learn more about our platform
+            </a>
+        </div>
+    </div>
+</div>
+
+<script>
+function selectRole(role) {
+    if (role === 'advertiser') {
+        window.location.href = "{{ url_for('advertiser_dashboard') }}";
+    } else if (role === 'vendor') {
+        window.location.href = "{{ url_for('vendor_dashboard') }}";
+    }
+}
+</script>
+{% endblock %}

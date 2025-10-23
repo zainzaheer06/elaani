@@ -1,0 +1,550 @@
+{% extends "base.html" %}
+
+{% block title %}Screen Inventory - Elaani{% endblock %}
+
+{% block page_title %}Screen Inventory Management{% endblock %}
+{% block page_subtitle %}Manage your digital display inventory, track availability, and schedule maintenance{% endblock %}
+
+{% block content %}
+<!-- Action Bar -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <button onclick="openModal('addScreenModal')" 
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200">
+                <i class="fas fa-plus mr-2"></i>
+                Add New Screen
+            </button>
+            <button onclick="exportInventory()" 
+                    class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                <i class="fas fa-download mr-2"></i>
+                Export Data
+            </button>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <!-- Search -->
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <i class="fas fa-search text-gray-400"></i>
+                </div>
+                <input type="text" 
+                       placeholder="Search screens..." 
+                       id="inventorySearch"
+                       class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+            </div>
+            
+            <!-- Filters -->
+            <select id="statusFilter" 
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                <option value="">All Status</option>
+                <option value="available">Available</option>
+                <option value="rented">Rented</option>
+                <option value="maintenance">Maintenance</option>
+            </select>
+            
+            <select id="typeFilter" 
+                    class="block w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                <option value="">All Types</option>
+                <option value="LED">LED Display</option>
+                <option value="LCD Wall">LCD Video Wall</option>
+                <option value="Mobile LED">Mobile LED</option>
+                <option value="Outdoor LED">Outdoor LED</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+<!-- Inventory Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="text-center">
+            <div class="text-3xl font-bold text-green-600 mb-2">
+                {{ screens|selectattr("status", "equalto", "available")|list|length }}
+            </div>
+            <div class="text-sm font-medium text-gray-600">Available Screens</div>
+            <div class="mt-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                    <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
+                    Ready to rent
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="text-center">
+            <div class="text-3xl font-bold text-yellow-600 mb-2">
+                {{ screens|selectattr("status", "equalto", "rented")|list|length }}
+            </div>
+            <div class="text-sm font-medium text-gray-600">Currently Rented</div>
+            <div class="mt-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                    <i class="w-2 h-2 mr-1 bg-yellow-400 rounded-full"></i>
+                    In use
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="text-center">
+            <div class="text-3xl font-bold text-red-600 mb-2">
+                {{ screens|selectattr("status", "equalto", "maintenance")|list|length }}
+            </div>
+            <div class="text-sm font-medium text-gray-600">Under Maintenance</div>
+            <div class="mt-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    <i class="w-2 h-2 mr-1 bg-red-400 rounded-full"></i>
+                    Service required
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="text-center">
+            <div class="text-3xl font-bold text-elaani-primary mb-2">
+                {{ screens|length }}
+            </div>
+            <div class="text-sm font-medium text-gray-600">Total Inventory</div>
+            <div class="mt-2">
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    <i class="w-2 h-2 mr-1 bg-blue-400 rounded-full"></i>
+                    All screens
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Screen Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="screenGrid">
+    {% for screen in screens %}
+    <div class="screen-card bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden hover:shadow-xl transition-all duration-300 animate-fade-in" 
+         data-status="{{ screen.status }}" 
+         data-type="{{ screen.type }}" 
+         data-name="{{ screen.name|lower }}">
+        
+        <!-- Status Header -->
+        <div class="p-4 border-b border-gray-200
+            {% if screen.status == 'available' %}bg-green-50 border-green-200
+            {% elif screen.status == 'rented' %}bg-yellow-50 border-yellow-200
+            {% else %}bg-red-50 border-red-200{% endif %}">
+            <div class="flex items-center justify-between">
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+                    {% if screen.status == 'available' %}bg-green-100 text-green-800
+                    {% elif screen.status == 'rented' %}bg-yellow-100 text-yellow-800
+                    {% else %}bg-red-100 text-red-800{% endif %}">
+                    <i class="w-2 h-2 mr-2 rounded-full
+                        {% if screen.status == 'available' %}bg-green-400
+                        {% elif screen.status == 'rented' %}bg-yellow-400
+                        {% else %}bg-red-400{% endif %}"></i>
+                    {{ screen.status.title() }}
+                </span>
+                <div class="text-right">
+                    <div class="text-sm font-medium text-gray-900">{{ screen.price_per_day|format_sar }}</div>
+                    <div class="text-xs text-gray-500">per day</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="p-6">
+            <!-- Screen Image Placeholder -->
+            <div class="w-full h-32 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl mb-4 flex items-center justify-center">
+                <i class="fas fa-tv text-gray-400 text-4xl"></i>
+            </div>
+            
+            <!-- Screen Details -->
+            <div class="space-y-3">
+                <h4 class="text-xl font-semibold text-gray-900">{{ screen.name }}</h4>
+                
+                <div class="grid grid-cols-2 gap-3 text-sm">
+                    <div>
+                        <span class="font-medium text-gray-600">Type:</span>
+                        <span class="text-gray-900 block">{{ screen.type }}</span>
+                    </div>
+                    <div>
+                        <span class="font-medium text-gray-600">Size:</span>
+                        <span class="text-gray-900 block">{{ screen.size }}</span>
+                    </div>
+                    <div>
+                        <span class="font-medium text-gray-600">Resolution:</span>
+                        <span class="text-gray-900 block">{{ screen.resolution }}</span>
+                    </div>
+                    <div>
+                        <span class="font-medium text-gray-600">Location:</span>
+                        <span class="text-gray-900 block">{{ screen.location }}</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Status Specific Info -->
+            <div class="mt-4">
+                {% if screen.status == 'rented' %}
+                <div class="p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                    <div class="text-sm">
+                        <div class="font-medium text-yellow-800 mb-1">Current Rental</div>
+                        <div class="text-yellow-700 space-y-1">
+                            <div><span class="font-medium">Client:</span> {{ screen.current_client }}</div>
+                            <div><span class="font-medium">Return:</span> {{ screen.return_date }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% elif screen.status == 'maintenance' %}
+                <div class="p-3 bg-red-50 border border-red-200 rounded-lg">
+                    <div class="text-sm">
+                        <div class="font-medium text-red-800 mb-1">Under Maintenance</div>
+                        <div class="text-red-700 space-y-1">
+                            <div><span class="font-medium">Issue:</span> {{ screen.issue }}</div>
+                            <div><span class="font-medium">Expected:</span> {{ screen.expected_return }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="p-3 bg-green-50 border border-green-200 rounded-lg">
+                    <div class="text-sm">
+                        <div class="font-medium text-green-800 mb-1">Ready for Rental</div>
+                        <div class="text-green-700 space-y-1">
+                            <div><span class="font-medium">Last Service:</span> {{ screen.last_service }}</div>
+                            <div><span class="font-medium">Condition:</span> Excellent</div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            
+            <!-- Action Buttons -->
+            <div class="mt-6 flex flex-col sm:flex-row gap-2">
+                <button onclick="viewScreenDetails({{ screen.id }})" 
+                        class="flex-1 inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-3 rounded-xl text-sm transition-colors shadow-sm hover:shadow-md">
+                    <i class="fas fa-eye mr-2 text-xs"></i>
+                    <span class="whitespace-nowrap">View Details</span>
+                </button>
+                <button onclick="editScreen({{ screen.id }})" 
+                        class="flex-1 inline-flex items-center justify-center bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-3 px-3 rounded-xl text-sm transition-colors shadow-sm hover:shadow-md">
+                    <i class="fas fa-edit mr-2 text-xs"></i>
+                    <span class="whitespace-nowrap">Edit</span>
+                </button>
+                {% if screen.status == 'available' %}
+                <button onclick="quickBookScreen({{ screen.id }})" 
+                        class="flex-1 inline-flex items-center justify-center bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-semibold py-3 px-3 rounded-xl text-sm transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <i class="fas fa-calendar-plus mr-2 text-xs"></i>
+                    <span class="whitespace-nowrap">Book Now</span>
+                </button>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Add Screen Modal -->
+<div id="addScreenModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        
+        <div class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
+            <div class="sm:flex sm:items-start">
+                <div class="w-full">
+                    <!-- Modal Header -->
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-2xl font-semibold text-gray-900">Add New Screen</h3>
+                        <button type="button" onclick="closeModal('addScreenModal')" 
+                                class="text-gray-400 hover:text-gray-600 transition-colors">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Modal Content -->
+                    <form id="addScreenForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="screenName" class="block text-sm font-medium text-gray-700 mb-2">Screen Name *</label>
+                                <input type="text" id="screenName" name="screenName" required
+                                       class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="screenType" class="block text-sm font-medium text-gray-700 mb-2">Screen Type *</label>
+                                <select id="screenType" name="screenType" required
+                                        class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                    <option value="">Select Type</option>
+                                    <option value="LED">LED Display</option>
+                                    <option value="LCD Wall">LCD Video Wall</option>
+                                    <option value="Mobile LED">Mobile LED</option>
+                                    <option value="Outdoor LED">Outdoor LED</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="screenSize" class="block text-sm font-medium text-gray-700 mb-2">Screen Size *</label>
+                                <input type="text" id="screenSize" name="screenSize" placeholder="e.g., 65&quot;" required
+                                       class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="screenResolution" class="block text-sm font-medium text-gray-700 mb-2">Resolution *</label>
+                                <select id="screenResolution" name="screenResolution" required
+                                        class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                    <option value="">Select Resolution</option>
+                                    <option value="4K">4K Ultra HD</option>
+                                    <option value="Full HD">Full HD</option>
+                                    <option value="HD">HD</option>
+                                    <option value="P6">P6 LED</option>
+                                    <option value="P4">P4 LED</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="screenLocation" class="block text-sm font-medium text-gray-700 mb-2">Location *</label>
+                                <input type="text" id="screenLocation" name="screenLocation" placeholder="e.g., Warehouse A" required
+                                       class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            </div>
+                            
+                            <div>
+                                <label for="dailyRate" class="block text-sm font-medium text-gray-700 mb-2">Daily Rate (₹) *</label>
+                                <input type="number" id="dailyRate" name="dailyRate" min="0" required
+                                       class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="screenDescription" class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                            <textarea id="screenDescription" name="screenDescription" rows="3" 
+                                      placeholder="Additional details about the screen..."
+                                      class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                        </div>
+                        
+                        <!-- Modal Actions -->
+                        <div class="flex justify-end space-x-3 pt-6">
+                            <button type="button" onclick="closeModal('addScreenModal')" 
+                                    class="px-6 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
+                                Cancel
+                            </button>
+                            <button type="submit" 
+                                    class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg text-sm hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                                Add Screen
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Screen Details Modal -->
+<div id="screenDetailsModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+        
+        <div class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full sm:p-6">
+            <div class="flex items-center justify-between mb-6">
+                <h3 class="text-2xl font-semibold text-gray-900">Screen Details</h3>
+                <button type="button" onclick="closeModal('screenDetailsModal')" 
+                        class="text-gray-400 hover:text-gray-600 transition-colors">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div id="screenDetailsContent" class="space-y-6">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Filter functionality
+    function filterScreens() {
+        const searchTerm = document.getElementById('inventorySearch').value.toLowerCase();
+        const statusFilter = document.getElementById('statusFilter').value;
+        const typeFilter = document.getElementById('typeFilter').value;
+        
+        const screenCards = document.querySelectorAll('.screen-card');
+        
+        screenCards.forEach(card => {
+            const name = card.dataset.name;
+            const status = card.dataset.status;
+            const type = card.dataset.type;
+            
+            const matchesSearch = name.includes(searchTerm);
+            const matchesStatus = !statusFilter || status === statusFilter;
+            const matchesType = !typeFilter || type === typeFilter;
+            
+            if (matchesSearch && matchesStatus && matchesType) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+    
+    // Event listeners for filters
+    document.getElementById('inventorySearch').addEventListener('input', filterScreens);
+    document.getElementById('statusFilter').addEventListener('change', filterScreens);
+    document.getElementById('typeFilter').addEventListener('change', filterScreens);
+    
+    // View screen details
+    async function viewScreenDetails(screenId) {
+        try {
+            const screen = await apiCall(`/api/screen/${screenId}`);
+            const content = `
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Screen Image -->
+                    <div class="space-y-4">
+                        <div class="w-full h-64 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-tv text-gray-400 text-6xl"></i>
+                        </div>
+                        <div class="grid grid-cols-3 gap-2">
+                            <div class="h-16 bg-gray-100 rounded-lg"></div>
+                            <div class="h-16 bg-gray-100 rounded-lg"></div>
+                            <div class="h-16 bg-gray-100 rounded-lg"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Screen Information -->
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Basic Information</h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="font-medium text-gray-600">Name:</span>
+                                    <span class="text-gray-900 block">${screen.name}</span>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-gray-600">Type:</span>
+                                    <span class="text-gray-900 block">${screen.type}</span>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-gray-600">Size:</span>
+                                    <span class="text-gray-900 block">${screen.size}</span>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-gray-600">Resolution:</span>
+                                    <span class="text-gray-900 block">${screen.resolution}</span>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-gray-600">Location:</span>
+                                    <span class="text-gray-900 block">${screen.location}</span>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-gray-600">Daily Rate:</span>
+                                    <span class="text-gray-900 block font-semibold">₹${screen.price_per_day.toLocaleString()}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-semibold text-gray-900 mb-4">Status & Maintenance</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <span class="font-medium text-gray-600 mr-3">Status:</span>
+                                    <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${screen.status === 'available' ? 'bg-green-100 text-green-800' : screen.status === 'rented' ? 'bg-yellow-100 text-yellow-800' : 'bg-red-100 text-red-800'}">
+                                        ${screen.status.charAt(0).toUpperCase() + screen.status.slice(1)}
+                                    </span>
+                                </div>
+                                <div>
+                                    <span class="font-medium text-gray-600">Last Service:</span>
+                                    <span class="text-gray-900 block">${formatDate(screen.last_service)}</span>
+                                </div>
+                                ${screen.current_client ? `<div><span class="font-medium text-gray-600">Current Client:</span> <span class="text-gray-900">${screen.current_client}</span></div>` : ''}
+                                ${screen.return_date ? `<div><span class="font-medium text-gray-600">Return Date:</span> <span class="text-gray-900">${formatDate(screen.return_date)}</span></div>` : ''}
+                                ${screen.issue ? `<div><span class="font-medium text-gray-600">Issue:</span> <span class="text-gray-900">${screen.issue}</span></div>` : ''}
+                            </div>
+                        </div>
+                        
+                        <!-- Action Buttons -->
+                        <div class="flex space-x-3 pt-4 border-t border-gray-200">
+                            <button onclick="editScreen(${screen.id})" 
+                                    class="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 px-4 rounded-lg transition-colors">
+                                <i class="fas fa-edit mr-2"></i>
+                                Edit Screen
+                            </button>
+                            ${screen.status === 'available' ? 
+                                `<button onclick="quickBookScreen(${screen.id})" 
+                                         class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium py-2 px-4 rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                                    <i class="fas fa-calendar-plus mr-2"></i>
+                                    Book Now
+                                </button>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('screenDetailsContent').innerHTML = content;
+            openModal('screenDetailsModal');
+        } catch (error) {
+            showNotification('Failed to load screen details', 'error');
+        }
+    }
+    
+    // Edit screen
+    function editScreen(screenId) {
+        showNotification(`Edit functionality for screen ${screenId} - Coming soon!`, 'info');
+        closeModal('screenDetailsModal');
+    }
+    
+    // Quick book screen
+    function quickBookScreen(screenId) {
+        showNotification(`Redirecting to bookings page for screen ${screenId}...`, 'success');
+        setTimeout(() => {
+            window.location.href = '/bookings';
+        }, 1500);
+    }
+    
+    // Add screen form submission
+    document.getElementById('addScreenForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const screenData = Object.fromEntries(formData.entries());
+        
+        try {
+            console.log('Adding new screen:', screenData);
+            showNotification('Screen added successfully!', 'success');
+            closeModal('addScreenModal');
+            this.reset();
+            
+            // Refresh the page to show new screen
+            setTimeout(() => {
+                location.reload();
+            }, 1500);
+        } catch (error) {
+            showNotification('Failed to add screen', 'error');
+        }
+    });
+    
+    // Export inventory data
+    function exportInventory() {
+        showNotification('Exporting inventory data...', 'info');
+        setTimeout(() => {
+            showNotification('Inventory exported successfully!', 'success');
+        }, 2000);
+    }
+    
+    // Add smooth animations on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.screen-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+</script>
+{% endblock %}

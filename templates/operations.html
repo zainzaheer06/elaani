@@ -1,0 +1,769 @@
+{% extends "base.html" %}
+
+{% block title %}Operations - Elaani{% endblock %}
+
+{% block page_title %}Operations Management{% endblock %}
+{% block page_subtitle %}Manage logistics, deliveries, installations, and field operations across Saudi Arabia{% endblock %}
+
+{% block content %}
+<!-- Action Bar -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <button onclick="scheduleDelivery()" 
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                <i class="fas fa-truck mr-2"></i>
+                Schedule Delivery
+            </button>
+            <button onclick="assignTechnician()" 
+                    class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                <i class="fas fa-user-cog mr-2"></i>
+                Assign Technician
+            </button>
+            <button onclick="trackVehicles()" 
+                    class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
+                <i class="fas fa-map-marked-alt mr-2"></i>
+                Track Vehicles
+            </button>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <!-- Location Filter -->
+            <select id="locationFilter" 
+                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                <option value="">All Locations</option>
+                <option value="riyadh">Riyadh</option>
+                <option value="jeddah">Jeddah</option>
+                <option value="dammam">Dammam</option>
+                <option value="mecca">Mecca</option>
+                <option value="medina">Medina</option>
+            </select>
+            
+            <!-- Emergency Contact -->
+            <button onclick="emergencySupport()" 
+                   class="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 transition-all duration-200">
+                <i class="fas fa-phone mr-2"></i>
+                Emergency Support
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Operations Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-truck text-blue-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">8</div>
+                <div class="text-sm font-medium text-gray-600">Active Deliveries</div>
+                <div class="text-xs text-blue-600 font-medium mt-1">
+                    <i class="fas fa-route mr-1"></i>
+                    3 in Riyadh
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-users-cog text-green-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">12</div>
+                <div class="text-sm font-medium text-gray-600">Field Technicians</div>
+                <div class="text-xs text-green-600 font-medium mt-1">
+                    <i class="fas fa-check mr-1"></i>
+                    All available
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-tools text-yellow-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">3</div>
+                <div class="text-sm font-medium text-gray-600">Pending Installations</div>
+                <div class="text-xs text-yellow-600 font-medium mt-1">
+                    <i class="fas fa-clock mr-1"></i>
+                    Due today
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-percentage text-purple-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">98%</div>
+                <div class="text-sm font-medium text-gray-600">On-Time Delivery</div>
+                <div class="text-xs text-green-600 font-medium mt-1">
+                    <i class="fas fa-arrow-up mr-1"></i>
+                    +2% this month
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-8">
+    <!-- Live Operations Map -->
+    <div class="xl:col-span-2 bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Live Operations Map</h3>
+                    <p class="text-sm text-gray-600 mt-1">Real-time tracking of vehicles and technicians</p>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-elaani-primary">
+                        <i class="fas fa-truck mr-1"></i>
+                        Vehicles
+                    </button>
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                        <i class="fas fa-user-cog mr-1"></i>
+                        Technicians
+                    </button>
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                        <i class="fas fa-map-pin mr-1"></i>
+                        Warehouses
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="h-96 bg-gray-100 rounded-xl flex items-center justify-center relative overflow-hidden">
+                <!-- Saudi Arabia Map Placeholder -->
+                <div class="absolute inset-0 bg-gradient-to-br from-green-100 to-green-200 opacity-50"></div>
+                <div class="relative z-10 text-center">
+                    <i class="fas fa-map text-gray-400 text-6xl mb-4"></i>
+                    <p class="text-gray-600 font-medium text-lg">Interactive Saudi Arabia Map</p>
+                    <p class="text-sm text-gray-500 mb-6">Real-time GPS tracking and route optimization</p>
+                    
+                    <!-- Map Legend -->
+                    <div class="flex justify-center space-x-6 text-sm">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-blue-500 rounded-full mr-2"></div>
+                            <span>Active Deliveries (8)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
+                            <span>Technicians (12)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-red-500 rounded-full mr-2"></div>
+                            <span>Warehouses (3)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sample location markers -->
+                <div class="absolute top-16 left-20 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                <div class="absolute top-32 right-24 w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                <div class="absolute bottom-20 left-32 w-3 h-3 bg-blue-500 rounded-full animate-pulse"></div>
+                <div class="absolute bottom-16 right-16 w-3 h-3 bg-red-500 rounded-full"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Queue -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Task Queue</h3>
+                    <p class="text-sm text-gray-600 mt-1">Pending operations and assignments</p>
+                </div>
+                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                    5 Urgent
+                </span>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="space-y-4">
+                <!-- Urgent Task -->
+                <div class="p-4 bg-red-50 border-l-4 border-red-400 rounded-r-lg">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                            <i class="fas fa-exclamation-triangle mr-1"></i>
+                            Urgent
+                        </span>
+                        <span class="text-xs text-red-600">Due in 2 hours</span>
+                    </div>
+                    <div class="font-medium text-red-800">Emergency Setup</div>
+                    <div class="text-sm text-red-600">Al-Rajhi School - LED Display malfunction</div>
+                    <div class="text-xs text-red-500 mt-1">
+                        <i class="fas fa-map-marker-alt mr-1"></i>
+                        Riyadh, King Fahd District
+                    </div>
+                </div>
+
+                <!-- High Priority Task -->
+                <div class="p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-r-lg">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                            <i class="fas fa-clock mr-1"></i>
+                            High Priority
+                        </span>
+                        <span class="text-xs text-yellow-600">Due today</span>
+                    </div>
+                    <div class="font-medium text-yellow-800">Installation Scheduled</div>
+                    <div class="text-sm text-yellow-600">Mobile LED Truck - Tech Conference</div>
+                    <div class="text-xs text-yellow-500 mt-1">
+                        <i class="fas fa-map-marker-alt mr-1"></i>
+                        Riyadh, KAFD
+                    </div>
+                </div>
+
+                <!-- Normal Task -->
+                <div class="p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                            <i class="fas fa-truck mr-1"></i>
+                            Delivery
+                        </span>
+                        <span class="text-xs text-blue-600">Tomorrow</span>
+                    </div>
+                    <div class="font-medium text-blue-800">Equipment Pickup</div>
+                    <div class="text-sm text-blue-600">Return from Riyadh Events Co.</div>
+                    <div class="text-xs text-blue-500 mt-1">
+                        <i class="fas fa-map-marker-alt mr-1"></i>
+                        Riyadh, Olaya District
+                    </div>
+                </div>
+
+                <!-- Completed Task -->
+                <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg opacity-75">
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            <i class="fas fa-check mr-1"></i>
+                            Completed
+                        </span>
+                        <span class="text-xs text-green-600">2 hours ago</span>
+                    </div>
+                    <div class="font-medium text-green-800">Setup Complete</div>
+                    <div class="text-sm text-green-600">LCD Video Wall - Wedding Event</div>
+                    <div class="text-xs text-green-500 mt-1">
+                        <i class="fas fa-map-marker-alt mr-1"></i>
+                        Jeddah, Al-Rawdah
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="pt-4 border-t border-gray-200">
+                    <div class="flex space-x-2">
+                        <button onclick="assignAllTasks()" 
+                                class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                            <i class="fas fa-users mr-1"></i>
+                            Auto-Assign
+                        </button>
+                        <button onclick="prioritizeTasks()" 
+                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                            <i class="fas fa-sort mr-1"></i>
+                            Prioritize
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Team Management -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
+    <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center justify-between">
+            <div>
+                <h3 class="text-xl font-semibold text-gray-900">Field Team Management</h3>
+                <p class="text-sm text-gray-600 mt-1">Track technicians, drivers, and field operations staff</p>
+            </div>
+            <div class="flex space-x-2">
+                <button onclick="viewAvailableTeam()" 
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
+                    <i class="fas fa-users mr-2"></i>
+                    Available Team
+                </button>
+                <button onclick="scheduleShifts()" 
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    Schedule Shifts
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Team Member Cards -->
+            <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">AH</span>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-semibold text-gray-900">Ahmed Hassan</h4>
+                            <p class="text-sm text-gray-600">Senior Technician</p>
+                        </div>
+                    </div>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
+                        Available
+                    </span>
+                </div>
+                
+                <div class="space-y-3 mb-4">
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-phone mr-3 text-gray-400"></i>
+                        <span>+966-50-123-4567</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-map-marker-alt mr-3 text-gray-400"></i>
+                        <span>Riyadh - King Fahd District</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-tools mr-3 text-gray-400"></i>
+                        <span>LED Displays, Mobile Setups</span>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                        <div>
+                            <div class="font-semibold text-gray-900">15</div>
+                            <div class="text-xs text-gray-600">Jobs This Month</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-green-600">4.9★</div>
+                            <div class="text-xs text-gray-600">Rating</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button onclick="assignTask('ahmed')" 
+                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                            <i class="fas fa-plus mr-1"></i>
+                            Assign
+                        </button>
+                        <button onclick="contactTechnician('ahmed')" 
+                                class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                            <i class="fas fa-phone mr-1"></i>
+                            Call
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">MA</span>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-semibold text-gray-900">Mohammed Ali</h4>
+                            <p class="text-sm text-gray-600">Delivery Driver</p>
+                        </div>
+                    </div>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                        <i class="w-2 h-2 mr-1 bg-yellow-400 rounded-full"></i>
+                        On Route
+                    </span>
+                </div>
+                
+                <div class="space-y-3 mb-4">
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-phone mr-3 text-gray-400"></i>
+                        <span>+966-55-987-6543</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-truck mr-3 text-gray-400"></i>
+                        <span>Vehicle: TR-001 (Mercedes Sprinter)</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-route mr-3 text-gray-400"></i>
+                        <span>To: Tech Conference (KAFD)</span>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                        <div>
+                            <div class="font-semibold text-gray-900">23</div>
+                            <div class="text-xs text-gray-600">Deliveries</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-blue-600">12 min</div>
+                            <div class="text-xs text-gray-600">ETA</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button onclick="trackDriver('mohammed')" 
+                                class="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                            <i class="fas fa-map-marked-alt mr-1"></i>
+                            Track
+                        </button>
+                        <button onclick="contactTechnician('mohammed')" 
+                                class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                            <i class="fas fa-phone mr-1"></i>
+                            Call
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold">SA</span>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="font-semibold text-gray-900">Salem Abdullah</h4>
+                            <p class="text-sm text-gray-600">Installation Specialist</p>
+                        </div>
+                    </div>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                        <i class="w-2 h-2 mr-1 bg-red-400 rounded-full"></i>
+                        Busy
+                    </span>
+                </div>
+                
+                <div class="space-y-3 mb-4">
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-phone mr-3 text-gray-400"></i>
+                        <span>+966-56-555-7890</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-map-marker-alt mr-3 text-gray-400"></i>
+                        <span>Jeddah - Al-Rawdah District</span>
+                    </div>
+                    <div class="flex items-center text-sm text-gray-600">
+                        <i class="fas fa-cog mr-3 text-gray-400"></i>
+                        <span>Video Walls, Sound Systems</span>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                        <div>
+                            <div class="font-semibold text-gray-900">11</div>
+                            <div class="text-xs text-gray-600">Installations</div>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-purple-600">2 hrs</div>
+                            <div class="text-xs text-gray-600">Est. Complete</div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex space-x-2">
+                        <button onclick="viewProgress('salem')" 
+                                class="flex-1 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                            <i class="fas fa-eye mr-1"></i>
+                            Progress
+                        </button>
+                        <button onclick="contactTechnician('salem')" 
+                                class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                            <i class="fas fa-phone mr-1"></i>
+                            Call
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Vehicle Fleet Management -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Fleet Status -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Fleet Management</h3>
+                    <p class="text-sm text-gray-600 mt-1">Vehicle status and maintenance</p>
+                </div>
+                <button onclick="addVehicle()" 
+                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                    <i class="fas fa-plus mr-1"></i>
+                    Add Vehicle
+                </button>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="space-y-4">
+                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-truck text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-medium text-gray-900">TR-001 • Mercedes Sprinter</div>
+                            <div class="text-sm text-gray-600">Driver: Mohammed Ali</div>
+                            <div class="text-xs text-gray-500">Last service: Aug 15, 2025</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                            <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
+                            Active
+                        </span>
+                        <div class="text-xs text-gray-500 mt-1">45,230 km</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-truck text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-medium text-gray-900">TR-002 • Isuzu NPR</div>
+                            <div class="text-sm text-gray-600">Available for assignment</div>
+                            <div class="text-xs text-gray-500">Last service: Sep 10, 2025</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                            <i class="w-2 h-2 mr-1 bg-blue-400 rounded-full"></i>
+                            Available
+                        </span>
+                        <div class="text-xs text-gray-500 mt-1">32,120 km</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-truck text-yellow-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <div class="font-medium text-gray-900">TR-003 • Ford Transit</div>
+                            <div class="text-sm text-gray-600">Scheduled maintenance</div>
+                            <div class="text-xs text-gray-500">Return: Sep 25, 2025</div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                            <i class="w-2 h-2 mr-1 bg-yellow-400 rounded-full"></i>
+                            Maintenance
+                        </span>
+                        <div class="text-xs text-gray-500 mt-1">67,890 km</div>
+                    </div>
+                </div>
+                
+                <div class="pt-4 border-t border-gray-200">
+                    <div class="flex space-x-2">
+                        <button onclick="scheduleMaintenace()" 
+                                class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
+                            <i class="fas fa-wrench mr-1"></i>
+                            Schedule Service
+                        </button>
+                        <button onclick="trackAllVehicles()" 
+                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                            <i class="fas fa-map mr-1"></i>
+                            Track All
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performance Metrics -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Performance Metrics</h3>
+                    <p class="text-sm text-gray-600 mt-1">Operations KPIs and analytics</p>
+                </div>
+                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-elaani-primary">
+                    <option>This Week</option>
+                    <option>This Month</option>
+                    <option>This Quarter</option>
+                </select>
+            </div>
+        </div>
+        <div class="p-6">
+            <div class="space-y-6">
+                <!-- On-Time Delivery -->
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-gray-700">On-Time Delivery Rate</span>
+                        <span class="text-sm font-bold text-green-600">98%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full" style="width: 98%"></div>
+                    </div>
+                </div>
+                
+                <!-- Customer Satisfaction -->
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-gray-700">Customer Satisfaction</span>
+                        <span class="text-sm font-bold text-blue-600">4.8/5</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-2 rounded-full" style="width: 96%"></div>
+                    </div>
+                </div>
+                
+                <!-- Equipment Utilization -->
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-gray-700">Equipment Utilization</span>
+                        <span class="text-sm font-bold text-purple-600">87%</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-2 rounded-full" style="width: 87%"></div>
+                    </div>
+                </div>
+                
+                <!-- Response Time -->
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm font-medium text-gray-700">Average Response Time</span>
+                        <span class="text-sm font-bold text-orange-600">15 min</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-gradient-to-r from-orange-500 to-orange-600 h-2 rounded-full" style="width: 92%"></div>
+                    </div>
+                </div>
+                
+                <!-- Cost per Delivery -->
+                <div class="pt-4 border-t border-gray-200">
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div>
+                            <div class="text-lg font-bold text-gray-900">125 ريال</div>
+                            <div class="text-xs text-gray-600">Avg Cost/Delivery</div>
+                        </div>
+                        <div>
+                            <div class="text-lg font-bold text-elaani-primary">2.3 hrs</div>
+                            <div class="text-xs text-gray-600">Avg Setup Time</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Operations management functions
+    function scheduleDelivery() {
+        showNotification('Opening delivery scheduler...', 'info');
+    }
+    
+    function assignTechnician() {
+        showNotification('Opening technician assignment panel...', 'info');
+    }
+    
+    function trackVehicles() {
+        showNotification('Loading vehicle tracking system...', 'info');
+    }
+    
+    function emergencySupport() {
+        showNotification('Connecting to emergency support...', 'error');
+        // In a real app, this would initiate emergency protocols
+    }
+    
+    // Task management
+    function assignAllTasks() {
+        showNotification('Auto-assigning tasks based on availability and location...', 'info');
+        setTimeout(() => {
+            showNotification('All tasks assigned successfully!', 'success');
+        }, 2000);
+    }
+    
+    function prioritizeTasks() {
+        showNotification('Re-prioritizing tasks based on urgency and deadlines...', 'info');
+        setTimeout(() => {
+            showNotification('Tasks prioritized successfully!', 'success');
+        }, 1500);
+    }
+    
+    // Team management
+    function assignTask(technicianId) {
+        showNotification(`Assigning task to ${technicianId}...`, 'info');
+        setTimeout(() => {
+            showNotification('Task assigned successfully!', 'success');
+        }, 1000);
+    }
+    
+    function contactTechnician(technicianId) {
+        showNotification(`Calling ${technicianId}...`, 'info');
+    }
+    
+    function trackDriver(driverId) {
+        showNotification(`Opening GPS tracking for ${driverId}...`, 'info');
+    }
+    
+    function viewProgress(technicianId) {
+        showNotification(`Loading installation progress for ${technicianId}...`, 'info');
+    }
+    
+    function viewAvailableTeam() {
+        showNotification('Loading available team members...', 'info');
+    }
+    
+    function scheduleShifts() {
+        showNotification('Opening shift scheduler...', 'info');
+    }
+    
+    // Fleet management
+    function addVehicle() {
+        showNotification('Opening vehicle registration form...', 'info');
+    }
+    
+    function scheduleMaintenace() {
+        showNotification('Opening maintenance scheduler...', 'info');
+    }
+    
+    function trackAllVehicles() {
+        showNotification('Loading fleet tracking dashboard...', 'info');
+    }
+    
+    // Location filter
+    document.getElementById('locationFilter').addEventListener('change', function() {
+        const location = this.value;
+        showNotification(`Filtering operations for: ${location || 'All locations'}`, 'info');
+    });
+    
+    // Real-time updates simulation
+    setInterval(() => {
+        // Simulate real-time updates for operations
+        console.log('Updating real-time operations data...');
+        // In a real app, this would fetch live data from GPS, technicians, etc.
+    }, 30000);
+    
+    // Initialize map and real-time features
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Operations dashboard initialized');
+        // In a real app, this would initialize maps, GPS tracking, etc.
+    });
+</script>
+{% endblock %}

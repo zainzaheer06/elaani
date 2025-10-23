@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Elaani - Digital Screen Marketplace{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'elaani-primary': '#005430',
+                        'elaani-secondary': '#057f48',
+                        'elaani-dark': '#003d24',
+                        'elaani-light': '#0a9960',
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg border-b-2 border-elaani-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="{{ url_for('index') }}" class="flex items-center">
+                        <img src="{{ url_for('static', filename='elaani-logo2.png') }}" alt="Elaani Logo" class="h-15 w-40 mr-3">
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{{ url_for('browse_screens') }}" class="text-gray-700 hover:text-elaani-primary transition-colors">Browse Screens</a>
+                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">How it Works</a>
+                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">Pricing</a>
+                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">Support</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <a href="{{ url_for('login') }}" class="text-elaani-primary hover:text-elaani-dark transition-colors">Login</a>
+                    <a href="{{ url_for('register') }}" class="bg-elaani-primary hover:bg-elaani-dark text-white px-4 py-2 rounded-lg transition-colors">
+                        Get Started
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button type="button" class="text-gray-700 hover:text-elaani-primary" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="{{ url_for('browse_screens') }}" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">Browse Screens</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">How it Works</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">Pricing</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-4">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} bg-blue-50 border border-blue-200 text-blue-700 px-4 py-3 rounded mb-4">
+                        {{ message }}
+                        <button onclick="this.parentElement.remove()" class="ml-2 text-blue-500 hover:text-blue-700 float-right">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white px-4 py-2 rounded-lg font-bold text-xl mb-4 inline-block">
+                        Elaani
+                    </div>
+                    <p class="text-gray-400">The premier digital screen advertising marketplace in Riyadh, KSA.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">For Advertisers</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Browse Screens</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Campaign Tools</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">For Screen Owners</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">List Your Screen</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Earnings</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Elaani. All rights reserved. Made in Riyadh, KSA 🇸🇦</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Auto-hide flash messages after 5 seconds
+        setTimeout(function() {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                alert.style.transition = 'opacity 0.5s';
+                alert.style.opacity = '0';
+                setTimeout(() => alert.remove(), 500);
+            });
+        }, 5000);
+    </script>
+</body>
+</html>

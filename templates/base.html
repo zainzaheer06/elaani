@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Elaani Dashboard{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'elaani-primary': '#005430',
+                        'elaani-secondary': '#057f48',
+                        'elaani-light': '#e8f5e8',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-in': 'slideIn 0.3s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #005430, #057f48);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+    {% block extra_css %}{% endblock %}
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <div class="hidden md:flex md:flex-shrink-0">
+            <div class="flex flex-col w-72">
+                <div class="flex flex-col h-0 flex-1 gradient-bg">
+                    <!-- Logo Section -->
+                    <div class="flex items-center h-20 flex-shrink-0 px-6 border-b border-white/20">
+                        <div class="flex items-center justify-center w-full space-x-3">
+                            <!-- Logo Image -->
+                            <div class="flex-shrink-0">
+                                <img src="{{ url_for('static', filename='elaani-logo-.png') }}" 
+                                     alt="Elaani Logo" 
+                                     class="w-16 h-20 object-contain">
+                            </div>
+                            <!-- Brand Text -->
+                            <div class="text-left">
+                                <h1 class="text-2xl font-bold text-white tracking-wider">ELAANI</h1>
+                                <p class="text-xs text-white/80 tracking-wide">Modern Display Solutions For Every Event</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation -->
+                    <div class="flex-1 flex flex-col overflow-y-auto">
+                        <nav class="flex-1 px-4 py-6 space-y-2">
+                            <a href="{{ url_for('dashboard') }}" 
+                               class="nav-link {% if request.endpoint == 'dashboard' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-home mr-4 w-5"></i>
+                                Dashboard
+                            </a>
+                            
+                            <a href="{{ url_for('screen_inventory') }}" 
+                               class="nav-link {% if request.endpoint == 'screen_inventory' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-tv mr-4 w-5"></i>
+                                Screen Inventory
+                            </a>
+                            
+                            <a href="{{ url_for('bookings_rentals') }}" 
+                               class="nav-link {% if request.endpoint == 'bookings_rentals' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-calendar-alt mr-4 w-5"></i>
+                                Bookings & Rentals
+                            </a>
+                            
+                            <a href="{{ url_for('clients_crm') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-users mr-4 w-5"></i>
+                                Clients & CRM
+                            </a>
+                            
+                            <a href="{{ url_for('financial_billing') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-dollar-sign mr-4 w-5"></i>
+                                Financial & Billing
+                            </a>
+                            
+                            <a href="{{ url_for('operations') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-truck mr-4 w-5"></i>
+                                Operations
+                            </a>
+                            
+                            <a href="{{ url_for('analytics_reports') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-chart-bar mr-4 w-5"></i>
+                                Analytics
+                            </a>
+                            
+                            <a href="{{ url_for('marketing') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-bullhorn mr-4 w-5"></i>
+                                Marketing
+                            </a>
+                            
+                            <a href="#" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-headset mr-4 w-5"></i>
+                                Support
+                            </a>
+                            
+                            <a href="#" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-cog mr-4 w-5"></i>
+                                Settings
+                            </a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex flex-col w-0 flex-1 overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40">
+                <div class="flex items-center justify-between h-20 px-6">
+                    <!-- Mobile menu button -->
+                    <button type="button" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-elaani-primary" id="mobile-menu-button">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                    
+                    <!-- Header content -->
+                    <div class="flex-1 flex items-center justify-between">
+                        <div class="flex-1 max-w-2xl">
+                            <h1 class="text-2xl font-bold text-elaani-primary">{% block page_title %}Welcome back, Admin{% endblock %}</h1>
+                            <p class="text-sm text-gray-600 mt-1">{% block page_subtitle %}Here's what's happening with your digital display business{% endblock %}</p>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4">
+                            <!-- Search -->
+                            <div class="relative hidden sm:block">
+                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                    <i class="fas fa-search text-gray-400"></i>
+                                </div>
+                                <input type="text" 
+                                       placeholder="Search..." 
+                                       class="block w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-elaani-primary focus:border-transparent"
+                                       id="globalSearch">
+                            </div>
+                            
+                            <!-- Notifications -->
+                            <button class="p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-xl transition-colors duration-200">
+                                <i class="fas fa-bell text-lg"></i>
+                                <span class="absolute -mt-2 -mr-1 px-1.5 py-0.5 text-xs bg-red-500 text-white rounded-full">3</span>
+                            </button>
+                            
+                            <!-- User Profile -->
+                            <div class="relative flex items-center space-x-3 cursor-pointer hover:bg-gray-50 rounded-xl p-2 transition-colors duration-200">
+                                <div class="w-10 h-10 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-full flex items-center justify-center">
+                                    <span class="text-white font-semibold">A</span>
+                                </div>
+                                <div class="hidden md:block">
+                                    <p class="text-sm font-medium text-gray-900">Ali</p>
+                                    <p class="text-xs text-gray-500">Advertiser</p>
+                                </div>
+                                <i class="fas fa-chevron-down text-gray-400 text-sm hidden md:block"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="flex-1 relative overflow-y-auto focus:outline-none">
+                <div class="py-6 px-6">
+                    {% block content %}{% endblock %}
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="md:hidden fixed inset-0 z-50 hidden" id="mobile-menu-overlay">
+        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobile-menu-backdrop"></div>
+        <div class="relative flex-1 flex flex-col max-w-xs w-full gradient-bg">
+            <div class="absolute top-0 right-0 -mr-12 pt-2">
+                <button type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" id="mobile-menu-close">
+                    <i class="fas fa-times text-white"></i>
+                </button>
+            </div>
+            
+            <div class="flex-shrink-0 flex items-center px-4 py-4 border-b border-white/20">
+                <h1 class="text-xl font-bold text-white">ELAANI</h1>
+            </div>
+            
+            <div class="mt-5 flex-1 h-0 overflow-y-auto">
+                <nav class="px-2 space-y-1">
+                    <!-- Mobile nav items here -->
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notification-toast" class="fixed top-4 right-4 z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg border border-gray-200 p-4 max-w-sm">
+            <div class="flex items-center">
+                <div class="flex-shrink-0">
+                    <i id="notification-icon" class="text-xl"></i>
+                </div>
+                <div class="ml-3">
+                    <p id="notification-message" class="text-sm font-medium text-gray-900"></p>
+                </div>
+                <div class="ml-auto pl-3">
+                    <button type="button" class="text-gray-400 hover:text-gray-500" onclick="hideNotification()">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Backdrop -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 hidden"></div>
+
+    <!-- Base JavaScript -->
+    <script>
+        // Global notification system
+        function showNotification(message, type = 'info') {
+            const toast = document.getElementById('notification-toast');
+            const icon = document.getElementById('notification-icon');
+            const messageEl = document.getElementById('notification-message');
+            
+            messageEl.textContent = message;
+            
+            // Set icon and color based on type
+            const iconMap = {
+                'success': { icon: 'fas fa-check-circle', color: 'text-green-500' },
+                'error': { icon: 'fas fa-exclamation-circle', color: 'text-red-500' },
+                'warning': { icon: 'fas fa-exclamation-triangle', color: 'text-yellow-500' },
+                'info': { icon: 'fas fa-info-circle', color: 'text-blue-500' }
+            };
+            
+            const config = iconMap[type] || iconMap.info;
+            icon.className = `${config.icon} ${config.color} text-xl`;
+            
+            // Show notification
+            toast.classList.remove('hidden');
+            toast.classList.add('animate-fade-in');
+            
+            // Auto hide after 4 seconds
+            setTimeout(() => {
+                hideNotification();
+            }, 4000);
+        }
+        
+        function hideNotification() {
+            const toast = document.getElementById('notification-toast');
+            toast.classList.add('hidden');
+            toast.classList.remove('animate-fade-in');
+        }
+        
+        // Modal system
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const backdrop = document.getElementById('modal-backdrop');
+            
+            if (modal && backdrop) {
+                backdrop.classList.remove('hidden');
+                modal.classList.remove('hidden');
+                modal.classList.add('animate-fade-in');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            const backdrop = document.getElementById('modal-backdrop');
+            
+            if (modal && backdrop) {
+                modal.classList.add('hidden');
+                backdrop.classList.add('hidden');
+                modal.classList.remove('animate-fade-in');
+                document.body.style.overflow = 'auto';
+            }
+        }
+        
+        // Close modal when clicking backdrop
+        document.getElementById('modal-backdrop')?.addEventListener('click', function(e) {
+            if (e.target === this) {
+                const modals = document.querySelectorAll('[id$="Modal"]');
+                modals.forEach(modal => {
+                    if (!modal.classList.contains('hidden')) {
+                        closeModal(modal.id);
+                    }
+                });
+            }
+        });
+        
+        // Mobile menu functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+        
+        mobileMenuButton?.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('hidden');
+        });
+        
+        mobileMenuClose?.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('hidden');
+        });
+        
+        mobileMenuBackdrop?.addEventListener('click', () => {
+            mobileMenuOverlay.classList.add('hidden');
+        });
+        
+        // API helper function
+        async function apiCall(endpoint, options = {}) {
+            try {
+                const response = await fetch(endpoint, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers
+                    },
+                    ...options
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                return await response.json();
+            } catch (error) {
+                console.error('API call failed:', error);
+                showNotification('An error occurred. Please try again.', 'error');
+                throw error;
+            }
+        }
+        
+        // Utility functions
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+        
+        function formatCurrency(amount) {
+            return `₹${amount.toLocaleString()}`;
+        }
+        
+        // Global search functionality
+        document.getElementById('globalSearch')?.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            if (searchTerm.length > 2) {
+                console.log('Searching for:', searchTerm);
+                // Implement global search logic
+            }
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
