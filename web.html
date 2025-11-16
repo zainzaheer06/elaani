@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiveKit Connection Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/livekit-client@latest"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            border-bottom: 3px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .status {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .status.connecting {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .status.connected {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            margin: 20px 0;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        video {
+            max-width: 100%;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .token-display {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            word-break: break-all;
+            font-size: 11px;
+            max-height: 100px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LiveKit Server Connection Test</h1>
+        
+        <div id="status" class="status connecting">Status: Initializing...</div>
+        
+        <div class="info">
+            <strong>Server:</strong> wss://app.saadzaheer.com<br>
+            <strong>Room:</strong> demo-room<br>
+            <strong>Identity:</strong> test-user-001
+        </div>
+
+        <div class="info">
+            <strong>Token:</strong>
+            eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0LXVzZXItMDAxIiwiaXNzIjoiQVBJR1pKZG0yelRNaXE2IiwibmJmIjoxNzYxMjEyMTMwLCJleHAiOjE3NjEyMzM3MzAsInZpZGVvIjp7InJvb21Kb2luIjp0cnVlLCJyb29tIjoiZGVtby1yb29tIiwiY2FuUHVibGlzaCI6dHJ1ZSwiY2FuU3Vic2NyaWJlIjp0cnVlLCJjYW5QdWJsaXNoRGF0YSI6dHJ1ZX19.HZgodjKRPxSzaHvkSaeXa28QKSDZ1Onp9Fr5m9WY__Y
+            <div class="token-display">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0LXVzZXItMDAxIiwiaXNzIjoiQVBJR1pKZG0yelRNaXE2IiwibmJmIjoxNzYxMjExMDAxLCJleHAiOjE3NjEyMzI2MDEsInZpZGVvIjp7InJvb21Kb2luIjp0cnVlLCJyb29tIjoiZGVtby1yb29tIiwiY2FuUHVibGlzaCI6dHJ1ZSwiY2FuU3Vic2NyaWJlIjp0cnVlLCJjYW5QdWJsaXNoRGF0YSI6dHJ1ZX19.IIalWWZIiK1lkM6gRsff3Ef0gcSQk0-KyO12PfVyid0</div>
+        </div>
+        
+        <div id="video-container">
+            <video id="video" autoplay playsinline muted style="display:none;"></video>
+        </div>
+        
+        <button id="connectBtn" onclick="connectToRoom()">Connect</button>
+        <button id="disconnectBtn" onclick="disconnectFromRoom()" disabled>Disconnect</button>
+        <button id="cameraBtn" onclick="toggleCamera()" disabled>Enable Camera</button>
+        
+        <div id="info" class="info" style="display:none;">
+            <div id="infoContent"></div>
+        </div>
+    </div>
+
+    <script>
+        const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0LXVzZXItMDAxIiwiaXNzIjoiQVBJR1pKZG0yelRNaXE2IiwibmJmIjoxNzYxMjgxOTA4LCJleHAiOjE3NjEzMDM1MDgsInZpZGVvIjp7InJvb21Kb2luIjp0cnVlLCJyb29tIjoiZGVtby1yb29tIiwiY2FuUHVibGlzaCI6dHJ1ZSwiY2FuU3Vic2NyaWJlIjp0cnVlLCJjYW5QdWJsaXNoRGF0YSI6dHJ1ZX19.HGxGDdXxFU4HsK-dC_WUE_i8Guu-2a12URjIPl5C9ow";
+        const url = "wss://app.saadzaheer.com";
+        
+        let room = null;
+        const statusEl = document.getElementById("status");
+        const infoEl = document.getElementById("info");
+        const infoContent = document.getElementById("infoContent");
+
+        function updateStatus(message, type = "connecting") {
+            statusEl.textContent = `Status: ${message}`;
+            statusEl.className = `status ${type}`;
+        }
+
+        function updateInfo(html) {
+            infoContent.innerHTML = html;
+            infoEl.style.display = "block";
+        }
+
+        async function connectToRoom() {
+            try {
+                updateStatus("Connecting to LiveKit server...", "connecting");
+                document.getElementById("connectBtn").disabled = true;
+                
+                // Create room with proper options
+                room = new window.LivekitClient.Room({
+                    audio: true,
+                    video: { width: 640 }
+                });
+
+                // Event handlers
+                room.on("connected", () => {
+                    updateStatus("Connected to LiveKit server!", "connected");
+                    document.getElementById("disconnectBtn").disabled = false;
+                    document.getElementById("cameraBtn").disabled = false;
+                });
+
+                room.on("disconnected", () => {
+                    updateStatus("Disconnected from server", "connecting");
+                    document.getElementById("disconnectBtn").disabled = true;
+                    document.getElementById("cameraBtn").disabled = true;
+                    document.getElementById("connectBtn").disabled = false;
+                });
+
+                room.on("participantConnected", (participant) => {
+                    console.log("Participant connected:", participant.identity);
+                    updateInfo(`<strong>Participant Connected:</strong> ${participant.identity}`);
+                });
+
+                room.on("trackSubscribed", (track, publication, participant) => {
+                    console.log("Track subscribed:", track.kind, "from", participant.identity);
+                    
+                    if (track.kind === "video") {
+                        const videoEl = document.getElementById("video");
+                        const stream = new MediaStream([track.mediaStreamTrack]);
+                        videoEl.srcObject = stream;
+                        videoEl.style.display = "block";
+                    }
+                });
+
+                // Connect to room
+                console.log("Attempting to connect...");
+                await room.connect(url, token);
+
+                const info = `
+                    <strong>✓ Connected Successfully!</strong><br>
+                    Room: ${room.name || 'N/A'}<br>
+                    Identity: ${room.localParticipant ? room.localParticipant.identity : 'N/A'}<br>
+                    Participants: ${room.participants ? Object.keys(room.participants).length : 0}<br>
+                    Status: Ready for video/audio
+                `;
+                updateInfo(info);
+
+            } catch (error) {
+                console.error("Connection error:", error);
+                updateStatus(`Error: ${error.message}`, "error");
+                const errorDetails = `
+                    <strong>Error Details:</strong><br>
+                    ${error.message}<br><br>
+                    <strong>Troubleshooting:</strong><br>
+                    1. Verify token is valid and not expired<br>
+                    2. Check server is running<br>
+                    3. Verify network connection<br>
+                    4. Check browser console for more details
+                `;
+                updateInfo(errorDetails);
+                document.getElementById("connectBtn").disabled = false;
+            }
+        }
+
+        async function disconnectFromRoom() {
+            try {
+                if (room) {
+                    await room.disconnect();
+                    room = null;
+                    updateStatus("Disconnected", "connecting");
+                }
+            } catch (error) {
+                console.error("Disconnect error:", error);
+            }
+        }
+
+        async function toggleCamera() {
+            try {
+                if (room && room.localParticipant) {
+                    const enabled = room.localParticipant.isCameraEnabled();
+                    if (enabled) {
+                        await room.localParticipant.setCameraEnabled(false);
+                        document.getElementById("cameraBtn").textContent = "Enable Camera";
+                    } else {
+                        await room.localParticipant.setCameraEnabled(true);
+                        document.getElementById("cameraBtn").textContent = "Disable Camera";
+                    }
+                }
+            } catch (error) {
+                console.error("Camera error:", error);
+            }
+        }
+
+        // Test connection on load
+        window.addEventListener("load", () => {
+            console.log("Page loaded. LiveKit Client version:", window.LivekitClient?.version || "unknown");
+            updateStatus("Ready to connect", "connecting");
+        });
+    </script>
+</body>
+</html>

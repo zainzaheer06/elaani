@@ -1,0 +1,327 @@
+{% extends "base_customer.html" %}
+
+{% block title %}My Profile - Elaani Customer{% endblock %}
+
+{% block page_title %}My Profile{% endblock %}
+{% block page_subtitle %}Manage your personal information and account settings{% endblock %}
+
+{% block content %}
+<!-- Profile Tabs -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
+    <div class="border-b border-gray-200">
+        <div class="flex flex-wrap">
+            <button onclick="switchTab('personal')" class="profile-tab active px-6 py-4 text-sm font-medium text-elaani-primary border-b-2 border-elaani-primary">
+                <i class="fas fa-user mr-2"></i>Personal Info
+            </button>
+            <button onclick="switchTab('company')" class="profile-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
+                <i class="fas fa-building mr-2"></i>Company Info
+            </button>
+            <button onclick="switchTab('preferences')" class="profile-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
+                <i class="fas fa-sliders-h mr-2"></i>Preferences
+            </button>
+            <button onclick="switchTab('security')" class="profile-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
+                <i class="fas fa-lock mr-2"></i>Security
+            </button>
+        </div>
+    </div>
+
+    <!-- Personal Info Tab -->
+    <div id="personal-content" class="p-8">
+        <div class="max-w-2xl">
+            <h3 class="text-lg font-semibold text-gray-900 mb-6">Personal Information</h3>
+            
+            <form class="space-y-6">
+                <!-- Profile Photo -->
+                <div class="flex items-center space-x-6">
+                    <div class="w-24 h-24 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-4xl"></i>
+                    </div>
+                    <div>
+                        <button type="button" class="px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
+                            <i class="fas fa-camera mr-2"></i>Change Photo
+                        </button>
+                        <p class="text-xs text-gray-500 mt-2">Max size: 5MB. Formats: JPG, PNG</p>
+                    </div>
+                </div>
+
+                <!-- Personal Details -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">First Name</label>
+                        <input type="text" value="Omar" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Last Name</label>
+                        <input type="text" value="Al-Rashid" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Email Address</label>
+                    <input type="email" value="{{ current_user.email }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Phone Number</label>
+                        <input type="tel" value="{{ current_user.phone }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Date of Birth</label>
+                        <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Preferred Language</label>
+                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <option selected>English</option>
+                        <option>العربية (Arabic)</option>
+                    </select>
+                </div>
+
+                <div class="flex gap-4 pt-4">
+                    <button type="submit" class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        <i class="fas fa-check mr-2"></i>Save Changes
+                    </button>
+                    <button type="button" class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Company Info Tab -->
+    <div id="company-content" class="p-8 hidden">
+        <div class="max-w-2xl">
+            <h3 class="text-lg font-semibold text-gray-900 mb-6">Company Information</h3>
+            
+            <form class="space-y-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Company Name</label>
+                    <input type="text" value="{{ current_user.company }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Business Type</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <option selected>Event Planning</option>
+                            <option>Corporate</option>
+                            <option>Retail</option>
+                            <option>Entertainment</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Industry</label>
+                        <input type="text" placeholder="e.g., Technology, Fashion, etc." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Business License Number</label>
+                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                </div>
+
+                <div class="grid grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Business Phone</label>
+                        <input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Business Website</label>
+                        <input type="url" placeholder="https://example.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Business Address</label>
+                    <input type="text" placeholder="Street address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent mb-2">
+                    <div class="grid grid-cols-2 gap-4">
+                        <input type="text" placeholder="City" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="text" placeholder="Postal Code" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                </div>
+
+                <div class="flex gap-4 pt-4">
+                    <button type="submit" class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        <i class="fas fa-check mr-2"></i>Save Changes
+                    </button>
+                    <button type="button" class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
+                        Cancel
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Preferences Tab -->
+    <div id="preferences-content" class="p-8 hidden">
+        <div class="max-w-2xl">
+            <h3 class="text-lg font-semibold text-gray-900 mb-6">Preferences</h3>
+            
+            <div class="space-y-6">
+                <!-- Notifications -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Email Notifications</h4>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
+                            <input type="checkbox" checked class="rounded border-gray-300">
+                            <div class="ml-3">
+                                <p class="font-medium text-gray-900">Booking Confirmations</p>
+                                <p class="text-sm text-gray-600">Get notified when bookings are confirmed</p>
+                            </div>
+                        </label>
+                        <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
+                            <input type="checkbox" checked class="rounded border-gray-300">
+                            <div class="ml-3">
+                                <p class="font-medium text-gray-900">Promotional Offers</p>
+                                <p class="text-sm text-gray-600">Receive special discounts and promotions</p>
+                            </div>
+                        </label>
+                        <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
+                            <input type="checkbox" class="rounded border-gray-300">
+                            <div class="ml-3">
+                                <p class="font-medium text-gray-900">Weekly Newsletter</p>
+                                <p class="text-sm text-gray-600">Stay updated with new displays and news</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Privacy -->
+                <div>
+                    <h4 class="font-semibold text-gray-900 mb-4">Privacy Settings</h4>
+                    <div class="space-y-3">
+                        <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
+                            <input type="checkbox" class="rounded border-gray-300">
+                            <div class="ml-3">
+                                <p class="font-medium text-gray-900">Show Profile in Directory</p>
+                                <p class="text-sm text-gray-600">Let other businesses discover you</p>
+                            </div>
+                        </label>
+                        <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
+                            <input type="checkbox" checked class="rounded border-gray-300">
+                            <div class="ml-3">
+                                <p class="font-medium text-gray-900">Keep Booking History Private</p>
+                                <p class="text-sm text-gray-600">Only you can see your booking history</p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 pt-4">
+                    <button class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        <i class="fas fa-check mr-2"></i>Save Preferences
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Tab -->
+    <div id="security-content" class="p-8 hidden">
+        <div class="max-w-2xl">
+            <h3 class="text-lg font-semibold text-gray-900 mb-6">Security Settings</h3>
+            
+            <div class="space-y-6">
+                <!-- Password -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="font-semibold text-gray-900 mb-4">Change Password</h4>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">Current Password</label>
+                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">New Password</label>
+                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">Confirm New Password</label>
+                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        </div>
+                        <button type="submit" class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                            Update Password
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Two-Factor Authentication -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h4 class="font-semibold text-gray-900">Two-Factor Authentication</h4>
+                        <button class="px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
+                            Enable
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-600">Add an extra layer of security to your account</p>
+                </div>
+
+                <!-- Active Sessions -->
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h4 class="font-semibold text-gray-900 mb-4">Active Sessions</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 bg-white rounded border border-gray-200">
+                            <div>
+                                <p class="font-medium text-gray-900"><i class="fas fa-laptop mr-2 text-elaani-primary"></i>Chrome on Windows</p>
+                                <p class="text-sm text-gray-600">Last active: 1 hour ago</p>
+                            </div>
+                            <button class="text-red-600 hover:text-red-700 font-medium text-sm">
+                                Logout
+                            </button>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-white rounded border border-gray-200">
+                            <div>
+                                <p class="font-medium text-gray-900"><i class="fas fa-mobile mr-2 text-elaani-primary"></i>Safari on iPhone</p>
+                                <p class="text-sm text-gray-600">Last active: 3 days ago</p>
+                            </div>
+                            <button class="text-red-600 hover:text-red-700 font-medium text-sm">
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Account Danger Zone -->
+<div class="bg-red-50 border border-red-200 rounded-2xl p-8">
+    <h3 class="text-lg font-semibold text-red-900 mb-4">Danger Zone</h3>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+        <div>
+            <p class="font-medium text-red-900">Delete Account</p>
+            <p class="text-sm text-red-800">Permanently delete your account and all associated data</p>
+        </div>
+        <button class="mt-4 sm:mt-0 px-6 py-2 border border-red-600 text-red-600 font-medium rounded-lg hover:bg-red-600 hover:text-white transition-all">
+            Delete Account
+        </button>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function switchTab(tab) {
+        // Hide all tabs
+        document.querySelectorAll('[id$="-content"]').forEach(el => el.classList.add('hidden'));
+        
+        // Show selected tab
+        document.getElementById(tab + '-content').classList.remove('hidden');
+        
+        // Update button styling
+        document.querySelectorAll('.profile-tab').forEach(btn => {
+            btn.classList.remove('active', 'text-elaani-primary', 'border-b-elaani-primary');
+            btn.classList.add('text-gray-600', 'border-b-transparent');
+        });
+        
+        event.target.closest('.profile-tab').classList.add('active', 'text-elaani-primary', 'border-b-elaani-primary');
+        event.target.closest('.profile-tab').classList.remove('text-gray-600', 'border-b-transparent');
+    }
+</script>
+{% endblock %}

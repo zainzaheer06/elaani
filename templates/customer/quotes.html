@@ -1,0 +1,402 @@
+{% extends "base_customer.html" %}
+
+{% block title %}Quotes & Requests - Elaani Customer{% endblock %}
+
+{% block page_title %}Quotes & Requests{% endblock %}
+{% block page_subtitle %}Manage your quote requests and get custom pricing{% endblock %}
+
+{% block content %}
+<!-- Action Bar -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+        <div>
+            <h2 class="text-lg font-semibold text-gray-900">Request Status Overview</h2>
+            <p class="text-sm text-gray-600 mt-1">Track all your quote requests and responses</p>
+        </div>
+        
+        <button onclick="openModal('requestQuoteModal')" 
+                class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+            <i class="fas fa-plus mr-2"></i>
+            Request Quote
+        </button>
+    </div>
+</div>
+
+<!-- Stats Cards -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="flex items-center">
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">5</div>
+                <div class="text-sm text-gray-600">Total Requests</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="flex items-center">
+            <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-hourglass-half text-yellow-600 text-xl"></i>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">2</div>
+                <div class="text-sm text-gray-600">Pending</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="flex items-center">
+            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-check-circle text-green-600 text-xl"></i>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">2</div>
+                <div class="text-sm text-gray-600">Quoted</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+        <div class="flex items-center">
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                <i class="fas fa-coins text-purple-600 text-xl"></i>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">1</div>
+                <div class="text-sm text-gray-600">Accepted</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tabs -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
+    <div class="border-b border-gray-200">
+        <div class="flex">
+            <button onclick="filterQuotes('all')" class="quote-tab active px-6 py-4 text-sm font-medium text-elaani-primary border-b-2 border-elaani-primary">
+                All Quotes (5)
+            </button>
+            <button onclick="filterQuotes('pending')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
+                Pending (2)
+            </button>
+            <button onclick="filterQuotes('quoted')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
+                Quoted (2)
+            </button>
+            <button onclick="filterQuotes('accepted')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
+                Accepted (1)
+            </button>
+        </div>
+    </div>
+
+    <!-- Quote Cards -->
+    <div class="divide-y divide-gray-200">
+        <!-- Quote 1 - Pending -->
+        <div class="p-6 hover:bg-gray-50 transition-all">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
+                <div class="flex-1">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mb-2">
+                                <i class="fas fa-hourglass-half mr-1"></i>Pending
+                            </span>
+                            <h4 class="text-lg font-semibold text-gray-900">Large LED Screen - 3 Day Event</h4>
+                        </div>
+                        <span class="text-xs text-gray-500">QT#001 • Sep 18, 2025</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Outdoor LED display for product launch</p>
+                    <div class="grid grid-cols-4 gap-4 text-sm">
+                        <div>
+                            <span class="text-gray-600">Size</span>
+                            <p class="font-semibold text-gray-900">85" Display</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Location</span>
+                            <p class="font-semibold text-gray-900">King Fahd Road</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Duration</span>
+                            <p class="font-semibold text-gray-900">3 Days</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Requested Budget</span>
+                            <p class="font-semibold text-gray-900">5,000-7,000 SAR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
+                    <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-eye mr-2"></i>View Details
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-times mr-2"></i>Cancel Request
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quote 2 - Pending -->
+        <div class="p-6 hover:bg-gray-50 transition-all">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
+                <div class="flex-1">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mb-2">
+                                <i class="fas fa-hourglass-half mr-1"></i>Pending
+                            </span>
+                            <h4 class="text-lg font-semibold text-gray-900">Indoor Mall Display - 2 Months</h4>
+                        </div>
+                        <span class="text-xs text-gray-500">QT#002 • Sep 16, 2025</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Premium indoor display space for retail campaign</p>
+                    <div class="grid grid-cols-4 gap-4 text-sm">
+                        <div>
+                            <span class="text-gray-600">Size</span>
+                            <p class="font-semibold text-gray-900">55" LED Wall</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Location</span>
+                            <p class="font-semibold text-gray-900">Riyadh Gallery</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Duration</span>
+                            <p class="font-semibold text-gray-900">60 Days</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Requested Budget</span>
+                            <p class="font-semibold text-gray-900">25,000-35,000 SAR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
+                    <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-eye mr-2"></i>View Details
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-times mr-2"></i>Cancel Request
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quote 3 - Quoted -->
+        <div class="p-6 hover:bg-gray-50 transition-all">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
+                <div class="flex-1">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 mb-2">
+                                <i class="fas fa-check-circle mr-1"></i>Quoted
+                            </span>
+                            <h4 class="text-lg font-semibold text-gray-900">Downtown Business Center Display</h4>
+                        </div>
+                        <span class="text-xs text-gray-500">QT#003 • Sep 10, 2025</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Corporate event display space downtown</p>
+                    <div class="grid grid-cols-4 gap-4 text-sm">
+                        <div>
+                            <span class="text-gray-600">Size</span>
+                            <p class="font-semibold text-gray-900">65" 4K Display</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Location</span>
+                            <p class="font-semibold text-gray-900">Downtown</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Duration</span>
+                            <p class="font-semibold text-gray-900">5 Days</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Quoted Price</span>
+                            <p class="font-bold text-elaani-primary">6,250 SAR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
+                    <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        <i class="fas fa-check mr-2"></i>Accept Quote
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-times mr-2"></i>Reject
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quote 4 - Quoted -->
+        <div class="p-6 hover:bg-gray-50 transition-all">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
+                <div class="flex-1">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 mb-2">
+                                <i class="fas fa-check-circle mr-1"></i>Quoted
+                            </span>
+                            <h4 class="text-lg font-semibold text-gray-900">Olaya Street Premium Display</h4>
+                        </div>
+                        <span class="text-xs text-gray-500">QT#004 • Sep 08, 2025</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">High-traffic premium outdoor advertising space</p>
+                    <div class="grid grid-cols-4 gap-4 text-sm">
+                        <div>
+                            <span class="text-gray-600">Size</span>
+                            <p class="font-semibold text-gray-900">75" LED Screen</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Location</span>
+                            <p class="font-semibold text-gray-900">Olaya Street</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Duration</span>
+                            <p class="font-semibold text-gray-900">7 Days</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Quoted Price</span>
+                            <p class="font-bold text-elaani-primary">7,500 SAR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
+                    <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        <i class="fas fa-check mr-2"></i>Accept Quote
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-times mr-2"></i>Reject
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quote 5 - Accepted -->
+        <div class="p-6 hover:bg-gray-50 transition-all bg-green-50 border-l-4 border-green-500">
+            <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
+                <div class="flex-1">
+                    <div class="flex items-start justify-between mb-3">
+                        <div>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 mb-2">
+                                <i class="fas fa-crown mr-1"></i>Accepted
+                            </span>
+                            <h4 class="text-lg font-semibold text-gray-900">Business Park Tower LED Display</h4>
+                        </div>
+                        <span class="text-xs text-gray-500">QT#005 • Sep 01, 2025</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">Premium tower display - accepted quote</p>
+                    <div class="grid grid-cols-4 gap-4 text-sm">
+                        <div>
+                            <span class="text-gray-600">Size</span>
+                            <p class="font-semibold text-gray-900">85" 4K Display</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Location</span>
+                            <p class="font-semibold text-gray-900">Financial District</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Duration</span>
+                            <p class="font-semibold text-gray-900">14 Days</p>
+                        </div>
+                        <div>
+                            <span class="text-gray-600">Final Price</span>
+                            <p class="font-bold text-elaani-primary">13,750 SAR</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
+                    <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 transition-all">
+                        <i class="fas fa-calendar-check mr-2"></i>Book Now
+                    </button>
+                    <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-eye mr-2"></i>View Invoice
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Request Quote Modal -->
+<div id="requestQuoteModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+    <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="relative inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+            <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-lg font-semibold text-gray-900">Request a Quote</h3>
+                    <button type="button" onclick="closeModal('requestQuoteModal')" class="text-gray-400 hover:text-gray-500">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Display Type</label>
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <option>Select display type...</option>
+                            <option>LED Screen</option>
+                            <option>LCD Display</option>
+                            <option>Outdoor LED</option>
+                            <option>Mobile LED Truck</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Location/Area</label>
+                        <input type="text" placeholder="e.g., King Fahd Road, Olaya Street" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">Start Date</label>
+                            <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">End Date</label>
+                            <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Budget Range (SAR)</label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="number" placeholder="Min" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="number" placeholder="Max" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Additional Details</label>
+                        <textarea rows="3" placeholder="Tell us more about your event or requirements..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                    </div>
+
+                    <div class="flex gap-4 pt-4">
+                        <button type="submit" class="flex-1 px-4 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                            Submit Request
+                        </button>
+                        <button type="button" onclick="closeModal('requestQuoteModal')" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function filterQuotes(status) {
+        document.querySelectorAll('.quote-tab').forEach(tab => {
+            tab.classList.remove('active', 'text-elaani-primary', 'border-b-elaani-primary');
+            tab.classList.add('text-gray-600', 'border-b-transparent');
+        });
+        
+        event.target.classList.add('active', 'text-elaani-primary', 'border-b-elaani-primary');
+        event.target.classList.remove('text-gray-600', 'border-b-transparent');
+        
+        console.log('Filter quotes by:', status);
+    }
+</script>
+{% endblock %}

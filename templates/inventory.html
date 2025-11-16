@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %}Screen Inventory - Elaani{% endblock %}
+{% block title %}Billboard Inventory - Elaani{% endblock %}
 
-{% block page_title %}Screen Inventory Management{% endblock %}
-{% block page_subtitle %}Manage your digital display inventory, track availability, and schedule maintenance{% endblock %}
+{% block page_title %}Billboard Inventory Management{% endblock %}
+{% block page_subtitle %}Manage your billboard locations, track advertising campaigns, and maintain your outdoor advertising network{% endblock %}
 
 {% block content %}
 <!-- Action Bar -->
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-            <button onclick="openModal('addScreenModal')" 
+            <button onclick="openModal('addScreenModal')"
                     class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200">
-                <i class="fas fa-plus mr-2"></i>
-                Add New Screen
+                <i class="fas fa-rectangle-ad mr-2"></i>
+                Add New Billboard
             </button>
             <button onclick="exportInventory()" 
                     class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
@@ -28,8 +28,8 @@
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                     <i class="fas fa-search text-gray-400"></i>
                 </div>
-                <input type="text" 
-                       placeholder="Search screens..." 
+                <input type="text"
+                       placeholder="Search billboards..."
                        id="inventorySearch"
                        class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
             </div>
@@ -43,13 +43,13 @@
                 <option value="maintenance">Maintenance</option>
             </select>
             
-            <select id="typeFilter" 
+            <select id="typeFilter"
                     class="block w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                 <option value="">All Types</option>
-                <option value="LED">LED Display</option>
-                <option value="LCD Wall">LCD Video Wall</option>
-                <option value="Mobile LED">Mobile LED</option>
-                <option value="Outdoor LED">Outdoor LED</option>
+                <option value="Digital Billboard">Digital LED Billboard</option>
+                <option value="Static Billboard">Static Billboard</option>
+                <option value="Mobile Billboard">Mobile LED Truck</option>
+                <option value="Premium Location">Premium Location</option>
             </select>
         </div>
     </div>
@@ -62,11 +62,11 @@
             <div class="text-3xl font-bold text-green-600 mb-2">
                 {{ screens|selectattr("status", "equalto", "available")|list|length }}
             </div>
-            <div class="text-sm font-medium text-gray-600">Available Screens</div>
+            <div class="text-sm font-medium text-gray-600">Available Billboards</div>
             <div class="mt-2">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                     <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
-                    Ready to rent
+                    Ready for campaigns
                 </span>
             </div>
         </div>
@@ -77,7 +77,7 @@
             <div class="text-3xl font-bold text-yellow-600 mb-2">
                 {{ screens|selectattr("status", "equalto", "rented")|list|length }}
             </div>
-            <div class="text-sm font-medium text-gray-600">Currently Rented</div>
+            <div class="text-sm font-medium text-gray-600">Active Campaigns</div>
             <div class="mt-2">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                     <i class="w-2 h-2 mr-1 bg-yellow-400 rounded-full"></i>

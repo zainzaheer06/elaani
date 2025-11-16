@@ -1,0 +1,486 @@
+{% extends "base.html" %}
+
+{% block title %}Screens Map - Elaani{% endblock %}
+
+{% block page_title %}Screens & Billboards Map{% endblock %}
+{% block page_subtitle %}View all available screens across Riyadh on an interactive map{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<style>
+    #map-container { 
+        height: 600px; 
+        border-radius: 1.5rem; 
+        overflow: hidden;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    .leaflet-popup-content { 
+        font-family: inherit;
+        min-width: 250px;
+    }
+    .screen-marker {
+        background: linear-gradient(135deg, #005430, #057f48);
+        color: white;
+        padding: 8px 12px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 84, 48, 0.3);
+        cursor: pointer;
+    }
+    .filter-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 9999px;
+        font-size: 12px;
+        font-weight: 600;
+        background-color: #e8f5e8;
+        color: #005430;
+        margin-right: 8px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .filter-badge.active {
+        background: linear-gradient(135deg, #005430, #057f48);
+        color: white;
+    }
+    .screen-list-item {
+        transition: all 0.3s ease;
+        border-left: 4px solid transparent;
+    }
+    .screen-list-item:hover {
+        background-color: #f9fafb;
+        border-left-color: #005430;
+        transform: translateX(4px);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Action Bar -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+        <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Filter Screens</h3>
+            <div class="flex flex-wrap">
+                <span class="filter-badge active" data-filter="all">All Screens</span>
+                <span class="filter-badge" data-filter="available">Available</span>
+                <span class="filter-badge" data-filter="rented">Rented</span>
+                <span class="filter-badge" data-filter="maintenance">Maintenance</span>
+            </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <div class="relative">
+                <select id="sortBy" class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary appearance-none text-gray-700 font-medium cursor-pointer hover:border-gray-400 transition-all duration-200">
+                    <option value="name">Sort by Name</option>
+                    <option value="price">Sort by Price (Low-High)</option>
+                    <option value="rating">Sort by Rating</option>
+                    <option value="available">Sort by Status</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+                    <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Map Section -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+    <div class="mb-4">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Live Map View <a href="{{ url_for('map_view_big') }}">+</a></h3>
+        <p class="text-sm text-gray-600">Click on markers to view screen details and availability</p>
+    </div>
+    <div id="map-container"></div>
+</div>
+
+<!-- Map Legend -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+    <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        <div class="flex items-center">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-check-circle text-green-600"></i>
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-600">Available</p>
+                <p class="text-lg font-bold text-gray-900" id="count-available">0</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        <div class="flex items-center">
+            <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-calendar-check text-yellow-600"></i>
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-600">Rented</p>
+                <p class="text-lg font-bold text-gray-900" id="count-rented">0</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        <div class="flex items-center">
+            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-tools text-red-600"></i>
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-600">Maintenance</p>
+                <p class="text-lg font-bold text-gray-900" id="count-maintenance">0</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
+        <div class="flex items-center">
+            <div class="w-10 h-10 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-lg flex items-center justify-center mr-3">
+                <i class="fas fa-tv text-white"></i>
+            </div>
+            <div>
+                <p class="text-sm font-medium text-gray-600">Total Screens</p>
+                <p class="text-lg font-bold text-gray-900" id="count-total">0</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Screens List -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+    <div class="p-6 border-b border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900">Screens List</h3>
+        <p class="text-sm text-gray-600 mt-1">All available screens and billboards in Riyadh</p>
+    </div>
+    
+    <div class="divide-y divide-gray-200">
+        <!-- Screen List Items Container -->
+        <div id="screens-list-container">
+            <!-- Will be populated by JavaScript -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+    // Sample screen data
+    const screensData = [
+        {
+            id: 1,
+            title: "King Fahd Road LED",
+            location: "King Fahd Road, Riyadh",
+            status: "available",
+            type: "LED Billboard",
+            size: "15x8m",
+            price_per_day: 5000,
+            price_per_hour: 500,
+            rating: 4.8,
+            reviews: 127,
+            lat: 24.7136,
+            lng: 46.6753,
+            direction: "North"
+        },
+        {
+            id: 2,
+            title: "Olaya Street Display",
+            location: "Olaya Street, Riyadh",
+            status: "rented",
+            type: "LED Screen",
+            size: "12x6m",
+            price_per_day: 3500,
+            price_per_hour: 350,
+            rating: 4.6,
+            reviews: 98,
+            lat: 24.7280,
+            lng: 46.6850,
+            direction: "East"
+        },
+        {
+            id: 3,
+            title: "Mall Indoor Screen",
+            location: "Riyadh Gallery Mall",
+            status: "available",
+            type: "Indoor LED",
+            size: "10x5m",
+            price_per_day: 4200,
+            price_per_hour: 420,
+            rating: 4.9,
+            reviews: 156,
+            lat: 24.7400,
+            lng: 46.6600,
+            direction: "West"
+        },
+        {
+            id: 4,
+            title: "Downtown Business Center",
+            location: "Downtown Riyadh",
+            status: "maintenance",
+            type: "LED Display",
+            size: "14x7m",
+            price_per_day: 4800,
+            price_per_hour: 480,
+            rating: 4.7,
+            reviews: 143,
+            lat: 24.7500,
+            lng: 46.7000,
+            direction: "South"
+        },
+        {
+            id: 5,
+            title: "Al Nakheel Mall Screen",
+            location: "Al Nakheel District",
+            status: "available",
+            type: "LED Screen",
+            size: "11x6m",
+            price_per_day: 3800,
+            price_per_hour: 380,
+            rating: 4.5,
+            reviews: 87,
+            lat: 24.7000,
+            lng: 46.6500,
+            direction: "North-East"
+        },
+        {
+            id: 6,
+            title: "Business Park Tower",
+            location: "Financial District",
+            status: "available",
+            type: "Digital Billboard",
+            size: "13x7m",
+            price_per_day: 5500,
+            price_per_hour: 550,
+            rating: 4.8,
+            reviews: 112,
+            lat: 24.7200,
+            lng: 46.7100,
+            direction: "North"
+        }
+    ];
+
+    // Initialize map
+    let map = L.map('map-container').setView([24.7250, 46.6750], 12);
+
+    // Add OpenStreetMap tiles
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(map);
+
+    // Map markers storage
+    let markers = {};
+    let filteredScreens = [...screensData];
+
+    // Color mapping for status
+    const statusColors = {
+        available: '#10b981',
+        rented: '#eab308',
+        maintenance: '#ef4444'
+    };
+
+    // Add markers to map
+    function addMarkers() {
+        Object.values(markers).forEach(marker => map.removeLayer(marker));
+        markers = {};
+
+        filteredScreens.forEach(screen => {
+            const color = statusColors[screen.status];
+            
+            // Create custom marker
+            const marker = L.circleMarker([screen.lat, screen.lng], {
+                radius: 15,
+                fillColor: color,
+                color: 'white',
+                weight: 3,
+                opacity: 1,
+                fillOpacity: 0.9
+            }).addTo(map);
+
+            // Add icon to marker
+            marker.bindPopup(`
+                <div style="min-width: 280px;">
+                    <div style="background: linear-gradient(135deg, #005430, #057f48); color: white; padding: 12px; border-radius: 8px 8px 0 0; margin: -8px -8px 0 -8px;">
+                        <h4 style="margin: 0; font-weight: bold; font-size: 14px;">${screen.title}</h4>
+                        <p style="margin: 4px 0 0 0; font-size: 12px; opacity: 0.9;">${screen.location}</p>
+                    </div>
+                    <div style="padding: 12px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; font-size: 13px;">
+                            <div>
+                                <span style="color: #666;">Size:</span>
+                                <div style="font-weight: bold; color: #333;">${screen.size}</div>
+                            </div>
+                            <div>
+                                <span style="color: #666;">Type:</span>
+                                <div style="font-weight: bold; color: #333;">${screen.type}</div>
+                            </div>
+                            <div>
+                                <span style="color: #666;">Direction:</span>
+                                <div style="font-weight: bold; color: #333;">${screen.direction}</div>
+                            </div>
+                            <div>
+                                <span style="color: #666;">Status:</span>
+                                <div style="font-weight: bold; color: ${color};">${screen.status.toUpperCase()}</div>
+                            </div>
+                        </div>
+                        <div style="border-top: 1px solid #e5e7eb; padding-top: 12px;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="color: #666;">Price:</span>
+                                <span style="font-weight: bold; color: #005430;">${screen.price_per_day.toLocaleString()} SAR/day</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="color: #666;">Rating:</span>
+                                <span style="color: #f59e0b;">⭐ ${screen.rating} (${screen.reviews} reviews)</span>
+                            </div>
+                            <button onclick="viewScreenDetails(${screen.id})" style="width: 100%; padding: 8px; background: linear-gradient(135deg, #005430, #057f48); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 8px;">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `);
+
+            markers[screen.id] = marker;
+        });
+    }
+
+    // Render screens list
+    function renderScreensList() {
+        const container = document.getElementById('screens-list-container');
+        container.innerHTML = '';
+
+        if (filteredScreens.length === 0) {
+            container.innerHTML = '<div class="p-6 text-center text-gray-500"><i class="fas fa-search text-3xl mb-3"></i><p>No screens found</p></div>';
+            return;
+        }
+
+        filteredScreens.forEach(screen => {
+            const statusBg = {
+                available: 'bg-green-50 border-green-200',
+                rented: 'bg-yellow-50 border-yellow-200',
+                maintenance: 'bg-red-50 border-red-200'
+            };
+
+            const statusIcon = {
+                available: 'fas fa-check-circle text-green-600',
+                rented: 'fas fa-calendar-check text-yellow-600',
+                maintenance: 'fas fa-tools text-red-600'
+            };
+
+            const item = document.createElement('div');
+            item.className = `screen-list-item p-6 border ${statusBg[screen.status]}`;
+            item.innerHTML = `
+                <div class="flex items-start justify-between">
+                    <div class="flex-1">
+                        <div class="flex items-center mb-2">
+                            <i class="${statusIcon[screen.status]} mr-3"></i>
+                            <h4 class="text-lg font-semibold text-gray-900">${screen.title}</h4>
+                            <span class="ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                                screen.status === 'available' ? 'bg-green-100 text-green-800' :
+                                screen.status === 'rented' ? 'bg-yellow-100 text-yellow-800' :
+                                'bg-red-100 text-red-800'
+                            }">
+                                ${screen.status.charAt(0).toUpperCase() + screen.status.slice(1)}
+                            </span>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-3"><i class="fas fa-map-marker-alt mr-2 text-elaani-primary"></i>${screen.location}</p>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
+                            <div>
+                                <p class="text-xs font-medium text-gray-600">Size</p>
+                                <p class="text-sm font-semibold text-gray-900">${screen.size}</p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-600">Type</p>
+                                <p class="text-sm font-semibold text-gray-900">${screen.type}</p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-600">Direction</p>
+                                <p class="text-sm font-semibold text-gray-900"><i class="fas fa-compass text-elaani-primary mr-1"></i>${screen.direction}</p>
+                            </div>
+                            <div>
+                                <p class="text-xs font-medium text-gray-600">Rating</p>
+                                <p class="text-sm font-semibold text-gray-900">⭐ ${screen.rating}</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-right ml-4">
+                        <div class="text-2xl font-bold text-elaani-primary mb-2">${screen.price_per_day.toLocaleString()} SAR</div>
+                        <div class="text-xs text-gray-600 mb-3">${screen.price_per_hour} SAR/hour</div>
+                        <button onclick="quickBook(${screen.id})" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white text-sm font-medium rounded-lg hover:shadow-lg transition-all">
+                            <i class="fas fa-calendar-plus mr-2"></i>
+                            Book Now
+                        </button>
+                    </div>
+                </div>
+            `;
+            container.appendChild(item);
+        });
+    }
+
+    // Update counters
+    function updateCounters() {
+        document.getElementById('count-available').textContent = screensData.filter(s => s.status === 'available').length;
+        document.getElementById('count-rented').textContent = screensData.filter(s => s.status === 'rented').length;
+        document.getElementById('count-maintenance').textContent = screensData.filter(s => s.status === 'maintenance').length;
+        document.getElementById('count-total').textContent = screensData.length;
+    }
+
+    // Filter screens
+    document.querySelectorAll('.filter-badge').forEach(badge => {
+        badge.addEventListener('click', function() {
+            document.querySelectorAll('.filter-badge').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            const filter = this.dataset.filter;
+            filteredScreens = filter === 'all' ? [...screensData] : screensData.filter(s => s.status === filter);
+            
+            addMarkers();
+            renderScreensList();
+        });
+    });
+
+    // Sort screens
+    document.getElementById('sortBy').addEventListener('change', function() {
+        const sortBy = this.value;
+        
+        switch(sortBy) {
+            case 'price':
+                filteredScreens.sort((a, b) => a.price_per_day - b.price_per_day);
+                break;
+            case 'rating':
+                filteredScreens.sort((a, b) => b.rating - a.rating);
+                break;
+            case 'available':
+                filteredScreens.sort((a, b) => a.status.localeCompare(b.status));
+                break;
+            default:
+                filteredScreens.sort((a, b) => a.title.localeCompare(b.title));
+        }
+        
+        renderScreensList();
+    });
+
+    // Helper functions
+    function viewScreenDetails(id) {
+        showNotification(`Opening details for screen #${id}...`, 'info');
+    }
+
+    function quickBook(id) {
+        showNotification(`Redirecting to booking for screen #${id}...`, 'info');
+        setTimeout(() => {
+            // window.location.href = `/book/${id}`;
+        }, 1000);
+    }
+
+    // Initialize
+    updateCounters();
+    addMarkers();
+    renderScreensList();
+</script>
+{% endblock %}

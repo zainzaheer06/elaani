@@ -1,0 +1,567 @@
+{% extends "base_customer.html" %}
+
+{% block title %}Dashboard - Elaani Customer{% endblock %}
+
+{% block page_title %}Welcome back, {{ current_user.name }}!{% endblock %}
+{% block page_subtitle %}Manage your bookings, find displays, and explore new opportunities{% endblock %}
+
+{% block content %}
+<!-- Quick Stats -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-calendar-check text-blue-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">{{ user_stats.active_bookings }}</div>
+                <div class="text-sm font-medium text-gray-600">Active Bookings</div>
+                <div class="text-xs text-green-600 font-medium mt-1">
+                    <i class="fas fa-arrow-up mr-1"></i>Current
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-heart text-green-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">{{ user_stats.saved_displays }}</div>
+                <div class="text-sm font-medium text-gray-600">Saved Displays</div>
+                <div class="text-xs text-blue-600 font-medium mt-1">
+                    <i class="fas fa-plus mr-1"></i>Ready to book
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-xl flex items-center justify-center">
+                    <i class="fas fa-coins text-white text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">{{ (user_stats.total_spent / 1000)|int }}K SAR</div>
+                <div class="text-sm font-medium text-gray-600">Total Spent</div>
+                <div class="text-xs text-purple-600 font-medium mt-1">
+                    <i class="fas fa-badge mr-1"></i>Loyalty Member
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                    <i class="fas fa-star text-yellow-600 text-xl"></i>
+                </div>
+            </div>
+            <div class="ml-4">
+                <div class="text-2xl font-bold text-gray-900">{{ current_user.loyalty_points }}</div>
+                <div class="text-sm font-medium text-gray-600">Loyalty Points</div>
+                <div class="text-xs text-orange-600 font-medium mt-1">
+                    <i class="fas fa-level-up-alt mr-1"></i>{{ current_user.loyalty_tier }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- AI Campaign Planner Widget -->
+<div class="bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-600 rounded-2xl shadow-lg p-6 mb-8 text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full -mr-32 -mt-32"></div>
+    <div class="absolute bottom-0 left-0 w-48 h-48 bg-white opacity-5 rounded-full -ml-24 -mb-24"></div>
+
+    <div class="relative z-10">
+        <div class="flex items-start justify-between mb-6">
+            <div>
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-robot text-2xl mr-3"></i>
+                    <h3 class="text-2xl font-bold">AI Campaign Planner</h3>
+                </div>
+                <p class="text-purple-100">Let AI help you create the perfect billboard campaign strategy</p>
+            </div>
+            <span class="px-3 py-1 bg-white/20 rounded-full text-xs font-semibold">BETA</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <i class="fas fa-brain text-yellow-300 text-xl mb-2"></i>
+                <h4 class="font-semibold mb-1">Smart Targeting</h4>
+                <p class="text-sm text-purple-100">AI analyzes best locations for your audience</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <i class="fas fa-chart-line text-green-300 text-xl mb-2"></i>
+                <h4 class="font-semibold mb-1">ROI Prediction</h4>
+                <p class="text-sm text-purple-100">Get estimated campaign performance</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <i class="fas fa-calendar-alt text-blue-300 text-xl mb-2"></i>
+                <h4 class="font-semibold mb-1">Optimal Timing</h4>
+                <p class="text-sm text-purple-100">Best dates & times for maximum impact</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3">
+            <button onclick="openCampaignPlanner()" class="flex-1 bg-white text-purple-600 px-6 py-3 rounded-xl font-semibold hover:bg-purple-50 transition-all shadow-lg hover:shadow-xl">
+                <i class="fas fa-magic mr-2"></i>Start AI Planning
+            </button>
+            <button onclick="showQuickTips()" class="px-6 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl font-semibold hover:bg-white/30 transition-all">
+                <i class="fas fa-lightbulb mr-2"></i>Quick Tips
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- AI Event Recommendations -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
+    <div class="p-6 border-b border-gray-200">
+        <div class="flex items-center justify-between">
+            <div>
+                <div class="flex items-center">
+                    <i class="fas fa-sparkles text-yellow-500 text-xl mr-3"></i>
+                    <h3 class="text-xl font-semibold text-gray-900">AI Event Recommendations</h3>
+                </div>
+                <p class="text-sm text-gray-600 mt-1">Personalized suggestions based on your booking history and preferences</p>
+            </div>
+            <button class="text-elaani-primary hover:text-elaani-secondary font-medium text-sm">
+                <i class="fas fa-sync-alt mr-1"></i>Refresh
+            </button>
+        </div>
+    </div>
+    <div class="p-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Recommendation 1 -->
+            <div class="border-l-4 border-blue-500 bg-gradient-to-r from-blue-50 to-blue-100/30 rounded-lg p-5 hover:shadow-md transition-all">
+                <div class="flex items-start justify-between mb-3">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-briefcase text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Tech Conference 2025</h4>
+                            <p class="text-xs text-blue-600 font-medium">92% Match • Corporate Event</p>
+                        </div>
+                    </div>
+                    <span class="px-2 py-1 bg-blue-500 text-white text-xs rounded-full font-semibold">HOT</span>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">Based on your previous tech conferences, we recommend booking King Fahd Road displays for Oct 15-17. Expected 50K+ attendees.</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3 text-xs text-gray-600">
+                        <span><i class="fas fa-calendar mr-1"></i>Oct 15-17</span>
+                        <span><i class="fas fa-users mr-1"></i>50K+</span>
+                        <span><i class="fas fa-map-marker-alt mr-1"></i>Riyadh</span>
+                    </div>
+                    <button class="px-4 py-2 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 transition-all">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recommendation 2 -->
+            <div class="border-l-4 border-green-500 bg-gradient-to-r from-green-50 to-green-100/30 rounded-lg p-5 hover:shadow-md transition-all">
+                <div class="flex items-start justify-between mb-3">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-rocket text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Product Launch Campaign</h4>
+                            <p class="text-xs text-green-600 font-medium">88% Match • Marketing</p>
+                        </div>
+                    </div>
+                    <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full font-semibold">NEW</span>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">Similar brands saw 3x engagement with Mall indoor displays. Perfect timing for holiday season launch.</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3 text-xs text-gray-600">
+                        <span><i class="fas fa-calendar mr-1"></i>Nov 1-14</span>
+                        <span><i class="fas fa-chart-line mr-1"></i>3x ROI</span>
+                        <span><i class="fas fa-map-marker-alt mr-1"></i>Mall District</span>
+                    </div>
+                    <button class="px-4 py-2 bg-green-500 text-white text-sm rounded-lg hover:bg-green-600 transition-all">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recommendation 3 -->
+            <div class="border-l-4 border-purple-500 bg-gradient-to-r from-purple-50 to-purple-100/30 rounded-lg p-5 hover:shadow-md transition-all">
+                <div class="flex items-start justify-between mb-3">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-purple-500 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-heart text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Wedding Season Promo</h4>
+                            <p class="text-xs text-purple-600 font-medium">85% Match • Event</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">Wedding season peak is approaching. Book now for venue promotion displays with 20% early-bird discount.</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3 text-xs text-gray-600">
+                        <span><i class="fas fa-calendar mr-1"></i>Dec 1-31</span>
+                        <span><i class="fas fa-tag mr-1"></i>20% Off</span>
+                        <span><i class="fas fa-map-marker-alt mr-1"></i>Multiple</span>
+                    </div>
+                    <button class="px-4 py-2 bg-purple-500 text-white text-sm rounded-lg hover:bg-purple-600 transition-all">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recommendation 4 -->
+            <div class="border-l-4 border-orange-500 bg-gradient-to-r from-orange-50 to-orange-100/30 rounded-lg p-5 hover:shadow-md transition-all">
+                <div class="flex items-start justify-between mb-3">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-orange-500 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-store text-white"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Retail Sale Campaign</h4>
+                            <p class="text-xs text-orange-600 font-medium">82% Match • Retail</p>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-sm text-gray-700 mb-4">Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150% target sales.</p>
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-3 text-xs text-gray-600">
+                        <span><i class="fas fa-calendar mr-1"></i>Nov 20-30</span>
+                        <span><i class="fas fa-percent mr-1"></i>150% Target</span>
+                        <span><i class="fas fa-map-marker-alt mr-1"></i>Shopping Areas</span>
+                    </div>
+                    <button class="px-4 py-2 bg-orange-500 text-white text-sm rounded-lg hover:bg-orange-600 transition-all">
+                        View Details
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <button class="text-elaani-primary hover:text-elaani-secondary font-semibold text-sm">
+                <i class="fas fa-chevron-down mr-2"></i>Load More Recommendations
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8 mb-8">
+    <!-- Active Bookings -->
+    <div class="xl:col-span-2 bg-white rounded-2xl shadow-lg border border-gray-100">
+        <div class="p-6 border-b border-gray-200">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900">Your Active Bookings</h3>
+                    <p class="text-sm text-gray-600 mt-1">Current and upcoming display rentals</p>
+                </div>
+                <a href="{{ url_for('customer_bookings') }}" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                    <i class="fas fa-arrow-right mr-2"></i>
+                    View All
+                </a>
+            </div>
+        </div>
+        <div class="p-6 space-y-4">
+            <!-- Booking 1 -->
+            <div class="flex items-start p-4 bg-blue-50 border border-blue-200 rounded-xl hover:shadow-md transition-all">
+                <div class="flex-shrink-0">
+                    <div class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-tv text-white text-lg"></i>
+                    </div>
+                </div>
+                <div class="ml-4 flex-1">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">King Fahd Road LED Screen</h4>
+                            <p class="text-sm text-gray-600 mt-1">Sep 23-25, 2025 • Tech Conference</p>
+                            <div class="flex items-center space-x-4 mt-2">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    <i class="fas fa-check-circle mr-1"></i>Confirmed
+                                </span>
+                                <span class="text-sm text-gray-600">Booking ID: #BK001</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xl font-bold text-gray-900">5,000 SAR</div>
+                            <button class="mt-2 text-blue-600 hover:text-blue-700 font-medium text-sm">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking 2 -->
+            <div class="flex items-start p-4 bg-yellow-50 border border-yellow-200 rounded-xl hover:shadow-md transition-all">
+                <div class="flex-shrink-0">
+                    <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-tv text-white text-lg"></i>
+                    </div>
+                </div>
+                <div class="ml-4 flex-1">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h4 class="font-semibold text-gray-900">Mall Indoor Display</h4>
+                            <p class="text-sm text-gray-600 mt-1">Sep 27-28, 2025 • Wedding Event</p>
+                            <div class="flex items-center space-x-4 mt-2">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                    <i class="fas fa-clock mr-1"></i>Pending
+                                </span>
+                                <span class="text-sm text-gray-600">Booking ID: #BK002</span>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xl font-bold text-gray-900">4,500 SAR</div>
+                            <button class="mt-2 text-yellow-600 hover:text-yellow-700 font-medium text-sm">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loyalty & Profile -->
+    <div class="space-y-6">
+        <!-- Loyalty Card -->
+        <div class="bg-gradient-to-br from-elaani-primary to-elaani-secondary rounded-2xl shadow-lg p-6 text-white">
+            <div class="flex items-start justify-between mb-8">
+                <div>
+                    <p class="text-elaani-light text-sm font-medium">Loyalty Tier</p>
+                    <h3 class="text-3xl font-bold mt-1">{{ current_user.loyalty_tier }}</h3>
+                </div>
+                <i class="fas fa-crown text-4xl opacity-20"></i>
+            </div>
+            
+            <div class="space-y-4 mb-6">
+                <div>
+                    <div class="flex justify-between mb-2">
+                        <span class="text-sm font-medium">Points to Gold</span>
+                        <span class="text-sm font-medium">{{ (150 - current_user.loyalty_points) }} left</span>
+                    </div>
+                    <div class="w-full h-2 bg-white/20 rounded-full overflow-hidden">
+                        <div class="h-full bg-white rounded-full" style="width: {{ (current_user.loyalty_points / 150) * 100 }}%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/20">
+                <div>
+                    <p class="text-white/80 text-xs font-medium">Available Points</p>
+                    <p class="text-2xl font-bold">{{ current_user.loyalty_points }}</p>
+                </div>
+                <div>
+                    <p class="text-white/80 text-xs font-medium">Total Bookings</p>
+                    <p class="text-2xl font-bold">{{ current_user.total_bookings }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+            <div class="space-y-3">
+                <a href="{{ url_for('map_view') }}" class="flex items-center p-3 bg-elaani-light rounded-xl hover:bg-opacity-100 transition-all hover:shadow-md group">
+                    <div class="w-10 h-10 bg-elaani-primary rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-search text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-elaani-primary group-hover:text-elaani-secondary">Find Displays</p>
+                        <p class="text-xs text-gray-600">Browse available screens</p>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('customer_quotes') }}" class="flex items-center p-3 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all hover:shadow-md group">
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-blue-600 group-hover:text-blue-700">Request Quote</p>
+                        <p class="text-xs text-gray-600">Get custom pricing</p>
+                    </div>
+                </a>
+                
+                <a href="{{ url_for('customer_support') }}" class="flex items-center p-3 bg-green-50 rounded-xl hover:bg-green-100 transition-all hover:shadow-md group">
+                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                        <i class="fas fa-headset text-white"></i>
+                    </div>
+                    <div>
+                        <p class="text-sm font-semibold text-green-600 group-hover:text-green-700">Contact Support</p>
+                        <p class="text-xs text-gray-600">Get immediate help</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recommended For You -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100">
+    <div class="p-6 border-b border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900">Recommended For You</h3>
+        <p class="text-sm text-gray-600 mt-1">Based on your previous bookings</p>
+    </div>
+    <div class="p-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Recommended Display 1 -->
+            <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all group cursor-pointer">
+                <div class="h-40 bg-gray-300 flex items-center justify-center relative">
+                    <i class="fas fa-tv text-gray-400 text-4xl"></i>
+                    <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-all">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">Downtown LED Screen</h4>
+                    <p class="text-sm text-gray-600 mt-1">Downtown Riyadh</p>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <p class="text-xs text-gray-600">Starting at</p>
+                            <p class="text-lg font-bold text-elaani-primary">4,800 SAR</p>
+                        </div>
+                        <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommended Display 2 -->
+            <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all group cursor-pointer">
+                <div class="h-40 bg-gray-300 flex items-center justify-center relative">
+                    <i class="fas fa-tv text-gray-400 text-4xl"></i>
+                    <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-all">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">Olaya Street Display</h4>
+                    <p class="text-sm text-gray-600 mt-1">Olaya Street</p>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <p class="text-xs text-gray-600">Starting at</p>
+                            <p class="text-lg font-bold text-elaani-primary">3,500 SAR</p>
+                        </div>
+                        <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommended Display 3 -->
+            <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all group cursor-pointer">
+                <div class="h-40 bg-gray-300 flex items-center justify-center relative">
+                    <i class="fas fa-tv text-gray-400 text-4xl"></i>
+                    <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-all">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">Al Nakheel Mall</h4>
+                    <p class="text-sm text-gray-600 mt-1">Al Nakheel District</p>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <p class="text-xs text-gray-600">Starting at</p>
+                            <p class="text-lg font-bold text-elaani-primary">3,800 SAR</p>
+                        </div>
+                        <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recommended Display 4 -->
+            <div class="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all group cursor-pointer">
+                <div class="h-40 bg-gray-300 flex items-center justify-center relative">
+                    <i class="fas fa-tv text-gray-400 text-4xl"></i>
+                    <button class="absolute top-2 right-2 w-8 h-8 bg-white rounded-full flex items-center justify-center hover:bg-red-500 hover:text-white transition-all">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+                <div class="p-4">
+                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">Business Tower LED</h4>
+                    <p class="text-sm text-gray-600 mt-1">Financial District</p>
+                    <div class="flex items-center justify-between mt-3">
+                        <div>
+                            <p class="text-xs text-gray-600">Starting at</p>
+                            <p class="text-lg font-bold text-elaani-primary">5,500 SAR</p>
+                        </div>
+                        <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // AI Campaign Planner Functions
+    function openCampaignPlanner() {
+        showNotification('AI Campaign Planner is initializing...', 'info');
+
+        // Simulate AI processing
+        setTimeout(() => {
+            // In production, this would open a modal or redirect to the campaign planner page
+            window.location.href = "{{ url_for('event_planner') }}";
+        }, 1000);
+    }
+
+    function showQuickTips() {
+        const tips = [
+            '🎯 Target high-traffic areas during peak hours for maximum visibility',
+            '📊 Use A/B testing with different display locations to optimize ROI',
+            '⏰ Book 2-3 weeks in advance for better rates and availability',
+            '📱 Combine digital billboards with social media for amplified reach',
+            '💡 Holiday seasons offer 3x higher engagement rates'
+        ];
+
+        const randomTip = tips[Math.floor(Math.random() * tips.length)];
+        showNotification(randomTip, 'info');
+    }
+
+    // Auto-refresh AI recommendations every 30 seconds (simulated)
+    let recommendationsRefreshInterval;
+
+    function startRecommendationsRefresh() {
+        recommendationsRefreshInterval = setInterval(() => {
+            console.log('AI recommendations updated in background');
+            // In production, this would fetch new recommendations from the API
+        }, 30000);
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        startRecommendationsRefresh();
+
+        // Add click handlers for recommendation refresh button
+        document.querySelectorAll('[data-action="refresh-recommendations"]').forEach(btn => {
+            btn.addEventListener('click', function() {
+                showNotification('Refreshing AI recommendations...', 'info');
+                // In production, this would call the API to get fresh recommendations
+            });
+        });
+    });
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', function() {
+        if (recommendationsRefreshInterval) {
+            clearInterval(recommendationsRefreshInterval);
+        }
+    });
+</script>
+{% endblock %}

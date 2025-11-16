@@ -1,0 +1,385 @@
+{% extends "base_customer.html" %}
+
+{% block title %}Event Planner - Elaani Customer{% endblock %}
+
+{% block page_title %}AI Event Planner{% endblock %}
+{% block page_subtitle %}Let AI design your perfect billboard campaign strategy{% endblock %}
+
+{% block content %}
+<!-- AI Header Banner -->
+<div class="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-2xl shadow-lg p-8 mb-8 text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-white opacity-5 rounded-full -mr-48 -mt-48"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-white opacity-5 rounded-full -ml-32 -mb-32"></div>
+
+    <div class="relative z-10">
+        <div class="flex items-center mb-4">
+            <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center mr-4">
+                <i class="fas fa-robot text-4xl"></i>
+            </div>
+            <div>
+                <h1 class="text-3xl font-bold mb-1">AI-Powered Event Planner</h1>
+                <p class="text-purple-100">Advanced intelligence for billboard campaign success</p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-magic text-yellow-300 text-xl mr-2"></i>
+                    <span class="font-semibold">Smart Analysis</span>
+                </div>
+                <p class="text-sm text-purple-100">AI analyzes your requirements</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-chart-network text-green-300 text-xl mr-2"></i>
+                    <span class="font-semibold">Location Matching</span>
+                </div>
+                <p class="text-sm text-purple-100">Perfect billboard placement</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-brain text-blue-300 text-xl mr-2"></i>
+                    <span class="font-semibold">ROI Optimization</span>
+                </div>
+                <p class="text-sm text-purple-100">Maximize your investment</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
+                <div class="flex items-center mb-2">
+                    <i class="fas fa-clock text-orange-300 text-xl mr-2"></i>
+                    <span class="font-semibold">Real-time Results</span>
+                </div>
+                <p class="text-sm text-purple-100">Instant recommendations</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- AI Processing Status (hidden by default) -->
+<div id="ai-processing" class="hidden bg-white rounded-2xl shadow-lg border border-gray-100 p-8 mb-8">
+    <div class="text-center">
+        <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full mb-4 animate-pulse">
+            <i class="fas fa-brain text-white text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">AI is analyzing your event...</h3>
+        <p class="text-gray-600 mb-4">Processing location data, traffic patterns, and billboard availability</p>
+        <div class="w-full max-w-md mx-auto bg-gray-200 rounded-full h-2">
+            <div id="progress-bar" class="bg-gradient-to-r from-purple-600 to-indigo-600 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
+        </div>
+        <p id="processing-step" class="text-sm text-gray-500 mt-3">Initializing AI engine...</p>
+    </div>
+</div>
+
+<!-- Event Planning Form -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Form Section -->
+    <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+            <form class="space-y-6">
+                <!-- Event Basic Info -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-4 border-b border-gray-200">Event Details</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">
+                                <i class="fas fa-bullhorn text-purple-600 mr-2"></i>Campaign Name *
+                            </label>
+                            <input type="text" id="campaign-name" placeholder="e.g., Summer Sale 2025, Brand Launch Campaign" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">
+                                <i class="fas fa-tag text-purple-600 mr-2"></i>Campaign Type *
+                            </label>
+                            <select id="campaign-type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <option>Select campaign type...</option>
+                                <option>Brand Awareness</option>
+                                <option>Product Launch</option>
+                                <option>Retail Promotion</option>
+                                <option>Event Marketing</option>
+                                <option>Seasonal Campaign</option>
+                                <option>Corporate Branding</option>
+                                <option>Political Campaign</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 mb-2">
+                                    <i class="fas fa-calendar text-purple-600 mr-2"></i>Start Date *
+                                </label>
+                                <input type="date" id="start-date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-900 mb-2">
+                                    <i class="fas fa-clock text-purple-600 mr-2"></i>Duration (Days)
+                                </label>
+                                <input type="number" id="duration" min="1" placeholder="Number of days" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">
+                                <i class="fas fa-map-marker-alt text-purple-600 mr-2"></i>Target Location(s) *
+                            </label>
+                            <input type="text" id="location" placeholder="e.g., Riyadh Downtown, King Fahd Road" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                            <p class="text-xs text-gray-500 mt-1">AI will suggest billboards in high-traffic areas</p>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">
+                                <i class="fas fa-users text-purple-600 mr-2"></i>Target Audience Reach
+                            </label>
+                            <select id="audience-reach" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <option>Select target reach...</option>
+                                <option>10K - 50K daily views</option>
+                                <option>50K - 100K daily views</option>
+                                <option>100K - 500K daily views</option>
+                                <option>500K+ daily views</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Billboard Requirements -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-4 border-b border-gray-200">
+                        <i class="fas fa-rectangle-ad text-purple-600 mr-2"></i>Billboard Requirements
+                    </h3>
+
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">Billboard Type</label>
+                            <div class="grid grid-cols-2 gap-3">
+                                <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg hover:border-purple-600 cursor-pointer transition-all">
+                                    <input type="checkbox" class="rounded border-gray-300" name="billboard-type" value="digital">
+                                    <span class="ml-3 text-sm text-gray-700">
+                                        <i class="fas fa-tv text-purple-600 mr-2"></i>Digital LED Billboard
+                                    </span>
+                                </label>
+                                <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg hover:border-purple-600 cursor-pointer transition-all">
+                                    <input type="checkbox" class="rounded border-gray-300" name="billboard-type" value="static">
+                                    <span class="ml-3 text-sm text-gray-700">
+                                        <i class="fas fa-image text-purple-600 mr-2"></i>Static Billboard
+                                    </span>
+                                </label>
+                                <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg hover:border-purple-600 cursor-pointer transition-all">
+                                    <input type="checkbox" class="rounded border-gray-300" name="billboard-type" value="mobile">
+                                    <span class="ml-3 text-sm text-gray-700">
+                                        <i class="fas fa-truck text-purple-600 mr-2"></i>Mobile LED Truck
+                                    </span>
+                                </label>
+                                <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg hover:border-purple-600 cursor-pointer transition-all">
+                                    <input type="checkbox" class="rounded border-gray-300" name="billboard-type" value="premium">
+                                    <span class="ml-3 text-sm text-gray-700">
+                                        <i class="fas fa-star text-purple-600 mr-2"></i>Premium Locations
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">Billboard Size Preference</label>
+                            <select id="billboard-size" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <option>AI will recommend best size</option>
+                                <option>Small (2m x 3m) - Local targeting</option>
+                                <option>Medium (3m x 6m) - Standard visibility</option>
+                                <option>Large (6m x 12m) - High visibility</option>
+                                <option>Extra Large (10m x 20m+) - Maximum impact</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">Traffic Priority</label>
+                            <select id="traffic-priority" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <option>High Traffic (Premium locations)</option>
+                                <option>Medium Traffic (Good visibility)</option>
+                                <option>Cost-Effective (Budget friendly)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">Number of Billboards Needed</label>
+                            <input type="number" id="billboard-count" min="1" value="1" placeholder="How many billboards?" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                            <p class="text-xs text-gray-500 mt-1">AI will optimize billboard quantity for your budget and reach goals</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Budget & Additional Info -->
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-4 border-b border-gray-200">Budget & Preferences</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">Total Budget (SAR)</label>
+                            <div class="flex">
+                                <select class="px-4 py-2 border border-r-0 border-gray-300 rounded-l-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                    <option>SAR</option>
+                                </select>
+                                <input type="number" placeholder="0" class="flex-1 px-4 py-2 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">Special Requirements</label>
+                            <textarea rows="3" placeholder="Any special setup, installation, or technical requirements..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                        </div>
+
+                        <div>
+                            <label class="flex items-center">
+                                <input type="checkbox" class="rounded border-gray-300">
+                                <span class="ml-3 text-sm text-gray-700">I need technical support and installation</span>
+                            </label>
+                            <label class="flex items-center mt-2">
+                                <input type="checkbox" class="rounded border-gray-300">
+                                <span class="ml-3 text-sm text-gray-700">I need content creation services</span>
+                            </label>
+                            <label class="flex items-center mt-2">
+                                <input type="checkbox" class="rounded border-gray-300">
+                                <span class="ml-3 text-sm text-gray-700">Subscribe to event notifications</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 pt-4">
+                    <button type="button" onclick="startAIAnalysis()" class="flex-1 px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium rounded-lg hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl">
+                        <i class="fas fa-magic mr-2"></i>Let AI Find Perfect Billboards
+                    </button>
+                    <button type="reset" onclick="resetAIForm()" class="flex-1 px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
+                        <i class="fas fa-redo mr-2"></i>Reset
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Recommendations Panel -->
+    <div class="space-y-6">
+        <!-- Quick Tips -->
+        <div class="bg-elaani-light rounded-2xl border border-elaani-primary p-6">
+            <h4 class="font-semibold text-elaani-primary mb-4">💡 Planning Tips</h4>
+            <ul class="space-y-2 text-sm text-gray-700">
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
+                    <span>Plan at least 2-3 weeks in advance for best availability</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
+                    <span>Consider your venue size and audience viewing distance</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
+                    <span>Higher resolution for close viewing, P6 for larger distances</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
+                    <span>Include setup/installation time in your planning</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Popular Events -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+            <h4 class="font-semibold text-gray-900 mb-4">Popular Events</h4>
+            <div class="space-y-3">
+                <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all group">
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🎉 Wedding Reception</span>
+                        <i class="fas fa-arrow-right text-gray-400 group-hover:text-elaani-primary"></i>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Typical: 1-2 screens, 4-8 hours</p>
+                </button>
+                <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all group">
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🚀 Product Launch</span>
+                        <i class="fas fa-arrow-right text-gray-400 group-hover:text-elaani-primary"></i>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Typical: 2-4 screens, 1-2 days</p>
+                </button>
+                <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all group">
+                    <div class="flex items-center justify-between">
+                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🎓 Corporate Conference</span>
+                        <i class="fas fa-arrow-right text-gray-400 group-hover:text-elaani-primary"></i>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-1">Typical: 3-6 screens, 2-3 days</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <a href="{{ url_for('customer_support') }}" class="block bg-gradient-to-br from-elaani-primary to-elaani-secondary rounded-2xl shadow-lg p-6 text-white text-center hover:shadow-xl transition-all">
+            <i class="fas fa-headset text-3xl mb-2"></i>
+            <h4 class="font-semibold mb-1">Need Expert Help?</h4>
+            <p class="text-sm text-white/80">Talk to our specialists</p>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function resetForm() {
+        document.querySelector('form').reset();
+    }
+
+    function resetAIForm() {
+        document.querySelector('form').reset();
+        document.getElementById('ai-processing').classList.add('hidden');
+        document.getElementById('progress-bar').style.width = '0%';
+    }
+
+    function startAIAnalysis() {
+        // Get form values
+        const campaignName = document.getElementById('campaign-name').value;
+        const location = document.getElementById('location').value;
+
+        if (!campaignName || !location) {
+            showNotification('Please fill in Campaign Name and Target Location fields', 'warning');
+            return;
+        }
+
+        // Hide form and show AI processing
+        document.querySelector('.lg\\:col-span-2').style.display = 'none';
+        document.getElementById('ai-processing').classList.remove('hidden');
+
+        // Simulate AI processing with progressive steps
+        const steps = [
+            { progress: 15, text: 'Analyzing target demographics...', delay: 800 },
+            { progress: 30, text: 'Scanning available billboards in ' + location + '...', delay: 1000 },
+            { progress: 50, text: 'Calculating traffic patterns and visibility scores...', delay: 1200 },
+            { progress: 70, text: 'Optimizing budget allocation...', delay: 1000 },
+            { progress: 85, text: 'Generating ROI predictions...', delay: 800 },
+            { progress: 100, text: 'Finalizing recommendations...', delay: 600 }
+        ];
+
+        let currentStep = 0;
+
+        function processStep() {
+            if (currentStep < steps.length) {
+                const step = steps[currentStep];
+
+                setTimeout(() => {
+                    document.getElementById('progress-bar').style.width = step.progress + '%';
+                    document.getElementById('processing-step').textContent = step.text;
+                    currentStep++;
+                    processStep();
+                }, step.delay);
+            } else {
+                setTimeout(() => {
+                    showNotification('AI Analysis complete! Redirecting to browse billboards...', 'success');
+                    setTimeout(() => {
+                        window.location.href = "{{ url_for('browse_displays') }}";
+                    }, 1500);
+                }, 500);
+            }
+        }
+
+        processStep();
+    }
+</script>
+{% endblock %}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Elaani Dashboard{% endblock %}</title>
+    <title>{% block title %}Elaani - Customer Dashboard{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <script>
@@ -51,16 +51,14 @@
                     <!-- Logo Section -->
                     <div class="flex items-center h-20 flex-shrink-0 px-6 border-b border-white/20">
                         <div class="flex items-center justify-center w-full space-x-3">
-                            <!-- Logo Image -->
                             <div class="flex-shrink-0">
                                 <img src="{{ url_for('static', filename='elaani-logo-.png') }}" 
                                      alt="Elaani Logo" 
                                      class="w-16 h-20 object-contain">
                             </div>
-                            <!-- Brand Text -->
                             <div class="text-left">
                                 <h1 class="text-2xl font-bold text-white tracking-wider">ELAANI</h1>
-                                <p class="text-xs text-white/80 tracking-wide">Modern Display Solutions For Every Event</p>
+                                <p class="text-xs text-white/80 tracking-wide">Find The Perfect Display</p>
                             </div>
                         </div>
                     </div>
@@ -68,54 +66,67 @@
                     <!-- Navigation -->
                     <div class="flex-1 flex flex-col overflow-y-auto">
                         <nav class="flex-1 px-4 py-6 space-y-2">
-                            <a href="{{ url_for('dashboard') }}" 
-                               class="nav-link {% if request.endpoint == 'dashboard' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                            <a href="{{ url_for('customer_dashboard') }}" 
+                               class="nav-link {% if request.endpoint == 'customer_dashboard' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
                                 <i class="fas fa-home mr-4 w-5"></i>
                                 Dashboard
                             </a>
                             
-                            <a href="{{ url_for('map_view') }}" 
-                               class="nav-link  text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-tv mr-4 w-5"></i>
-                                Screens
+                              <a href="{{ url_for('browse_displays') }}" 
+   class="nav-link text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+    <i class="fas fa-search mr-4 w-5"></i>
+    Browse Displays
+</a>
+
+
+<a href="{{ url_for('customer_map') }}"
+   class="nav-link text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+   <i class="fas fa-map mr-4 w-5"></i>
+   Map View
+</a>
+
+                            <a href="{{ url_for('customer_bookings') }}" 
+                               class="nav-link {% if request.endpoint == 'customer_bookings' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-calendar-check mr-4 w-5"></i>
+                                My Bookings
                             </a>
                             
-                            <a href="{{ url_for('bookings_rentals') }}" 
-                               class="nav-link {% if request.endpoint == 'bookings_rentals' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-calendar-alt mr-4 w-5"></i>
-                                Bookings & Rentals
+                            <a href="{{ url_for('customer_quotes') }}" 
+                               class="nav-link text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-file-alt mr-4 w-5"></i>
+                                Quotes & Requests
                             </a>
                             
-                            <a href="{{ url_for('clients_crm') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-users mr-4 w-5"></i>
-                                Clients & CRM
+                            <a href="{{ url_for('customer_payments') }}" 
+                               class="nav-link text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-wallet mr-4 w-5"></i>
+                                Payments
                             </a>
                             
-                            <a href="{{ url_for('financial_billing') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-dollar-sign mr-4 w-5"></i>
-                                Financial & Billing
+                            <a href="{{ url_for('customer_favorites') }}" 
+                               class="nav-link text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-heart mr-4 w-5"></i>
+                                Saved Displays
                             </a>
-                            
-                            
-                            
-                            <a href="{{ url_for('analytics_reports') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-chart-bar mr-4 w-5"></i>
-                                Analytics
+
+                            <a href="{{ url_for('event_planner') }}" 
+                               class="nav-link text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-calendar mr-4 w-5"></i>
+                                Event Planner
                             </a>
+
+                            <div class="border-t border-white/20 my-4"></div>
                             
-                            <a href="{{ url_for('marketing') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-bullhorn mr-4 w-5"></i>
-                                Marketing
-                            </a>
-                            
-                            <a href="#" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                            <a href="{{ url_for('customer_support') }}" 
+                               class="nav-link text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
                                 <i class="fas fa-headset mr-4 w-5"></i>
                                 Support
                             </a>
-                            
-                            <a href="#" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-cog mr-4 w-5"></i>
-                                Settings
+
+                            <a href="{{ url_for('customer_profile') }}" 
+                               class="nav-link text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
+                                <i class="fas fa-user-circle mr-4 w-5"></i>
+                                My Profile
                             </a>
                         </nav>
                     </div>
@@ -136,8 +147,8 @@
                     <!-- Header content -->
                     <div class="flex-1 flex items-center justify-between">
                         <div class="flex-1 max-w-2xl">
-                            <h1 class="text-2xl font-bold text-elaani-primary">{% block page_title %}Welcome back, Admin{% endblock %}</h1>
-                            <p class="text-sm text-gray-600 mt-1">{% block page_subtitle %}Here's what's happening with your digital display business{% endblock %}</p>
+                            <h1 class="text-2xl font-bold text-elaani-primary">{% block page_title %}Welcome back!{% endblock %}</h1>
+                            <p class="text-sm text-gray-600 mt-1">{% block page_subtitle %}Find and book the perfect display for your event{% endblock %}</p>
                         </div>
                         
                         <div class="flex items-center space-x-4">
@@ -147,79 +158,70 @@
                                     <i class="fas fa-search text-gray-400"></i>
                                 </div>
                                 <input type="text" 
-                                       placeholder="Search..." 
+                                       placeholder="Search displays..." 
                                        class="block w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-elaani-primary focus:border-transparent"
                                        id="globalSearch">
                             </div>
                             
                             <!-- Notifications -->
-                            <button class="p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-xl transition-colors duration-200">
+                            <button class="p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-xl transition-colors duration-200 relative">
                                 <i class="fas fa-bell text-lg"></i>
-                                <span class="absolute -mt-2 -mr-1 px-1.5 py-0.5 text-xs bg-red-500 text-white rounded-full">3</span>
+                                <span class="absolute -mt-2 -mr-1 px-1.5 py-0.5 text-xs bg-red-500 text-white rounded-full">2</span>
                             </button>
                             
                             <!-- User Profile -->
-                            <div class="relative flex items-center space-x-3 cursor-pointer hover:bg-gray-50 rounded-xl p-2 transition-colors duration-200">
-                                <div class="w-10 h-10 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-full flex items-center justify-center">
-                                    <span class="text-white font-semibold">A</span>
+                            <div class="relative">
+                                <button class="flex items-center space-x-2 text-gray-700 hover:text-elaani-primary transition-colors" id="user-menu-button">
+                                    <div class="w-10 h-10 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-full flex items-center justify-center">
+                                        <i class="fas fa-user text-white text-sm"></i>
+                                    </div>
+                                    <span class="hidden sm:block text-sm font-medium">{{ current_user.name }}</span>
+                                </button>
+                                
+                                <!-- Dropdown Menu -->
+                                <div class="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg hidden" id="user-dropdown">
+                                    <div class="p-4 border-b border-gray-200">
+                                        <p class="text-sm font-semibold text-gray-900">{{ current_user.name }}</p>
+                                        <p class="text-xs text-gray-500">{{ current_user.email }}</p>
+                                    </div>
+                                    <a href="{{ url_for('customer_profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                                        <i class="fas fa-user-circle mr-2"></i>My Profile
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                                        <i class="fas fa-cog mr-2"></i>Settings
+                                    </a>
+                                    <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50">
+                                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                                    </a>
                                 </div>
-                                <div class="hidden md:block">
-                                    <p class="text-sm font-medium text-gray-900">Ali</p>
-                                    <p class="text-xs text-gray-500">Advertiser</p>
-                                </div>
-                                <i class="fas fa-chevron-down text-gray-400 text-sm hidden md:block"></i>
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
 
-            <!-- Page Content -->
-            <main class="flex-1 relative overflow-y-auto focus:outline-none">
-                <div class="py-6 px-6">
+            <!-- Main Content Area -->
+            <main class="flex-1 overflow-auto">
+                <div class="px-4 sm:px-6 lg:px-8 py-8">
                     {% block content %}{% endblock %}
                 </div>
             </main>
         </div>
     </div>
 
-    <!-- Mobile Menu Overlay -->
-    <div class="md:hidden fixed inset-0 z-50 hidden" id="mobile-menu-overlay">
-        <div class="fixed inset-0 bg-black bg-opacity-50" id="mobile-menu-backdrop"></div>
-        <div class="relative flex-1 flex flex-col max-w-xs w-full gradient-bg">
-            <div class="absolute top-0 right-0 -mr-12 pt-2">
-                <button type="button" class="ml-1 flex items-center justify-center h-10 w-10 rounded-full focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" id="mobile-menu-close">
-                    <i class="fas fa-times text-white"></i>
-                </button>
-            </div>
-            
-            <div class="flex-shrink-0 flex items-center px-4 py-4 border-b border-white/20">
-                <h1 class="text-xl font-bold text-white">ELAANI</h1>
-            </div>
-            
-            <div class="mt-5 flex-1 h-0 overflow-y-auto">
-                <nav class="px-2 space-y-1">
-                    <!-- Mobile nav items here -->
-                </nav>
-            </div>
-        </div>
-    </div>
-
     <!-- Notification Toast -->
-    <div id="notification-toast" class="fixed top-4 right-4 z-50 hidden">
-        <div class="bg-white rounded-lg shadow-lg border border-gray-200 p-4 max-w-sm">
-            <div class="flex items-center">
-                <div class="flex-shrink-0">
-                    <i id="notification-icon" class="text-xl"></i>
-                </div>
-                <div class="ml-3">
-                    <p id="notification-message" class="text-sm font-medium text-gray-900"></p>
-                </div>
-                <div class="ml-auto pl-3">
-                    <button type="button" class="text-gray-400 hover:text-gray-500" onclick="hideNotification()">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
+    <div id="notification-toast" class="fixed bottom-4 right-4 bg-white rounded-lg shadow-lg p-4 hidden z-50 max-w-sm">
+        <div class="flex items-center">
+            <div class="flex-shrink-0">
+                <i id="notification-icon" class="text-xl"></i>
+            </div>
+            <div class="ml-3">
+                <p id="notification-message" class="text-sm font-medium text-gray-900"></p>
+            </div>
+            <div class="ml-auto pl-3">
+                <button type="button" class="text-gray-400 hover:text-gray-500" onclick="hideNotification()">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
         </div>
     </div>
@@ -237,7 +239,6 @@
             
             messageEl.textContent = message;
             
-            // Set icon and color based on type
             const iconMap = {
                 'success': { icon: 'fas fa-check-circle', color: 'text-green-500' },
                 'error': { icon: 'fas fa-exclamation-circle', color: 'text-red-500' },
@@ -248,11 +249,9 @@
             const config = iconMap[type] || iconMap.info;
             icon.className = `${config.icon} ${config.color} text-xl`;
             
-            // Show notification
             toast.classList.remove('hidden');
             toast.classList.add('animate-fade-in');
             
-            // Auto hide after 4 seconds
             setTimeout(() => {
                 hideNotification();
             }, 4000);
@@ -263,6 +262,21 @@
             toast.classList.add('hidden');
             toast.classList.remove('animate-fade-in');
         }
+
+        // User menu toggle
+        document.getElementById('user-menu-button')?.addEventListener('click', function() {
+            const dropdown = document.getElementById('user-dropdown');
+            dropdown.classList.toggle('hidden');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('user-dropdown');
+            const button = document.getElementById('user-menu-button');
+            if (dropdown && button && !button.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.classList.add('hidden');
+            }
+        });
         
         // Modal system
         function openModal(modalId) {
@@ -289,7 +303,6 @@
             }
         }
         
-        // Close modal when clicking backdrop
         document.getElementById('modal-backdrop')?.addEventListener('click', function(e) {
             if (e.target === this) {
                 const modals = document.querySelectorAll('[id$="Modal"]');
@@ -299,24 +312,6 @@
                     }
                 });
             }
-        });
-        
-        // Mobile menu functionality
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
-        
-        mobileMenuButton?.addEventListener('click', () => {
-            mobileMenuOverlay.classList.remove('hidden');
-        });
-        
-        mobileMenuClose?.addEventListener('click', () => {
-            mobileMenuOverlay.classList.add('hidden');
-        });
-        
-        mobileMenuBackdrop?.addEventListener('click', () => {
-            mobileMenuOverlay.classList.add('hidden');
         });
         
         // API helper function
@@ -353,15 +348,14 @@
         }
         
         function formatCurrency(amount) {
-            return `₹${amount.toLocaleString()}`;
+            return `${amount.toLocaleString()} SAR`;
         }
         
-        // Global search functionality
+        // Global search
         document.getElementById('globalSearch')?.addEventListener('input', function(e) {
             const searchTerm = e.target.value.toLowerCase();
             if (searchTerm.length > 2) {
                 console.log('Searching for:', searchTerm);
-                // Implement global search logic
             }
         });
     </script>

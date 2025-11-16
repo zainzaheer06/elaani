@@ -165,14 +165,33 @@ clients_data = [
     }
 ]
 
-@app.route('/')
+
+@app.route('/index')
+def index():
+    return render_template('index.html')
+
+@app.route('/vendor')
 def dashboard():
     # Calculate dashboard statistics
     total_screens = len(screens_data)
     active_rentals = len([b for b in bookings_data if b['status'] == 'active'])
     monthly_revenue = sum([b['total_amount'] for b in bookings_data if b['status'] in ['confirmed', 'active']])
     active_clients = len(clients_data)
-    
+
+    # AI-powered insights for vendors
+    ai_insights = {
+        'peak_demand_days': ['Thursday', 'Friday', 'Saturday'],
+        'trending_screen_type': 'LED Billboards',
+        'avg_booking_duration': '3.5 days',
+        'top_client_category': 'Corporate Events',
+        'revenue_forecast': monthly_revenue * 1.15,  # 15% predicted growth
+        'optimization_tips': [
+            {'tip': 'Your LED screens have 40% higher demand during weekends', 'impact': 'high'},
+            {'tip': 'Consider adding 2 more screens in high-traffic areas for 25% revenue increase', 'impact': 'medium'},
+            {'tip': 'Corporate clients prefer 3-5 day bookings', 'impact': 'medium'}
+        ]
+    }
+
     # Recent activity (mock data)
     recent_activity = [
         {
@@ -204,47 +223,94 @@ def dashboard():
             'color': 'purple'
         }
     ]
-    
+
+    # Customer event requests (AI recommendations for vendors)
+    customer_event_requests = [
+        {
+            'event_name': 'Tech Summit 2025',
+            'event_type': 'Conference',
+            'customer_name': 'Innovation Corp',
+            'date': 'Nov 15-17, 2025',
+            'budget': '45,000 SAR',
+            'screens_needed': 3,
+            'match_score': 95,
+            'location': 'Riyadh Convention Center',
+            'suggested_screens': ['King Fahd Road LED', 'Mall Indoor Display']
+        },
+        {
+            'event_name': 'Wedding Celebration',
+            'event_type': 'Wedding',
+            'customer_name': 'Abdullah Al-Otaibi',
+            'date': 'Dec 10, 2025',
+            'budget': '15,000 SAR',
+            'screens_needed': 2,
+            'match_score': 88,
+            'location': 'Al Faisaliah Hotel',
+            'suggested_screens': ['LED Screen 55"']
+        },
+        {
+            'event_name': 'Product Launch',
+            'event_type': 'Marketing',
+            'customer_name': 'Saudi Retail Co',
+            'date': 'Oct 20-22, 2025',
+            'budget': '60,000 SAR',
+            'screens_needed': 4,
+            'match_score': 92,
+            'location': 'Multiple Locations',
+            'suggested_screens': ['King Fahd Road LED', 'Olaya Street Display']
+        }
+    ]
+
     stats = {
         'total_screens': total_screens,
         'active_rentals': active_rentals,
         'monthly_revenue': monthly_revenue,
         'active_clients': active_clients
     }
-    
-    return render_template('dashboard.html', 
-                         stats=stats, 
-                         screens=screens_data[:4], 
-                         recent_activity=recent_activity)
 
-@app.route('/inventory')
+    return render_template('dashboard.html',
+                         stats=stats,
+                         screens=screens_data[:4],
+                         recent_activity=recent_activity,
+                         ai_insights=ai_insights,
+                         customer_event_requests=customer_event_requests)
+
+@app.route('/vendor/inventory')
 def screen_inventory():
     return render_template('inventory.html', screens=screens_data)
 
-@app.route('/bookings')
+@app.route('/vendor/bookings')
 def bookings_rentals():
     return render_template('bookings.html', 
                          bookings=bookings_data, 
                          screens=screens_data,
                          clients=clients_data)
 
-@app.route('/clients')
+@app.route('/vendor/clients')
 def clients_crm():
     return render_template('clients.html', clients=clients_data)
 
-@app.route('/analytics')
+@app.route('/vendor/analytics')
 def analytics_reports():
     return render_template('analytics.html')
 
-@app.route('/marketing')
+@app.route('/vendor/marketing')
 def marketing():
     return render_template('marketing.html') 
 
-@app.route('/financial')
+@app.route('/vendor/financial')
 def financial_billing():
     return render_template('financial.html')
 
-@app.route('/operations')
+@app.route('/vendor/map')
+def map_view():
+    return render_template('map.html')
+
+@app.route('/vendor/map-view')
+def map_view_big():
+    return render_template('map_big.html')
+
+@app.route('/vendor/operations')
 def operations():
     return render_template('operations.html')
 
@@ -264,6 +330,10 @@ current_user_data = {
 @app.route('/dashboard/customer')
 def customer_dashboard():
     return render_template('customer/dashboard.html')
+
+@app.route('/dashboard/customer/map')
+def customer_map():
+    return render_template('customer/map_big.html')
 
 @app.route('/dashboard/customer/browse-displays')
 def browse_displays():

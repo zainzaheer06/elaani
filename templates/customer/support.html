@@ -1,0 +1,251 @@
+{% extends "base_customer.html" %}
+
+{% block title %}Support - Elaani Customer{% endblock %}
+
+{% block page_title %}Customer Support{% endblock %}
+{% block page_subtitle %}We're here to help! Contact us for any questions or issues{% endblock %}
+
+{% block content %}
+<!-- Support Options -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all cursor-pointer group">
+        <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500 group-hover:text-white transition-all">
+            <i class="fas fa-envelope text-blue-600 text-xl group-hover:text-white"></i>
+        </div>
+        <h3 class="font-semibold text-gray-900 mb-1">Email Support</h3>
+        <p class="text-sm text-gray-600 mb-4">support@elaani.com</p>
+        <p class="text-xs text-gray-500">Response time: 2-4 hours</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all cursor-pointer group">
+        <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-green-500 group-hover:text-white transition-all">
+            <i class="fas fa-phone text-green-600 text-xl group-hover:text-white"></i>
+        </div>
+        <h3 class="font-semibold text-gray-900 mb-1">Phone Support</h3>
+        <p class="text-sm text-gray-600 mb-4">+966-11-ELAANI-1</p>
+        <p class="text-xs text-gray-500">Available: 9 AM - 6 PM</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 hover:shadow-xl transition-all cursor-pointer group">
+        <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-purple-500 group-hover:text-white transition-all">
+            <i class="fas fa-comments text-purple-600 text-xl group-hover:text-white"></i>
+        </div>
+        <h3 class="font-semibold text-gray-900 mb-1">Live Chat</h3>
+        <p class="text-sm text-gray-600 mb-4">Chat with us online</p>
+        <p class="text-xs text-gray-500">Available now</p>
+    </div>
+</div>
+
+<!-- Main Support Section -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Contact Form -->
+    <div class="lg:col-span-2">
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8 mb-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">Send us a Message</h3>
+            
+            <form class="space-y-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Name</label>
+                        <input type="text" value="{{ current_user.name }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">Email</label>
+                        <input type="email" value="{{ current_user.email }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Subject</label>
+                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <option>Select subject...</option>
+                        <option>Booking Issue</option>
+                        <option>Payment Problem</option>
+                        <option>Technical Support</option>
+                        <option>Account Issue</option>
+                        <option>Feedback</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Priority</label>
+                    <div class="flex space-x-4">
+                        <label class="flex items-center">
+                            <input type="radio" name="priority" value="low" class="rounded-full">
+                            <span class="ml-2 text-sm text-gray-700">Low</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="priority" value="medium" checked class="rounded-full">
+                            <span class="ml-2 text-sm text-gray-700">Medium</span>
+                        </label>
+                        <label class="flex items-center">
+                            <input type="radio" name="priority" value="high" class="rounded-full">
+                            <span class="ml-2 text-sm text-gray-700">High</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Message</label>
+                    <textarea rows="5" placeholder="Please describe your issue or question in detail..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-medium text-gray-900 mb-2">Attachments</label>
+                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-elaani-primary transition-all cursor-pointer">
+                        <i class="fas fa-cloud-upload-alt text-3xl text-gray-400 mb-2"></i>
+                        <p class="text-sm text-gray-700 font-medium">Drop files here or click to browse</p>
+                        <p class="text-xs text-gray-600 mt-1">Supported: Images, PDF, Documents (Max 10MB)</p>
+                        <input type="file" class="hidden">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                    <i class="fas fa-paper-plane mr-2"></i>Send Message
+                </button>
+            </form>
+        </div>
+
+        <!-- Recent Tickets -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+            <h3 class="text-xl font-semibold text-gray-900 mb-6">Your Support Tickets</h3>
+            
+            <div class="space-y-4">
+                <!-- Ticket 1 -->
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-semibold text-gray-900">#ST-1001</h4>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                <i class="fas fa-check-circle mr-1"></i>Resolved
+                            </span>
+                        </div>
+                        <p class="text-sm text-gray-600">Booking payment issue - Successfully resolved</p>
+                        <p class="text-xs text-gray-500 mt-2">Created: Sep 15, 2025 • Resolved: Sep 16, 2025</p>
+                    </div>
+                </div>
+
+                <!-- Ticket 2 -->
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-semibold text-gray-900">#ST-1002</h4>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                <i class="fas fa-hourglass-half mr-1"></i>In Progress
+                            </span>
+                        </div>
+                        <p class="text-sm text-gray-600">Technical support needed for display setup</p>
+                        <p class="text-xs text-gray-500 mt-2">Created: Sep 18, 2025 • Last updated: Sep 19, 2025</p>
+                    </div>
+                </div>
+
+                <!-- Ticket 3 -->
+                <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
+                    <div class="flex-1">
+                        <div class="flex items-center justify-between mb-2">
+                            <h4 class="font-semibold text-gray-900">#ST-1003</h4>
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                <i class="fas fa-exclamation-circle mr-1"></i>Waiting
+                            </span>
+                        </div>
+                        <p class="text-sm text-gray-600">Clarification needed on event requirements</p>
+                        <p class="text-xs text-gray-500 mt-2">Created: Sep 20, 2025 • Awaiting your response</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ & Resources -->
+    <div class="space-y-6">
+        <!-- FAQ -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">FAQ</h3>
+            
+            <div class="space-y-3">
+                <details class="group">
+                    <summary class="flex cursor-pointer items-center font-medium text-gray-900 hover:text-elaani-primary">
+                        <span class="group-open:rotate-180 transition-transform">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                        <span class="ml-3">How do I book a display?</span>
+                    </summary>
+                    <p class="ml-8 mt-2 text-sm text-gray-600">You can browse available displays on the map or use our event planner to find the perfect fit. Click "Book Now" and follow the checkout process.</p>
+                </details>
+
+                <details class="group">
+                    <summary class="flex cursor-pointer items-center font-medium text-gray-900 hover:text-elaani-primary">
+                        <span class="group-open:rotate-180 transition-transform">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                        <span class="ml-3">What payment methods do you accept?</span>
+                    </summary>
+                    <p class="ml-8 mt-2 text-sm text-gray-600">We accept credit cards (Visa, MasterCard), bank transfers, and other local payment methods. All payments are secured with SSL encryption.</p>
+                </details>
+
+                <details class="group">
+                    <summary class="flex cursor-pointer items-center font-medium text-gray-900 hover:text-elaani-primary">
+                        <span class="group-open:rotate-180 transition-transform">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                        <span class="ml-3">Can I modify my booking?</span>
+                    </summary>
+                    <p class="ml-8 mt-2 text-sm text-gray-600">Yes! You can modify or cancel bookings up to 48 hours before the event. Contact support for assistance.</p>
+                </details>
+
+                <details class="group">
+                    <summary class="flex cursor-pointer items-center font-medium text-gray-900 hover:text-elaani-primary">
+                        <span class="group-open:rotate-180 transition-transform">
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                        <span class="ml-3">Do you provide setup and installation?</span>
+                    </summary>
+                    <p class="ml-8 mt-2 text-sm text-gray-600">Yes! Professional setup and installation are available for an additional fee. Select this option during booking.</p>
+                </details>
+            </div>
+        </div>
+
+        <!-- Resources -->
+        <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Helpful Resources</h3>
+            
+            <div class="space-y-3">
+                <a href="#" class="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-elaani-light transition-all group">
+                    <i class="fas fa-book text-elaani-primary text-lg mr-3 mt-0.5 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <p class="font-medium text-gray-900 group-hover:text-elaani-primary text-sm">Getting Started Guide</p>
+                        <p class="text-xs text-gray-600">Learn the basics in 5 minutes</p>
+                    </div>
+                </a>
+
+                <a href="#" class="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-elaani-light transition-all group">
+                    <i class="fas fa-video text-elaani-primary text-lg mr-3 mt-0.5 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <p class="font-medium text-gray-900 group-hover:text-elaani-primary text-sm">Video Tutorials</p>
+                        <p class="text-xs text-gray-600">Watch how-to videos</p>
+                    </div>
+                </a>
+
+                <a href="#" class="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-elaani-light transition-all group">
+                    <i class="fas fa-download text-elaani-primary text-lg mr-3 mt-0.5 group-hover:scale-110 transition-transform"></i>
+                    <div>
+                        <p class="font-medium text-gray-900 group-hover:text-elaani-primary text-sm">Download Spec Sheets</p>
+                        <p class="text-xs text-gray-600">Display specifications & pricing</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <!-- Emergency Support -->
+        <div class="bg-red-50 border border-red-200 rounded-2xl p-6">
+            <h4 class="font-semibold text-red-900 mb-2">🚨 Emergency Support</h4>
+            <p class="text-sm text-red-800 mb-4">For urgent display issues during your event</p>
+            <a href="tel:+966115555000" class="block w-full px-4 py-2 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-all text-center">
+                <i class="fas fa-phone mr-2"></i>Call: +966-11-555-5000
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

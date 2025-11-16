@@ -1,0 +1,278 @@
+{% extends "base_customer.html" %}
+
+{% block title %}My Bookings - Elaani Customer{% endblock %}
+
+{% block page_title %}My Bookings{% endblock %}
+{% block page_subtitle %}Manage all your current and past display bookings{% endblock %}
+
+{% block content %}
+<!-- Action Bar -->
+<div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <a href="{{ url_for('map_view') }}" 
+               class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                <i class="fas fa-plus mr-2"></i>
+                New Booking
+            </a>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+            <!-- Status Filter -->
+            <div class="relative">
+                <select id="statusFilter" 
+                        class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary appearance-none text-gray-700 font-medium cursor-pointer">
+                    <option value="all">All Bookings</option>
+                    <option value="active">Active</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+                    <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
+                </div>
+            </div>
+
+            <!-- Date Range Filter -->
+            <div class="relative">
+                <select id="dateFilter" 
+                        class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary appearance-none text-gray-700 font-medium cursor-pointer">
+                    <option value="all">All Dates</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="thismonth">This Month</option>
+                    <option value="past">Past</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+                    <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bookings List -->
+<div class="space-y-6">
+    <!-- Booking Card 1 - Active -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
+        <div class="flex flex-col lg:flex-row">
+            <!-- Left Side -->
+            <div class="flex-1 p-6 border-r border-gray-100">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                            <i class="fas fa-check-circle mr-2"></i>Active
+                        </span>
+                    </div>
+                    <span class="text-xs text-gray-500 font-medium">Booking ID: #BK001</span>
+                </div>
+                
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">King Fahd Road LED Screen</h3>
+                <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt mr-2 text-elaani-primary"></i>King Fahd Road, Riyadh</p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">Start Date</p>
+                        <p class="text-sm font-semibold text-gray-900">Sep 23, 2025</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">End Date</p>
+                        <p class="text-sm font-semibold text-gray-900">Sep 25, 2025</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">Duration</p>
+                        <p class="text-sm font-semibold text-gray-900">3 Days</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">Event Type</p>
+                        <p class="text-sm font-semibold text-gray-900">Tech Conference</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side -->
+            <div class="p-6 bg-gray-50 flex flex-col justify-between min-w-64">
+                <div>
+                    <p class="text-xs text-gray-600 font-medium mb-2">Total Amount</p>
+                    <p class="text-3xl font-bold text-elaani-primary mb-4">5,000 SAR</p>
+                    
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Daily Rate</span>
+                            <span class="font-semibold text-gray-900">1,667 SAR</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Tax (15%)</span>
+                            <span class="font-semibold text-gray-900">750 SAR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <button class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        <i class="fas fa-eye mr-2"></i>View Details
+                    </button>
+                    <button class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-download mr-2"></i>Download Invoice
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Card 2 - Pending -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden">
+        <div class="flex flex-col lg:flex-row">
+            <div class="flex-1 p-6 border-r border-gray-100">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-yellow-100 text-yellow-800">
+                            <i class="fas fa-clock mr-2"></i>Pending
+                        </span>
+                    </div>
+                    <span class="text-xs text-gray-500 font-medium">Booking ID: #BK002</span>
+                </div>
+                
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Mall Indoor Display (10x5m)</h3>
+                <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt mr-2 text-elaani-primary"></i>Riyadh Gallery Mall</p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">Start Date</p>
+                        <p class="text-sm font-semibold text-gray-900">Sep 27, 2025</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">End Date</p>
+                        <p class="text-sm font-semibold text-gray-900">Sep 28, 2025</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">Duration</p>
+                        <p class="text-sm font-semibold text-gray-900">2 Days</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">Event Type</p>
+                        <p class="text-sm font-semibold text-gray-900">Wedding</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 bg-yellow-50 flex flex-col justify-between min-w-64">
+                <div>
+                    <p class="text-xs text-gray-600 font-medium mb-2">Total Amount</p>
+                    <p class="text-3xl font-bold text-yellow-600 mb-4">4,500 SAR</p>
+                    
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Daily Rate</span>
+                            <span class="font-semibold text-gray-900">2,250 SAR</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Tax (15%)</span>
+                            <span class="font-semibold text-gray-900">675 SAR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <button class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-yellow-600 hover:bg-yellow-700 transition-all">
+                        <i class="fas fa-check mr-2"></i>Confirm Booking
+                    </button>
+                    <button class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-times mr-2"></i>Cancel
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Card 3 - Completed -->
+    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 overflow-hidden opacity-75">
+        <div class="flex flex-col lg:flex-row">
+            <div class="flex-1 p-6 border-r border-gray-100">
+                <div class="flex items-start justify-between mb-4">
+                    <div>
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800">
+                            <i class="fas fa-check mr-2"></i>Completed
+                        </span>
+                    </div>
+                    <span class="text-xs text-gray-500 font-medium">Booking ID: #BK003</span>
+                </div>
+                
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">Downtown Business LED Display</h3>
+                <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt mr-2 text-elaani-primary"></i>Downtown Riyadh</p>
+                
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">Start Date</p>
+                        <p class="text-sm font-semibold text-gray-900">Aug 15, 2025</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">End Date</p>
+                        <p class="text-sm font-semibold text-gray-900">Aug 20, 2025</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">Duration</p>
+                        <p class="text-sm font-semibold text-gray-900">6 Days</p>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-600 font-medium mb-1">Event Type</p>
+                        <p class="text-sm font-semibold text-gray-900">Corporate</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="p-6 bg-blue-50 flex flex-col justify-between min-w-64">
+                <div>
+                    <p class="text-xs text-gray-600 font-medium mb-2">Total Amount</p>
+                    <p class="text-3xl font-bold text-blue-600 mb-4">8,400 SAR</p>
+                    
+                    <div class="space-y-2 mb-6">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Daily Rate</span>
+                            <span class="font-semibold text-gray-900">1,400 SAR</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-600">Tax (15%)</span>
+                            <span class="font-semibold text-gray-900">1,260 SAR</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col space-y-2">
+                    <button class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all">
+                        <i class="fas fa-star mr-2"></i>Leave Review
+                    </button>
+                    <button class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
+                        <i class="fas fa-download mr-2"></i>Invoice
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Empty State (Hidden by default) -->
+<div id="emptyState" class="hidden text-center py-16">
+    <i class="fas fa-inbox text-6xl text-gray-300 mb-4"></i>
+    <h3 class="text-xl font-semibold text-gray-900 mb-2">No bookings found</h3>
+    <p class="text-gray-600 mb-6">Start browsing displays and create your first booking</p>
+    <a href="{{ url_for('map_view') }}" class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary">
+        <i class="fas fa-search mr-2"></i>Browse Displays
+    </a>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.getElementById('statusFilter').addEventListener('change', function() {
+        // Filter logic here
+        console.log('Filter by status:', this.value);
+    });
+
+    document.getElementById('dateFilter').addEventListener('change', function() {
+        // Filter logic here
+        console.log('Filter by date:', this.value);
+    });
+</script>
+{% endblock %}
