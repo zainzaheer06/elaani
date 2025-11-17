@@ -460,3 +460,423 @@ msgstr "Event Planner"
 
 msgid "My Profile"
 msgstr "My Profile"
+
+# Customer Bookings Page
+msgid "My Bookings"
+msgstr "My Bookings"
+
+msgid "Manage all your current and past display bookings"
+msgstr "Manage all your current and past display bookings"
+
+msgid "New Booking"
+msgstr "New Booking"
+
+msgid "All Bookings"
+msgstr "All Bookings"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Confirmed"
+msgstr "Confirmed"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Completed"
+msgstr "Completed"
+
+msgid "Cancelled"
+msgstr "Cancelled"
+
+msgid "All Dates"
+msgstr "All Dates"
+
+msgid "Upcoming"
+msgstr "Upcoming"
+
+msgid "This Month"
+msgstr "This Month"
+
+msgid "Past"
+msgstr "Past"
+
+msgid "Start Date"
+msgstr "Start Date"
+
+msgid "End Date"
+msgstr "End Date"
+
+msgid "Duration"
+msgstr "Duration"
+
+msgid "Event Type"
+msgstr "Event Type"
+
+msgid "Total Amount"
+msgstr "Total Amount"
+
+msgid "Daily Rate"
+msgstr "Daily Rate"
+
+msgid "Tax (15%)"
+msgstr "Tax (15%)"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "Download Invoice"
+msgstr "Download Invoice"
+
+msgid "Confirm Booking"
+msgstr "Confirm Booking"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Leave Review"
+msgstr "Leave Review"
+
+msgid "Invoice"
+msgstr "Invoice"
+
+msgid "No bookings found"
+msgstr "No bookings found"
+
+msgid "Start browsing displays and create your first booking"
+msgstr "Start browsing displays and create your first booking"
+
+msgid "Browse Displays"
+msgstr "Browse Displays"
+
+# Customer Quotes Page
+msgid "Quotes & Requests"
+msgstr "Quotes & Requests"
+
+msgid "Request custom quotes for your display needs"
+msgstr "Request custom quotes for your display needs"
+
+msgid "Request New Quote"
+msgstr "Request New Quote"
+
+msgid "Quote ID"
+msgstr "Quote ID"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Requested"
+msgstr "Requested"
+
+msgid "Quote Sent"
+msgstr "Quote Sent"
+
+msgid "Accepted"
+msgstr "Accepted"
+
+msgid "Rejected"
+msgstr "Rejected"
+
+msgid "Expires"
+msgstr "Expires"
+
+msgid "View Quote"
+msgstr "View Quote"
+
+msgid "Accept Quote"
+msgstr "Accept Quote"
+
+msgid "Reject Quote"
+msgstr "Reject Quote"
+
+msgid "No quotes found"
+msgstr "No quotes found"
+
+msgid "Request a quote to get started"
+msgstr "Request a quote to get started"
+
+# Customer Profile Page
+msgid "My Profile"
+msgstr "My Profile"
+
+msgid "Manage your account information and preferences"
+msgstr "Manage your account information and preferences"
+
+msgid "Personal Information"
+msgstr "Personal Information"
+
+msgid "Full Name"
+msgstr "Full Name"
+
+msgid "Email Address"
+msgstr "Email Address"
+
+msgid "Phone Number"
+msgstr "Phone Number"
+
+msgid "Company Name"
+msgstr "Company Name"
+
+msgid "Edit Profile"
+msgstr "Edit Profile"
+
+msgid "Save Changes"
+msgstr "Save Changes"
+
+msgid "Account Statistics"
+msgstr "Account Statistics"
+
+msgid "Total Spent"
+msgstr "Total Spent"
+
+msgid "Completed Events"
+msgstr "Completed Events"
+
+msgid "Loyalty Tier"
+msgstr "Loyalty Tier"
+
+msgid "Member Since"
+msgstr "Member Since"
+
+# Customer Payments Page
+msgid "Payments"
+msgstr "Payments"
+
+msgid "View and manage your payment methods and history"
+msgstr "View and manage your payment methods and history"
+
+msgid "Payment Methods"
+msgstr "Payment Methods"
+
+msgid "Add Payment Method"
+msgstr "Add Payment Method"
+
+msgid "Card Number"
+msgstr "Card Number"
+
+msgid "Expiry Date"
+msgstr "Expiry Date"
+
+msgid "CVV"
+msgstr "CVV"
+
+msgid "Payment History"
+msgstr "Payment History"
+
+msgid "Amount"
+msgstr "Amount"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Method"
+msgstr "Method"
+
+msgid "Download Receipt"
+msgstr "Download Receipt"
+
+# Customer Favorites Page
+msgid "Saved Displays"
+msgstr "Saved Displays"
+
+msgid "Your favorite displays for quick access"
+msgstr "Your favorite displays for quick access"
+
+msgid "Remove from Favorites"
+msgstr "Remove from Favorites"
+
+msgid "Book Now"
+msgstr "Book Now"
+
+msgid "No saved displays"
+msgstr "No saved displays"
+
+msgid "Start saving your favorite displays"
+msgstr "Start saving your favorite displays"
+
+# Customer Browser Displays Page
+msgid "Browse Displays"
+msgstr "Browse Displays"
+
+msgid "Find and book the perfect display for your event"
+msgstr "Find and book the perfect display for your event"
+
+msgid "Filter Results"
+msgstr "Filter Results"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Display Type"
+msgstr "Display Type"
+
+msgid "Price Range"
+msgstr "Price Range"
+
+msgid "Size"
+msgstr "Size"
+
+msgid "Availability"
+msgstr "Availability"
+
+msgid "Sort By"
+msgstr "Sort By"
+
+msgid "Price: Low to High"
+msgstr "Price: Low to High"
+
+msgid "Price: High to Low"
+msgstr "Price: High to Low"
+
+msgid "Newest"
+msgstr "Newest"
+
+msgid "Most Popular"
+msgstr "Most Popular"
+
+msgid "Add to Favorites"
+msgstr "Add to Favorites"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "No displays found"
+msgstr "No displays found"
+
+msgid "Try adjusting your filters"
+msgstr "Try adjusting your filters"
+
+# Customer Event Planner Page
+msgid "Event Planner"
+msgstr "Event Planner"
+
+msgid "Plan your event and find the perfect displays"
+msgstr "Plan your event and find the perfect displays"
+
+msgid "Create New Event"
+msgstr "Create New Event"
+
+msgid "Event Name"
+msgstr "Event Name"
+
+msgid "Event Date"
+msgstr "Event Date"
+
+msgid "Event Location"
+msgstr "Event Location"
+
+msgid "Expected Attendees"
+msgstr "Expected Attendees"
+
+msgid "Budget"
+msgstr "Budget"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Save Event"
+msgstr "Save Event"
+
+msgid "My Events"
+msgstr "My Events"
+
+msgid "Edit Event"
+msgstr "Edit Event"
+
+msgid "Delete Event"
+msgstr "Delete Event"
+
+msgid "No events created"
+msgstr "No events created"
+
+msgid "Create your first event to get started"
+msgstr "Create your first event to get started"
+
+# Customer Support Page
+msgid "Support"
+msgstr "Support"
+
+msgid "Get help and support for your bookings"
+msgstr "Get help and support for your bookings"
+
+msgid "Contact Support"
+msgstr "Contact Support"
+
+msgid "Subject"
+msgstr "Subject"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Send Message"
+msgstr "Send Message"
+
+msgid "FAQ"
+msgstr "FAQ"
+
+msgid "Live Chat"
+msgstr "Live Chat"
+
+msgid "Email Support"
+msgstr "Email Support"
+
+msgid "Phone Support"
+msgstr "Phone Support"
+
+msgid "Help Center"
+msgstr "Help Center"
+
+msgid "Browse our help articles"
+msgstr "Browse our help articles"
+
+# Customer Map Page
+msgid "Map View"
+msgstr "Map View"
+
+msgid "Explore displays on the map"
+msgstr "Explore displays on the map"
+
+msgid "Zoom In"
+msgstr "Zoom In"
+
+msgid "Zoom Out"
+msgstr "Zoom Out"
+
+msgid "Reset Map"
+msgstr "Reset Map"
+
+msgid "List View"
+msgstr "List View"
+
+msgid "Map View"
+msgstr "Map View"
+
+msgid "Days"
+msgstr "Days"
+
+msgid "Wedding"
+msgstr "Wedding"
+
+msgid "Corporate"
+msgstr "Corporate"
+
+msgid "King Fahd Road LED Screen"
+msgstr "King Fahd Road LED Screen"
+
+msgid "King Fahd Road, Riyadh"
+msgstr "King Fahd Road, Riyadh"
+
+msgid "Tech Conference"
+msgstr "Tech Conference"
+
+msgid "Mall Indoor Display (10x5m)"
+msgstr "Mall Indoor Display (10x5m)"
+
+msgid "Riyadh Gallery Mall"
+msgstr "Riyadh Gallery Mall"
+
+msgid "Downtown Business LED Display"
+msgstr "Downtown Business LED Display"
+
+msgid "Downtown Riyadh"
+msgstr "Downtown Riyadh"

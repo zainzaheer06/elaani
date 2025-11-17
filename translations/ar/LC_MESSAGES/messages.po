@@ -460,3 +460,423 @@ msgstr "مخطط الأحداث"
 
 msgid "My Profile"
 msgstr "ملفي الشخصي"
+
+# Customer Bookings Page
+msgid "My Bookings"
+msgstr "حجوزاتي"
+
+msgid "Manage all your current and past display bookings"
+msgstr "إدارة جميع حجوزات الشاشات الحالية والسابقة"
+
+msgid "New Booking"
+msgstr "حجز جديد"
+
+msgid "All Bookings"
+msgstr "جميع الحجوزات"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Confirmed"
+msgstr "مؤكد"
+
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+msgid "Completed"
+msgstr "مكتمل"
+
+msgid "Cancelled"
+msgstr "ملغى"
+
+msgid "All Dates"
+msgstr "جميع التواريخ"
+
+msgid "Upcoming"
+msgstr "القادمة"
+
+msgid "This Month"
+msgstr "هذا الشهر"
+
+msgid "Past"
+msgstr "الماضي"
+
+msgid "Start Date"
+msgstr "تاريخ البداية"
+
+msgid "End Date"
+msgstr "تاريخ النهاية"
+
+msgid "Duration"
+msgstr "المدة"
+
+msgid "Event Type"
+msgstr "نوع الحدث"
+
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+msgid "Daily Rate"
+msgstr "السعر اليومي"
+
+msgid "Tax (15%)"
+msgstr "الضريبة (15%)"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "Download Invoice"
+msgstr "تحميل الفاتورة"
+
+msgid "Confirm Booking"
+msgstr "تأكيد الحجز"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Leave Review"
+msgstr "ترك تقييم"
+
+msgid "Invoice"
+msgstr "الفاتورة"
+
+msgid "No bookings found"
+msgstr "لم يتم العثور على حجوزات"
+
+msgid "Start browsing displays and create your first booking"
+msgstr "ابدأ بتصفح الشاشات وأنشئ حجزك الأول"
+
+msgid "Browse Displays"
+msgstr "استعرض الشاشات"
+
+# Customer Quotes Page
+msgid "Quotes & Requests"
+msgstr "العروض والطلبات"
+
+msgid "Request custom quotes for your display needs"
+msgstr "اطلب عروض أسعار مخصصة لاحتياجات الشاشات الخاصة بك"
+
+msgid "Request New Quote"
+msgstr "طلب عرض أسعار جديد"
+
+msgid "Quote ID"
+msgstr "معرف العرض"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Requested"
+msgstr "مطلوب"
+
+msgid "Quote Sent"
+msgstr "تم إرسال العرض"
+
+msgid "Accepted"
+msgstr "مقبول"
+
+msgid "Rejected"
+msgstr "مرفوض"
+
+msgid "Expires"
+msgstr "ينتهي"
+
+msgid "View Quote"
+msgstr "عرض العرض"
+
+msgid "Accept Quote"
+msgstr "قبول العرض"
+
+msgid "Reject Quote"
+msgstr "رفض العرض"
+
+msgid "No quotes found"
+msgstr "لم يتم العثور على عروض"
+
+msgid "Request a quote to get started"
+msgstr "اطلب عرض أسعار للبدء"
+
+# Customer Profile Page
+msgid "My Profile"
+msgstr "ملفي الشخصي"
+
+msgid "Manage your account information and preferences"
+msgstr "إدارة معلومات حسابك والتفضيلات"
+
+msgid "Personal Information"
+msgstr "المعلومات الشخصية"
+
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+msgid "Company Name"
+msgstr "اسم الشركة"
+
+msgid "Edit Profile"
+msgstr "تعديل الملف الشخصي"
+
+msgid "Save Changes"
+msgstr "حفظ التغييرات"
+
+msgid "Account Statistics"
+msgstr "إحصائيات الحساب"
+
+msgid "Total Spent"
+msgstr "إجمالي الإنفاق"
+
+msgid "Completed Events"
+msgstr "الأحداث المكتملة"
+
+msgid "Loyalty Tier"
+msgstr "مستوى الولاء"
+
+msgid "Member Since"
+msgstr "عضو منذ"
+
+# Customer Payments Page
+msgid "Payments"
+msgstr "المدفوعات"
+
+msgid "View and manage your payment methods and history"
+msgstr "عرض وإدارة طرق الدفع والسجل"
+
+msgid "Payment Methods"
+msgstr "طرق الدفع"
+
+msgid "Add Payment Method"
+msgstr "إضافة طريقة دفع"
+
+msgid "Card Number"
+msgstr "رقم البطاقة"
+
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "CVV"
+msgstr "CVV"
+
+msgid "Payment History"
+msgstr "سجل الدفع"
+
+msgid "Amount"
+msgstr "المبلغ"
+
+msgid "Date"
+msgstr "التاريخ"
+
+msgid "Method"
+msgstr "الطريقة"
+
+msgid "Download Receipt"
+msgstr "تحميل الإيصال"
+
+# Customer Favorites Page
+msgid "Saved Displays"
+msgstr "الشاشات المحفوظة"
+
+msgid "Your favorite displays for quick access"
+msgstr "شاشاتك المفضلة للوصول السريع"
+
+msgid "Remove from Favorites"
+msgstr "إزالة من المفضلة"
+
+msgid "Book Now"
+msgstr "احجز الآن"
+
+msgid "No saved displays"
+msgstr "لا توجد شاشات محفوظة"
+
+msgid "Start saving your favorite displays"
+msgstr "ابدأ بحفظ شاشاتك المفضلة"
+
+# Customer Browser Displays Page
+msgid "Browse Displays"
+msgstr "استعرض الشاشات"
+
+msgid "Find and book the perfect display for your event"
+msgstr "ابحث واحجز الشاشة المثالية لحدثك"
+
+msgid "Filter Results"
+msgstr "تصفية النتائج"
+
+msgid "Location"
+msgstr "الموقع"
+
+msgid "Display Type"
+msgstr "نوع الشاشة"
+
+msgid "Price Range"
+msgstr "نطاق السعر"
+
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Availability"
+msgstr "التوفر"
+
+msgid "Sort By"
+msgstr "ترتيب حسب"
+
+msgid "Price: Low to High"
+msgstr "السعر: من الأقل إلى الأعلى"
+
+msgid "Price: High to Low"
+msgstr "السعر: من الأعلى إلى الأقل"
+
+msgid "Newest"
+msgstr "الأحدث"
+
+msgid "Most Popular"
+msgstr "الأكثر شهرة"
+
+msgid "Add to Favorites"
+msgstr "إضافة إلى المفضلة"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "No displays found"
+msgstr "لم يتم العثور على شاشات"
+
+msgid "Try adjusting your filters"
+msgstr "حاول تعديل المرشحات الخاصة بك"
+
+# Customer Event Planner Page
+msgid "Event Planner"
+msgstr "مخطط الأحداث"
+
+msgid "Plan your event and find the perfect displays"
+msgstr "خطط لحدثك والعثور على الشاشات المثالية"
+
+msgid "Create New Event"
+msgstr "إنشاء حدث جديد"
+
+msgid "Event Name"
+msgstr "اسم الحدث"
+
+msgid "Event Date"
+msgstr "تاريخ الحدث"
+
+msgid "Event Location"
+msgstr "موقع الحدث"
+
+msgid "Expected Attendees"
+msgstr "الحضور المتوقع"
+
+msgid "Budget"
+msgstr "الميزانية"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Save Event"
+msgstr "حفظ الحدث"
+
+msgid "My Events"
+msgstr "أحداثي"
+
+msgid "Edit Event"
+msgstr "تعديل الحدث"
+
+msgid "Delete Event"
+msgstr "حذف الحدث"
+
+msgid "No events created"
+msgstr "لم يتم إنشاء أي أحداث"
+
+msgid "Create your first event to get started"
+msgstr "أنشئ حدثك الأول للبدء"
+
+# Customer Support Page
+msgid "Support"
+msgstr "الدعم"
+
+msgid "Get help and support for your bookings"
+msgstr "احصل على المساعدة والدعم لحجوزاتك"
+
+msgid "Contact Support"
+msgstr "الاتصال بالدعم"
+
+msgid "Subject"
+msgstr "الموضوع"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "Send Message"
+msgstr "إرسال الرسالة"
+
+msgid "FAQ"
+msgstr "الأسئلة الشائعة"
+
+msgid "Live Chat"
+msgstr "الدردشة المباشرة"
+
+msgid "Email Support"
+msgstr "دعم البريد الإلكتروني"
+
+msgid "Phone Support"
+msgstr "دعم الهاتف"
+
+msgid "Help Center"
+msgstr "مركز المساعدة"
+
+msgid "Browse our help articles"
+msgstr "استعرض مقالات المساعدة الخاصة بنا"
+
+# Customer Map Page
+msgid "Map View"
+msgstr "عرض الخريطة"
+
+msgid "Explore displays on the map"
+msgstr "استكشف الشاشات على الخريطة"
+
+msgid "Zoom In"
+msgstr "تكبير"
+
+msgid "Zoom Out"
+msgstr "تصغير"
+
+msgid "Reset Map"
+msgstr "إعادة تعيين الخريطة"
+
+msgid "List View"
+msgstr "عرض القائمة"
+
+msgid "Map View"
+msgstr "عرض الخريطة"
+
+msgid "Days"
+msgstr "أيام"
+
+msgid "Wedding"
+msgstr "زفاف"
+
+msgid "Corporate"
+msgstr "شركة"
+
+msgid "King Fahd Road LED Screen"
+msgstr "شاشة LED طريق الملك فهد"
+
+msgid "King Fahd Road, Riyadh"
+msgstr "طريق الملك فهد، الرياض"
+
+msgid "Tech Conference"
+msgstr "مؤتمر التكنولوجيا"
+
+msgid "Mall Indoor Display (10x5m)"
+msgstr "شاشة المول الداخلية (10x5م)"
+
+msgid "Riyadh Gallery Mall"
+msgstr "مول الرياض جاليري"
+
+msgid "Downtown Business LED Display"
+msgstr "شاشة LED أعمال وسط المدينة"
+
+msgid "Downtown Riyadh"
+msgstr "وسط الرياض"
