@@ -1,9 +1,9 @@
 {% extends "base_customer.html" %}
 
-{% block title %}Event Planner - Elaani Customer{% endblock %}
+{% block title %}{{ _('Event Planner') }} - Elaani Customer{% endblock %}
 
-{% block page_title %}AI Event Planner{% endblock %}
-{% block page_subtitle %}Let AI design your perfect billboard campaign strategy{% endblock %}
+{% block page_title %}{{ _('Event Planner') }}{% endblock %}
+{% block page_subtitle %}{{ _('Plan your event and find the perfect displays') }}{% endblock %}
 
 {% block content %}
 <!-- AI Header Banner -->
@@ -17,8 +17,8 @@
                 <i class="fas fa-robot text-4xl"></i>
             </div>
             <div>
-                <h1 class="text-3xl font-bold mb-1">AI-Powered Event Planner</h1>
-                <p class="text-purple-100">Advanced intelligence for billboard campaign success</p>
+                <h1 class="text-3xl font-bold mb-1">{{ _('AI-Powered Event Planner') }}</h1>
+                <p class="text-purple-100">{{ _('Advanced intelligence for billboard campaign success') }}</p>
             </div>
         </div>
 
@@ -26,30 +26,30 @@
             <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div class="flex items-center mb-2">
                     <i class="fas fa-magic text-yellow-300 text-xl mr-2"></i>
-                    <span class="font-semibold">Smart Analysis</span>
+                    <span class="font-semibold">{{ _('Smart Analysis') }}</span>
                 </div>
-                <p class="text-sm text-purple-100">AI analyzes your requirements</p>
+                <p class="text-sm text-purple-100">{{ _('AI analyzes your requirements') }}</p>
             </div>
             <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div class="flex items-center mb-2">
                     <i class="fas fa-chart-network text-green-300 text-xl mr-2"></i>
-                    <span class="font-semibold">Location Matching</span>
+                    <span class="font-semibold">{{ _('Location Matching') }}</span>
                 </div>
-                <p class="text-sm text-purple-100">Perfect billboard placement</p>
+                <p class="text-sm text-purple-100">{{ _('Perfect billboard placement') }}</p>
             </div>
             <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div class="flex items-center mb-2">
                     <i class="fas fa-brain text-blue-300 text-xl mr-2"></i>
-                    <span class="font-semibold">ROI Optimization</span>
+                    <span class="font-semibold">{{ _('ROI Optimization') }}</span>
                 </div>
-                <p class="text-sm text-purple-100">Maximize your investment</p>
+                <p class="text-sm text-purple-100">{{ _('Maximize your investment') }}</p>
             </div>
             <div class="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
                 <div class="flex items-center mb-2">
                     <i class="fas fa-clock text-orange-300 text-xl mr-2"></i>
-                    <span class="font-semibold">Real-time Results</span>
+                    <span class="font-semibold">{{ _('Real-time Results') }}</span>
                 </div>
-                <p class="text-sm text-purple-100">Instant recommendations</p>
+                <p class="text-sm text-purple-100">{{ _('Instant recommendations') }}</p>
             </div>
         </div>
     </div>
@@ -61,12 +61,12 @@
         <div class="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-full mb-4 animate-pulse">
             <i class="fas fa-brain text-white text-3xl"></i>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">AI is analyzing your event...</h3>
-        <p class="text-gray-600 mb-4">Processing location data, traffic patterns, and billboard availability</p>
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ _('AI is analyzing your event...') }}</h3>
+        <p class="text-gray-600 mb-4">{{ _('Processing location data, traffic patterns, and billboard availability') }}</p>
         <div class="w-full max-w-md mx-auto bg-gray-200 rounded-full h-2">
             <div id="progress-bar" class="bg-gradient-to-r from-purple-600 to-indigo-600 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
         </div>
-        <p id="processing-step" class="text-sm text-gray-500 mt-3">Initializing AI engine...</p>
+        <p id="processing-step" class="text-sm text-gray-500 mt-3">{{ _('Initializing AI engine...') }}</p>
     </div>
 </div>
 
@@ -78,66 +78,66 @@
             <form class="space-y-6">
                 <!-- Event Basic Info -->
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-4 border-b border-gray-200">Event Details</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-4 border-b border-gray-200">{{ _('Event Details') }}</h3>
                     
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">
-                                <i class="fas fa-bullhorn text-purple-600 mr-2"></i>Campaign Name *
+                                <i class="fas fa-bullhorn text-purple-600 mr-2"></i>{{ _('Campaign Name') }} *
                             </label>
-                            <input type="text" id="campaign-name" placeholder="e.g., Summer Sale 2025, Brand Launch Campaign" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                            <input type="text" id="campaign-name" placeholder="{{ _('e.g., Summer Sale 2025, Brand Launch Campaign') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                         </div>
 
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">
-                                <i class="fas fa-tag text-purple-600 mr-2"></i>Campaign Type *
+                                <i class="fas fa-tag text-purple-600 mr-2"></i>{{ _('Campaign Type') }} *
                             </label>
                             <select id="campaign-type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                                <option>Select campaign type...</option>
-                                <option>Brand Awareness</option>
-                                <option>Product Launch</option>
-                                <option>Retail Promotion</option>
-                                <option>Event Marketing</option>
-                                <option>Seasonal Campaign</option>
-                                <option>Corporate Branding</option>
-                                <option>Political Campaign</option>
-                                <option>Other</option>
+                                <option>{{ _('Select campaign type...') }}</option>
+                                <option>{{ _('Brand Awareness') }}</option>
+                                <option>{{ _('Product Launch') }}</option>
+                                <option>{{ _('Retail Promotion') }}</option>
+                                <option>{{ _('Event Marketing') }}</option>
+                                <option>{{ _('Seasonal Campaign') }}</option>
+                                <option>{{ _('Corporate Branding') }}</option>
+                                <option>{{ _('Political Campaign') }}</option>
+                                <option>{{ _('Other') }}</option>
                             </select>
                         </div>
 
                         <div class="grid grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-sm font-medium text-gray-900 mb-2">
-                                    <i class="fas fa-calendar text-purple-600 mr-2"></i>Start Date *
+                                    <i class="fas fa-calendar text-purple-600 mr-2"></i>{{ _('Start Date') }} *
                                 </label>
                                 <input type="date" id="start-date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-gray-900 mb-2">
-                                    <i class="fas fa-clock text-purple-600 mr-2"></i>Duration (Days)
+                                    <i class="fas fa-clock text-purple-600 mr-2"></i>{{ _('Duration') }}
                                 </label>
-                                <input type="number" id="duration" min="1" placeholder="Number of days" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                <input type="number" id="duration" min="1" placeholder="{{ _('Number of days') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">
-                                <i class="fas fa-map-marker-alt text-purple-600 mr-2"></i>Target Location(s) *
+                                <i class="fas fa-map-marker-alt text-purple-600 mr-2"></i>{{ _('Target Location') }} *
                             </label>
-                            <input type="text" id="location" placeholder="e.g., Riyadh Downtown, King Fahd Road" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                            <p class="text-xs text-gray-500 mt-1">AI will suggest billboards in high-traffic areas</p>
+                            <input type="text" id="location" placeholder="{{ _('e.g., Riyadh Downtown, King Fahd Road') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                            <p class="text-xs text-gray-500 mt-1">{{ _('AI will suggest billboards in high-traffic areas') }}</p>
                         </div>
 
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">
-                                <i class="fas fa-users text-purple-600 mr-2"></i>Target Audience Reach
+                                <i class="fas fa-users text-purple-600 mr-2"></i>{{ _('Target Audience Reach') }}
                             </label>
                             <select id="audience-reach" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                                <option>Select target reach...</option>
-                                <option>10K - 50K daily views</option>
-                                <option>50K - 100K daily views</option>
-                                <option>100K - 500K daily views</option>
-                                <option>500K+ daily views</option>
+                                <option>{{ _('Select target reach...') }}</option>
+                                <option>{{ _('10K - 50K daily views') }}</option>
+                                <option>{{ _('50K - 100K daily views') }}</option>
+                                <option>{{ _('100K - 500K daily views') }}</option>
+                                <option>{{ _('500K+ daily views') }}</option>
                             </select>
                         </div>
                     </div>
@@ -146,100 +146,100 @@
                 <!-- Billboard Requirements -->
                 <div>
                     <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-4 border-b border-gray-200">
-                        <i class="fas fa-rectangle-ad text-purple-600 mr-2"></i>Billboard Requirements
+                        <i class="fas fa-rectangle-ad text-purple-600 mr-2"></i>{{ _('Billboard Requirements') }}
                     </h3>
 
                     <div class="space-y-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Billboard Type</label>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Billboard Type') }}</label>
                             <div class="grid grid-cols-2 gap-3">
                                 <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg hover:border-purple-600 cursor-pointer transition-all">
                                     <input type="checkbox" class="rounded border-gray-300" name="billboard-type" value="digital">
                                     <span class="ml-3 text-sm text-gray-700">
-                                        <i class="fas fa-tv text-purple-600 mr-2"></i>Digital LED Billboard
+                                        <i class="fas fa-tv text-purple-600 mr-2"></i>{{ _('Digital LED Billboard') }}
                                     </span>
                                 </label>
                                 <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg hover:border-purple-600 cursor-pointer transition-all">
                                     <input type="checkbox" class="rounded border-gray-300" name="billboard-type" value="static">
                                     <span class="ml-3 text-sm text-gray-700">
-                                        <i class="fas fa-image text-purple-600 mr-2"></i>Static Billboard
+                                        <i class="fas fa-image text-purple-600 mr-2"></i>{{ _('Static Billboard') }}
                                     </span>
                                 </label>
                                 <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg hover:border-purple-600 cursor-pointer transition-all">
                                     <input type="checkbox" class="rounded border-gray-300" name="billboard-type" value="mobile">
                                     <span class="ml-3 text-sm text-gray-700">
-                                        <i class="fas fa-truck text-purple-600 mr-2"></i>Mobile LED Truck
+                                        <i class="fas fa-truck text-purple-600 mr-2"></i>{{ _('Mobile LED Truck') }}
                                     </span>
                                 </label>
                                 <label class="flex items-center p-3 border-2 border-gray-300 rounded-lg hover:border-purple-600 cursor-pointer transition-all">
                                     <input type="checkbox" class="rounded border-gray-300" name="billboard-type" value="premium">
                                     <span class="ml-3 text-sm text-gray-700">
-                                        <i class="fas fa-star text-purple-600 mr-2"></i>Premium Locations
+                                        <i class="fas fa-star text-purple-600 mr-2"></i>{{ _('Premium Locations') }}
                                     </span>
                                 </label>
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Billboard Size Preference</label>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Billboard Size Preference') }}</label>
                             <select id="billboard-size" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                                <option>AI will recommend best size</option>
-                                <option>Small (2m x 3m) - Local targeting</option>
-                                <option>Medium (3m x 6m) - Standard visibility</option>
-                                <option>Large (6m x 12m) - High visibility</option>
-                                <option>Extra Large (10m x 20m+) - Maximum impact</option>
+                                <option>{{ _('AI will recommend best size') }}</option>
+                                <option>{{ _('Small - Local targeting') }}</option>
+                                <option>{{ _('Medium - Standard visibility') }}</option>
+                                <option>{{ _('Large - High visibility') }}</option>
+                                <option>{{ _('Extra Large - Maximum impact') }}</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Traffic Priority</label>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Traffic Priority') }}</label>
                             <select id="traffic-priority" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                                <option>High Traffic (Premium locations)</option>
-                                <option>Medium Traffic (Good visibility)</option>
-                                <option>Cost-Effective (Budget friendly)</option>
+                                <option>{{ _('High Traffic') }}</option>
+                                <option>{{ _('Medium Traffic') }}</option>
+                                <option>{{ _('Cost-Effective') }}</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Number of Billboards Needed</label>
-                            <input type="number" id="billboard-count" min="1" value="1" placeholder="How many billboards?" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                            <p class="text-xs text-gray-500 mt-1">AI will optimize billboard quantity for your budget and reach goals</p>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Number of Billboards Needed') }}</label>
+                            <input type="number" id="billboard-count" min="1" value="1" placeholder="{{ _('How many billboards?') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                            <p class="text-xs text-gray-500 mt-1">{{ _('AI will optimize billboard quantity for your budget and reach goals') }}</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- Budget & Additional Info -->
                 <div>
-                    <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-4 border-b border-gray-200">Budget & Preferences</h3>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4 pb-4 border-b border-gray-200">{{ _('Budget') }} & {{ _('Preferences') }}</h3>
                     
                     <div class="space-y-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Total Budget (SAR)</label>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Total Budget') }}</label>
                             <div class="flex">
                                 <select class="px-4 py-2 border border-r-0 border-gray-300 rounded-l-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                                     <option>SAR</option>
                                 </select>
-                                <input type="number" placeholder="0" class="flex-1 px-4 py-2 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                <input type="number" placeholder="{{ _('0') }}" class="flex-1 px-4 py-2 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                             </div>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Special Requirements</label>
-                            <textarea rows="3" placeholder="Any special setup, installation, or technical requirements..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Special Requirements') }}</label>
+                            <textarea rows="3" placeholder="{{ _('Any special setup, installation, or technical requirements...') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
                         </div>
 
                         <div>
                             <label class="flex items-center">
                                 <input type="checkbox" class="rounded border-gray-300">
-                                <span class="ml-3 text-sm text-gray-700">I need technical support and installation</span>
+                                <span class="ml-3 text-sm text-gray-700">{{ _('I need technical support and installation') }}</span>
                             </label>
                             <label class="flex items-center mt-2">
                                 <input type="checkbox" class="rounded border-gray-300">
-                                <span class="ml-3 text-sm text-gray-700">I need content creation services</span>
+                                <span class="ml-3 text-sm text-gray-700">{{ _('I need content creation services') }}</span>
                             </label>
                             <label class="flex items-center mt-2">
                                 <input type="checkbox" class="rounded border-gray-300">
-                                <span class="ml-3 text-sm text-gray-700">Subscribe to event notifications</span>
+                                <span class="ml-3 text-sm text-gray-700">{{ _('Subscribe to event notifications') }}</span>
                             </label>
                         </div>
                     </div>
@@ -247,10 +247,10 @@
 
                 <div class="flex gap-4 pt-4">
                     <button type="button" onclick="startAIAnalysis()" class="flex-1 px-6 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium rounded-lg hover:from-purple-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl">
-                        <i class="fas fa-magic mr-2"></i>Let AI Find Perfect Billboards
+                        <i class="fas fa-magic mr-2"></i>{{ _('Let AI Find Perfect Billboards') }}
                     </button>
                     <button type="reset" onclick="resetAIForm()" class="flex-1 px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
-                        <i class="fas fa-redo mr-2"></i>Reset
+                        <i class="fas fa-redo mr-2"></i>{{ _('Reset') }}
                     </button>
                 </div>
             </form>
@@ -261,51 +261,51 @@
     <div class="space-y-6">
         <!-- Quick Tips -->
         <div class="bg-elaani-light rounded-2xl border border-elaani-primary p-6">
-            <h4 class="font-semibold text-elaani-primary mb-4">💡 Planning Tips</h4>
+            <h4 class="font-semibold text-elaani-primary mb-4">💡 {{ _('Planning Tips') }}</h4>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li class="flex items-start">
                     <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
-                    <span>Plan at least 2-3 weeks in advance for best availability</span>
+                    <span>{{ _('Plan at least 2-3 weeks in advance for best availability') }}</span>
                 </li>
                 <li class="flex items-start">
                     <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
-                    <span>Consider your venue size and audience viewing distance</span>
+                    <span>{{ _('Consider your venue size and audience viewing distance') }}</span>
                 </li>
                 <li class="flex items-start">
                     <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
-                    <span>Higher resolution for close viewing, P6 for larger distances</span>
+                    <span>{{ _('Higher resolution for close viewing, P6 for larger distances') }}</span>
                 </li>
                 <li class="flex items-start">
                     <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
-                    <span>Include setup/installation time in your planning</span>
+                    <span>{{ _('Include setup/installation time in your planning') }}</span>
                 </li>
             </ul>
         </div>
 
         <!-- Popular Events -->
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-            <h4 class="font-semibold text-gray-900 mb-4">Popular Events</h4>
+            <h4 class="font-semibold text-gray-900 mb-4">{{ _('Popular Events') }}</h4>
             <div class="space-y-3">
                 <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all group">
                     <div class="flex items-center justify-between">
-                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🎉 Wedding Reception</span>
+                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🎉 {{ _('Wedding Reception') }}</span>
                         <i class="fas fa-arrow-right text-gray-400 group-hover:text-elaani-primary"></i>
                     </div>
-                    <p class="text-xs text-gray-600 mt-1">Typical: 1-2 screens, 4-8 hours</p>
+                    <p class="text-xs text-gray-600 mt-1">{{ _('Typical: 1-2 screens, 4-8 hours') }}</p>
                 </button>
                 <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all group">
                     <div class="flex items-center justify-between">
-                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🚀 Product Launch</span>
+                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🚀 {{ _('Product Launch') }}</span>
                         <i class="fas fa-arrow-right text-gray-400 group-hover:text-elaani-primary"></i>
                     </div>
-                    <p class="text-xs text-gray-600 mt-1">Typical: 2-4 screens, 1-2 days</p>
+                    <p class="text-xs text-gray-600 mt-1">{{ _('Typical: 2-4 screens, 1-2 days') }}</p>
                 </button>
                 <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all group">
                     <div class="flex items-center justify-between">
-                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🎓 Corporate Conference</span>
+                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🎓 {{ _('Corporate Conference') }}</span>
                         <i class="fas fa-arrow-right text-gray-400 group-hover:text-elaani-primary"></i>
                     </div>
-                    <p class="text-xs text-gray-600 mt-1">Typical: 3-6 screens, 2-3 days</p>
+                    <p class="text-xs text-gray-600 mt-1">{{ _('Typical: 3-6 screens, 2-3 days') }}</p>
                 </button>
             </div>
         </div>
@@ -313,8 +313,8 @@
         <!-- CTA -->
         <a href="{{ url_for('customer_support') }}" class="block bg-gradient-to-br from-elaani-primary to-elaani-secondary rounded-2xl shadow-lg p-6 text-white text-center hover:shadow-xl transition-all">
             <i class="fas fa-headset text-3xl mb-2"></i>
-            <h4 class="font-semibold mb-1">Need Expert Help?</h4>
-            <p class="text-sm text-white/80">Talk to our specialists</p>
+            <h4 class="font-semibold mb-1">{{ _('Need Expert Help?') }}</h4>
+            <p class="text-sm text-white/80">{{ _('Talk to our specialists') }}</p>
         </a>
     </div>
 </div>

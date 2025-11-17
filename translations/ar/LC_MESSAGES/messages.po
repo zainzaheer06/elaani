@@ -880,3 +880,681 @@ msgstr "شاشة LED أعمال وسط المدينة"
 
 msgid "Downtown Riyadh"
 msgstr "وسط الرياض"
+
+msgid "Search..."
+msgstr "بحث..."
+
+msgid "Modern Display Solutions For Every Event"
+msgstr "حلول العرض الحديثة لكل حدث"
+
+msgid "Welcome back, Admin"
+msgstr "مرحباً بعودتك، المسؤول"
+
+msgid "Here's what's happening with your digital display business"
+msgstr "إليك ما يحدث في أعمال العرض الرقمي الخاصة بك"
+
+
+msgid "Modern Display Solutions For Every Event"
+msgstr "حلول عرض حديثة لكل حدث"
+
+msgid "Welcome back, Admin"
+msgstr "مرحباً بعودتك، المسؤول"
+
+msgid "Here's what's happening with your digital display business"
+msgstr "إليك ما يحدث في أعمال العرض الرقمي الخاصة بك"
+
+msgid "Search..."
+msgstr "بحث..."
+
+msgid "Billboard Dashboard - Elaani"
+msgstr "لوحة تحكم اللوحات الإعلانية - إعلاني"
+
+msgid "Billboard Rental Dashboard"
+msgstr "لوحة تحكم تأجير اللوحات الإعلانية"
+
+msgid "Manage your billboard advertising network across Saudi Arabia"
+msgstr "إدارة شبكة الإعلانات الخارجية في المملكة العربية السعودية"
+
+msgid "Refresh Data"
+msgstr "تحديث البيانات"
+
+msgid "Export Report"
+msgstr "تصدير التقرير"
+
+msgid "New Booking"
+msgstr "حجز جديد"
+
+msgid "Billboard Inventory"
+msgstr "مخزون اللوحات الإعلانية"
+
+msgid "+2 new locations"
+msgstr "+2 مواقع جديدة"
+
+msgid "Active Campaigns"
+msgstr "الحملات النشطة"
+
+msgid "+3 new bookings"
+msgstr "+3 حجوزات جديدة"
+
+msgid "Monthly Revenue"
+msgstr "الإيرادات الشهرية"
+
+msgid "Active Clients"
+msgstr "العملاء النشطون"
+
+msgid "+8 this week"
+msgstr "+8 هذا الأسبوع"
+
+msgid "Booking Calendar"
+msgstr "تقويم الحجوزات"
+
+msgid "September 2025 • Saudi Business Schedule"
+msgstr "سبتمبر 2025 • جدول الأعمال السعودي"
+
+msgid "Full Calendar"
+msgstr "التقويم الكامل"
+
+msgid "Booked"
+msgstr "محجوز"
+
+msgid "Recent Activity"
+msgstr "النشاط الأخير"
+
+msgid "Latest updates and actions"
+msgstr "آخر التحديثات والإجراءات"
+
+msgid "View All"
+msgstr "عرض الكل"
+
+msgid "Today's Bookings"
+msgstr "حجوزات اليوم"
+
+msgid "Revenue Trend"
+msgstr "اتجاه الإيرادات"
+
+msgid "Last 7 days"
+msgstr "آخر 7 أيام"
+
+msgid "Last 30 days"
+msgstr "آخر 30 يوماً"
+
+msgid "Last 3 months"
+msgstr "آخر 3 أشهر"
+
+msgid "Revenue Chart"
+msgstr "مخطط الإيرادات"
+
+msgid "Chart visualization coming soon"
+msgstr "تصور الرسم البياني قريباً"
+
+
+msgid "Bookings & Rentals Management"
+msgstr "إدارة الحجوزات والإيجارات"
+
+msgid "Manage your rental bookings, track active rentals, and process new reservations"
+msgstr "إدارة حجوزات الإيجار وتتبع الإيجارات النشطة ومعالجة الحجوزات الجديدة"
+
+msgid "Export Data"
+msgstr "تصدير البيانات"
+
+msgid "Search bookings..."
+msgstr "البحث عن الحجوزات..."
+
+msgid "All Status"
+msgstr "جميع الحالات"
+
+msgid "Pending Approval"
+msgstr "في انتظار الموافقة"
+
+msgid "Currently Active"
+msgstr "نشط حالياً"
+
+msgid "Create New Booking"
+msgstr "إنشاء حجز جديد"
+
+msgid "Client Name"
+msgstr "اسم العميل"
+
+msgid "Contact Number"
+msgstr "رقم الاتصال"
+
+msgid "Event Type"
+msgstr "نوع الحدث"
+
+msgid "Select Event Type"
+msgstr "اختر نوع الحدث"
+
+msgid "School Event"
+msgstr "حدث مدرسي"
+
+msgid "Wedding"
+msgstr "حفل زفاف"
+
+msgid "Corporate Event"
+msgstr "حدث شركات"
+
+msgid "Exhibition"
+msgstr "معرض"
+
+msgid "Conference"
+msgstr "مؤتمر"
+
+msgid "Concert"
+msgstr "حفل موسيقي"
+
+msgid "Sports Event"
+msgstr "حدث رياضي"
+
+msgid "Select Screen"
+msgstr "اختر الشاشة"
+
+msgid "Choose Available Screen"
+msgstr "اختر الشاشة المتاحة"
+
+msgid "Pricing Summary"
+msgstr "ملخص التسعير"
+
+msgid "Daily Rate"
+msgstr "السعر اليومي"
+
+msgid "Number of Days"
+msgstr "عدد الأيام"
+
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+msgid "Clients & CRM Management"
+msgstr "إدارة العملاء وعلاقات العملاء"
+
+msgid "Manage client relationships, track interactions, and grow your business in Saudi Arabia"
+msgstr "إدارة علاقات العملاء وتتبع التفاعلات وتنمية أعمالك في المملكة العربية السعودية"
+
+msgid "Add New Client"
+msgstr "إضافة عميل جديد"
+
+msgid "Export Clients"
+msgstr "تصدير العملاء"
+
+msgid "Bulk Email"
+msgstr "بريد إلكتروني جماعي"
+
+msgid "Search clients..."
+msgstr "البحث عن العملاء..."
+
+msgid "All Types"
+msgstr "جميع الأنواع"
+
+msgid "Educational"
+msgstr "تعليمي"
+
+msgid "Corporate"
+msgstr "شركات"
+
+msgid "Event Planning"
+msgstr "تخطيط الفعاليات"
+
+msgid "Government"
+msgstr "حكومي"
+
+msgid "Individual"
+msgstr "فردي"
+
+msgid "Total Clients"
+msgstr "إجمالي العملاء"
+
+msgid "VIP Clients"
+msgstr "عملاء VIP"
+
+msgid "Retention Rate"
+msgstr "معدل الاحتفاظ"
+
+msgid "Client Directory"
+msgstr "دليل العملاء"
+
+msgid "Grid View"
+msgstr "عرض الشبكة"
+
+msgid "Table View"
+msgstr "عرض الجدول"
+
+msgid "Contact Person"
+msgstr "شخص الاتصال"
+
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Company/Organization Name"
+msgstr "اسم الشركة/المنظمة"
+
+msgid "Client Type"
+msgstr "نوع العميل"
+
+msgid "Select Type"
+msgstr "اختر النوع"
+
+msgid "Complete address..."
+msgstr "العنوان الكامل..."
+
+msgid "Additional notes about the client..."
+msgstr "ملاحظات إضافية حول العميل..."
+
+msgid "Billboard Inventory Management"
+msgstr "إدارة مخزون اللوحات الإعلانية"
+
+msgid "Manage your billboard locations, track advertising campaigns, and maintain your outdoor advertising network"
+msgstr "إدارة مواقع اللوحات الإعلانية وتتبع الحملات الإعلانية وصيانة شبكة الإعلانات الخارجية"
+
+msgid "Add New Billboard"
+msgstr "إضافة لوحة إعلانية جديدة"
+
+msgid "Search billboards..."
+msgstr "البحث عن اللوحات الإعلانية..."
+
+msgid "Available Billboards"
+msgstr "اللوحات الإعلانية المتاحة"
+
+msgid "Active Campaigns"
+msgstr "الحملات النشطة"
+
+msgid "Under Maintenance"
+msgstr "تحت الصيانة"
+
+msgid "Total Inventory"
+msgstr "إجمالي المخزون"
+
+msgid "Ready for campaigns"
+msgstr "جاهز للحملات"
+
+msgid "In use"
+msgstr "قيد الاستخدام"
+
+msgid "Service required"
+msgstr "الخدمة مطلوبة"
+
+msgid "All screens"
+msgstr "جميع الشاشات"
+
+msgid "Digital LED Billboard"
+msgstr "لوحة LED رقمية"
+
+msgid "Static Billboard"
+msgstr "لوحة ثابتة"
+
+msgid "Mobile LED Truck"
+msgstr "شاحنة LED متنقلة"
+
+msgid "Premium Location"
+msgstr "موقع مميز"
+
+msgid "Add New Screen"
+msgstr "إضافة شاشة جديدة"
+
+msgid "Screen Name"
+msgstr "اسم الشاشة"
+
+msgid "Screen Type"
+msgstr "نوع الشاشة"
+
+msgid "Screen Size"
+msgstr "حجم الشاشة"
+
+msgid "Resolution"
+msgstr "الدقة"
+
+msgid "Select Resolution"
+msgstr "اختر الدقة"
+
+msgid "4K Ultra HD"
+msgstr "4K فائق الوضوح"
+
+msgid "Full HD"
+msgstr "عالي الوضوح الكامل"
+
+msgid "HD"
+msgstr "عالي الوضوح"
+
+msgid "P6 LED"
+msgstr "P6 LED"
+
+msgid "P4 LED"
+msgstr "P4 LED"
+
+msgid "Additional details about the screen..."
+msgstr "تفاصيل إضافية حول الشاشة..."
+
+msgid "Add Screen"
+msgstr "إضافة شاشة"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Book Now"
+msgstr "احجز الآن"
+
+msgid "Current Rental"
+msgstr "الإيجار الحالي"
+
+msgid "Return"
+msgstr "العودة"
+
+msgid "Issue"
+msgstr "المشكلة"
+
+msgid "Expected"
+msgstr "المتوقع"
+
+msgid "Ready for Rental"
+msgstr "جاهز للإيجار"
+
+msgid "Last Service"
+msgstr "آخر خدمة"
+
+msgid "Condition"
+msgstr "الحالة"
+
+msgid "Excellent"
+msgstr "ممتاز"
+
+msgid "Bookings"
+msgstr "الحجوزات"
+
+msgid "Total Spent"
+msgstr "إجمالي الإنفاق"
+
+msgid "Contact"
+msgstr "اتصال"
+
+# Bookings translations
+msgid "Search bookings..."
+msgstr "البحث في الحجوزات..."
+
+msgid "All Bookings"
+msgstr "جميع الحجوزات"
+
+msgid "New Booking"
+msgstr "حجز جديد"
+
+msgid "Currently Active"
+msgstr "نشط حالياً"
+
+msgid "Table View"
+msgstr "عرض جدول"
+
+msgid "Card View"
+msgstr "عرض بطاقات"
+
+msgid "Client Information"
+msgstr "معلومات العميل"
+
+msgid "Booking Details"
+msgstr "تفاصيل الحجز"
+
+msgid "Pricing Summary"
+msgstr "ملخص التسعير"
+
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "Event Type"
+msgstr "نوع الفعالية"
+
+msgid "Select Screen"
+msgstr "اختر الشاشة"
+
+msgid "Contact Number"
+msgstr "رقم الاتصال"
+
+msgid "Create New Booking"
+msgstr "إنشاء حجز جديد"
+
+msgid "Client Name"
+msgstr "اسم العميل"
+
+msgid "View"
+msgstr "عرض"
+
+msgid "Approve"
+msgstr "موافقة"
+
+msgid "Start"
+msgstr "بدء"
+
+msgid "End"
+msgstr "إنهاء"
+
+msgid "Event Details"
+msgstr "تفاصيل الفعالية"
+
+msgid "Choose Available Screen"
+msgstr "اختر شاشة متاحة"
+
+msgid "Select Event Type"
+msgstr "اختر نوع الفعالية"
+
+msgid "School Event"
+msgstr "فعالية مدرسية"
+
+msgid "Wedding"
+msgstr "حفل زفاف"
+
+msgid "Corporate Event"
+msgstr "فعالية شركات"
+
+msgid "Exhibition"
+msgstr "معرض"
+
+msgid "Conference"
+msgstr "مؤتمر"
+
+msgid "Concert"
+msgstr "حفل موسيقي"
+
+msgid "Sports Event"
+msgstr "فعالية رياضية"
+
+msgid "Other"
+msgstr "أخرى"
+
+msgid "Daily Rate"
+msgstr "السعر اليومي"
+
+msgid "Number of Days"
+msgstr "عدد الأيام"
+
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Create Booking"
+msgstr "إنشاء حجز"
+
+# Clients translations
+msgid "Search clients..."
+msgstr "البحث في العملاء..."
+
+msgid "All Types"
+msgstr "جميع الأنواع"
+
+msgid "Educational"
+msgstr "تعليمي"
+
+msgid "Corporate"
+msgstr "شركات"
+
+msgid "Event Planning"
+msgstr "تخطيط فعاليات"
+
+msgid "Government"
+msgstr "حكومي"
+
+msgid "Individual"
+msgstr "فردي"
+
+msgid "VIP Clients"
+msgstr "عملاء VIP"
+
+msgid "Total Clients"
+msgstr "إجمالي العملاء"
+
+msgid "Grid View"
+msgstr "عرض شبكي"
+
+msgid "Client Directory"
+msgstr "دليل العملاء"
+
+msgid "Retention Rate"
+msgstr "معدل الاحتفاظ"
+
+msgid "Add New Client"
+msgstr "إضافة عميل جديد"
+
+msgid "Export Clients"
+msgstr "تصدير العملاء"
+
+msgid "Bulk Email"
+msgstr "بريد جماعي"
+
+msgid "Contact"
+msgstr "اتصال"
+
+msgid "Bookings"
+msgstr "الحجوزات"
+
+msgid "Total Spent"
+msgstr "إجمالي الإنفاق"
+
+msgid "Add New Client"
+msgstr "إضافة عميل جديد"
+
+msgid "Select Type"
+msgstr "اختر النوع"
+
+msgid "Address"
+msgstr "العنوان"
+
+msgid "Notes"
+msgstr "ملاحظات"
+
+msgid "Add Client"
+msgstr "إضافة عميل"
+
+msgid "Active Clients"
+msgstr "العملاء النشطون"
+
+# Inventory translations
+msgid "Add New Billboard"
+msgstr "إضافة لوحة إعلانية جديدة"
+
+msgid "Search billboards..."
+msgstr "البحث في اللوحات الإعلانية..."
+
+msgid "Active Campaigns"
+msgstr "الحملات النشطة"
+
+msgid "Under Maintenance"
+msgstr "تحت الصيانة"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Available"
+msgstr "متاح"
+
+msgid "Rented"
+msgstr "مؤجر"
+
+msgid "Maintenance"
+msgstr "صيانة"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "Book Now"
+msgstr "احجز الآن"
+
+msgid "Available Billboards"
+msgstr "اللوحات المتاحة"
+
+msgid "Total Inventory"
+msgstr "إجمالي المخزون"
+
+msgid "Add New Screen"
+msgstr "إضافة شاشة جديدة"
+
+msgid "Location"
+msgstr "الموقع"
+
+msgid "LED Display"
+msgstr "شاشة LED"
+
+msgid "LCD Video Wall"
+msgstr "جدار فيديو LCD"
+
+msgid "Mobile LED"
+msgstr "LED متنقل"
+
+msgid "Outdoor LED"
+msgstr "LED خارجي"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Screen Name"
+msgstr "اسم الشاشة"
+
+msgid "Screen Size"
+msgstr "حجم الشاشة"
+
+msgid "Add Screen"
+msgstr "إضافة شاشة"
+
+msgid "Resolution"
+msgstr "الدقة"
+
+msgid "Select Resolution"
+msgstr "اختر الدقة"
+
+msgid "4K Ultra HD"
+msgstr "4K فائق الوضوح"
+
+msgid "Full HD"
+msgstr "عالي الوضوح الكامل"
+
+msgid "HD"
+msgstr "عالي الوضوح"
+
+msgid "P6 LED"
+msgstr "P6 LED"
+
+msgid "P4 LED"
+msgstr "P4 LED"
+
+msgid "Screen Type"
+msgstr "نوع الشاشة"
+
+msgid "Screen Details"
+msgstr "تفاصيل الشاشة"
+
+msgid "Digital LED Billboard"
+msgstr "لوحة LED رقمية"
+
+msgid "Static Billboard"
+msgstr "لوحة ثابتة"
+
+msgid "Mobile LED Truck"
+msgstr "شاحنة LED متنقلة"
+
+msgid "Premium Location"
+msgstr "موقع مميز"
+

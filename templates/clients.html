@@ -13,17 +13,17 @@
             <button onclick="openModal('addClientModal')" 
                     class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-user-plus mr-2"></i>
-                Add New Client
+                {{ _('Add New Client') }}
             </button>
             <button onclick="exportClients()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-download mr-2"></i>
-                Export Clients
+                {{ _('Export Clients') }}
             </button>
             <button onclick="sendBulkEmail()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-envelope mr-2"></i>
-                Bulk Email
+                {{ _('Bulk Email') }}
             </button>
         </div>
         
@@ -34,7 +34,7 @@
                     <i class="fas fa-search text-gray-400"></i>
                 </div>
                 <input type="text" 
-                       placeholder="Search clients..." 
+                       placeholder="{{ _('Search clients...') }}" 
                        id="clientSearch"
                        class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
             </div>
@@ -42,20 +42,20 @@
             <!-- Filters -->
             <select id="clientTypeFilter" 
                     class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                <option value="">All Types</option>
-                <option value="Educational">Educational</option>
-                <option value="Corporate">Corporate</option>
-                <option value="Event Planning">Event Planning</option>
-                <option value="Government">Government</option>
-                <option value="Individual">Individual</option>
+                <option value="">{{ _('All Types') }}</option>
+                <option value="Educational">{{ _('Educational') }}</option>
+                <option value="Corporate">{{ _('Corporate') }}</option>
+                <option value="Event Planning">{{ _('Event Planning') }}</option>
+                <option value="Government">{{ _('Government') }}</option>
+                <option value="Individual">{{ _('Individual') }}</option>
             </select>
             
             <select id="clientStatusFilter" 
                     class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                <option value="">All Status</option>
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-                <option value="vip">VIP</option>
+                <option value="">{{ _('All Status') }}</option>
+                <option value="active">{{ _('Active') }}</option>
+                <option value="inactive">{{ _('Inactive') }}</option>
+                <option value="vip">{{ _('VIP') }}</option>
             </select>
         </div>
     </div>
@@ -72,7 +72,7 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">156</div>
-                <div class="text-sm font-medium text-gray-600">Total Clients</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Total Clients') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
                     +12 this month
@@ -90,7 +90,7 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">89</div>
-                <div class="text-sm font-medium text-gray-600">Active Clients</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Active Clients') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
                     +5 this week
@@ -108,7 +108,7 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">23</div>
-                <div class="text-sm font-medium text-gray-600">VIP Clients</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('VIP Clients') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
                     +3 this month
@@ -126,7 +126,7 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">78%</div>
-                <div class="text-sm font-medium text-gray-600">Retention Rate</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Retention Rate') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
                     +2.3%
@@ -140,17 +140,17 @@
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
     <div class="p-6 border-b border-gray-200">
         <div class="flex items-center justify-between">
-            <h3 class="text-xl font-semibold text-gray-900">Client Directory</h3>
+            <h3 class="text-xl font-semibold text-gray-900">{{ _('Client Directory') }}</h3>
             <div class="flex space-x-2">
                 <button onclick="toggleView('grid')" id="gridViewBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
                     <i class="fas fa-th mr-2"></i>
-                    Grid View
+                    {{ _('Grid View') }}
                 </button>
                 <button onclick="toggleView('table')" id="tableViewBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
                     <i class="fas fa-table mr-2"></i>
-                    Table View
+                    {{ _('Table View') }}
                 </button>
             </div>
         </div>
@@ -196,11 +196,11 @@
                     <div class="grid grid-cols-2 gap-4 text-center">
                         <div>
                             <div class="font-semibold text-gray-900">12</div>
-                            <div class="text-xs text-gray-600">Bookings</div>
+                            <div class="text-xs text-gray-600">{{ _('Bookings') }}</div>
                         </div>
                         <div>
                             <div class="font-semibold text-elaani-primary">54,000 ريال</div>
-                            <div class="text-xs text-gray-600">Total Spent</div>
+                            <div class="text-xs text-gray-600">{{ _('Total Spent') }}</div>
                         </div>
                     </div>
                 </div>
@@ -209,12 +209,12 @@
                     <button onclick="viewClientDetails(1)" 
                             class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                         <i class="fas fa-eye mr-1"></i>
-                        View
+                        {{ _('View') }}
                     </button>
                     <button onclick="contactClient(1)" 
                             class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                         <i class="fas fa-phone mr-1"></i>
-                        Contact
+                        {{ _('Contact') }}
                     </button>
                 </div>
             </div>
@@ -256,11 +256,11 @@
                     <div class="grid grid-cols-2 gap-4 text-center">
                         <div>
                             <div class="font-semibold text-gray-900">8</div>
-                            <div class="text-xs text-gray-600">Bookings</div>
+                            <div class="text-xs text-gray-600">{{ _('Bookings') }}</div>
                         </div>
                         <div>
                             <div class="font-semibold text-elaani-primary">72,000 ريال</div>
-                            <div class="text-xs text-gray-600">Total Spent</div>
+                            <div class="text-xs text-gray-600">{{ _('Total Spent') }}</div>
                         </div>
                     </div>
                 </div>
@@ -269,12 +269,12 @@
                     <button onclick="viewClientDetails(2)" 
                             class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                         <i class="fas fa-eye mr-1"></i>
-                        View
+                        {{ _('View') }}
                     </button>
                     <button onclick="contactClient(2)" 
                             class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                         <i class="fas fa-phone mr-1"></i>
-                        Contact
+                        {{ _('Contact') }}
                     </button>
                 </div>
             </div>
@@ -315,11 +315,11 @@
                     <div class="grid grid-cols-2 gap-4 text-center">
                         <div>
                             <div class="font-semibold text-gray-900">5</div>
-                            <div class="text-xs text-gray-600">Bookings</div>
+                            <div class="text-xs text-gray-600">{{ _('Bookings') }}</div>
                         </div>
                         <div>
                             <div class="font-semibold text-elaani-primary">105,000 ريال</div>
-                            <div class="text-xs text-gray-600">Total Spent</div>
+                            <div class="text-xs text-gray-600">{{ _('Total Spent') }}</div>
                         </div>
                     </div>
                 </div>
@@ -328,12 +328,12 @@
                     <button onclick="viewClientDetails(3)" 
                             class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                         <i class="fas fa-eye mr-1"></i>
-                        View
+                        {{ _('View') }}
                     </button>
                     <button onclick="contactClient(3)" 
                             class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                         <i class="fas fa-phone mr-1"></i>
-                        Contact
+                        {{ _('Contact') }}
                     </button>
                 </div>
             </div>
@@ -345,13 +345,13 @@
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Contact</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Bookings</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Spent</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Client') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Type') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Contact') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Bookings') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Total Spent') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Status') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Actions') }}</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -418,7 +418,7 @@
         
         <div class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full sm:p-6">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-semibold text-gray-900">Add New Client</h3>
+                <h3 class="text-2xl font-semibold text-gray-900">{{ _('Add New Client') }}</h3>
                 <button type="button" onclick="closeModal('addClientModal')" 
                         class="text-gray-400 hover:text-gray-600 transition-colors">
                     <i class="fas fa-times text-xl"></i>
@@ -437,12 +437,12 @@
                         <label for="clientType" class="block text-sm font-medium text-gray-700 mb-2">Client Type *</label>
                         <select id="clientType" name="clientType" required
                                 class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                            <option value="">Select Type</option>
-                            <option value="Educational">Educational</option>
-                            <option value="Corporate">Corporate</option>
-                            <option value="Event Planning">Event Planning</option>
-                            <option value="Government">Government</option>
-                            <option value="Individual">Individual</option>
+                            <option value="">{{ _('Select Type') }}</option>
+                            <option value="Educational">{{ _('Educational') }}</option>
+                            <option value="Corporate">{{ _('Corporate') }}</option>
+                            <option value="Event Planning">{{ _('Event Planning') }}</option>
+                            <option value="Government">{{ _('Government') }}</option>
+                            <option value="Individual">{{ _('Individual') }}</option>
                         </select>
                     </div>
                     
@@ -480,14 +480,14 @@
                 </div>
                 
                 <div>
-                    <label for="clientAddress" class="block text-sm font-medium text-gray-700 mb-2">Address</label>
+                    <label for="clientAddress" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Address') }}</label>
                     <textarea id="clientAddress" name="clientAddress" rows="3" 
                               placeholder="Complete address..."
                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
                 </div>
                 
                 <div>
-                    <label for="clientNotes" class="block text-sm font-medium text-gray-700 mb-2">Notes</label>
+                    <label for="clientNotes" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Notes') }}</label>
                     <textarea id="clientNotes" name="clientNotes" rows="3" 
                               placeholder="Additional notes about the client..."
                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
@@ -497,11 +497,11 @@
                 <div class="flex justify-end space-x-4 pt-6">
                     <button type="button" onclick="closeModal('addClientModal')" 
                             class="px-6 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
-                        Cancel
+                        {{ _('Cancel') }}
                     </button>
                     <button type="submit" 
                             class="px-6 py-3 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg text-sm hover:from-elaani-secondary hover:to-elaani-primary transition-all shadow-lg hover:shadow-xl">
-                        Add Client
+                        {{ _('Add Client') }}
                     </button>
                 </div>
             </form>

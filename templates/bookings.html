@@ -13,12 +13,12 @@
             <button onclick="openModal('newBookingModal')" 
                     class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-plus mr-2"></i>
-                New Booking
+                {{ _('New Booking') }}
             </button>
             <button onclick="exportBookings()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-download mr-2"></i>
-                Export Data
+                {{ _('Export Data') }}
             </button>
         </div>
         
@@ -31,7 +31,7 @@
                     </svg>
                 </div>
                 <input type="text" 
-                       placeholder="Search bookings..." 
+                       placeholder="{{ _('Search bookings...') }}" 
                        id="bookingSearch"
                        class="block w-full sm:w-64 pl-12 pr-4 py-3 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary shadow-sm hover:border-gray-400 transition-all duration-200">
             </div>
@@ -39,12 +39,12 @@
             <!-- Filters -->
             <select id="statusFilter" 
                     class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                <option value="">All Status</option>
-                <option value="pending">Pending</option>
-                <option value="confirmed">Confirmed</option>
-                <option value="active">Active</option>
-                <option value="completed">Completed</option>
-                <option value="cancelled">Cancelled</option>
+                <option value="">{{ _('All Status') }}</option>
+                <option value="pending">{{ _('Pending') }}</option>
+                <option value="confirmed">{{ _('Confirmed') }}</option>
+                <option value="active">{{ _('Active') }}</option>
+                <option value="completed">{{ _('Completed') }}</option>
+                <option value="cancelled">{{ _('Cancelled') }}</option>
             </select>
             
             <input type="date" id="dateFilter" 
@@ -66,7 +66,7 @@
                 <div class="text-2xl font-bold text-gray-900">
                     {{ bookings|selectattr("status", "equalto", "pending")|list|length }}
                 </div>
-                <div class="text-sm font-medium text-gray-600">Pending Approval</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Pending Approval') }}</div>
             </div>
         </div>
     </div>
@@ -82,7 +82,7 @@
                 <div class="text-2xl font-bold text-gray-900">
                     {{ bookings|selectattr("status", "equalto", "confirmed")|list|length }}
                 </div>
-                <div class="text-sm font-medium text-gray-600">Confirmed</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Confirmed') }}</div>
             </div>
         </div>
     </div>
@@ -98,7 +98,7 @@
                 <div class="text-2xl font-bold text-gray-900">
                     {{ bookings|selectattr("status", "equalto", "active")|list|length }}
                 </div>
-                <div class="text-sm font-medium text-gray-600">Currently Active</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Currently Active') }}</div>
             </div>
         </div>
     </div>
@@ -114,7 +114,7 @@
                 <div class="text-2xl font-bold text-gray-900">
                     ريال{{ bookings|sum(attribute='total_amount')|format_currency_simple }}
                 </div>
-                <div class="text-sm font-medium text-gray-600">Total Revenue</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Total Revenue') }}</div>
             </div>
         </div>
     </div>
@@ -124,17 +124,17 @@
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
     <div class="p-6 border-b border-gray-200">
         <div class="flex items-center justify-between">
-            <h3 class="text-xl font-semibold text-gray-900">All Bookings</h3>
+            <h3 class="text-xl font-semibold text-gray-900">{{ _('All Bookings') }}</h3>
             <div class="flex space-x-2">
                 <button onclick="toggleView('table')" id="tableViewBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
                     <i class="fas fa-table mr-2"></i>
-                    Table View
+                    {{ _('Table View') }}
                 </button>
                 <button onclick="toggleView('card')" id="cardViewBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
                     <i class="fas fa-th-large mr-2"></i>
-                    Card View
+                    {{ _('Card View') }}
                 </button>
             </div>
         </div>
@@ -145,14 +145,14 @@
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Booking</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Event</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Screen</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Dates</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Booking') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Client') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Event') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Screen') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Dates') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Amount') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Status') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Actions') }}</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -305,25 +305,25 @@
                     <button onclick="viewBookingDetails({{ booking.id }})" 
                             class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                         <i class="fas fa-eye mr-1"></i>
-                        View
+                        {{ _('View') }}
                     </button>
                     {% if booking.status == 'pending' %}
                     <button onclick="approveBooking({{ booking.id }})" 
                             class="flex-1 bg-green-100 hover:bg-green-200 text-green-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                         <i class="fas fa-check mr-1"></i>
-                        Approve
+                        {{ _('Approve') }}
                     </button>
                     {% elif booking.status == 'confirmed' %}
                     <button onclick="startRental({{ booking.id }})" 
                             class="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                         <i class="fas fa-play mr-1"></i>
-                        Start
+                        {{ _('Start') }}
                     </button>
                     {% elif booking.status == 'active' %}
                     <button onclick="endRental({{ booking.id }})" 
                             class="flex-1 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                         <i class="fas fa-stop mr-1"></i>
-                        End
+                        {{ _('End') }}
                     </button>
                     {% endif %}
                 </div>
@@ -340,7 +340,7 @@
         
         <div class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full sm:p-6">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-semibold text-gray-900">Create New Booking</h3>
+                <h3 class="text-2xl font-semibold text-gray-900">{{ _('Create New Booking') }}</h3>
                 <button type="button" onclick="closeModal('newBookingModal')" 
                         class="text-gray-400 hover:text-gray-600 transition-colors">
                     <i class="fas fa-times text-xl"></i>
@@ -351,46 +351,46 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Client Information -->
                     <div class="space-y-4">
-                        <h4 class="text-lg font-medium text-gray-900">Client Information</h4>
+                        <h4 class="text-lg font-medium text-gray-900">{{ _('Client Information') }}</h4>
                         
                         <div>
-                            <label for="clientName" class="block text-sm font-medium text-gray-700 mb-2">Client Name *</label>
+                            <label for="clientName" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Client Name') }} *</label>
                             <input type="text" id="clientName" name="clientName" required
                                    class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                         </div>
                         
                         <div>
-                            <label for="clientContact" class="block text-sm font-medium text-gray-700 mb-2">Contact Number *</label>
+                            <label for="clientContact" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Contact Number') }} *</label>
                             <input type="tel" id="clientContact" name="clientContact" required
                                    class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                         </div>
                         
                         <div>
-                            <label for="eventType" class="block text-sm font-medium text-gray-700 mb-2">Event Type *</label>
+                            <label for="eventType" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Event Type') }} *</label>
                             <select id="eventType" name="eventType" required
                                     class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                                <option value="">Select Event Type</option>
-                                <option value="School Event">School Event</option>
-                                <option value="Wedding">Wedding</option>
-                                <option value="Corporate">Corporate Event</option>
-                                <option value="Exhibition">Exhibition</option>
-                                <option value="Conference">Conference</option>
-                                <option value="Concert">Concert</option>
-                                <option value="Sports">Sports Event</option>
-                                <option value="Other">Other</option>
+                                <option value="">{{ _('Select Event Type') }}</option>
+                                <option value="School Event">{{ _('School Event') }}</option>
+                                <option value="Wedding">{{ _('Wedding') }}</option>
+                                <option value="Corporate">{{ _('Corporate Event') }}</option>
+                                <option value="Exhibition">{{ _('Exhibition') }}</option>
+                                <option value="Conference">{{ _('Conference') }}</option>
+                                <option value="Concert">{{ _('Concert') }}</option>
+                                <option value="Sports">{{ _('Sports Event') }}</option>
+                                <option value="Other">{{ _('Other') }}</option>
                             </select>
                         </div>
                     </div>
                     
                     <!-- Booking Details -->
                     <div class="space-y-4">
-                        <h4 class="text-lg font-medium text-gray-900">Booking Details</h4>
+                        <h4 class="text-lg font-medium text-gray-900">{{ _('Booking Details') }}</h4>
                         
                         <div>
-                            <label for="screenSelect" class="block text-sm font-medium text-gray-700 mb-2">Select Screen *</label>
+                            <label for="screenSelect" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Select Screen') }} *</label>
                             <select id="screenSelect" name="screenSelect" required onchange="calculateTotal()"
                                     class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                                <option value="">Choose Available Screen</option>
+                                <option value="">{{ _('Choose Available Screen') }}</option>
                                 {% for screen in screens %}
                                     {% if screen.status == 'available' %}
                                     <option value="{{ screen.id }}" data-price="{{ screen.price_per_day }}">
@@ -403,13 +403,13 @@
                         
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <label for="startDate" class="block text-sm font-medium text-gray-700 mb-2">Start Date *</label>
+                                <label for="startDate" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Start Date') }} *</label>
                                 <input type="date" id="startDate" name="startDate" required onchange="calculateTotal()"
                                        class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                             </div>
                             
                             <div>
-                                <label for="endDate" class="block text-sm font-medium text-gray-700 mb-2">End Date *</label>
+                                <label for="endDate" class="block text-sm font-medium text-gray-700 mb-2">{{ _('End Date') }} *</label>
                                 <input type="date" id="endDate" name="endDate" required onchange="calculateTotal()"
                                        class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                             </div>
@@ -418,7 +418,7 @@
                 </div>
                 
                 <div>
-                    <label for="eventDetails" class="block text-sm font-medium text-gray-700 mb-2">Event Details</label>
+                    <label for="eventDetails" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Event Details') }}</label>
                     <textarea id="eventDetails" name="eventDetails" rows="3" 
                               placeholder="Describe the event, special requirements, setup instructions..."
                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
@@ -426,18 +426,18 @@
                 
                 <!-- Pricing Summary -->
                 <div class="bg-gradient-to-r from-elaani-light to-green-50 rounded-xl p-6 border border-green-200">
-                    <h4 class="text-lg font-semibold text-elaani-primary mb-4">Pricing Summary</h4>
+                    <h4 class="text-lg font-semibold text-elaani-primary mb-4">{{ _('Pricing Summary') }}</h4>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div class="text-center">
-                            <div class="text-sm text-gray-600">Daily Rate</div>
+                            <div class="text-sm text-gray-600">{{ _('Daily Rate') }}</div>
                             <div class="text-xl font-bold text-gray-900" id="dailyRate">0 ريال</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-sm text-gray-600">Number of Days</div>
+                            <div class="text-sm text-gray-600">{{ _('Number of Days') }}</div>
                             <div class="text-xl font-bold text-gray-900" id="numberOfDays">0</div>
                         </div>
                         <div class="text-center">
-                            <div class="text-sm text-gray-600">Total Amount</div>
+                            <div class="text-sm text-gray-600">{{ _('Total Amount') }}</div>
                             <div class="text-2xl font-bold text-elaani-primary" id="totalAmount">0 ريال</div>
                         </div>
                     </div>
@@ -447,11 +447,11 @@
                 <div class="flex justify-end space-x-4 pt-6">
                     <button type="button" onclick="closeModal('newBookingModal')" 
                             class="px-6 py-3 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
-                        Cancel
+                        {{ _('Cancel') }}
                     </button>
                     <button type="submit" 
                             class="px-6 py-3 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg text-sm hover:from-elaani-secondary hover:to-elaani-primary transition-all shadow-lg hover:shadow-xl">
-                        Create Booking
+                        {{ _('Create Booking') }}
                     </button>
                 </div>
             </form>
@@ -466,7 +466,7 @@
         
         <div class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full sm:p-6">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-semibold text-gray-900">Booking Details</h3>
+                <h3 class="text-2xl font-semibold text-gray-900">{{ _('Booking Details') }}</h3>
                 <button type="button" onclick="closeModal('bookingDetailsModal')" 
                         class="text-gray-400 hover:text-gray-600 transition-colors">
                     <i class="fas fa-times text-xl"></i>

@@ -880,3 +880,323 @@ msgstr "Downtown Business LED Display"
 
 msgid "Downtown Riyadh"
 msgstr "Downtown Riyadh"
+
+# Additional translations for all customer pages
+msgid "Request Status Overview"
+msgstr "Request Status Overview"
+
+msgid "Track all your quote requests and responses"
+msgstr "Track all your quote requests and responses"
+
+msgid "Request Quote"
+msgstr "Request Quote"
+
+msgid "Total Requests"
+msgstr "Total Requests"
+
+msgid "Quoted"
+msgstr "Quoted"
+
+msgid "All Quotes"
+msgstr "All Quotes"
+
+msgid "Large LED Screen - 3 Day Event"
+msgstr "Large LED Screen - 3 Day Event"
+
+msgid "Outdoor LED display for product launch"
+msgstr "Outdoor LED display for product launch"
+
+msgid "Size"
+msgstr "Size"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Requested Budget"
+msgstr "Requested Budget"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "Cancel Request"
+msgstr "Cancel Request"
+
+msgid "Indoor Mall Display - 2 Months"
+msgstr "Indoor Mall Display - 2 Months"
+
+msgid "Premium indoor display space for retail campaign"
+msgstr "Premium indoor display space for retail campaign"
+
+msgid "Downtown Business Center Display"
+msgstr "Downtown Business Center Display"
+
+msgid "Corporate event display space downtown"
+msgstr "Corporate event display space downtown"
+
+msgid "Quoted Price"
+msgstr "Quoted Price"
+
+msgid "Accept Quote"
+msgstr "Accept Quote"
+
+msgid "Reject"
+msgstr "Reject"
+
+msgid "Olaya Street Premium Display"
+msgstr "Olaya Street Premium Display"
+
+msgid "High-traffic premium outdoor advertising space"
+msgstr "High-traffic premium outdoor advertising space"
+
+msgid "Final Price"
+msgstr "Final Price"
+
+msgid "Book Now"
+msgstr "Book Now"
+
+msgid "View Invoice"
+msgstr "View Invoice"
+
+msgid "Business Park Tower LED Display"
+msgstr "Business Park Tower LED Display"
+
+msgid "Premium tower display - accepted quote"
+msgstr "Premium tower display - accepted quote"
+
+msgid "Request a Quote"
+msgstr "Request a Quote"
+
+msgid "Display Type"
+msgstr "Display Type"
+
+msgid "Select display type..."
+msgstr "Select display type..."
+
+msgid "LED Screen"
+msgstr "LED Screen"
+
+msgid "LCD Display"
+msgstr "LCD Display"
+
+msgid "Outdoor LED"
+msgstr "Outdoor LED"
+
+msgid "Mobile LED Truck"
+msgstr "Mobile LED Truck"
+
+msgid "Location/Area"
+msgstr "Location/Area"
+
+msgid "Start Date"
+msgstr "Start Date"
+
+msgid "End Date"
+msgstr "End Date"
+
+msgid "Budget Range (SAR)"
+msgstr "Budget Range (SAR)"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Additional Details"
+msgstr "Additional Details"
+
+msgid "Tell us more about your event or requirements..."
+msgstr "Tell us more about your event or requirements..."
+
+msgid "Submit Request"
+msgstr "Submit Request"
+
+# Profile Page
+msgid "Personal Info"
+msgstr "Personal Info"
+
+msgid "Company Info"
+msgstr "Company Info"
+
+msgid "Preferences"
+msgstr "Preferences"
+
+msgid "Security"
+msgstr "Security"
+
+msgid "Personal Information"
+msgstr "Personal Information"
+
+msgid "Change Photo"
+msgstr "Change Photo"
+
+msgid "Max size: 5MB. Formats: JPG, PNG"
+msgstr "Max size: 5MB. Formats: JPG, PNG"
+
+msgid "First Name"
+msgstr "First Name"
+
+msgid "Last Name"
+msgstr "Last Name"
+
+msgid "Email Address"
+msgstr "Email Address"
+
+msgid "Phone Number"
+msgstr "Phone Number"
+
+msgid "Date of Birth"
+msgstr "Date of Birth"
+
+msgid "Preferred Language"
+msgstr "Preferred Language"
+
+msgid "English"
+msgstr "English"
+
+msgid "Arabic"
+msgstr "Arabic"
+
+msgid "Save Changes"
+msgstr "Save Changes"
+
+msgid "Company Information"
+msgstr "Company Information"
+
+msgid "Company Name"
+msgstr "Company Name"
+
+msgid "Business Type"
+msgstr "Business Type"
+
+msgid "Event Planning"
+msgstr "Event Planning"
+
+msgid "Corporate"
+msgstr "Corporate"
+
+msgid "Retail"
+msgstr "Retail"
+
+msgid "Entertainment"
+msgstr "Entertainment"
+
+msgid "Other"
+msgstr "Other"
+
+msgid "Industry"
+msgstr "Industry"
+
+msgid "Business License Number"
+msgstr "Business License Number"
+
+msgid "Business Phone"
+msgstr "Business Phone"
+
+msgid "Business Website"
+msgstr "Business Website"
+
+msgid "Business Address"
+msgstr "Business Address"
+
+msgid "Street address"
+msgstr "Street address"
+
+msgid "City"
+msgstr "City"
+
+msgid "Postal Code"
+msgstr "Postal Code"
+
+msgid "Email Notifications"
+msgstr "Email Notifications"
+
+msgid "Booking Confirmations"
+msgstr "Booking Confirmations"
+
+msgid "Get notified when bookings are confirmed"
+msgstr "Get notified when bookings are confirmed"
+
+msgid "Promotional Offers"
+msgstr "Promotional Offers"
+
+msgid "Receive special discounts and promotions"
+msgstr "Receive special discounts and promotions"
+
+msgid "Weekly Newsletter"
+msgstr "Weekly Newsletter"
+
+msgid "Stay updated with new displays and news"
+msgstr "Stay updated with new displays and news"
+
+msgid "Privacy Settings"
+msgstr "Privacy Settings"
+
+msgid "Show Profile in Directory"
+msgstr "Show Profile in Directory"
+
+msgid "Let other businesses discover you"
+msgstr "Let other businesses discover you"
+
+msgid "Keep Booking History Private"
+msgstr "Keep Booking History Private"
+
+msgid "Only you can see your booking history"
+msgstr "Only you can see your booking history"
+
+msgid "Save Preferences"
+msgstr "Save Preferences"
+
+msgid "Security Settings"
+msgstr "Security Settings"
+
+msgid "Change Password"
+msgstr "Change Password"
+
+msgid "Current Password"
+msgstr "Current Password"
+
+msgid "New Password"
+msgstr "New Password"
+
+msgid "Confirm New Password"
+msgstr "Confirm New Password"
+
+msgid "Update Password"
+msgstr "Update Password"
+
+msgid "Two-Factor Authentication"
+msgstr "Two-Factor Authentication"
+
+msgid "Enable"
+msgstr "Enable"
+
+msgid "Add an extra layer of security to your account"
+msgstr "Add an extra layer of security to your account"
+
+msgid "Active Sessions"
+msgstr "Active Sessions"
+
+msgid "Chrome on Windows"
+msgstr "Chrome on Windows"
+
+msgid "Last active: 1 hour ago"
+msgstr "Last active: 1 hour ago"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Safari on iPhone"
+msgstr "Safari on iPhone"
+
+msgid "Last active: 3 days ago"
+msgstr "Last active: 3 days ago"
+
+msgid "Danger Zone"
+msgstr "Danger Zone"
+
+msgid "Delete Account"
+msgstr "Delete Account"
+
+msgid "Permanently delete your account and all associated data"
+msgstr "Permanently delete your account and all associated data"

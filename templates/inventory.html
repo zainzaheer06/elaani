@@ -13,12 +13,12 @@
             <button onclick="openModal('addScreenModal')"
                     class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200">
                 <i class="fas fa-rectangle-ad mr-2"></i>
-                Add New Billboard
+                {{ _('Add New Billboard') }}
             </button>
             <button onclick="exportInventory()" 
                     class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-download mr-2"></i>
-                Export Data
+                {{ _('Export Data') }}
             </button>
         </div>
         
@@ -29,7 +29,7 @@
                     <i class="fas fa-search text-gray-400"></i>
                 </div>
                 <input type="text"
-                       placeholder="Search billboards..."
+                       placeholder="{{ _('Search billboards...') }}"
                        id="inventorySearch"
                        class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
             </div>
@@ -37,19 +37,19 @@
             <!-- Filters -->
             <select id="statusFilter" 
                     class="block w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                <option value="">All Status</option>
-                <option value="available">Available</option>
-                <option value="rented">Rented</option>
-                <option value="maintenance">Maintenance</option>
+                <option value="">{{ _('All Status') }}</option>
+                <option value="available">{{ _('Available') }}</option>
+                <option value="rented">{{ _('Rented') }}</option>
+                <option value="maintenance">{{ _('Maintenance') }}</option>
             </select>
             
             <select id="typeFilter"
                     class="block w-full px-3 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                <option value="">All Types</option>
-                <option value="Digital Billboard">Digital LED Billboard</option>
-                <option value="Static Billboard">Static Billboard</option>
-                <option value="Mobile Billboard">Mobile LED Truck</option>
-                <option value="Premium Location">Premium Location</option>
+                <option value="">{{ _('All Types') }}</option>
+                <option value="Digital Billboard">{{ _('Digital LED Billboard') }}</option>
+                <option value="Static Billboard">{{ _('Static Billboard') }}</option>
+                <option value="Mobile Billboard">{{ _('Mobile LED Truck') }}</option>
+                <option value="Premium Location">{{ _('Premium Location') }}</option>
             </select>
         </div>
     </div>
@@ -62,7 +62,7 @@
             <div class="text-3xl font-bold text-green-600 mb-2">
                 {{ screens|selectattr("status", "equalto", "available")|list|length }}
             </div>
-            <div class="text-sm font-medium text-gray-600">Available Billboards</div>
+            <div class="text-sm font-medium text-gray-600">{{ _('Available Billboards') }}</div>
             <div class="mt-2">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                     <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
@@ -77,7 +77,7 @@
             <div class="text-3xl font-bold text-yellow-600 mb-2">
                 {{ screens|selectattr("status", "equalto", "rented")|list|length }}
             </div>
-            <div class="text-sm font-medium text-gray-600">Active Campaigns</div>
+            <div class="text-sm font-medium text-gray-600">{{ _('Active Campaigns') }}</div>
             <div class="mt-2">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                     <i class="w-2 h-2 mr-1 bg-yellow-400 rounded-full"></i>
@@ -92,7 +92,7 @@
             <div class="text-3xl font-bold text-red-600 mb-2">
                 {{ screens|selectattr("status", "equalto", "maintenance")|list|length }}
             </div>
-            <div class="text-sm font-medium text-gray-600">Under Maintenance</div>
+            <div class="text-sm font-medium text-gray-600">{{ _('Under Maintenance') }}</div>
             <div class="mt-2">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
                     <i class="w-2 h-2 mr-1 bg-red-400 rounded-full"></i>
@@ -107,7 +107,7 @@
             <div class="text-3xl font-bold text-elaani-primary mb-2">
                 {{ screens|length }}
             </div>
-            <div class="text-sm font-medium text-gray-600">Total Inventory</div>
+            <div class="text-sm font-medium text-gray-600">{{ _('Total Inventory') }}</div>
             <div class="mt-2">
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                     <i class="w-2 h-2 mr-1 bg-blue-400 rounded-full"></i>
@@ -219,18 +219,18 @@
                 <button onclick="viewScreenDetails({{ screen.id }})" 
                         class="flex-1 inline-flex items-center justify-center bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-3 px-3 rounded-xl text-sm transition-colors shadow-sm hover:shadow-md">
                     <i class="fas fa-eye mr-2 text-xs"></i>
-                    <span class="whitespace-nowrap">View Details</span>
+                    <span class="whitespace-nowrap">{{ _('View Details') }}</span>
                 </button>
                 <button onclick="editScreen({{ screen.id }})" 
                         class="flex-1 inline-flex items-center justify-center bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-3 px-3 rounded-xl text-sm transition-colors shadow-sm hover:shadow-md">
                     <i class="fas fa-edit mr-2 text-xs"></i>
-                    <span class="whitespace-nowrap">Edit</span>
+                    <span class="whitespace-nowrap">{{ _('Edit') }}</span>
                 </button>
                 {% if screen.status == 'available' %}
                 <button onclick="quickBookScreen({{ screen.id }})" 
                         class="flex-1 inline-flex items-center justify-center bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-semibold py-3 px-3 rounded-xl text-sm transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                     <i class="fas fa-calendar-plus mr-2 text-xs"></i>
-                    <span class="whitespace-nowrap">Book Now</span>
+                    <span class="whitespace-nowrap">{{ _('Book Now') }}</span>
                 </button>
                 {% endif %}
             </div>
@@ -249,7 +249,7 @@
                 <div class="w-full">
                     <!-- Modal Header -->
                     <div class="flex items-center justify-between mb-6">
-                        <h3 class="text-2xl font-semibold text-gray-900">Add New Screen</h3>
+                        <h3 class="text-2xl font-semibold text-gray-900">{{ _('Add New Screen') }}</h3>
                         <button type="button" onclick="closeModal('addScreenModal')" 
                                 class="text-gray-400 hover:text-gray-600 transition-colors">
                             <i class="fas fa-times text-xl"></i>
@@ -260,44 +260,44 @@
                     <form id="addScreenForm" class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="screenName" class="block text-sm font-medium text-gray-700 mb-2">Screen Name *</label>
+                                <label for="screenName" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Screen Name') }} *</label>
                                 <input type="text" id="screenName" name="screenName" required
                                        class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                             </div>
                             
                             <div>
-                                <label for="screenType" class="block text-sm font-medium text-gray-700 mb-2">Screen Type *</label>
+                                <label for="screenType" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Screen Type') }} *</label>
                                 <select id="screenType" name="screenType" required
                                         class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                                    <option value="">Select Type</option>
-                                    <option value="LED">LED Display</option>
-                                    <option value="LCD Wall">LCD Video Wall</option>
-                                    <option value="Mobile LED">Mobile LED</option>
-                                    <option value="Outdoor LED">Outdoor LED</option>
+                                    <option value="">{{ _('Select Type') }}</option>
+                                    <option value="LED">{{ _('LED Display') }}</option>
+                                    <option value="LCD Wall">{{ _('LCD Video Wall') }}</option>
+                                    <option value="Mobile LED">{{ _('Mobile LED') }}</option>
+                                    <option value="Outdoor LED">{{ _('Outdoor LED') }}</option>
                                 </select>
                             </div>
                             
                             <div>
-                                <label for="screenSize" class="block text-sm font-medium text-gray-700 mb-2">Screen Size *</label>
+                                <label for="screenSize" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Screen Size') }} *</label>
                                 <input type="text" id="screenSize" name="screenSize" placeholder="e.g., 65&quot;" required
                                        class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                             </div>
                             
                             <div>
-                                <label for="screenResolution" class="block text-sm font-medium text-gray-700 mb-2">Resolution *</label>
+                                <label for="screenResolution" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Resolution') }} *</label>
                                 <select id="screenResolution" name="screenResolution" required
                                         class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                                    <option value="">Select Resolution</option>
-                                    <option value="4K">4K Ultra HD</option>
-                                    <option value="Full HD">Full HD</option>
-                                    <option value="HD">HD</option>
-                                    <option value="P6">P6 LED</option>
-                                    <option value="P4">P4 LED</option>
+                                    <option value="">{{ _('Select Resolution') }}</option>
+                                    <option value="4K">{{ _('4K Ultra HD') }}</option>
+                                    <option value="Full HD">{{ _('Full HD') }}</option>
+                                    <option value="HD">{{ _('HD') }}</option>
+                                    <option value="P6">{{ _('P6 LED') }}</option>
+                                    <option value="P4">{{ _('P4 LED') }}</option>
                                 </select>
                             </div>
                             
                             <div>
-                                <label for="screenLocation" class="block text-sm font-medium text-gray-700 mb-2">Location *</label>
+                                <label for="screenLocation" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Location') }} *</label>
                                 <input type="text" id="screenLocation" name="screenLocation" placeholder="e.g., Warehouse A" required
                                        class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                             </div>
@@ -310,7 +310,7 @@
                         </div>
                         
                         <div>
-                            <label for="screenDescription" class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                            <label for="screenDescription" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Description') }}</label>
                             <textarea id="screenDescription" name="screenDescription" rows="3" 
                                       placeholder="Additional details about the screen..."
                                       class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
@@ -320,11 +320,11 @@
                         <div class="flex justify-end space-x-3 pt-6">
                             <button type="button" onclick="closeModal('addScreenModal')" 
                                     class="px-6 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 transition-colors">
-                                Cancel
+                                {{ _('Cancel') }}
                             </button>
                             <button type="submit" 
                                     class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg text-sm hover:from-elaani-secondary hover:to-elaani-primary transition-all">
-                                Add Screen
+                                {{ _('Add Screen') }}
                             </button>
                         </div>
                     </form>
@@ -341,7 +341,7 @@
         
         <div class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full sm:p-6">
             <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-semibold text-gray-900">Screen Details</h3>
+                <h3 class="text-2xl font-semibold text-gray-900">{{ _('Screen Details') }}</h3>
                 <button type="button" onclick="closeModal('screenDetailsModal')" 
                         class="text-gray-400 hover:text-gray-600 transition-colors">
                     <i class="fas fa-times text-xl"></i>

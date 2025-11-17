@@ -1,23 +1,23 @@
 {% extends "base_customer.html" %}
 
-{% block title %}Quotes & Requests - Elaani Customer{% endblock %}
+{% block title %}{{ _('Quotes & Requests') }} - Elaani Customer{% endblock %}
 
-{% block page_title %}Quotes & Requests{% endblock %}
-{% block page_subtitle %}Manage your quote requests and get custom pricing{% endblock %}
+{% block page_title %}{{ _('Quotes & Requests') }}{% endblock %}
+{% block page_subtitle %}{{ _('Manage your quote requests and get custom pricing') }}{% endblock %}
 
 {% block content %}
 <!-- Action Bar -->
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
         <div>
-            <h2 class="text-lg font-semibold text-gray-900">Request Status Overview</h2>
-            <p class="text-sm text-gray-600 mt-1">Track all your quote requests and responses</p>
+            <h2 class="text-lg font-semibold text-gray-900">{{ _('Request Status Overview') }}</h2>
+            <p class="text-sm text-gray-600 mt-1">{{ _('Track all your quote requests and responses') }}</p>
         </div>
         
         <button onclick="openModal('requestQuoteModal')" 
                 class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
-            <i class="fas fa-plus mr-2"></i>
-            Request Quote
+            <i class="fas fa-plus {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
+            {{ _('Request Quote') }}
         </button>
     </div>
 </div>
@@ -29,9 +29,9 @@
             <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                 <i class="fas fa-file-alt text-blue-600 text-xl"></i>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                 <div class="text-2xl font-bold text-gray-900">5</div>
-                <div class="text-sm text-gray-600">Total Requests</div>
+                <div class="text-sm text-gray-600">{{ _('Total Requests') }}</div>
             </div>
         </div>
     </div>
@@ -41,9 +41,9 @@
             <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
                 <i class="fas fa-hourglass-half text-yellow-600 text-xl"></i>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                 <div class="text-2xl font-bold text-gray-900">2</div>
-                <div class="text-sm text-gray-600">Pending</div>
+                <div class="text-sm text-gray-600">{{ _('Pending') }}</div>
             </div>
         </div>
     </div>
@@ -53,9 +53,9 @@
             <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
                 <i class="fas fa-check-circle text-green-600 text-xl"></i>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                 <div class="text-2xl font-bold text-gray-900">2</div>
-                <div class="text-sm text-gray-600">Quoted</div>
+                <div class="text-sm text-gray-600">{{ _('Quoted') }}</div>
             </div>
         </div>
     </div>
@@ -65,9 +65,9 @@
             <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
                 <i class="fas fa-coins text-purple-600 text-xl"></i>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                 <div class="text-2xl font-bold text-gray-900">1</div>
-                <div class="text-sm text-gray-600">Accepted</div>
+                <div class="text-sm text-gray-600">{{ _('Accepted') }}</div>
             </div>
         </div>
     </div>
@@ -78,16 +78,16 @@
     <div class="border-b border-gray-200">
         <div class="flex">
             <button onclick="filterQuotes('all')" class="quote-tab active px-6 py-4 text-sm font-medium text-elaani-primary border-b-2 border-elaani-primary">
-                All Quotes (5)
+                {{ _('All Quotes') }} (5)
             </button>
             <button onclick="filterQuotes('pending')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                Pending (2)
+                {{ _('Pending') }} (2)
             </button>
             <button onclick="filterQuotes('quoted')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                Quoted (2)
+                {{ _('Quoted') }} (2)
             </button>
             <button onclick="filterQuotes('accepted')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                Accepted (1)
+                {{ _('Accepted') }} (1)
             </button>
         </div>
     </div>
@@ -101,38 +101,38 @@
                     <div class="flex items-start justify-between mb-3">
                         <div>
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mb-2">
-                                <i class="fas fa-hourglass-half mr-1"></i>Pending
+                                <i class="fas fa-hourglass-half {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>{{ _('Pending') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">Large LED Screen - 3 Day Event</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Large LED Screen - 3 Day Event') }}</h4>
                         </div>
                         <span class="text-xs text-gray-500">QT#001 • Sep 18, 2025</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Outdoor LED display for product launch</p>
+                    <p class="text-sm text-gray-600 mb-3">{{ _('Outdoor LED display for product launch') }}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
-                            <span class="text-gray-600">Size</span>
+                            <span class="text-gray-600">{{ _('Size') }}</span>
                             <p class="font-semibold text-gray-900">85" Display</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Location</span>
-                            <p class="font-semibold text-gray-900">King Fahd Road</p>
+                            <span class="text-gray-600">{{ _('Location') }}</span>
+                            <p class="font-semibold text-gray-900">{{ _('King Fahd Road') }}</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Duration</span>
-                            <p class="font-semibold text-gray-900">3 Days</p>
+                            <span class="text-gray-600">{{ _('Duration') }}</span>
+                            <p class="font-semibold text-gray-900">3 {{ _('Days') }}</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Requested Budget</span>
+                            <span class="text-gray-600">{{ _('Requested Budget') }}</span>
                             <p class="font-semibold text-gray-900">5,000-7,000 SAR</p>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
                     <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
-                        <i class="fas fa-eye mr-2"></i>View Details
+                        <i class="fas fa-eye mr-2"></i>{{ _('View Details') }}
                     </button>
                     <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
-                        <i class="fas fa-times mr-2"></i>Cancel Request
+                        <i class="fas fa-times mr-2"></i>{{ _('Cancel Request') }}
                     </button>
                 </div>
             </div>
@@ -145,28 +145,28 @@
                     <div class="flex items-start justify-between mb-3">
                         <div>
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mb-2">
-                                <i class="fas fa-hourglass-half mr-1"></i>Pending
+                                <i class="fas fa-hourglass-half mr-1"></i>{{ _('Pending') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">Indoor Mall Display - 2 Months</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Indoor Mall Display - 2 Months') }}</h4>
                         </div>
                         <span class="text-xs text-gray-500">QT#002 • Sep 16, 2025</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Premium indoor display space for retail campaign</p>
+                    <p class="text-sm text-gray-600 mb-3">{{ _('Premium indoor display space for retail campaign') }}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
-                            <span class="text-gray-600">Size</span>
+                            <span class="text-gray-600">{{ _('Size') }}</span>
                             <p class="font-semibold text-gray-900">55" LED Wall</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Location</span>
+                            <span class="text-gray-600">{{ _('Location') }}</span>
                             <p class="font-semibold text-gray-900">Riyadh Gallery</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Duration</span>
-                            <p class="font-semibold text-gray-900">60 Days</p>
+                            <span class="text-gray-600">{{ _('Duration') }}</span>
+                            <p class="font-semibold text-gray-900">60 {{ _('Days') }}</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Requested Budget</span>
+                            <span class="text-gray-600">{{ _('Requested Budget') }}</span>
                             <p class="font-semibold text-gray-900">25,000-35,000 SAR</p>
                         </div>
                     </div>
@@ -189,38 +189,38 @@
                     <div class="flex items-start justify-between mb-3">
                         <div>
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 mb-2">
-                                <i class="fas fa-check-circle mr-1"></i>Quoted
+                                <i class="fas fa-check-circle mr-1"></i>{{ _('Quoted') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">Downtown Business Center Display</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Downtown Business Center Display') }}</h4>
                         </div>
                         <span class="text-xs text-gray-500">QT#003 • Sep 10, 2025</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Corporate event display space downtown</p>
+                    <p class="text-sm text-gray-600 mb-3">{{ _('Corporate event display space downtown') }}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
-                            <span class="text-gray-600">Size</span>
+                            <span class="text-gray-600">{{ _('Size') }}</span>
                             <p class="font-semibold text-gray-900">65" 4K Display</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Location</span>
-                            <p class="font-semibold text-gray-900">Downtown</p>
+                            <span class="text-gray-600">{{ _('Location') }}</span>
+                            <p class="font-semibold text-gray-900">{{ _('Downtown') }}</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Duration</span>
-                            <p class="font-semibold text-gray-900">5 Days</p>
+                            <span class="text-gray-600">{{ _('Duration') }}</span>
+                            <p class="font-semibold text-gray-900">5 {{ _('Days') }}</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Quoted Price</span>
+                            <span class="text-gray-600">{{ _('Quoted Price') }}</span>
                             <p class="font-bold text-elaani-primary">6,250 SAR</p>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
                     <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
-                        <i class="fas fa-check mr-2"></i>Accept Quote
+                        <i class="fas fa-check mr-2"></i>{{ _('Accept Quote') }}
                     </button>
                     <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
-                        <i class="fas fa-times mr-2"></i>Reject
+                        <i class="fas fa-times mr-2"></i>{{ _('Reject') }}
                     </button>
                 </div>
             </div>
@@ -233,38 +233,38 @@
                     <div class="flex items-start justify-between mb-3">
                         <div>
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 mb-2">
-                                <i class="fas fa-check-circle mr-1"></i>Quoted
+                                <i class="fas fa-check-circle mr-1"></i>{{ _('Quoted') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">Olaya Street Premium Display</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Olaya Street Premium Display') }}</h4>
                         </div>
                         <span class="text-xs text-gray-500">QT#004 • Sep 08, 2025</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">High-traffic premium outdoor advertising space</p>
+                    <p class="text-sm text-gray-600 mb-3">{{ _('High-traffic premium outdoor advertising space') }}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
-                            <span class="text-gray-600">Size</span>
+                            <span class="text-gray-600">{{ _('Size') }}</span>
                             <p class="font-semibold text-gray-900">75" LED Screen</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Location</span>
-                            <p class="font-semibold text-gray-900">Olaya Street</p>
+                            <span class="text-gray-600">{{ _('Location') }}</span>
+                            <p class="font-semibold text-gray-900">{{ _('Olaya Street') }}</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Duration</span>
-                            <p class="font-semibold text-gray-900">7 Days</p>
+                            <span class="text-gray-600">{{ _('Duration') }}</span>
+                            <p class="font-semibold text-gray-900">7 {{ _('Days') }}</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Quoted Price</span>
+                            <span class="text-gray-600">{{ _('Quoted Price') }}</span>
                             <p class="font-bold text-elaani-primary">7,500 SAR</p>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
                     <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
-                        <i class="fas fa-check mr-2"></i>Accept Quote
+                        <i class="fas fa-check mr-2"></i>{{ _('Accept Quote') }}
                     </button>
                     <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
-                        <i class="fas fa-times mr-2"></i>Reject
+                        <i class="fas fa-times mr-2"></i>{{ _('Reject') }}
                     </button>
                 </div>
             </div>
@@ -277,38 +277,38 @@
                     <div class="flex items-start justify-between mb-3">
                         <div>
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 mb-2">
-                                <i class="fas fa-crown mr-1"></i>Accepted
+                                <i class="fas fa-crown mr-1"></i>{{ _('Accepted') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">Business Park Tower LED Display</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Business Park Tower LED Display') }}</h4>
                         </div>
                         <span class="text-xs text-gray-500">QT#005 • Sep 01, 2025</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">Premium tower display - accepted quote</p>
+                    <p class="text-sm text-gray-600 mb-3">{{ _('Premium tower display - accepted quote') }}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
-                            <span class="text-gray-600">Size</span>
+                            <span class="text-gray-600">{{ _('Size') }}</span>
                             <p class="font-semibold text-gray-900">85" 4K Display</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Location</span>
-                            <p class="font-semibold text-gray-900">Financial District</p>
+                            <span class="text-gray-600">{{ _('Location') }}</span>
+                            <p class="font-semibold text-gray-900">{{ _('Financial District') }}</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Duration</span>
-                            <p class="font-semibold text-gray-900">14 Days</p>
+                            <span class="text-gray-600">{{ _('Duration') }}</span>
+                            <p class="font-semibold text-gray-900">14 {{ _('Days') }}</p>
                         </div>
                         <div>
-                            <span class="text-gray-600">Final Price</span>
+                            <span class="text-gray-600">{{ _('Final Price') }}</span>
                             <p class="font-bold text-elaani-primary">13,750 SAR</p>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
                     <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 transition-all">
-                        <i class="fas fa-calendar-check mr-2"></i>Book Now
+                        <i class="fas fa-calendar-check mr-2"></i>{{ _('Book Now') }}
                     </button>
                     <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
-                        <i class="fas fa-eye mr-2"></i>View Invoice
+                        <i class="fas fa-eye mr-2"></i>{{ _('View Invoice') }}
                     </button>
                 </div>
             </div>
@@ -322,7 +322,7 @@
         <div class="relative inline-block align-bottom bg-white rounded-2xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-semibold text-gray-900">Request a Quote</h3>
+                    <h3 class="text-lg font-semibold text-gray-900">{{ _('Request a Quote') }}</h3>
                     <button type="button" onclick="closeModal('requestQuoteModal')" class="text-gray-400 hover:text-gray-500">
                         <i class="fas fa-times text-xl"></i>
                     </button>
@@ -330,51 +330,51 @@
                 
                 <form class="space-y-4">
                     <div>
-                        <label class="block text-sm font-medium text-gray-900 mb-2">Display Type</label>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Display Type') }}</label>
                         <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                            <option>Select display type...</option>
-                            <option>LED Screen</option>
-                            <option>LCD Display</option>
-                            <option>Outdoor LED</option>
-                            <option>Mobile LED Truck</option>
+                            <option>{{ _('Select display type...') }}</option>
+                            <option>{{ _('LED Screen') }}</option>
+                            <option>{{ _('LCD Display') }}</option>
+                            <option>{{ _('Outdoor LED') }}</option>
+                            <option>{{ _('Mobile LED Truck') }}</option>
                         </select>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-900 mb-2">Location/Area</label>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Location/Area') }}</label>
                         <input type="text" placeholder="e.g., King Fahd Road, Olaya Street" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">Start Date</label>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Start Date') }}</label>
                             <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-gray-900 mb-2">End Date</label>
+                            <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('End Date') }}</label>
                             <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-900 mb-2">Budget Range (SAR)</label>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Budget Range') }} (SAR)</label>
                         <div class="grid grid-cols-2 gap-4">
-                            <input type="number" placeholder="Min" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                            <input type="number" placeholder="Max" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="number" placeholder="{{ _('Min') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="number" placeholder="{{ _('Max') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                         </div>
                     </div>
 
                     <div>
-                        <label class="block text-sm font-medium text-gray-900 mb-2">Additional Details</label>
-                        <textarea rows="3" placeholder="Tell us more about your event or requirements..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                        <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Additional Details') }}</label>
+                        <textarea rows="3" placeholder="{{ _('Tell us more about your event or requirements...') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
                     </div>
 
                     <div class="flex gap-4 pt-4">
                         <button type="submit" class="flex-1 px-4 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
-                            Submit Request
+                            {{ _('Submit Request') }}
                         </button>
                         <button type="button" onclick="closeModal('requestQuoteModal')" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
-                            Cancel
+                            {{ _('Cancel') }}
                         </button>
                     </div>
                 </form>
