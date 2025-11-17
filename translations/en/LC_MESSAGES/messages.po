@@ -197,3 +197,241 @@ msgstr "Revenue Chart"
 
 msgid "Chart visualization coming soon"
 msgstr "Chart visualization coming soon"
+
+# Customer Dashboard
+msgid "Dashboard - Elaani Customer"
+msgstr "Dashboard - Elaani Customer"
+
+msgid "Welcome back"
+msgstr "Welcome back"
+
+msgid "Manage your bookings, find displays, and explore new opportunities"
+msgstr "Manage your bookings, find displays, and explore new opportunities"
+
+msgid "Active Bookings"
+msgstr "Active Bookings"
+
+msgid "Current"
+msgstr "Current"
+
+msgid "Saved Displays"
+msgstr "Saved Displays"
+
+msgid "Ready to book"
+msgstr "Ready to book"
+
+msgid "Total Spent"
+msgstr "Total Spent"
+
+msgid "Loyalty Member"
+msgstr "Loyalty Member"
+
+msgid "Loyalty Points"
+msgstr "Loyalty Points"
+
+msgid "AI Campaign Planner"
+msgstr "AI Campaign Planner"
+
+msgid "Let AI help you create the perfect billboard campaign strategy"
+msgstr "Let AI help you create the perfect billboard campaign strategy"
+
+msgid "BETA"
+msgstr "BETA"
+
+msgid "Smart Targeting"
+msgstr "Smart Targeting"
+
+msgid "AI analyzes best locations for your audience"
+msgstr "AI analyzes best locations for your audience"
+
+msgid "ROI Prediction"
+msgstr "ROI Prediction"
+
+msgid "Get estimated campaign performance"
+msgstr "Get estimated campaign performance"
+
+msgid "Optimal Timing"
+msgstr "Optimal Timing"
+
+msgid "Best dates & times for maximum impact"
+msgstr "Best dates & times for maximum impact"
+
+msgid "Start AI Planning"
+msgstr "Start AI Planning"
+
+msgid "Quick Tips"
+msgstr "Quick Tips"
+
+msgid "AI Event Recommendations"
+msgstr "AI Event Recommendations"
+
+msgid "Personalized suggestions based on your booking history and preferences"
+msgstr "Personalized suggestions based on your booking history and preferences"
+
+msgid "Refresh"
+msgstr "Refresh"
+
+msgid "Tech Conference 2025"
+msgstr "Tech Conference 2025"
+
+msgid "Match"
+msgstr "Match"
+
+msgid "Corporate Event"
+msgstr "Corporate Event"
+
+msgid "HOT"
+msgstr "HOT"
+
+msgid "Based on your previous tech conferences, we recommend booking King Fahd Road displays for Oct 15-17. Expected 50K+ attendees."
+msgstr "Based on your previous tech conferences, we recommend booking King Fahd Road displays for Oct 15-17. Expected 50K+ attendees."
+
+msgid "Riyadh"
+msgstr "Riyadh"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "Product Launch Campaign"
+msgstr "Product Launch Campaign"
+
+msgid "Marketing"
+msgstr "Marketing"
+
+msgid "NEW"
+msgstr "NEW"
+
+msgid "Similar brands saw 3x engagement with Mall indoor displays. Perfect timing for holiday season launch."
+msgstr "Similar brands saw 3x engagement with Mall indoor displays. Perfect timing for holiday season launch."
+
+msgid "Mall District"
+msgstr "Mall District"
+
+msgid "Wedding Season Promo"
+msgstr "Wedding Season Promo"
+
+msgid "Event"
+msgstr "Event"
+
+msgid "Wedding season peak is approaching. Book now for venue promotion displays with 20 percent early-bird discount."
+msgstr "Wedding season peak is approaching. Book now for venue promotion displays with 20 percent early-bird discount."
+
+msgid "Off"
+msgstr "Off"
+
+msgid "Multiple"
+msgstr "Multiple"
+
+msgid "Retail Sale Campaign"
+msgstr "Retail Sale Campaign"
+
+msgid "Retail"
+msgstr "Retail"
+
+msgid "Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150% target sales."
+msgstr "Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150% target sales."
+
+msgid "Target"
+msgstr "Target"
+
+msgid "Shopping Areas"
+msgstr "Shopping Areas"
+
+msgid "Load More Recommendations"
+msgstr "Load More Recommendations"
+
+msgid "Your Active Bookings"
+msgstr "Your Active Bookings"
+
+msgid "Current and upcoming display rentals"
+msgstr "Current and upcoming display rentals"
+
+msgid "King Fahd Road LED Screen"
+msgstr "King Fahd Road LED Screen"
+
+msgid "Confirmed"
+msgstr "Confirmed"
+
+msgid "Booking ID: #BK001"
+msgstr "Booking ID: #BK001"
+
+msgid "Mall Indoor Display"
+msgstr "Mall Indoor Display"
+
+msgid "Wedding Event"
+msgstr "Wedding Event"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Booking ID: #BK002"
+msgstr "Booking ID: #BK002"
+
+msgid "Loyalty Tier"
+msgstr "Loyalty Tier"
+
+msgid "Points to Gold"
+msgstr "Points to Gold"
+
+msgid "left"
+msgstr "left"
+
+msgid "Available Points"
+msgstr "Available Points"
+
+msgid "Total Bookings"
+msgstr "Total Bookings"
+
+msgid "Quick Actions"
+msgstr "Quick Actions"
+
+msgid "Find Displays"
+msgstr "Find Displays"
+
+msgid "Browse available screens"
+msgstr "Browse available screens"
+
+msgid "Request Quote"
+msgstr "Request Quote"
+
+msgid "Get custom pricing"
+msgstr "Get custom pricing"
+
+msgid "Contact Support"
+msgstr "Contact Support"
+
+msgid "Get immediate help"
+msgstr "Get immediate help"
+
+msgid "Recommended For You"
+msgstr "Recommended For You"
+
+msgid "Based on your previous bookings"
+msgstr "Based on your previous bookings"
+
+msgid "Downtown LED Screen"
+msgstr "Downtown LED Screen"
+
+msgid "Downtown Riyadh"
+msgstr "Downtown Riyadh"
+
+msgid "Starting at"
+msgstr "Starting at"
+
+msgid "Olaya Street Display"
+msgstr "Olaya Street Display"
+
+msgid "Olaya Street"
+msgstr "Olaya Street"
+
+msgid "Al Nakheel Mall"
+msgstr "Al Nakheel Mall"
+
+msgid "Al Nakheel District"
+msgstr "Al Nakheel District"
+
+msgid "Business Tower LED"
+msgstr "Business Tower LED"
+
+msgid "Financial District"
+msgstr "Financial District"

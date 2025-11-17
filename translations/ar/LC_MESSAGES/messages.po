@@ -197,3 +197,241 @@ msgstr "مخطط الإيرادات"
 
 msgid "Chart visualization coming soon"
 msgstr "تصور المخطط قريباً"
+
+# Customer Dashboard
+msgid "Dashboard - Elaani Customer"
+msgstr "لوحة التحكم - عميل إيلاني"
+
+msgid "Welcome back"
+msgstr "أهلا بعودتك"
+
+msgid "Manage your bookings, find displays, and explore new opportunities"
+msgstr "إدارة حجوزاتك والعثور على الشاشات واستكشاف فرص جديدة"
+
+msgid "Active Bookings"
+msgstr "الحجوزات النشطة"
+
+msgid "Current"
+msgstr "الحالي"
+
+msgid "Saved Displays"
+msgstr "الشاشات المحفوظة"
+
+msgid "Ready to book"
+msgstr "جاهز للحجز"
+
+msgid "Total Spent"
+msgstr "إجمالي الإنفاق"
+
+msgid "Loyalty Member"
+msgstr "عضو الولاء"
+
+msgid "Loyalty Points"
+msgstr "نقاط الولاء"
+
+msgid "AI Campaign Planner"
+msgstr "مخطط الحملة الذكي"
+
+msgid "Let AI help you create the perfect billboard campaign strategy"
+msgstr "دع الذكاء الاصطناعي يساعدك في إنشاء استراتيجية حملة إعلانية مثالية"
+
+msgid "BETA"
+msgstr "بيتا"
+
+msgid "Smart Targeting"
+msgstr "الاستهداف الذكي"
+
+msgid "AI analyzes best locations for your audience"
+msgstr "يحلل الذكاء الاصطناعي أفضل المواقع لجمهورك"
+
+msgid "ROI Prediction"
+msgstr "التنبؤ بالعائد على الاستثمار"
+
+msgid "Get estimated campaign performance"
+msgstr "احصل على أداء الحملة المقدرة"
+
+msgid "Optimal Timing"
+msgstr "التوقيت الأمثل"
+
+msgid "Best dates & times for maximum impact"
+msgstr "أفضل التواريخ والأوقات للتأثير الأقصى"
+
+msgid "Start AI Planning"
+msgstr "ابدأ التخطيط الذكي"
+
+msgid "Quick Tips"
+msgstr "نصائح سريعة"
+
+msgid "AI Event Recommendations"
+msgstr "توصيات الأحداث الذكية"
+
+msgid "Personalized suggestions based on your booking history and preferences"
+msgstr "اقتراحات مخصصة بناءً على سجل الحجوزات والتفضيلات الخاصة بك"
+
+msgid "Refresh"
+msgstr "تحديث"
+
+msgid "Tech Conference 2025"
+msgstr "مؤتمر التكنولوجيا 2025"
+
+msgid "Match"
+msgstr "تطابق"
+
+msgid "Corporate Event"
+msgstr "حدث شركة"
+
+msgid "HOT"
+msgstr "ساخن"
+
+msgid "Based on your previous tech conferences, we recommend booking King Fahd Road displays for Oct 15-17. Expected 50K+ attendees."
+msgstr "بناءً على مؤتمراتك التقنية السابقة، نوصي بحجز شاشات طريق الملك فهد من 15-17 أكتوبر. يتوقع حضور 50 ألف+ حاضر."
+
+msgid "Riyadh"
+msgstr "الرياض"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "Product Launch Campaign"
+msgstr "حملة إطلاق المنتج"
+
+msgid "Marketing"
+msgstr "التسويق"
+
+msgid "NEW"
+msgstr "جديد"
+
+msgid "Similar brands saw 3x engagement with Mall indoor displays. Perfect timing for holiday season launch."
+msgstr "شهدت العلامات التجارية المماثلة 3 أضعاف المشاركة مع شاشات المول الداخلية. التوقيت المثالي لإطلاق موسم العطلات."
+
+msgid "Mall District"
+msgstr "منطقة المول"
+
+msgid "Wedding Season Promo"
+msgstr "عرض موسم الزفاف"
+
+msgid "Event"
+msgstr "حدث"
+
+msgid "Wedding season peak is approaching. Book now for venue promotion displays with 20 percent early-bird discount."
+msgstr "يقترب ذروة موسم الزفاف. احجز الآن لشاشات ترويج المكان بخصم 20 بالمائة للحجاجز المبكرة."
+
+msgid "Off"
+msgstr "خصم"
+
+msgid "Multiple"
+msgstr "متعدد"
+
+msgid "Retail Sale Campaign"
+msgstr "حملة بيع التجزئة"
+
+msgid "Retail"
+msgstr "التجزئة"
+
+msgid "Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150% target sales."
+msgstr "يقترب الجمعة السوداء! مواقع تجزئة عالية الحركة متاحة. حققت الحملات المماثلة السابقة 150% من مبيعات الهدف."
+
+msgid "Target"
+msgstr "الهدف"
+
+msgid "Shopping Areas"
+msgstr "مناطق التسوق"
+
+msgid "Load More Recommendations"
+msgstr "تحميل المزيد من التوصيات"
+
+msgid "Your Active Bookings"
+msgstr "حجوزاتك النشطة"
+
+msgid "Current and upcoming display rentals"
+msgstr "إيجارات الشاشات الحالية والقادمة"
+
+msgid "King Fahd Road LED Screen"
+msgstr "شاشة LED طريق الملك فهد"
+
+msgid "Confirmed"
+msgstr "مؤكد"
+
+msgid "Booking ID: #BK001"
+msgstr "معرف الحجز: #BK001"
+
+msgid "Mall Indoor Display"
+msgstr "شاشة المول الداخلية"
+
+msgid "Wedding Event"
+msgstr "حدث الزفاف"
+
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+msgid "Booking ID: #BK002"
+msgstr "معرف الحجز: #BK002"
+
+msgid "Loyalty Tier"
+msgstr "مستوى الولاء"
+
+msgid "Points to Gold"
+msgstr "نقاط للذهب"
+
+msgid "left"
+msgstr "متبقي"
+
+msgid "Available Points"
+msgstr "النقاط المتاحة"
+
+msgid "Total Bookings"
+msgstr "إجمالي الحجوزات"
+
+msgid "Quick Actions"
+msgstr "إجراءات سريعة"
+
+msgid "Find Displays"
+msgstr "البحث عن الشاشات"
+
+msgid "Browse available screens"
+msgstr "استعرض الشاشات المتاحة"
+
+msgid "Request Quote"
+msgstr "طلب عرض أسعار"
+
+msgid "Get custom pricing"
+msgstr "احصل على تسعير مخصص"
+
+msgid "Contact Support"
+msgstr "الاتصال بالدعم"
+
+msgid "Get immediate help"
+msgstr "احصل على مساعدة فورية"
+
+msgid "Recommended For You"
+msgstr "موصى به لك"
+
+msgid "Based on your previous bookings"
+msgstr "بناءً على حجوزاتك السابقة"
+
+msgid "Downtown LED Screen"
+msgstr "شاشة LED وسط المدينة"
+
+msgid "Downtown Riyadh"
+msgstr "وسط الرياض"
+
+msgid "Starting at"
+msgstr "ابتداءً من"
+
+msgid "Olaya Street Display"
+msgstr "شاشة شارع العليا"
+
+msgid "Olaya Street"
+msgstr "شارع العليا"
+
+msgid "Al Nakheel Mall"
+msgstr "مول النخيل"
+
+msgid "Al Nakheel District"
+msgstr "منطقة النخيل"
+
+msgid "Business Tower LED"
+msgstr "شاشة LED برج الأعمال"
+
+msgid "Financial District"
+msgstr "الحي المالي"
