@@ -8,12 +8,12 @@ app = Flask(__name__)
 app.secret_key = 'elaani-bilingual-2025'
 
 # Minimal Babel Configuration
-app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+app.config['BABEL_DEFAULT_LOCALE'] = 'ar'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
 
 def get_locale():
-    """Get current locale from session or default to English"""
-    return session.get('lang', 'en')
+    """Get current locale from session or default to Arabic"""
+    return session.get('lang', 'ar')
 
 # Initialize Babel using init_app method (more stable for Flask-Babel 3.x)
 babel = Babel()
@@ -421,8 +421,8 @@ def set_language(lang):
     """Switch language and redirect back to referring page"""
     if lang in ['ar', 'en']:
         session['lang'] = lang
-    # Redirect to the referring page or dashboard
-    return redirect(request.referrer or url_for('dashboard'))
+    # Redirect to the referring page or customer dashboard
+    return redirect(request.referrer or url_for('customer_dashboard'))
 
 # Test routes for translations (will be removed later)
 @app.route('/test-i18n')
