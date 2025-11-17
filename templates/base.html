@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ session.get('lang', 'en') }}" dir="{{ 'rtl' if session.get('lang') == 'ar' else 'ltr' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Elaani Dashboard{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    {% if session.get('lang') == 'ar' %}
+    <link href="{{ url_for('static', filename='css/rtl.css') }}" rel="stylesheet">
+    {% endif %}
     <script>
         tailwind.config = {
             theme: {
@@ -68,55 +71,72 @@
                     <!-- Navigation -->
                     <div class="flex-1 flex flex-col overflow-y-auto">
                         <nav class="flex-1 px-4 py-6 space-y-2">
-                            <a href="{{ url_for('dashboard') }}" 
+                            <a href="{{ url_for('dashboard') }}"
                                class="nav-link {% if request.endpoint == 'dashboard' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-home mr-4 w-5"></i>
-                                Dashboard
+                                <i class="fas fa-home mr-4 w-5 icon-start"></i>
+                                {{ _('Dashboard') }}
                             </a>
-                            
-                            <a href="{{ url_for('map_view') }}" 
+
+                            <a href="{{ url_for('map_view') }}"
                                class="nav-link  text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-tv mr-4 w-5"></i>
-                                Screens
+                                <i class="fas fa-tv mr-4 w-5 icon-start"></i>
+                                {{ _('Screens') }}
                             </a>
-                            
-                            <a href="{{ url_for('bookings_rentals') }}" 
+
+                            <a href="{{ url_for('bookings_rentals') }}"
                                class="nav-link {% if request.endpoint == 'bookings_rentals' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-calendar-alt mr-4 w-5"></i>
-                                Bookings & Rentals
+                                <i class="fas fa-calendar-alt mr-4 w-5 icon-start"></i>
+                                {{ _('Bookings & Rentals') }}
                             </a>
-                            
+
                             <a href="{{ url_for('clients_crm') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-users mr-4 w-5"></i>
-                                Clients & CRM
+                                <i class="fas fa-users mr-4 w-5 icon-start"></i>
+                                {{ _('Clients & CRM') }}
                             </a>
-                            
+
                             <a href="{{ url_for('financial_billing') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-dollar-sign mr-4 w-5"></i>
-                                Financial & Billing
+                                <i class="fas fa-dollar-sign mr-4 w-5 icon-start"></i>
+                                {{ _('Financial & Billing') }}
                             </a>
-                            
-                            
-                            
+
+
+
                             <a href="{{ url_for('analytics_reports') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-chart-bar mr-4 w-5"></i>
-                                Analytics
+                                <i class="fas fa-chart-bar mr-4 w-5 icon-start"></i>
+                                {{ _('Analytics') }}
                             </a>
-                            
+
                             <a href="{{ url_for('marketing') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-bullhorn mr-4 w-5"></i>
-                                Marketing
+                                <i class="fas fa-bullhorn mr-4 w-5 icon-start"></i>
+                                {{ _('Marketing') }}
                             </a>
-                            
+
                             <a href="#" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-headset mr-4 w-5"></i>
-                                Support
+                                <i class="fas fa-headset mr-4 w-5 icon-start"></i>
+                                {{ _('Support') }}
                             </a>
-                            
+
                             <a href="#" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-cog mr-4 w-5"></i>
-                                Settings
+                                <i class="fas fa-cog mr-4 w-5 icon-start"></i>
+                                {{ _('Settings') }}
                             </a>
+
+                            <!-- Language Switcher -->
+                            <div class="border-t border-white/20 pt-4 mt-4">
+                                <div class="px-4 py-3">
+                                    <p class="text-xs text-white/70 mb-2">{{ _('Language') }}</p>
+                                    <div class="flex space-x-2">
+                                        <a href="{{ url_for('set_language', lang='ar') }}"
+                                           class="flex-1 {% if session.get('lang') == 'ar' %}bg-white/20{% endif %} text-white text-center py-2 px-3 rounded-lg hover:bg-white/10 transition text-sm">
+                                            العربية
+                                        </a>
+                                        <a href="{{ url_for('set_language', lang='en') }}"
+                                           class="flex-1 {% if session.get('lang') == 'en' or not session.get('lang') %}bg-white/20{% endif %} text-white text-center py-2 px-3 rounded-lg hover:bg-white/10 transition text-sm">
+                                            English
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </nav>
                     </div>
                 </div>

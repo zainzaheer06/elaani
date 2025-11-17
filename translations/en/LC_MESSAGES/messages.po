@@ -1,0 +1,199 @@
+# English translations for Elaani
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Sidebar Navigation
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Screens"
+msgstr "Screens"
+
+msgid "Bookings & Rentals"
+msgstr "Bookings & Rentals"
+
+msgid "Clients & CRM"
+msgstr "Clients & CRM"
+
+msgid "Financial & Billing"
+msgstr "Financial & Billing"
+
+msgid "Analytics"
+msgstr "Analytics"
+
+msgid "Marketing"
+msgstr "Marketing"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Language"
+msgstr "Language"
+
+# Dashboard Page Titles
+msgid "Billboard Dashboard - Elaani"
+msgstr "Billboard Dashboard - Elaani"
+
+msgid "Billboard Rental Dashboard"
+msgstr "Billboard Rental Dashboard"
+
+msgid "Manage your billboard advertising network across Saudi Arabia"
+msgstr "Manage your billboard advertising network across Saudi Arabia"
+
+# Action Bar
+msgid "Refresh Data"
+msgstr "Refresh Data"
+
+msgid "Export Report"
+msgstr "Export Report"
+
+msgid "Today"
+msgstr "Today"
+
+msgid "This Week"
+msgstr "This Week"
+
+msgid "This Month"
+msgstr "This Month"
+
+msgid "This Quarter"
+msgstr "This Quarter"
+
+msgid "This Year"
+msgstr "This Year"
+
+msgid "New Booking"
+msgstr "New Booking"
+
+# Stats Cards
+msgid "Billboard Inventory"
+msgstr "Billboard Inventory"
+
+msgid "+2 new locations"
+msgstr "+2 new locations"
+
+msgid "Active Campaigns"
+msgstr "Active Campaigns"
+
+msgid "+3 new bookings"
+msgstr "+3 new bookings"
+
+msgid "Monthly Revenue"
+msgstr "Monthly Revenue"
+
+msgid "Active Clients"
+msgstr "Active Clients"
+
+msgid "+8 this week"
+msgstr "+8 this week"
+
+# Booking Calendar
+msgid "Booking Calendar"
+msgstr "Booking Calendar"
+
+msgid "September 2025 • Saudi Business Schedule"
+msgstr "September 2025 • Saudi Business Schedule"
+
+msgid "Full Calendar"
+msgstr "Full Calendar"
+
+msgid "Booked"
+msgstr "Booked"
+
+msgid "Available"
+msgstr "Available"
+
+msgid "Friday (Weekend)"
+msgstr "Friday (Weekend)"
+
+msgid "Sun"
+msgstr "Sun"
+
+msgid "Mon"
+msgstr "Mon"
+
+msgid "Tue"
+msgstr "Tue"
+
+msgid "Wed"
+msgstr "Wed"
+
+msgid "Thu"
+msgstr "Thu"
+
+msgid "Fri"
+msgstr "Fri"
+
+msgid "Sat"
+msgstr "Sat"
+
+# Recent Activity
+msgid "Recent Activity"
+msgstr "Recent Activity"
+
+msgid "Latest updates and actions"
+msgstr "Latest updates and actions"
+
+msgid "View All"
+msgstr "View All"
+
+msgid "Just now"
+msgstr "Just now"
+
+# Today's Bookings
+msgid "Today's Bookings"
+msgstr "Today's Bookings"
+
+msgid "3 Active"
+msgstr "3 Active"
+
+msgid "Al-Rajhi School"
+msgstr "Al-Rajhi School"
+
+msgid "LED Display 65\" • 9:00 AM - 3:00 PM"
+msgstr "LED Display 65\" • 9:00 AM - 3:00 PM"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Tech Conference"
+msgstr "Tech Conference"
+
+msgid "Mobile LED Truck • All Day"
+msgstr "Mobile LED Truck • All Day"
+
+msgid "Riyadh Events Co."
+msgstr "Riyadh Events Co."
+
+msgid "Outdoor LED 85\" • 6:00 PM - 11:00 PM"
+msgstr "Outdoor LED 85\" • 6:00 PM - 11:00 PM"
+
+msgid "Scheduled"
+msgstr "Scheduled"
+
+# Revenue Trend
+msgid "Revenue Trend"
+msgstr "Revenue Trend"
+
+msgid "Last 7 days"
+msgstr "Last 7 days"
+
+msgid "Last 30 days"
+msgstr "Last 30 days"
+
+msgid "Last 3 months"
+msgstr "Last 3 months"
+
+msgid "Revenue Chart"
+msgstr "Revenue Chart"
+
+msgid "Chart visualization coming soon"
+msgstr "Chart visualization coming soon"

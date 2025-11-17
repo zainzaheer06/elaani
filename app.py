@@ -1,9 +1,23 @@
 # app.py - Main Flask Application
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, session, redirect, url_for
+from flask_babel import Babel
 from datetime import datetime, timedelta
 import json
 
 app = Flask(__name__)
+app.secret_key = 'elaani-bilingual-2025'
+
+# Minimal Babel Configuration
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
+
+def get_locale():
+    """Get current locale from session or default to English"""
+    return session.get('lang', 'en')
+
+# Initialize Babel using init_app method (more stable for Flask-Babel 3.x)
+babel = Babel()
+babel.init_app(app, locale_selector=get_locale)
 
 # Add custom Jinja2 filters
 @app.template_filter('zfill')
@@ -400,6 +414,56 @@ def create_booking():
     }
     bookings_data.append(new_booking)
     return jsonify({'success': True, 'booking': new_booking})
+
+# Language switcher route
+@app.route('/set-language/<lang>')
+def set_language(lang):
+    """Switch language and redirect back to referring page"""
+    if lang in ['ar', 'en']:
+        session['lang'] = lang
+    # Redirect to the referring page or dashboard
+    return redirect(request.referrer or url_for('dashboard'))
+
+# Test routes for translations (will be removed later)
+@app.route('/test-i18n')
+def test_i18n():
+    from flask_babel import gettext
+    return f"""
+    <h1>Translation Test</h1>
+    <p>Current locale: {get_locale()}</p>
+    <p>Test translation: {gettext('Dashboard')} </p>
+    <p>Expected: Dashboard (in English)</p>
+    """
+
+@app.route('/test-ar')
+def test_ar():
+    from flask_babel import gettext
+    # Temporarily switch to Arabic for this request
+    session['lang'] = 'ar'
+    return f"""
+    <html dir="rtl">
+    <head><meta charset="utf-8"></head>
+    <body>
+    <h1>اختبار الترجمة</h1>
+    <p>Current locale: {get_locale()}</p>
+    <p>Test translation: {gettext('Dashboard')}</p>
+    <p>Expected: لوحة التحكم</p>
+    <p><a href="/test-en">Switch to English test</a></p>
+    </body>
+    </html>
+    """
+
+@app.route('/test-en')
+def test_en():
+    from flask_babel import gettext
+    session['lang'] = 'en'
+    return f"""
+    <h1>Translation Test</h1>
+    <p>Current locale: {get_locale()}</p>
+    <p>Test translation: {gettext('Dashboard')}</p>
+    <p>Expected: Dashboard</p>
+    <p><a href="/test-ar">Switch to Arabic test</a></p>
+    """
 
 if __name__ == '__main__':
     app.run(debug=True, port=5900)

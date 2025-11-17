@@ -1,0 +1,199 @@
+# Arabic translations for Elaani
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+# Sidebar Navigation
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+msgid "Screens"
+msgstr "الشاشات"
+
+msgid "Bookings & Rentals"
+msgstr "الحجوزات والإيجارات"
+
+msgid "Clients & CRM"
+msgstr "العملاء وإدارة العلاقات"
+
+msgid "Financial & Billing"
+msgstr "المالية والفواتير"
+
+msgid "Analytics"
+msgstr "التحليلات"
+
+msgid "Marketing"
+msgstr "التسويق"
+
+msgid "Support"
+msgstr "الدعم"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Language"
+msgstr "اللغة"
+
+# Dashboard Page Titles
+msgid "Billboard Dashboard - Elaani"
+msgstr "لوحة تحكم الإعلانات - إيلاني"
+
+msgid "Billboard Rental Dashboard"
+msgstr "لوحة تحكم إيجار الإعلانات"
+
+msgid "Manage your billboard advertising network across Saudi Arabia"
+msgstr "إدارة شبكة الإعلانات الخاصة بك في جميع أنحاء المملكة العربية السعودية"
+
+# Action Bar
+msgid "Refresh Data"
+msgstr "تحديث البيانات"
+
+msgid "Export Report"
+msgstr "تصدير التقرير"
+
+msgid "Today"
+msgstr "اليوم"
+
+msgid "This Week"
+msgstr "هذا الأسبوع"
+
+msgid "This Month"
+msgstr "هذا الشهر"
+
+msgid "This Quarter"
+msgstr "هذا الربع"
+
+msgid "This Year"
+msgstr "هذه السنة"
+
+msgid "New Booking"
+msgstr "حجز جديد"
+
+# Stats Cards
+msgid "Billboard Inventory"
+msgstr "مخزون الإعلانات"
+
+msgid "+2 new locations"
+msgstr "+2 مواقع جديدة"
+
+msgid "Active Campaigns"
+msgstr "الحملات النشطة"
+
+msgid "+3 new bookings"
+msgstr "+3 حجوزات جديدة"
+
+msgid "Monthly Revenue"
+msgstr "الإيرادات الشهرية"
+
+msgid "Active Clients"
+msgstr "العملاء النشطين"
+
+msgid "+8 this week"
+msgstr "+8 هذا الأسبوع"
+
+# Booking Calendar
+msgid "Booking Calendar"
+msgstr "تقويم الحجوزات"
+
+msgid "September 2025 • Saudi Business Schedule"
+msgstr "سبتمبر 2025 • جدول الأعمال السعودي"
+
+msgid "Full Calendar"
+msgstr "التقويم الكامل"
+
+msgid "Booked"
+msgstr "محجوز"
+
+msgid "Available"
+msgstr "متاح"
+
+msgid "Friday (Weekend)"
+msgstr "الجمعة (نهاية الأسبوع)"
+
+msgid "Sun"
+msgstr "الأحد"
+
+msgid "Mon"
+msgstr "الاثنين"
+
+msgid "Tue"
+msgstr "الثلاثاء"
+
+msgid "Wed"
+msgstr "الأربعاء"
+
+msgid "Thu"
+msgstr "الخميس"
+
+msgid "Fri"
+msgstr "الجمعة"
+
+msgid "Sat"
+msgstr "السبت"
+
+# Recent Activity
+msgid "Recent Activity"
+msgstr "النشاط الأخير"
+
+msgid "Latest updates and actions"
+msgstr "آخر التحديثات والإجراءات"
+
+msgid "View All"
+msgstr "عرض الكل"
+
+msgid "Just now"
+msgstr "للتو"
+
+# Today's Bookings
+msgid "Today's Bookings"
+msgstr "حجوزات اليوم"
+
+msgid "3 Active"
+msgstr "3 نشطة"
+
+msgid "Al-Rajhi School"
+msgstr "مدرسة الراجحي"
+
+msgid "LED Display 65\" • 9:00 AM - 3:00 PM"
+msgstr "شاشة LED 65 بوصة • 9:00 صباحاً - 3:00 مساءً"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Tech Conference"
+msgstr "مؤتمر التكنولوجيا"
+
+msgid "Mobile LED Truck • All Day"
+msgstr "شاحنة LED متنقلة • طوال اليوم"
+
+msgid "Riyadh Events Co."
+msgstr "شركة فعاليات الرياض"
+
+msgid "Outdoor LED 85\" • 6:00 PM - 11:00 PM"
+msgstr "شاشة LED خارجية 85 بوصة • 6:00 مساءً - 11:00 مساءً"
+
+msgid "Scheduled"
+msgstr "مجدول"
+
+# Revenue Trend
+msgid "Revenue Trend"
+msgstr "اتجاه الإيرادات"
+
+msgid "Last 7 days"
+msgstr "آخر 7 أيام"
+
+msgid "Last 30 days"
+msgstr "آخر 30 يوماً"
+
+msgid "Last 3 months"
+msgstr "آخر 3 أشهر"
+
+msgid "Revenue Chart"
+msgstr "مخطط الإيرادات"
+
+msgid "Chart visualization coming soon"
+msgstr "تصور المخطط قريباً"

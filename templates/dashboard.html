@@ -1,48 +1,48 @@
 {% extends "base.html" %}
 
-{% block title %}Billboard Dashboard - Elaani{% endblock %}
+{% block title %}{{ _('Billboard Dashboard - Elaani') }}{% endblock %}
 
-{% block page_title %}Billboard Rental Dashboard{% endblock %}
-{% block page_subtitle %}Manage your billboard advertising network across Saudi Arabia{% endblock %}
+{% block page_title %}{{ _('Billboard Rental Dashboard') }}{% endblock %}
+{% block page_subtitle %}{{ _('Manage your billboard advertising network across Saudi Arabia') }}{% endblock %}
 
 {% block content %}
 <!-- Action Bar -->
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
-        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
-            <button onclick="refreshDashboard()" 
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 {% if session.get('lang') == 'ar' %}sm:space-x-reverse{% endif %} sm:space-x-4">
+            <button onclick="refreshDashboard()"
                     class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
-                <i class="fas fa-sync-alt mr-2"></i>
-                Refresh Data
+                <i class="fas fa-sync-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
+                {{ _('Refresh Data') }}
             </button>
-            <button onclick="exportReport()" 
+            <button onclick="exportReport()"
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
-                <i class="fas fa-download mr-2"></i>
-                Export Report
+                <i class="fas fa-download {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
+                {{ _('Export Report') }}
             </button>
         </div>
-        
-        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+
+        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 {% if session.get('lang') == 'ar' %}sm:space-x-reverse{% endif %} sm:space-x-4">
             <!-- Date Filter -->
             <div class="relative">
-                <select id="dateRange" 
+                <select id="dateRange"
                         class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary appearance-none text-gray-700 font-medium cursor-pointer hover:border-gray-400 transition-all duration-200">
-                    <option value="today">Today</option>
-                    <option value="week">This Week</option>
-                    <option value="month" selected>This Month</option>
-                    <option value="quarter">This Quarter</option>
-                    <option value="year">This Year</option>
+                    <option value="today">{{ _('Today') }}</option>
+                    <option value="week">{{ _('This Week') }}</option>
+                    <option value="month" selected>{{ _('This Month') }}</option>
+                    <option value="quarter">{{ _('This Quarter') }}</option>
+                    <option value="year">{{ _('This Year') }}</option>
                 </select>
-                <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+                <div class="absolute inset-y-0 {% if session.get('lang') == 'ar' %}left-0{% else %}right-0{% endif %} flex items-center px-3 pointer-events-none">
                     <i class="fas fa-chevron-down text-gray-400 text-sm"></i>
                 </div>
             </div>
-            
+
             <!-- Quick Actions -->
-            <a href="{{ url_for('bookings_rentals') }}" 
+            <a href="{{ url_for('bookings_rentals') }}"
                class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
-                <i class="fas fa-plus mr-2"></i>
-                New Booking
+                <i class="fas fa-plus {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
+                {{ _('New Booking') }}
             </a>
         </div>
     </div>
@@ -51,80 +51,80 @@
 <!-- Stats Grid -->
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
-        <div class="flex items-center">
+        <div class="flex items-center {% if session.get('lang') == 'ar' %}space-x-reverse{% endif %}">
             <div class="flex-shrink-0">
                 <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
                     <i class="fas fa-rectangle-ad text-blue-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %} flex-1">
                 <div class="text-2xl font-bold text-gray-900">
                     {{ stats.total_screens }}
                 </div>
-                <div class="text-sm font-medium text-gray-600">Billboard Inventory</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Billboard Inventory') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
-                    +2 new locations
+                    <i class="fas fa-arrow-up {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>
+                    {{ _('+2 new locations') }}
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
-        <div class="flex items-center">
+        <div class="flex items-center {% if session.get('lang') == 'ar' %}space-x-reverse{% endif %}">
             <div class="flex-shrink-0">
                 <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
                     <i class="fas fa-calendar-check text-green-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %} flex-1">
                 <div class="text-2xl font-bold text-gray-900">
                     {{ stats.active_rentals }}
                 </div>
-                <div class="text-sm font-medium text-gray-600">Active Campaigns</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Active Campaigns') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
-                    +3 new bookings
+                    <i class="fas fa-arrow-up {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>
+                    {{ _('+3 new bookings') }}
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
-        <div class="flex items-center">
+        <div class="flex items-center {% if session.get('lang') == 'ar' %}space-x-reverse{% endif %}">
             <div class="flex-shrink-0">
                 <div class="w-12 h-12 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-xl flex items-center justify-center">
                     <i class="fas fa-coins text-white text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %} flex-1">
                 <div class="text-2xl font-bold text-gray-900">
                     {{ stats.monthly_revenue|format_sar }}
                 </div>
-                <div class="text-sm font-medium text-gray-600">Monthly Revenue</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Monthly Revenue') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
+                    <i class="fas fa-arrow-up {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>
                     +18.5%
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
-        <div class="flex items-center">
+        <div class="flex items-center {% if session.get('lang') == 'ar' %}space-x-reverse{% endif %}">
             <div class="flex-shrink-0">
                 <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
                     <i class="fas fa-users text-purple-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %} flex-1">
                 <div class="text-2xl font-bold text-gray-900">
                     {{ stats.active_clients }}
                 </div>
-                <div class="text-sm font-medium text-gray-600">Active Clients</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Active Clients') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
-                    +8 this week
+                    <i class="fas fa-arrow-up {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>
+                    {{ _('+8 this week') }}
                 </div>
             </div>
         </div>
@@ -138,43 +138,43 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Booking Calendar</h3>
-                    <p class="text-sm text-gray-600 mt-1">September 2025 • Saudi Business Schedule</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Booking Calendar') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('September 2025 • Saudi Business Schedule') }}</p>
                 </div>
                 <button onclick="openFullCalendar()" 
                         class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200">
-                    <i class="fas fa-external-link-alt mr-2"></i>
-                    Full Calendar
+                    <i class="fas fa-external-link-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
+                    {{ _('Full Calendar') }}
                 </button>
             </div>
         </div>
         <div class="p-6">
             <!-- Calendar Legend -->
             <div class="flex items-center justify-between mb-6">
-                <div class="flex items-center space-x-6 text-sm">
+                <div class="flex items-center {% if session.get('lang') == 'ar' %}space-x-reverse{% endif %} space-x-6 text-sm">
                     <div class="flex items-center">
-                        <div class="w-4 h-4 bg-elaani-secondary rounded mr-2"></div>
-                        <span class="text-gray-600">Booked</span>
+                        <div class="w-4 h-4 bg-elaani-secondary rounded {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></div>
+                        <span class="text-gray-600">{{ _('Booked') }}</span>
                     </div>
                     <div class="flex items-center">
-                        <div class="w-4 h-4 bg-gray-200 rounded mr-2"></div>
-                        <span class="text-gray-600">Available</span>
+                        <div class="w-4 h-4 bg-gray-200 rounded {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></div>
+                        <span class="text-gray-600">{{ _('Available') }}</span>
                     </div>
                     <div class="flex items-center">
-                        <div class="w-4 h-4 bg-yellow-400 rounded mr-2"></div>
-                        <span class="text-gray-600">Friday (Weekend)</span>
+                        <div class="w-4 h-4 bg-yellow-400 rounded {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></div>
+                        <span class="text-gray-600">{{ _('Friday (Weekend)') }}</span>
                     </div>
                 </div>
             </div>
             
             <div class="grid grid-cols-7 gap-2 mb-4">
-                <div class="text-center text-sm font-semibold text-gray-500 py-2">Sun</div>
-                <div class="text-center text-sm font-semibold text-gray-500 py-2">Mon</div>
-                <div class="text-center text-sm font-semibold text-gray-500 py-2">Tue</div>
-                <div class="text-center text-sm font-semibold text-gray-500 py-2">Wed</div>
-                <div class="text-center text-sm font-semibold text-gray-500 py-2">Thu</div>
-                <div class="text-center text-sm font-semibold text-gray-500 py-2">Fri</div>
-                <div class="text-center text-sm font-semibold text-gray-500 py-2">Sat</div>
+                <div class="text-center text-sm font-semibold text-gray-500 py-2">{{ _('Sun') }}</div>
+                <div class="text-center text-sm font-semibold text-gray-500 py-2">{{ _('Mon') }}</div>
+                <div class="text-center text-sm font-semibold text-gray-500 py-2">{{ _('Tue') }}</div>
+                <div class="text-center text-sm font-semibold text-gray-500 py-2">{{ _('Wed') }}</div>
+                <div class="text-center text-sm font-semibold text-gray-500 py-2">{{ _('Thu') }}</div>
+                <div class="text-center text-sm font-semibold text-gray-500 py-2">{{ _('Fri') }}</div>
+                <div class="text-center text-sm font-semibold text-gray-500 py-2">{{ _('Sat') }}</div>
             </div>
             <div class="grid grid-cols-7 gap-2">
                 <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-elaani-light transition-colors border border-gray-200 hover:border-elaani-primary">15</div>
@@ -201,19 +201,19 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Recent Activity</h3>
-                    <p class="text-sm text-gray-600 mt-1">Latest updates and actions</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Recent Activity') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Latest updates and actions') }}</p>
                 </div>
                 <button onclick="viewAllActivity()" 
                         class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
-                    View All
+                    {{ _('View All') }}
                 </button>
             </div>
         </div>
         <div class="p-6">
             <div class="space-y-4">
                 {% for activity in recent_activity %}
-                <div class="flex items-start space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
+                <div class="flex items-start {% if session.get('lang') == 'ar' %}space-x-reverse{% endif %} space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors">
                     <div class="flex-shrink-0">
                         <div class="w-10 h-10 rounded-full flex items-center justify-center
                             {% if activity.color == 'green' %}bg-green-100 text-green-600
@@ -228,8 +228,8 @@
                         <p class="text-sm font-medium text-gray-900">{{ activity.title }}</p>
                         <p class="text-sm text-gray-500 mt-1">{{ activity.description }}</p>
                         <p class="text-xs text-gray-400 mt-1">
-                            <i class="fas fa-clock mr-1"></i>
-                            Just now
+                            <i class="fas fa-clock {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>
+                            {{ _('Just now') }}
                         </p>
                     </div>
                 </div>
@@ -245,9 +245,9 @@
     <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
-                <h3 class="text-xl font-semibold text-gray-900">Today's Bookings</h3>
+                <h3 class="text-xl font-semibold text-gray-900">{{ _("Today's Bookings") }}</h3>
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                    3 Active
+                    {{ _('3 Active') }}
                 </span>
             </div>
         </div>
@@ -255,29 +255,29 @@
             <div class="space-y-4">
                 <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div>
-                        <div class="font-medium text-gray-900">Al-Rajhi School</div>
-                        <div class="text-sm text-gray-600">LED Display 65" • 9:00 AM - 3:00 PM</div>
+                        <div class="font-medium text-gray-900">{{ _('Al-Rajhi School') }}</div>
+                        <div class="text-sm text-gray-600">{{ _('LED Display 65" • 9:00 AM - 3:00 PM') }}</div>
                     </div>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                        Active
+                        {{ _('Active') }}
                     </span>
                 </div>
                 <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div>
-                        <div class="font-medium text-gray-900">Tech Conference</div>
-                        <div class="text-sm text-gray-600">Mobile LED Truck • All Day</div>
+                        <div class="font-medium text-gray-900">{{ _('Tech Conference') }}</div>
+                        <div class="text-sm text-gray-600">{{ _('Mobile LED Truck • All Day') }}</div>
                     </div>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                        Active
+                        {{ _('Active') }}
                     </span>
                 </div>
                 <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div>
-                        <div class="font-medium text-gray-900">Riyadh Events Co.</div>
-                        <div class="text-sm text-gray-600">Outdoor LED 85" • 6:00 PM - 11:00 PM</div>
+                        <div class="font-medium text-gray-900">{{ _('Riyadh Events Co.') }}</div>
+                        <div class="text-sm text-gray-600">{{ _('Outdoor LED 85" • 6:00 PM - 11:00 PM') }}</div>
                     </div>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                        Scheduled
+                        {{ _('Scheduled') }}
                     </span>
                 </div>
             </div>
@@ -288,11 +288,11 @@
     <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
-                <h3 class="text-xl font-semibold text-gray-900">Revenue Trend</h3>
+                <h3 class="text-xl font-semibold text-gray-900">{{ _('Revenue Trend') }}</h3>
                 <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-elaani-primary">
-                    <option>Last 7 days</option>
-                    <option>Last 30 days</option>
-                    <option>Last 3 months</option>
+                    <option>{{ _('Last 7 days') }}</option>
+                    <option>{{ _('Last 30 days') }}</option>
+                    <option>{{ _('Last 3 months') }}</option>
                 </select>
             </div>
         </div>
@@ -300,8 +300,8 @@
             <div class="h-64 flex items-center justify-center bg-gray-50 rounded-lg">
                 <div class="text-center">
                     <i class="fas fa-chart-line text-gray-400 text-4xl mb-4"></i>
-                    <p class="text-gray-600 font-medium">Revenue Chart</p>
-                    <p class="text-sm text-gray-500">Chart visualization coming soon</p>
+                    <p class="text-gray-600 font-medium">{{ _('Revenue Chart') }}</p>
+                    <p class="text-sm text-gray-500">{{ _('Chart visualization coming soon') }}</p>
                 </div>
             </div>
         </div>
