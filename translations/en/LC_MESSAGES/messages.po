@@ -435,3 +435,28 @@ msgstr "Business Tower LED"
 
 msgid "Financial District"
 msgstr "Financial District"
+
+# Customer Base Navigation
+msgid "Browse Displays"
+msgstr "Browse Displays"
+
+msgid "Map View"
+msgstr "Map View"
+
+msgid "My Bookings"
+msgstr "My Bookings"
+
+msgid "Quotes & Requests"
+msgstr "Quotes & Requests"
+
+msgid "Payments"
+msgstr "Payments"
+
+msgid "Saved Displays"
+msgstr "Saved Displays"
+
+msgid "Event Planner"
+msgstr "Event Planner"
+
+msgid "My Profile"
+msgstr "My Profile"

@@ -435,3 +435,28 @@ msgstr "شاشة LED برج الأعمال"
 
 msgid "Financial District"
 msgstr "الحي المالي"
+
+# Customer Base Navigation
+msgid "Browse Displays"
+msgstr "استعرض الشاشات"
+
+msgid "Map View"
+msgstr "عرض الخريطة"
+
+msgid "My Bookings"
+msgstr "حجوزاتي"
+
+msgid "Quotes & Requests"
+msgstr "العروض والطلبات"
+
+msgid "Payments"
+msgstr "المدفوعات"
+
+msgid "Saved Displays"
+msgstr "الشاشات المحفوظة"
+
+msgid "Event Planner"
+msgstr "مخطط الأحداث"
+
+msgid "My Profile"
+msgstr "ملفي الشخصي"
