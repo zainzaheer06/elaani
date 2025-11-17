@@ -328,8 +328,8 @@ msgstr "Retail Sale Campaign"
 msgid "Retail"
 msgstr "Retail"
 
-msgid "Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150% target sales."
-msgstr "Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150% target sales."
+msgid "Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150 percent target sales."
+msgstr "Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150 percent target sales."
 
 msgid "Target"
 msgstr "Target"

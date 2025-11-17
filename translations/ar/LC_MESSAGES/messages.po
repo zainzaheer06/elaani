@@ -328,8 +328,8 @@ msgstr "حملة بيع التجزئة"
 msgid "Retail"
 msgstr "التجزئة"
 
-msgid "Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150% target sales."
-msgstr "يقترب الجمعة السوداء! مواقع تجزئة عالية الحركة متاحة. حققت الحملات المماثلة السابقة 150% من مبيعات الهدف."
+msgid "Black Friday approaching! High-traffic retail locations available. Past similar campaigns achieved 150 percent target sales."
+msgstr "يقترب الجمعة السوداء! مواقع تجزئة عالية الحركة متاحة. حققت الحملات المماثلة السابقة 150 بالمائة من مبيعات الهدف."
 
 msgid "Target"
 msgstr "الهدف"
