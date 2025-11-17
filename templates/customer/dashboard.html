@@ -344,8 +344,8 @@
             <div class="space-y-4 mb-6">
                 <div>
                     <div class="flex justify-between mb-2">
-                        <span class="text-sm font-medium">Points to Gold</span>
-                        <span class="text-sm font-medium">{{ (150 - current_user.loyalty_points) }} left</span>
+                        <span class="text-sm font-medium">{{ _('Points to Gold') }}</span>
+                        <span class="text-sm font-medium">{{ (150 - current_user.loyalty_points) }} {{ _('left') }}</span>
                     </div>
                     <div class="w-full h-2 bg-white/20 rounded-full overflow-hidden">
                         <div class="h-full bg-white rounded-full" style="width: {{ (current_user.loyalty_points / 150) * 100 }}%"></div>
@@ -355,11 +355,11 @@
             
             <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/20">
                 <div>
-                    <p class="text-white/80 text-xs font-medium">Available Points</p>
+                    <p class="text-white/80 text-xs font-medium">{{ _('Available Points') }}</p>
                     <p class="text-2xl font-bold">{{ current_user.loyalty_points }}</p>
                 </div>
                 <div>
-                    <p class="text-white/80 text-xs font-medium">Total Bookings</p>
+                    <p class="text-white/80 text-xs font-medium">{{ _('Total Bookings') }}</p>
                     <p class="text-2xl font-bold">{{ current_user.total_bookings }}</p>
                 </div>
             </div>
@@ -367,35 +367,35 @@
 
         <!-- Quick Actions -->
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-            <h3 class="text-lg font-semibold text-gray-900 mb-4">Quick Actions</h3>
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ _('Quick Actions') }}</h3>
             <div class="space-y-3">
                 <a href="{{ url_for('map_view') }}" class="flex items-center p-3 bg-elaani-light rounded-xl hover:bg-opacity-100 transition-all hover:shadow-md group">
-                    <div class="w-10 h-10 bg-elaani-primary rounded-lg flex items-center justify-center mr-3">
+                    <div class="w-10 h-10 bg-elaani-primary rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                         <i class="fas fa-search text-white"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-semibold text-elaani-primary group-hover:text-elaani-secondary">Find Displays</p>
-                        <p class="text-xs text-gray-600">Browse available screens</p>
+                        <p class="text-sm font-semibold text-elaani-primary group-hover:text-elaani-secondary">{{ _('Find Displays') }}</p>
+                        <p class="text-xs text-gray-600">{{ _('Browse available screens') }}</p>
                     </div>
                 </a>
                 
                 <a href="{{ url_for('customer_quotes') }}" class="flex items-center p-3 bg-blue-50 rounded-xl hover:bg-blue-100 transition-all hover:shadow-md group">
-                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+                    <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                         <i class="fas fa-file-alt text-white"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-semibold text-blue-600 group-hover:text-blue-700">Request Quote</p>
-                        <p class="text-xs text-gray-600">Get custom pricing</p>
+                        <p class="text-sm font-semibold text-blue-600 group-hover:text-blue-700">{{ _('Request Quote') }}</p>
+                        <p class="text-xs text-gray-600">{{ _('Get custom pricing') }}</p>
                     </div>
                 </a>
                 
                 <a href="{{ url_for('customer_support') }}" class="flex items-center p-3 bg-green-50 rounded-xl hover:bg-green-100 transition-all hover:shadow-md group">
-                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-3">
+                    <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                         <i class="fas fa-headset text-white"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-semibold text-green-600 group-hover:text-green-700">Contact Support</p>
-                        <p class="text-xs text-gray-600">Get immediate help</p>
+                        <p class="text-sm font-semibold text-green-600 group-hover:text-green-700">{{ _('Contact Support') }}</p>
+                        <p class="text-xs text-gray-600">{{ _('Get immediate help') }}</p>
                     </div>
                 </a>
             </div>
@@ -406,8 +406,8 @@
 <!-- Recommended For You -->
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
     <div class="p-6 border-b border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900">Recommended For You</h3>
-        <p class="text-sm text-gray-600 mt-1">Based on your previous bookings</p>
+        <h3 class="text-xl font-semibold text-gray-900">{{ _('Recommended For You') }}</h3>
+        <p class="text-sm text-gray-600 mt-1">{{ _('Based on your previous bookings') }}</p>
     </div>
     <div class="p-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -420,11 +420,11 @@
                     </button>
                 </div>
                 <div class="p-4">
-                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">Downtown LED Screen</h4>
-                    <p class="text-sm text-gray-600 mt-1">Downtown Riyadh</p>
+                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">{{ _('Downtown LED Screen') }}</h4>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Downtown Riyadh') }}</p>
                     <div class="flex items-center justify-between mt-3">
                         <div>
-                            <p class="text-xs text-gray-600">Starting at</p>
+                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
                             <p class="text-lg font-bold text-elaani-primary">4,800 SAR</p>
                         </div>
                         <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
@@ -443,11 +443,11 @@
                     </button>
                 </div>
                 <div class="p-4">
-                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">Olaya Street Display</h4>
-                    <p class="text-sm text-gray-600 mt-1">Olaya Street</p>
+                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">{{ _('Olaya Street Display') }}</h4>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Olaya Street') }}</p>
                     <div class="flex items-center justify-between mt-3">
                         <div>
-                            <p class="text-xs text-gray-600">Starting at</p>
+                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
                             <p class="text-lg font-bold text-elaani-primary">3,500 SAR</p>
                         </div>
                         <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
@@ -466,11 +466,11 @@
                     </button>
                 </div>
                 <div class="p-4">
-                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">Al Nakheel Mall</h4>
-                    <p class="text-sm text-gray-600 mt-1">Al Nakheel District</p>
+                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">{{ _('Al Nakheel Mall') }}</h4>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Al Nakheel District') }}</p>
                     <div class="flex items-center justify-between mt-3">
                         <div>
-                            <p class="text-xs text-gray-600">Starting at</p>
+                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
                             <p class="text-lg font-bold text-elaani-primary">3,800 SAR</p>
                         </div>
                         <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
@@ -489,11 +489,11 @@
                     </button>
                 </div>
                 <div class="p-4">
-                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">Business Tower LED</h4>
-                    <p class="text-sm text-gray-600 mt-1">Financial District</p>
+                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">{{ _('Business Tower LED') }}</h4>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Financial District') }}</p>
                     <div class="flex items-center justify-between mt-3">
                         <div>
-                            <p class="text-xs text-gray-600">Starting at</p>
+                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
                             <p class="text-lg font-bold text-elaani-primary">5,500 SAR</p>
                         </div>
                         <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
