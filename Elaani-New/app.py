@@ -1,9 +1,28 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
+from flask_babel import Babel, gettext
 from datetime import datetime
 import os
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here'
+
+# Babel Configuration
+app.config['BABEL_DEFAULT_LOCALE'] = 'ar'
+app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'
+
+def get_locale():
+    """Get current locale from session or default to Arabic"""
+    return session.get('lang', 'ar')
+
+# Initialize Babel
+babel = Babel()
+babel.init_app(app, locale_selector=get_locale)
+
+# Template context processor to make translation function available
+@app.context_processor
+def inject_template_globals():
+    """Make translation function available in all templates"""
+    return dict(_=gettext)
 
 # Mock data for prototype
 mock_screens = [
@@ -153,6 +172,14 @@ def api_book():
     data = request.get_json()
     # Mock booking process
     return jsonify({'success': True, 'booking_id': 12345})
+
+# Language switcher route
+@app.route('/set-language/<lang>')
+def set_language(lang):
+    """Switch language and redirect back to referring page"""
+    if lang in ['ar', 'en']:
+        session['lang'] = lang
+    return redirect(request.referrer or url_for('index'))
 
 if __name__ == '__main__':
     app.run(debug=True)
