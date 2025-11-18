@@ -30,7 +30,7 @@
                 <i class="fas fa-file-alt text-blue-600 text-xl"></i>
             </div>
             <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
-                <div class="text-2xl font-bold text-gray-900">5</div>
+                <div class="text-2xl font-bold text-gray-900">{% if session.get('lang') == 'ar' %}٥{% else %}5{% endif %}</div>
                 <div class="text-sm text-gray-600">{{ _('Total Requests') }}</div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                 <i class="fas fa-hourglass-half text-yellow-600 text-xl"></i>
             </div>
             <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
-                <div class="text-2xl font-bold text-gray-900">2</div>
+                <div class="text-2xl font-bold text-gray-900">{% if session.get('lang') == 'ar' %}٢{% else %}2{% endif %}</div>
                 <div class="text-sm text-gray-600">{{ _('Pending') }}</div>
             </div>
         </div>
@@ -54,7 +54,7 @@
                 <i class="fas fa-check-circle text-green-600 text-xl"></i>
             </div>
             <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
-                <div class="text-2xl font-bold text-gray-900">2</div>
+                <div class="text-2xl font-bold text-gray-900">{% if session.get('lang') == 'ar' %}٢{% else %}2{% endif %}</div>
                 <div class="text-sm text-gray-600">{{ _('Quoted') }}</div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                 <i class="fas fa-coins text-purple-600 text-xl"></i>
             </div>
             <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
-                <div class="text-2xl font-bold text-gray-900">1</div>
+                <div class="text-2xl font-bold text-gray-900">{% if session.get('lang') == 'ar' %}١{% else %}1{% endif %}</div>
                 <div class="text-sm text-gray-600">{{ _('Accepted') }}</div>
             </div>
         </div>
@@ -78,16 +78,16 @@
     <div class="border-b border-gray-200">
         <div class="flex">
             <button onclick="filterQuotes('all')" class="quote-tab active px-6 py-4 text-sm font-medium text-elaani-primary border-b-2 border-elaani-primary">
-                {{ _('All Quotes') }} (5)
+                {{ _('All Quotes') }} ({% if session.get('lang') == 'ar' %}٥{% else %}5{% endif %})
             </button>
             <button onclick="filterQuotes('pending')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                {{ _('Pending') }} (2)
+                {{ _('Pending') }} ({% if session.get('lang') == 'ar' %}٢{% else %}2{% endif %})
             </button>
             <button onclick="filterQuotes('quoted')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                {{ _('Quoted') }} (2)
+                {{ _('Quoted') }} ({% if session.get('lang') == 'ar' %}٢{% else %}2{% endif %})
             </button>
             <button onclick="filterQuotes('accepted')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                {{ _('Accepted') }} (1)
+                {{ _('Accepted') }} ({% if session.get('lang') == 'ar' %}١{% else %}1{% endif %})
             </button>
         </div>
     </div>
@@ -95,7 +95,7 @@
     <!-- Quote Cards -->
     <div class="divide-y divide-gray-200">
         <!-- Quote 1 - Pending -->
-        <div class="p-6 hover:bg-gray-50 transition-all">
+        <div class="quote-card p-6 hover:bg-gray-50 transition-all" data-status="pending">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                 <div class="flex-1">
                     <div class="flex items-start justify-between mb-3">
@@ -103,15 +103,15 @@
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mb-2">
                                 <i class="fas fa-hourglass-half {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>{{ _('Pending') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Large LED Screen - 3 Day Event') }}</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شاشة LED كبيرة - حدث 3 أيام{% else %}Large LED Screen - 3 Day Event{% endif %}</h4>
                         </div>
-                        <span class="text-xs text-gray-500">QT#001 • Sep 18, 2025</span>
+                        <span class="text-xs text-gray-500 whitespace-nowrap">QT#001 • {% if session.get('lang') == 'ar' %}١٨ سبتمبر ٢٠٢٥{% else %}Sep 18, 2025{% endif %}</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">{{ _('Outdoor LED display for product launch') }}</p>
+                    <p class="text-sm text-gray-600 mb-3">{% if session.get('lang') == 'ar' %}شاشة LED خارجية لإطلاق المنتج{% else %}Outdoor LED display for product launch{% endif %}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
                             <span class="text-gray-600">{{ _('Size') }}</span>
-                            <p class="font-semibold text-gray-900">85" Display</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شاشة ٨٥"{% else %}85" Display{% endif %}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Location') }}</span>
@@ -119,11 +119,11 @@
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Duration') }}</span>
-                            <p class="font-semibold text-gray-900">3 {{ _('Days') }}</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}٣{% else %}3{% endif %} {{ _('Days') }}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Requested Budget') }}</span>
-                            <p class="font-semibold text-gray-900">5,000-7,000 SAR</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}٥,٠٠٠-٧,٠٠٠ ريال{% else %}5,000-7,000 SAR{% endif %}</p>
                         </div>
                     </div>
                 </div>
@@ -139,67 +139,67 @@
         </div>
 
         <!-- Quote 2 - Pending -->
-        <div class="p-6 hover:bg-gray-50 transition-all">
+        <div class="quote-card p-6 hover:bg-gray-50 transition-all" data-status="pending">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                 <div class="flex-1">
                     <div class="flex items-start justify-between mb-3">
                         <div>
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800 mb-2">
-                                <i class="fas fa-hourglass-half mr-1"></i>{{ _('Pending') }}
+                                <i class="fas fa-hourglass-half {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>{{ _('Pending') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Indoor Mall Display - 2 Months') }}</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شاشة مول داخلية - شهرين{% else %}Indoor Mall Display - 2 Months{% endif %}</h4>
                         </div>
-                        <span class="text-xs text-gray-500">QT#002 • Sep 16, 2025</span>
+                        <span class="text-xs text-gray-500 whitespace-nowrap">QT#002 • {% if session.get('lang') == 'ar' %}١٦ سبتمبر ٢٠٢٥{% else %}Sep 16, 2025{% endif %}</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">{{ _('Premium indoor display space for retail campaign') }}</p>
+                    <p class="text-sm text-gray-600 mb-3">{% if session.get('lang') == 'ar' %}مساحة عرض داخلية متميزة لحملة البيع بالتجزئة{% else %}Premium indoor display space for retail campaign{% endif %}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
                             <span class="text-gray-600">{{ _('Size') }}</span>
-                            <p class="font-semibold text-gray-900">55" LED Wall</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}جدار LED ٥٥"{% else %}55" LED Wall{% endif %}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Location') }}</span>
-                            <p class="font-semibold text-gray-900">Riyadh Gallery</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}الرياض غاليري{% else %}Riyadh Gallery{% endif %}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Duration') }}</span>
-                            <p class="font-semibold text-gray-900">60 {{ _('Days') }}</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}٦٠{% else %}60{% endif %} {{ _('Days') }}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Requested Budget') }}</span>
-                            <p class="font-semibold text-gray-900">25,000-35,000 SAR</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}٢٥,٠٠٠-٣٥,٠٠٠ ريال{% else %}25,000-35,000 SAR{% endif %}</p>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
                     <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
-                        <i class="fas fa-eye mr-2"></i>View Details
+                        <i class="fas fa-eye {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('View Details') }}
                     </button>
                     <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
-                        <i class="fas fa-times mr-2"></i>Cancel Request
+                        <i class="fas fa-times {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Cancel Request') }}
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Quote 3 - Quoted -->
-        <div class="p-6 hover:bg-gray-50 transition-all">
+        <div class="quote-card p-6 hover:bg-gray-50 transition-all" data-status="quoted">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                 <div class="flex-1">
                     <div class="flex items-start justify-between mb-3">
                         <div>
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 mb-2">
-                                <i class="fas fa-check-circle mr-1"></i>{{ _('Quoted') }}
+                                <i class="fas fa-check-circle {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>{{ _('Quoted') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Downtown Business Center Display') }}</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شاشة مركز الأعمال وسط المدينة{% else %}Downtown Business Center Display{% endif %}</h4>
                         </div>
-                        <span class="text-xs text-gray-500">QT#003 • Sep 10, 2025</span>
+                        <span class="text-xs text-gray-500 whitespace-nowrap">QT#003 • {% if session.get('lang') == 'ar' %}١٠ سبتمبر ٢٠٢٥{% else %}Sep 10, 2025{% endif %}</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">{{ _('Corporate event display space downtown') }}</p>
+                    <p class="text-sm text-gray-600 mb-3">{% if session.get('lang') == 'ar' %}مساحة عرض للفعاليات المؤسسية وسط المدينة{% else %}Corporate event display space downtown{% endif %}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
                             <span class="text-gray-600">{{ _('Size') }}</span>
-                            <p class="font-semibold text-gray-900">65" 4K Display</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شاشة 4K ٦٥"{% else %}65" 4K Display{% endif %}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Location') }}</span>
@@ -207,11 +207,11 @@
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Duration') }}</span>
-                            <p class="font-semibold text-gray-900">5 {{ _('Days') }}</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}٥{% else %}5{% endif %} {{ _('Days') }}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Quoted Price') }}</span>
-                            <p class="font-bold text-elaani-primary">6,250 SAR</p>
+                            <p class="font-bold text-elaani-primary">{% if session.get('lang') == 'ar' %}٦,٢٥٠ ريال{% else %}6,250 SAR{% endif %}</p>
                         </div>
                     </div>
                 </div>
@@ -227,23 +227,23 @@
         </div>
 
         <!-- Quote 4 - Quoted -->
-        <div class="p-6 hover:bg-gray-50 transition-all">
+        <div class="quote-card p-6 hover:bg-gray-50 transition-all" data-status="quoted">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                 <div class="flex-1">
                     <div class="flex items-start justify-between mb-3">
                         <div>
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 mb-2">
-                                <i class="fas fa-check-circle mr-1"></i>{{ _('Quoted') }}
+                                <i class="fas fa-check-circle {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>{{ _('Quoted') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Olaya Street Premium Display') }}</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شاشة متميزة في شارع العليا{% else %}Olaya Street Premium Display{% endif %}</h4>
                         </div>
-                        <span class="text-xs text-gray-500">QT#004 • Sep 08, 2025</span>
+                        <span class="text-xs text-gray-500 whitespace-nowrap">QT#004 • {% if session.get('lang') == 'ar' %}٨ سبتمبر ٢٠٢٥{% else %}Sep 08, 2025{% endif %}</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">{{ _('High-traffic premium outdoor advertising space') }}</p>
+                    <p class="text-sm text-gray-600 mb-3">{% if session.get('lang') == 'ar' %}مساحة إعلانية خارجية متميزة ذات حركة مرور عالية{% else %}High-traffic premium outdoor advertising space{% endif %}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
                             <span class="text-gray-600">{{ _('Size') }}</span>
-                            <p class="font-semibold text-gray-900">75" LED Screen</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شاشة LED ٧٥"{% else %}75" LED Screen{% endif %}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Location') }}</span>
@@ -251,11 +251,11 @@
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Duration') }}</span>
-                            <p class="font-semibold text-gray-900">7 {{ _('Days') }}</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}٧{% else %}7{% endif %} {{ _('Days') }}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Quoted Price') }}</span>
-                            <p class="font-bold text-elaani-primary">7,500 SAR</p>
+                            <p class="font-bold text-elaani-primary">{% if session.get('lang') == 'ar' %}٧,٥٠٠ ريال{% else %}7,500 SAR{% endif %}</p>
                         </div>
                     </div>
                 </div>
@@ -271,23 +271,23 @@
         </div>
 
         <!-- Quote 5 - Accepted -->
-        <div class="p-6 hover:bg-gray-50 transition-all bg-green-50 border-l-4 border-green-500">
+        <div class="quote-card p-6 hover:bg-gray-50 transition-all bg-green-50 border-l-4 border-green-500" data-status="accepted">
             <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between">
                 <div class="flex-1">
                     <div class="flex items-start justify-between mb-3">
                         <div>
                             <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 mb-2">
-                                <i class="fas fa-crown mr-1"></i>{{ _('Accepted') }}
+                                <i class="fas fa-crown {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>{{ _('Accepted') }}
                             </span>
-                            <h4 class="text-lg font-semibold text-gray-900">{{ _('Business Park Tower LED Display') }}</h4>
+                            <h4 class="text-lg font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شاشة LED برج بيزنس بارك{% else %}Business Park Tower LED Display{% endif %}</h4>
                         </div>
-                        <span class="text-xs text-gray-500">QT#005 • Sep 01, 2025</span>
+                        <span class="text-xs text-gray-500 whitespace-nowrap">QT#005 • {% if session.get('lang') == 'ar' %}١ سبتمبر ٢٠٢٥{% else %}Sep 01, 2025{% endif %}</span>
                     </div>
-                    <p class="text-sm text-gray-600 mb-3">{{ _('Premium tower display - accepted quote') }}</p>
+                    <p class="text-sm text-gray-600 mb-3">{% if session.get('lang') == 'ar' %}شاشة برج متميزة - عرض مقبول{% else %}Premium tower display - accepted quote{% endif %}</p>
                     <div class="grid grid-cols-4 gap-4 text-sm">
                         <div>
                             <span class="text-gray-600">{{ _('Size') }}</span>
-                            <p class="font-semibold text-gray-900">85" 4K Display</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شاشة 4K ٨٥"{% else %}85" 4K Display{% endif %}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Location') }}</span>
@@ -295,11 +295,11 @@
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Duration') }}</span>
-                            <p class="font-semibold text-gray-900">14 {{ _('Days') }}</p>
+                            <p class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}١٤{% else %}14{% endif %} {{ _('Days') }}</p>
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Final Price') }}</span>
-                            <p class="font-bold text-elaani-primary">13,750 SAR</p>
+                            <p class="font-bold text-elaani-primary">{% if session.get('lang') == 'ar' %}١٣,٧٥٠ ريال{% else %}13,750 SAR{% endif %}</p>
                         </div>
                     </div>
                 </div>
@@ -388,15 +388,25 @@
 {% block extra_js %}
 <script>
     function filterQuotes(status) {
+        // Update tab styling
         document.querySelectorAll('.quote-tab').forEach(tab => {
-            tab.classList.remove('active', 'text-elaani-primary', 'border-b-elaani-primary');
-            tab.classList.add('text-gray-600', 'border-b-transparent');
+            tab.classList.remove('active', 'text-elaani-primary', 'border-elaani-primary');
+            tab.classList.add('text-gray-600', 'border-transparent');
         });
-        
-        event.target.classList.add('active', 'text-elaani-primary', 'border-b-elaani-primary');
-        event.target.classList.remove('text-gray-600', 'border-b-transparent');
-        
-        console.log('Filter quotes by:', status);
+
+        event.target.classList.add('active', 'text-elaani-primary', 'border-elaani-primary');
+        event.target.classList.remove('text-gray-600', 'border-transparent');
+
+        // Filter quote cards
+        const quoteCards = document.querySelectorAll('.quote-card');
+        quoteCards.forEach(card => {
+            const cardStatus = card.getAttribute('data-status');
+            if (status === 'all' || cardStatus === status) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
     }
 </script>
 {% endblock %}

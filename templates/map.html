@@ -102,7 +102,7 @@
 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
     <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
         <div class="flex items-center">
-            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                 <i class="fas fa-check-circle text-green-600"></i>
             </div>
             <div>
@@ -114,7 +114,7 @@
     
     <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
         <div class="flex items-center">
-            <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
+            <div class="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                 <i class="fas fa-calendar-check text-yellow-600"></i>
             </div>
             <div>
@@ -126,7 +126,7 @@
     
     <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
         <div class="flex items-center">
-            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+            <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                 <i class="fas fa-tools text-red-600"></i>
             </div>
             <div>
@@ -138,7 +138,7 @@
     
     <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
         <div class="flex items-center">
-            <div class="w-10 h-10 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-lg flex items-center justify-center mr-3">
+            <div class="w-10 h-10 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                 <i class="fas fa-tv text-white"></i>
             </div>
             <div>
@@ -169,14 +169,14 @@
 {% block extra_js %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
-    // Sample screen data
+    // Sample screen data with translations
     const screensData = [
         {
             id: 1,
-            title: "King Fahd Road LED",
-            location: "King Fahd Road, Riyadh",
+            title: "{{ _('King Fahd Road LED') }}",
+            location: "{{ _('King Fahd Road, Riyadh') }}",
             status: "available",
-            type: "LED Billboard",
+            type: "{{ _('LED Billboard') }}",
             size: "15x8m",
             price_per_day: 5000,
             price_per_hour: 500,
@@ -184,14 +184,14 @@
             reviews: 127,
             lat: 24.7136,
             lng: 46.6753,
-            direction: "North"
+            direction: "{{ _('North') }}"
         },
         {
             id: 2,
-            title: "Olaya Street Display",
-            location: "Olaya Street, Riyadh",
+            title: "{{ _('Olaya Street Display') }}",
+            location: "{{ _('Olaya Street, Riyadh') }}",
             status: "rented",
-            type: "LED Screen",
+            type: "{{ _('LED Screen') }}",
             size: "12x6m",
             price_per_day: 3500,
             price_per_hour: 350,
@@ -199,14 +199,14 @@
             reviews: 98,
             lat: 24.7280,
             lng: 46.6850,
-            direction: "East"
+            direction: "{{ _('East') }}"
         },
         {
             id: 3,
-            title: "Mall Indoor Screen",
-            location: "Riyadh Gallery Mall",
+            title: "{{ _('Mall Indoor Screen') }}",
+            location: "{{ _('Riyadh Gallery Mall') }}",
             status: "available",
-            type: "Indoor LED",
+            type: "{{ _('Indoor LED') }}",
             size: "10x5m",
             price_per_day: 4200,
             price_per_hour: 420,
@@ -214,14 +214,14 @@
             reviews: 156,
             lat: 24.7400,
             lng: 46.6600,
-            direction: "West"
+            direction: "{{ _('West') }}"
         },
         {
             id: 4,
-            title: "Downtown Business Center",
-            location: "Downtown Riyadh",
+            title: "{{ _('Downtown Business Center') }}",
+            location: "{{ _('Downtown Riyadh') }}",
             status: "maintenance",
-            type: "LED Display",
+            type: "{{ _('LED Display') }}",
             size: "14x7m",
             price_per_day: 4800,
             price_per_hour: 480,
@@ -229,14 +229,14 @@
             reviews: 143,
             lat: 24.7500,
             lng: 46.7000,
-            direction: "South"
+            direction: "{{ _('South') }}"
         },
         {
             id: 5,
-            title: "Al Nakheel Mall Screen",
-            location: "Al Nakheel District",
+            title: "{{ _('Al Nakheel Mall Screen') }}",
+            location: "{{ _('Al Nakheel District') }}",
             status: "available",
-            type: "LED Screen",
+            type: "{{ _('LED Screen') }}",
             size: "11x6m",
             price_per_day: 3800,
             price_per_hour: 380,
@@ -244,14 +244,14 @@
             reviews: 87,
             lat: 24.7000,
             lng: 46.6500,
-            direction: "North-East"
+            direction: "{{ _('North-East') }}"
         },
         {
             id: 6,
-            title: "Business Park Tower",
-            location: "Financial District",
+            title: "{{ _('Business Park Tower') }}",
+            location: "{{ _('Financial District') }}",
             status: "available",
-            type: "Digital Billboard",
+            type: "{{ _('Digital Billboard') }}",
             size: "13x7m",
             price_per_day: 5500,
             price_per_hour: 550,
@@ -259,7 +259,7 @@
             reviews: 112,
             lat: 24.7200,
             lng: 46.7100,
-            direction: "North"
+            direction: "{{ _('North') }}"
         }
     ];
 
@@ -301,6 +301,13 @@
                 fillOpacity: 0.9
             }).addTo(map);
 
+            // Translate status
+            const statusText = {
+                'available': '{{ _("Available") }}',
+                'rented': '{{ _("Rented") }}',
+                'maintenance': '{{ _("Maintenance") }}'
+            };
+
             // Add icon to marker
             marker.bindPopup(`
                 <div style="min-width: 280px;">
@@ -311,33 +318,37 @@
                     <div style="padding: 12px;">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; font-size: 13px;">
                             <div>
-                                <span style="color: #666;">Size:</span>
+                                <span style="color: #666;">{{ _('Size') }}:</span>
                                 <div style="font-weight: bold; color: #333;">${screen.size}</div>
                             </div>
                             <div>
-                                <span style="color: #666;">Type:</span>
+                                <span style="color: #666;">{{ _('Type') }}:</span>
                                 <div style="font-weight: bold; color: #333;">${screen.type}</div>
                             </div>
                             <div>
-                                <span style="color: #666;">Direction:</span>
+                                <span style="color: #666;">{{ _('Direction') }}:</span>
                                 <div style="font-weight: bold; color: #333;">${screen.direction}</div>
                             </div>
                             <div>
-                                <span style="color: #666;">Status:</span>
-                                <div style="font-weight: bold; color: ${color};">${screen.status.toUpperCase()}</div>
+                                <span style="color: #666;">{{ _('Status') }}:</span>
+                                <div style="font-weight: bold; color: ${color};">${statusText[screen.status]}</div>
                             </div>
                         </div>
                         <div style="border-top: 1px solid #e5e7eb; padding-top: 12px;">
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span style="color: #666;">Price:</span>
-                                <span style="font-weight: bold; color: #005430;">${screen.price_per_day.toLocaleString()} SAR/day</span>
+                                <span style="color: #666;">{{ _('Price') }}:</span>
+                                <span style="font-weight: bold; color: #005430;">${screen.price_per_day.toLocaleString()} {{ _('SAR/day') }}</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span style="color: #666;">Rating:</span>
-                                <span style="color: #f59e0b;">⭐ ${screen.rating} (${screen.reviews} reviews)</span>
+                                <span style="color: #666;">{{ _('Hourly') }}:</span>
+                                <span style="color: #666;">${screen.price_per_hour} {{ _('SAR/hr') }}</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="color: #666;">{{ _('Rating') }}:</span>
+                                <span style="color: #f59e0b;">⭐ ${screen.rating}</span>
                             </div>
                             <button onclick="viewScreenDetails(${screen.id})" style="width: 100%; padding: 8px; background: linear-gradient(135deg, #005430, #057f48); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; margin-top: 8px;">
-                                View Details
+                                {{ _('📅 Book This Screen') }}
                             </button>
                         </div>
                     </div>
@@ -371,50 +382,57 @@
                 maintenance: 'fas fa-tools text-red-600'
             };
 
+            const statusLabels = {
+                'available': '{{ _("Available") }}',
+                'rented': '{{ _("Rented") }}',
+                'maintenance': '{{ _("Maintenance") }}'
+            };
+
+            const isRTL = '{{ session.get("lang", "ar") }}' === 'ar';
             const item = document.createElement('div');
             item.className = `screen-list-item p-6 border ${statusBg[screen.status]}`;
             item.innerHTML = `
                 <div class="flex items-start justify-between">
                     <div class="flex-1">
                         <div class="flex items-center mb-2">
-                            <i class="${statusIcon[screen.status]} mr-3"></i>
+                            <i class="${statusIcon[screen.status]} ${isRTL ? 'ml-3' : 'mr-3'}"></i>
                             <h4 class="text-lg font-semibold text-gray-900">${screen.title}</h4>
-                            <span class="ml-3 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
+                            <span class="${isRTL ? 'mr-3' : 'ml-3'} inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
                                 screen.status === 'available' ? 'bg-green-100 text-green-800' :
                                 screen.status === 'rented' ? 'bg-yellow-100 text-yellow-800' :
                                 'bg-red-100 text-red-800'
                             }">
-                                ${screen.status.charAt(0).toUpperCase() + screen.status.slice(1)}
+                                ${statusLabels[screen.status]}
                             </span>
                         </div>
-                        <p class="text-sm text-gray-600 mb-3"><i class="fas fa-map-marker-alt mr-2 text-elaani-primary"></i>${screen.location}</p>
+                        <p class="text-sm text-gray-600 mb-3"><i class="fas fa-map-marker-alt ${isRTL ? 'ml-2' : 'mr-2'} text-elaani-primary"></i>${screen.location}</p>
                         
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
                             <div>
-                                <p class="text-xs font-medium text-gray-600">Size</p>
+                                <p class="text-xs font-medium text-gray-600">{{ _('Size') }}</p>
                                 <p class="text-sm font-semibold text-gray-900">${screen.size}</p>
                             </div>
                             <div>
-                                <p class="text-xs font-medium text-gray-600">Type</p>
+                                <p class="text-xs font-medium text-gray-600">{{ _('Type') }}</p>
                                 <p class="text-sm font-semibold text-gray-900">${screen.type}</p>
                             </div>
                             <div>
-                                <p class="text-xs font-medium text-gray-600">Direction</p>
-                                <p class="text-sm font-semibold text-gray-900"><i class="fas fa-compass text-elaani-primary mr-1"></i>${screen.direction}</p>
+                                <p class="text-xs font-medium text-gray-600">{{ _('Direction') }}</p>
+                                <p class="text-sm font-semibold text-gray-900"><i class="fas fa-compass text-elaani-primary ${isRTL ? 'ml-2' : 'mr-2'}"></i>${screen.direction}</p>
                             </div>
                             <div>
-                                <p class="text-xs font-medium text-gray-600">Rating</p>
+                                <p class="text-xs font-medium text-gray-600">{{ _('Rating') }}</p>
                                 <p class="text-sm font-semibold text-gray-900">⭐ ${screen.rating}</p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="text-right ml-4">
-                        <div class="text-2xl font-bold text-elaani-primary mb-2">${screen.price_per_day.toLocaleString()} SAR</div>
-                        <div class="text-xs text-gray-600 mb-3">${screen.price_per_hour} SAR/hour</div>
+                    <div class="text-${isRTL ? 'left' : 'right'} ${isRTL ? 'mr-4' : 'ml-4'}">
+                        <div class="text-2xl font-bold text-elaani-primary mb-2">${screen.price_per_day.toLocaleString()} {{ _('SAR') }}</div>
+                        <div class="text-xs text-gray-600 mb-3">${screen.price_per_hour} {{ _('SAR/hour') }}</div>
                         <button onclick="quickBook(${screen.id})" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white text-sm font-medium rounded-lg hover:shadow-lg transition-all">
-                            <i class="fas fa-calendar-plus mr-2"></i>
-                            Book Now
+                            <i class="fas fa-calendar-plus ${isRTL ? 'ml-2' : 'mr-2'}"></i>
+                            {{ _('Book Now') }}
                         </button>
                     </div>
                 </div>

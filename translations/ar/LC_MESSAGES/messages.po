@@ -436,6 +436,42 @@ msgstr "شاشة LED برج الأعمال"
 msgid "Financial District"
 msgstr "الحي المالي"
 
+msgid "Recent Activity"
+msgstr "النشاط الأخير"
+
+msgid "Latest updates and actions"
+msgstr "آخر التحديثات والإجراءات"
+
+msgid "View All"
+msgstr "عرض الكل"
+
+msgid "Just now"
+msgstr "الآن"
+
+msgid "New booking confirmed"
+msgstr "تم تأكيد حجز جديد"
+
+msgid "Al-Rajhi School - 2 hours ago"
+msgstr "مدرسة الراجحي - منذ ساعتين"
+
+msgid "Delivery completed"
+msgstr "تم التسليم"
+
+msgid "LED Screen 55\" - 4 hours ago"
+msgstr "شاشة LED 55\" - منذ 4 ساعات"
+
+msgid "Payment received"
+msgstr "تم استلام الدفعة"
+
+msgid "135,000 SAR - Wedding Event"
+msgstr "١٣٥,٠٠٠ ريال - حفل زفاف"
+
+msgid "New client registered"
+msgstr "تم تسجيل عميل جديد"
+
+msgid "Riyadh Events Co."
+msgstr "شركة الرياض للفعاليات"
+
 # Customer Base Navigation
 msgid "Browse Displays"
 msgstr "استعرض الشاشات"
@@ -5857,3 +5893,1133 @@ msgstr "ريال/ساعة"
 
 msgid "KSA"
 msgstr "المملكة العربية السعودية"
+
+# MARKETING PAGE
+msgid "Marketing - Elaani"
+msgstr "التسويق - إيلاني"
+
+msgid "Marketing & Customer Acquisition"
+msgstr "التسويق واكتساب العملاء"
+
+msgid "Manage campaigns, track leads, and grow your digital display rental business in Saudi Arabia"
+msgstr "إدارة الحملات وتتبع العملاء المحتملين وتنمية أعمال تأجير الشاشات الرقمية في المملكة العربية السعودية"
+
+msgid "Create Campaign"
+msgstr "إنشاء حملة"
+
+msgid "Manage Leads"
+msgstr "إدارة العملاء المحتملين"
+
+msgid "All Campaigns"
+msgstr "جميع الحملات"
+
+msgid "Media"
+msgstr "الوسائط"
+
+msgid "Website Visitors"
+msgstr "زوار الموقع"
+
+msgid "+15.3%% this month"
+msgstr "+15.3%% هذا الشهر"
+
+msgid "New Leads"
+msgstr "عملاء محتملون جدد"
+
+msgid "+23 this week"
+msgstr "+23 هذا الأسبوع"
+
+msgid "Conversion Rate"
+msgstr "معدل التحويل"
+
+msgid "+2.1%% improvement"
+msgstr "+2.1%% تحسن"
+
+msgid "Cost Per Lead"
+msgstr "تكلفة العميل المحتمل"
+
+msgid "-8.5%% decrease"
+msgstr "-8.5%% انخفاض"
+
+msgid "Active Marketing Campaigns"
+msgstr "الحملات التسويقية النشطة"
+
+msgid "Track performance of ongoing marketing initiatives"
+msgstr "تتبع أداء المبادرات التسويقية الجارية"
+
+msgid "+12.5%% conversion"
+msgstr "+12.5%% تحويل"
+
+msgid "+8.3%% conversion"
+msgstr "+8.3%% تحويل"
+
+msgid "+15.2%% conversion"
+msgstr "+15.2%% تحويل"
+
+msgid "+25.8%% conversion"
+msgstr "+25.8%% تحويل"
+
+msgid "+18.5%% growth"
+msgstr "+18.5%% نمو"
+
+msgid "156 leads"
+msgstr "156 عميل محتمل"
+
+msgid "89 leads"
+msgstr "89 عميل محتمل"
+
+msgid "67 leads"
+msgstr "67 عميل محتمل"
+
+msgid "75 leads"
+msgstr "75 عميل محتمل"
+
+msgid "Organic Visitors"
+msgstr "الزوار العضويون"
+msgid "Cancel Request"
+msgstr "إلغاء الطلب"
+
+msgid "All Quotes"
+msgstr "جميع العروض"
+
+msgid "Manage your quote requests and get custom pricing"
+msgstr "إدارة طلبات الأسعار والحصول على أسعار مخصصة"
+
+msgid "Request Status Overview"
+msgstr "نظرة عامة على حالة الطلبات"
+
+msgid "Track all your quote requests and responses"
+msgstr "تتبع جميع طلبات الأسعار والردود"
+
+msgid "Total Requests"
+msgstr "إجمالي الطلبات"
+
+msgid "High-traffic premium outdoor advertising space"
+msgstr "مساحة إعلانية خارجية مميزة ذات حركة عالية"
+
+msgid "Quoted Price"
+msgstr "السعر المعروض"
+
+msgid "Business Park Tower LED Display"
+msgstr "شاشة LED برج الأعمال"
+
+msgid "Premium tower display - accepted quote"
+msgstr "شاشة البرج المميزة - تم قبول العرض"
+
+msgid "Final Price"
+msgstr "السعر النهائي"
+
+msgid "Email Support"
+msgstr "الدعم عبر البريد الإلكتروني"
+
+msgid "Response time: 2-4 hours"
+msgstr "وقت الاستجابة: 2-4 ساعات"
+
+msgid "Phone Support"
+msgstr "الدعم الهاتفي"
+
+msgid "Available: 9 AM - 6 PM"
+msgstr "متاح: 9 صباحاً - 6 مساءً"
+
+msgid "Live Chat"
+msgstr "الدردشة المباشرة"
+
+msgid "Chat with us online"
+msgstr "تحدث معنا عبر الإنترنت"
+
+msgid "Available now"
+msgstr "متاح الآن"
+
+msgid "Send us a Message"
+msgstr "أرسل لنا رسالة"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+msgid "Subject"
+msgstr "الموضوع"
+
+msgid "Select subject..."
+msgstr "اختر الموضوع..."
+
+msgid "Booking Issue"
+msgstr "مشكلة في الحجز"
+
+msgid "Payment Problem"
+msgstr "مشكلة في الدفع"
+
+msgid "Technical Support"
+msgstr "الدعم الفني"
+
+msgid "Account Issue"
+msgstr "مشكلة في الحساب"
+
+msgid "Feedback"
+msgstr "ملاحظات"
+
+msgid "Other"
+msgstr "أخرى"
+
+msgid "Priority"
+msgstr "الأولوية"
+
+msgid "Low"
+msgstr "منخفضة"
+
+msgid "Medium"
+msgstr "متوسطة"
+
+msgid "High"
+msgstr "عالية"
+
+msgid "Message"
+msgstr "الرسالة"
+
+msgid "Please describe your issue or question in detail..."
+msgstr "يرجى وصف مشكلتك أو سؤالك بالتفصيل..."
+
+msgid "Attachments"
+msgstr "المرفقات"
+
+msgid "Drop files here or click to browse"
+msgstr "أسقط الملفات هنا أو انقر للتصفح"
+
+msgid "Supported: Images, PDF, Documents (Max 10MB)"
+msgstr "المدعوم: الصور، PDF، المستندات (بحد أقصى 10 ميجابايت)"
+
+msgid "Send Message"
+msgstr "إرسال الرسالة"
+
+msgid "Your Support Tickets"
+msgstr "تذاكر الدعم الخاصة بك"
+
+msgid "Resolved"
+msgstr "تم الحل"
+
+msgid "Booking payment issue - Successfully resolved"
+msgstr "مشكلة دفع الحجز - تم الحل بنجاح"
+
+msgid "Created: Sep 15, 2025 • Resolved: Sep 16, 2025"
+msgstr "تم الإنشاء: 15 سبتمبر 2025 • تم الحل: 16 سبتمبر 2025"
+
+msgid "In Progress"
+msgstr "قيد التنفيذ"
+
+msgid "Technical support needed for display setup"
+msgstr "الدعم الفني مطلوب لإعداد الشاشة"
+
+msgid "Created: Sep 18, 2025 • Last updated: Sep 19, 2025"
+msgstr "تم الإنشاء: 18 سبتمبر 2025 • آخر تحديث: 19 سبتمبر 2025"
+
+msgid "Waiting"
+msgstr "في الانتظار"
+
+msgid "Clarification needed on event requirements"
+msgstr "توضيح مطلوب بشأن متطلبات الحدث"
+
+msgid "Created: Sep 20, 2025 • Awaiting your response"
+msgstr "تم الإنشاء: 20 سبتمبر 2025 • في انتظار ردك"
+
+msgid "Email Support"
+msgstr "دعم البريد الإلكتروني"
+
+msgid "Response time: 2-4 hours"
+msgstr "وقت الاستجابة: 2-4 ساعات"
+
+msgid "Phone Support"
+msgstr "الدعم الهاتفي"
+
+msgid "Available: 9 AM - 6 PM"
+msgstr "متاح: 9 صباحاً - 6 مساءً"
+
+msgid "Live Chat"
+msgstr "الدردشة المباشرة"
+
+msgid "Chat with us online"
+msgstr "تحدث معنا عبر الإنترنت"
+
+msgid "Available now"
+msgstr "متاح الآن"
+
+msgid "Send us a Message"
+msgstr "أرسل لنا رسالة"
+
+msgid "Name"
+msgstr "الاسم"
+
+msgid "Subject"
+msgstr "الموضوع"
+
+msgid "Select subject..."
+msgstr "اختر الموضوع..."
+
+msgid "Booking Issue"
+msgstr "مشكلة في الحجز"
+
+msgid "Payment Problem"
+msgstr "مشكلة في الدفع"
+
+msgid "Account Issue"
+msgstr "مشكلة في الحساب"
+
+msgid "Priority"
+msgstr "الأولوية"
+
+msgid "Low"
+msgstr "منخفض"
+
+msgid "Medium"
+msgstr "متوسط"
+
+msgid "High"
+msgstr "عالي"
+
+msgid "Please describe your issue or question in detail..."
+msgstr "يرجى وصف مشكلتك أو سؤالك بالتفصيل..."
+
+msgid "Attachments"
+msgstr "المرفقات"
+
+msgid "How do I book a display?"
+msgstr "كيف أحجز شاشة عرض؟"
+
+msgid "You can browse available displays on the map or use our event planner to find the perfect fit. Click Book Now and follow the checkout process."
+msgstr "يمكنك تصفح الشاشات المتاحة على الخريطة أو استخدام مخطط الفعاليات للعثور على الخيار المناسب. انقر على احجز الآن واتبع عملية الدفع."
+
+msgid "What payment methods do you accept?"
+msgstr "ما هي طرق الدفع التي تقبلونها؟"
+
+msgid "We accept credit cards (Visa, MasterCard), bank transfers, and other local payment methods. All payments are secured with SSL encryption."
+msgstr "نقبل البطاقات الائتمانية (فيزا، ماستركارد)، التحويلات البنكية، وطرق الدفع المحلية الأخرى. جميع المدفوعات محمية بتشفير SSL."
+
+msgid "Can I modify my booking?"
+msgstr "هل يمكنني تعديل حجزي؟"
+
+msgid "Yes! You can modify or cancel bookings up to 48 hours before the event. Contact support for assistance."
+msgstr "نعم! يمكنك تعديل أو إلغاء الحجوزات حتى 48 ساعة قبل الحدث. اتصل بالدعم للحصول على المساعدة."
+
+msgid "Do you provide setup and installation?"
+msgstr "هل تقدمون خدمة الإعداد والتثبيت؟"
+
+msgid "Yes! Professional setup and installation are available for an additional fee. Select this option during booking."
+msgstr "نعم! الإعداد والتثبيت الاحترافي متاح برسوم إضافية. اختر هذا الخيار أثناء الحجز."
+
+msgid "Helpful Resources"
+msgstr "موارد مفيدة"
+
+msgid "Getting Started Guide"
+msgstr "دليل البدء"
+
+msgid "Learn the basics in 5 minutes"
+msgstr "تعلم الأساسيات في 5 دقائق"
+
+msgid "Video Tutorials"
+msgstr "دروس الفيديو"
+
+msgid "Watch how-to videos"
+msgstr "شاهد مقاطع الفيديو التعليمية"
+
+msgid "Download Spec Sheets"
+msgstr "تنزيل أوراق المواصفات"
+
+msgid "Display specifications & pricing"
+msgstr "مواصفات الشاشة والأسعار"
+
+msgid "🚨 Emergency Support"
+msgstr "🚨 دعم الطوارئ"
+
+msgid "For urgent display issues during your event"
+msgstr "لمشاكل الشاشة العاجلة أثناء الحدث"
+
+msgid "Call: +966-11-555-5000"
+msgstr "اتصل: 5000-555-11-966+"
+
+msgid "Personal Info"
+msgstr "المعلومات الشخصية"
+
+msgid "Company Info"
+msgstr "معلومات الشركة"
+
+msgid "Security"
+msgstr "الأمان"
+
+msgid "Manage your personal information and account settings"
+msgstr "إدارة معلوماتك الشخصية وإعدادات الحساب"
+
+msgid "Personal Information"
+msgstr "المعلومات الشخصية"
+
+msgid "Change Photo"
+msgstr "تغيير الصورة"
+
+msgid "Max size: 5MB. Formats: JPG, PNG"
+msgstr "الحجم الأقصى: 5 ميجابايت. الصيغ: JPG، PNG"
+
+msgid "Date of Birth"
+msgstr "تاريخ الميلاد"
+
+msgid "Preferred Language"
+msgstr "اللغة المفضلة"
+
+msgid "English"
+msgstr "الإنجليزية"
+
+msgid "Arabic"
+msgstr "العربية"
+
+msgid "Company Information"
+msgstr "معلومات الشركة"
+
+msgid "Business Type"
+msgstr "نوع العمل"
+
+msgid "Entertainment"
+msgstr "الترفيه"
+
+msgid "Industry"
+msgstr "الصناعة"
+
+msgid "Business License Number"
+msgstr "رقم الترخيص التجاري"
+
+msgid "Business Phone"
+msgstr "هاتف العمل"
+
+msgid "Business Website"
+msgstr "موقع الشركة"
+
+msgid "Business Address"
+msgstr "عنوان العمل"
+
+msgid "Email Notifications"
+msgstr "إشعارات البريد الإلكتروني"
+
+msgid "Booking Confirmations"
+msgstr "تأكيدات الحجز"
+
+msgid "Get notified when bookings are confirmed"
+msgstr "احصل على إشعار عند تأكيد الحجوزات"
+
+msgid "Promotional Offers"
+msgstr "العروض الترويجية"
+
+msgid "Receive special discounts and promotions"
+msgstr "احصل على خصومات وعروض خاصة"
+
+msgid "Weekly Newsletter"
+msgstr "النشرة الإخبارية الأسبوعية"
+
+msgid "Stay updated with new displays and news"
+msgstr "ابق على اطلاع بالشاشات الجديدة والأخبار"
+
+msgid "Privacy Settings"
+msgstr "إعدادات الخصوصية"
+
+msgid "Show Profile in Directory"
+msgstr "إظهار الملف الشخصي في الدليل"
+
+msgid "Let other businesses discover you"
+msgstr "دع الشركات الأخرى تكتشفك"
+
+msgid "Keep Booking History Private"
+msgstr "الحفاظ على خصوصية سجل الحجوزات"
+
+msgid "Only you can see your booking history"
+msgstr "أنت فقط من يمكنه رؤية سجل حجوزاتك"
+
+msgid "Save Preferences"
+msgstr "حفظ التفضيلات"
+
+msgid "Security Settings"
+msgstr "إعدادات الأمان"
+
+msgid "Change Password"
+msgstr "تغيير كلمة المرور"
+
+msgid "Current Password"
+msgstr "كلمة المرور الحالية"
+
+msgid "New Password"
+msgstr "كلمة المرور الجديدة"
+
+msgid "Confirm New Password"
+msgstr "تأكيد كلمة المرور الجديدة"
+
+msgid "Update Password"
+msgstr "تحديث كلمة المرور"
+
+msgid "Two-Factor Authentication"
+msgstr "المصادقة الثنائية"
+
+msgid "Enable"
+msgstr "تفعيل"
+
+msgid "Add an extra layer of security to your account"
+msgstr "أضف طبقة إضافية من الأمان لحسابك"
+
+msgid "Active Sessions"
+msgstr "الجلسات النشطة"
+
+msgid "Chrome on Windows"
+msgstr "كروم على ويندوز"
+
+msgid "Last active: 1 hour ago"
+msgstr "آخر نشاط: منذ ساعة واحدة"
+
+msgid "Safari on iPhone"
+msgstr "سفاري على آيفون"
+
+msgid "Last active: 3 days ago"
+msgstr "آخر نشاط: منذ 3 أيام"
+
+msgid "Danger Zone"
+msgstr "منطقة الخطر"
+
+msgid "Delete Account"
+msgstr "حذف الحساب"
+
+msgid "Permanently delete your account and all associated data"
+msgstr "احذف حسابك وجميع البيانات المرتبطة به بشكل دائم"
+
+
+# Map page translations
+msgid "King Fahd Road LED"
+msgstr "شاشة LED طريق الملك فهد"
+
+msgid "King Fahd Road, Riyadh"
+msgstr "طريق الملك فهد، الرياض"
+
+msgid "Olaya Street Display"
+msgstr "شاشة شارع العليا"
+
+msgid "Olaya Street, Riyadh"
+msgstr "شارع العليا، الرياض"
+
+msgid "Mall Indoor Screen"
+msgstr "شاشة داخلية في المول"
+
+msgid "Riyadh Gallery Mall"
+msgstr "الرياض غاليري مول"
+
+msgid "Downtown Business Center"
+msgstr "مركز الأعمال وسط المدينة"
+
+msgid "Downtown Riyadh"
+msgstr "وسط الرياض"
+
+msgid "Al Nakheel Mall Screen"
+msgstr "شاشة النخيل مول"
+
+msgid "Al Nakheel District"
+msgstr "حي النخيل"
+
+msgid "Business Park Tower"
+msgstr "برج بيزنس بارك"
+
+msgid "Financial District"
+msgstr "الحي المالي"
+
+msgid "LED Billboard"
+msgstr "لوحة إعلانية LED"
+
+msgid "LED Screen"
+msgstr "شاشة LED"
+
+msgid "Indoor LED"
+msgstr "شاشة LED داخلية"
+
+msgid "LED Display"
+msgstr "شاشة عرض LED"
+
+msgid "Digital Billboard"
+msgstr "لوحة إعلانية رقمية"
+
+msgid "North"
+msgstr "شمال"
+
+msgid "South"
+msgstr "جنوب"
+
+msgid "East"
+msgstr "شرق"
+
+msgid "West"
+msgstr "غرب"
+
+msgid "North-East"
+msgstr "شمال شرق"
+
+msgid "Available"
+msgstr "متاح"
+
+msgid "Rented"
+msgstr "مؤجر"
+
+msgid "Maintenance"
+msgstr "صيانة"
+
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Direction"
+msgstr "الاتجاه"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Price"
+msgstr "السعر"
+
+msgid "Rating"
+msgstr "التقييم"
+
+msgid "Hourly"
+msgstr "بالساعة"
+
+msgid "SAR/day"
+msgstr "ريال/يوم"
+
+msgid "SAR/hr"
+msgstr "ريال/ساعة"
+
+msgid "📅 Book This Screen"
+msgstr "📅 احجز هذه الشاشة"
+
+msgid "Book Now"
+msgstr "احجز الآن"
+
+msgid "SAR"
+msgstr "ريال"
+
+msgid "SAR/hour"
+msgstr "ريال/ساعة"
+
+msgid "All Screens"
+msgstr "جميع الشاشات"
+
+msgid "Screens Nearby"
+msgstr "الشاشات القريبة"
+
+msgid "more screens"
+msgstr "شاشات أخرى"
+
+# Bookings page translations
+msgid "Bookings & Rentals Management"
+msgstr "إدارة الحجوزات والإيجارات"
+
+msgid "Manage your rental bookings, track active rentals, and process new reservations"
+msgstr "إدارة حجوزات الإيجار، تتبع الإيجارات النشطة، ومعالجة الحجوزات الجديدة"
+
+msgid "New Booking"
+msgstr "حجز جديد"
+
+msgid "Export Data"
+msgstr "تصدير البيانات"
+
+msgid "Search bookings..."
+msgstr "البحث في الحجوزات..."
+
+msgid "All Status"
+msgstr "جميع الحالات"
+
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+msgid "Confirmed"
+msgstr "مؤكد"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Completed"
+msgstr "مكتمل"
+
+msgid "Cancelled"
+msgstr "ملغي"
+
+msgid "Pending Approval"
+msgstr "في انتظار الموافقة"
+
+msgid "Currently Active"
+msgstr "نشط حالياً"
+
+msgid "Total Revenue"
+msgstr "إجمالي الإيرادات"
+
+msgid "All Bookings"
+msgstr "جميع الحجوزات"
+
+msgid "Table View"
+msgstr "عرض الجدول"
+
+msgid "Card View"
+msgstr "عرض البطاقات"
+
+msgid "Booking"
+msgstr "الحجز"
+
+msgid "Client"
+msgstr "العميل"
+
+msgid "Event"
+msgstr "الحدث"
+
+msgid "Screen"
+msgstr "الشاشة"
+
+msgid "Dates"
+msgstr "التواريخ"
+
+msgid "Amount"
+msgstr "المبلغ"
+
+msgid "Actions"
+msgstr "الإجراءات"
+
+msgid "to"
+msgstr "إلى"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "Approve"
+msgstr "موافقة"
+
+msgid "Reject"
+msgstr "رفض"
+
+msgid "Start Rental"
+msgstr "بدء الإيجار"
+
+msgid "End Rental"
+msgstr "إنهاء الإيجار"
+
+msgid "Screen:"
+msgstr "الشاشة:"
+
+msgid "Duration:"
+msgstr "المدة:"
+
+msgid "Amount:"
+msgstr "المبلغ:"
+
+msgid "View"
+msgstr "عرض"
+
+msgid "Start"
+msgstr "بدء"
+
+msgid "End"
+msgstr "إنهاء"
+
+msgid "Create New Booking"
+msgstr "إنشاء حجز جديد"
+
+msgid "Client Information"
+msgstr "معلومات العميل"
+
+msgid "Client Name"
+msgstr "اسم العميل"
+
+msgid "Contact Number"
+msgstr "رقم الاتصال"
+
+msgid "Event Type"
+msgstr "نوع الحدث"
+
+msgid "Select Event Type"
+msgstr "اختر نوع الحدث"
+
+msgid "School Event"
+msgstr "حدث مدرسي"
+
+msgid "Wedding"
+msgstr "حفل زفاف"
+
+msgid "Corporate Event"
+msgstr "حدث شركات"
+
+msgid "Exhibition"
+msgstr "معرض"
+
+msgid "Conference"
+msgstr "مؤتمر"
+
+msgid "Concert"
+msgstr "حفل موسيقي"
+
+msgid "Sports Event"
+msgstr "حدث رياضي"
+
+msgid "Other"
+msgstr "أخرى"
+
+msgid "Booking Details"
+msgstr "تفاصيل الحجز"
+
+msgid "Select Screen"
+msgstr "اختر الشاشة"
+
+msgid "Choose Available Screen"
+msgstr "اختر شاشة متاحة"
+
+msgid "day"
+msgstr "يوم"
+
+msgid "Start Date"
+msgstr "تاريخ البداية"
+
+msgid "End Date"
+msgstr "تاريخ النهاية"
+
+msgid "Event Details"
+msgstr "تفاصيل الحدث"
+
+msgid "Describe the event, special requirements, setup instructions..."
+msgstr "وصف الحدث، المتطلبات الخاصة، تعليمات الإعداد..."
+
+msgid "Pricing Summary"
+msgstr "ملخص التسعير"
+
+msgid "Daily Rate"
+msgstr "السعر اليومي"
+
+msgid "Number of Days"
+msgstr "عدد الأيام"
+
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Create Booking"
+msgstr "إنشاء الحجز"
+
+msgid "Bookings & Rentals"
+msgstr "الحجوزات والإيجارات"
+
+# Clients page translations
+msgid "Clients & CRM"
+msgstr "العملاء وإدارة العلاقات"
+
+msgid "Clients & CRM Management"
+msgstr "إدارة العملاء وإدارة العلاقات"
+
+msgid "Manage client relationships, track interactions, and grow your business in Saudi Arabia"
+msgstr "إدارة علاقات العملاء، تتبع التفاعلات، وتنمية أعمالك في المملكة العربية السعودية"
+
+msgid "Add New Client"
+msgstr "إضافة عميل جديد"
+
+msgid "Export Clients"
+msgstr "تصدير العملاء"
+
+msgid "Bulk Email"
+msgstr "بريد إلكتروني جماعي"
+
+msgid "Search clients..."
+msgstr "البحث عن العملاء..."
+
+msgid "All Types"
+msgstr "جميع الأنواع"
+
+msgid "Educational"
+msgstr "تعليمي"
+
+msgid "Event Planning"
+msgstr "تخطيط الفعاليات"
+
+msgid "Government"
+msgstr "حكومي"
+
+msgid "Individual"
+msgstr "فردي"
+
+msgid "Inactive"
+msgstr "غير نشط"
+
+msgid "VIP"
+msgstr "مميز"
+
+msgid "Total Clients"
+msgstr "إجمالي العملاء"
+
+msgid "+12 this month"
+msgstr "+12 هذا الشهر"
+
+msgid "Active Clients"
+msgstr "العملاء النشطون"
+
+msgid "+5 this week"
+msgstr "+5 هذا الأسبوع"
+
+msgid "VIP Clients"
+msgstr "العملاء المميزون"
+
+msgid "+3 this month"
+msgstr "+3 هذا الشهر"
+
+msgid "Retention Rate"
+msgstr "معدل الاحتفاظ"
+
+msgid "+2.3%"
+msgstr "+2.3%"
+
+msgid "Client Directory"
+msgstr "دليل العملاء"
+
+msgid "Grid View"
+msgstr "عرض الشبكة"
+
+msgid "Contact"
+msgstr "اتصال"
+
+msgid "Bookings"
+msgstr "الحجوزات"
+
+msgid "Total Spent"
+msgstr "إجمالي الإنفاق"
+
+msgid "Table View"
+msgstr "عرض الجدول"
+
+# Analytics page translations
+msgid "Analytics"
+msgstr "التحليلات"
+
+msgid "Business Analytics & Insights"
+msgstr "تحليلات الأعمال والرؤى"
+
+msgid "Track performance, analyze trends, and make data-driven decisions for your Saudi Arabia operations"
+msgstr "تتبع الأداء، تحليل الاتجاهات، واتخاذ قرارات مبنية على البيانات لعملياتك في المملكة العربية السعودية"
+
+msgid "Generate Report"
+msgstr "إنشاء تقرير"
+
+msgid "Schedule Reports"
+msgstr "جدولة التقارير"
+
+msgid "Today"
+msgstr "اليوم"
+
+msgid "This Week"
+msgstr "هذا الأسبوع"
+
+msgid "This Month"
+msgstr "هذا الشهر"
+
+msgid "This Quarter"
+msgstr "هذا الربع"
+
+msgid "This Year"
+msgstr "هذا العام"
+
+msgid "Custom Range"
+msgstr "نطاق مخصص"
+
+msgid "Refresh"
+msgstr "تحديث"
+
+msgid "Total Revenue (YTD)"
+msgstr "إجمالي الإيرادات (حتى تاريخه)"
+
+msgid "+24.5%% from last year"
+msgstr "+24.5%% من العام الماضي"
+
+msgid "Total Customers"
+msgstr "إجمالي العملاء"
+
+msgid "+15 new this month"
+msgstr "+15 جديد هذا الشهر"
+
+msgid "Total Bookings (YTD)"
+msgstr "إجمالي الحجوزات (حتى تاريخه)"
+
+msgid "+18.2%% booking rate"
+msgstr "+18.2%% معدل الحجز"
+
+msgid "Customer Satisfaction"
+msgstr "رضا العملاء"
+
+msgid "+0.3 from last quarter"
+msgstr "+0.3 من الربع الماضي"
+
+msgid "Revenue Trends"
+msgstr "اتجاهات الإيرادات"
+
+msgid "Monthly revenue performance over time"
+msgstr "أداء الإيرادات الشهرية مع مرور الوقت"
+
+msgid "Revenue"
+msgstr "الإيرادات"
+
+msgid "Clients"
+msgstr "العملاء"
+
+msgid "Revenue Trend Analysis"
+msgstr "تحليل اتجاه الإيرادات"
+
+msgid "Interactive chart showing monthly growth patterns"
+msgstr "رسم بياني تفاعلي يوضح أنماط النمو الشهرية"
+
+msgid "Last Month"
+msgstr "الشهر الماضي"
+
+msgid "Growth Rate"
+msgstr "معدل النمو"
+
+msgid "Customer Analytics"
+msgstr "تحليلات العملاء"
+
+msgid "Customer segments and behavior analysis"
+msgstr "تحليل شرائح العملاء والسلوك"
+
+msgid "Customer Segments"
+msgstr "شرائح العملاء"
+
+msgid "Educational (45%%)"
+msgstr "تعليمي (45%%)"
+
+msgid "Corporate (30%%)"
+msgstr "شركات (30%%)"
+
+msgid "Event Planning (20%%)"
+msgstr "تخطيط الفعاليات (20%%)"
+
+msgid "Government (5%%)"
+msgstr "حكومي (5%%)"
+
+msgid "Geographic Distribution"
+msgstr "التوزيع الجغرافي"
+
+msgid "Riyadh"
+msgstr "الرياض"
+
+msgid "Jeddah"
+msgstr "جدة"
+
+msgid "Dammam"
+msgstr "الدمام"
+
+msgid "Others"
+msgstr "أخرى"
+
+msgid "Equipment Performance Analytics"
+msgstr "تحليلات أداء المعدات"
+
+msgid "Utilization rates and revenue per equipment type"
+msgstr "معدلات الاستخدام والإيرادات لكل نوع معدات"
+
+msgid "Utilization"
+msgstr "الاستخدام"
+
+msgid "Maintenance"
+msgstr "الصيانة"
+
+msgid "LED Displays"
+msgstr "شاشات LED"
+
+msgid "65\" & 85\" Units"
+msgstr "وحدات 65 و 85 بوصة"
+
+msgid "Utilization Rate"
+msgstr "معدل الاستخدام"
+
+msgid "Monthly Revenue"
+msgstr "الإيرادات الشهرية"
+
+msgid "Mobile LED Trucks"
+msgstr "شاحنات LED المتنقلة"
+
+msgid "Large Format"
+msgstr "تنسيق كبير"
+
+msgid "LCD Video Walls"
+msgstr "جدران فيديو LCD"
+
+msgid "Multi-Panel Setup"
+msgstr "إعداد متعدد اللوحات"
+
+msgid "Outdoor Displays"
+msgstr "شاشات خارجية"
+
+msgid "Weather Resistant"
+msgstr "مقاوم للطقس"
+
+msgid "Seasonal Trends"
+msgstr "الاتجاهات الموسمية"
+
+msgid "Demand patterns and peak seasons"
+msgstr "أنماط الطلب ومواسم الذروة"
+
+msgid "Peak Season"
+msgstr "موسم الذروة"
+
+msgid "Wedding Season (Jun - Sep)"
+msgstr "موسم الأعراس (يونيو - سبتمبر)"
+
+msgid "School Events"
+msgstr "الفعاليات المدرسية"
+
+msgid "Academic Year (Sep - May)"
+msgstr "العام الدراسي (سبتمبر - مايو)"
+
+msgid "Corporate Events"
+msgstr "فعاليات الشركات"
+
+msgid "Business Quarter (Q1, Q4)"
+msgstr "ربع الأعمال (الربع الأول، الربع الرابع)"
+
+msgid "Ramadan Events"
+msgstr "فعاليات رمضان"
+
+msgid "Holy Month Period"
+msgstr "فترة الشهر الفضيل"
+
+msgid "Predictive Analytics"
+msgstr "التحليلات التنبؤية"
+
+msgid "AI-powered business forecasts"
+msgstr "توقعات الأعمال المدعومة بالذكاء الاصطناعي"
+
+msgid "AI Powered"
+msgstr "مدعوم بالذكاء الاصطناعي"
+
+msgid "Next Quarter Forecast"
+msgstr "توقعات الربع القادم"
+
+msgid "Predicted Revenue (ريال)"
+msgstr "الإيرادات المتوقعة (ريال)"
+
+msgid "+27%% growth"
+msgstr "+27%% نمو"
+
+msgid "Expected Bookings"
+msgstr "الحجوزات المتوقعة"
+
+msgid "+15%% increase"
+msgstr "+15%% زيادة"
+
+msgid "Ali"
+msgstr "علي"
+
+msgid "Advertiser"
+msgstr "معلن"
+
+msgid "Search..."
+msgstr "بحث..."
+
+msgid "Modern Display Solutions For Every Event"
+msgstr "حلول العرض الحديثة لكل حدث"
+
+msgid "Ali"
+msgstr "علي"
+
+msgid "Advertiser"
+msgstr "معلن"

@@ -8,6 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     {% if session.get('lang') == 'ar' %}
     <link href="{{ url_for('static', filename='css/rtl.css') }}" rel="stylesheet">
+    {% else %}
+    <link href="{{ url_for('static', filename='css/ltr.css') }}" rel="stylesheet">
     {% endif %}
     <script>
         tailwind.config = {
@@ -73,51 +75,51 @@
                         <nav class="flex-1 px-4 py-6 space-y-2">
                             <a href="{{ url_for('dashboard') }}"
                                class="nav-link {% if request.endpoint == 'dashboard' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-home {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %} w-5 icon-start"></i>
+                                <i class="fas fa-home me-4 w-5 icon-start"></i>
                                 {{ _('Dashboard') }}
                             </a>
 
                             <a href="{{ url_for('map_view') }}"
                                class="nav-link  text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-tv {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %} w-5 icon-start"></i>
+                                <i class="fas fa-tv me-4 w-5 icon-start"></i>
                                 {{ _('Screens') }}
                             </a>
 
                             <a href="{{ url_for('bookings_rentals') }}"
                                class="nav-link {% if request.endpoint == 'bookings_rentals' %}bg-white/20{% endif %} text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-calendar-alt {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %} w-5 icon-start"></i>
+                                <i class="fas fa-calendar-alt me-4 w-5 icon-start"></i>
                                 {{ _('Bookings & Rentals') }}
                             </a>
 
                             <a href="{{ url_for('clients_crm') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-users {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %} w-5 icon-start"></i>
+                                <i class="fas fa-users me-4 w-5 icon-start"></i>
                                 {{ _('Clients & CRM') }}
                             </a>
 
                             <a href="{{ url_for('financial_billing') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-dollar-sign {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %} w-5 icon-start"></i>
+                                <i class="fas fa-dollar-sign me-4 w-5 icon-start"></i>
                                 {{ _('Financial & Billing') }}
                             </a>
 
 
 
                             <a href="{{ url_for('analytics_reports') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-chart-bar {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %} w-5 icon-start"></i>
+                                <i class="fas fa-chart-bar me-4 w-5 icon-start"></i>
                                 {{ _('Analytics') }}
                             </a>
 
                             <a href="{{ url_for('marketing') }}" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-bullhorn {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %} w-5 icon-start"></i>
+                                <i class="fas fa-bullhorn me-4 w-5 icon-start"></i>
                                 {{ _('Marketing') }}
                             </a>
 
                             <a href="#" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-headset {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %} w-5 icon-start"></i>
+                                <i class="fas fa-headset me-4 w-5 icon-start"></i>
                                 {{ _('Support') }}
                             </a>
 
                             <a href="#" class="text-white group flex items-center px-4 py-3 text-sm font-medium rounded-xl hover:bg-white/10 transition-all duration-200">
-                                <i class="fas fa-cog {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %} w-5 icon-start"></i>
+                                <i class="fas fa-cog me-4 w-5 icon-start"></i>
                                 {{ _('Settings') }}
                             </a>
 
@@ -125,7 +127,7 @@
                             <div class="border-t border-white/20 pt-4 mt-4">
                                 <div class="px-4 py-3">
                                     <p class="text-xs text-white/70 mb-2">{{ _('Language') }}</p>
-                                    <div class="flex space-x-2">
+                                    <div class="flex gap-2">
                                         <a href="{{ url_for('set_language', lang='ar') }}"
                                            class="flex-1 {% if session.get('lang') == 'ar' %}bg-white/20{% endif %} text-white text-center py-2 px-3 rounded-lg hover:bg-white/10 transition text-sm">
                                             العربية
@@ -160,7 +162,7 @@
                             <p class="text-sm text-gray-600 mt-1">{% block page_subtitle %}{{ _("Here's what's happening with your digital display business") }}{% endblock %}</p>
                         </div>
                         
-                        <div class="flex items-center space-x-4">
+                        <div class="flex items-center gap-4">
                             <!-- Search -->
                             <div class="relative hidden sm:block">
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -173,21 +175,21 @@
                             </div>
                             
                             <!-- Notifications -->
-                            <button class="p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-xl transition-colors duration-200">
+                            <button class="p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-xl transition-colors duration-200 relative">
                                 <i class="fas fa-bell text-lg"></i>
-                                <span class="absolute -mt-2 -mr-1 px-1.5 py-0.5 text-xs bg-red-500 text-white rounded-full">3</span>
+                                <span class="absolute top-0 right-0 px-1.5 py-0.5 text-xs bg-red-500 text-white rounded-full">3</span>
                             </button>
                             
                             <!-- User Profile -->
-                            <div class="relative flex items-center space-x-3 cursor-pointer hover:bg-gray-50 rounded-xl p-2 transition-colors duration-200">
+                            <div class="relative flex items-center cursor-pointer hover:bg-gray-50 rounded-xl p-2 transition-colors duration-200">
                                 <div class="w-10 h-10 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-full flex items-center justify-center">
                                     <span class="text-white font-semibold">A</span>
                                 </div>
-                                <div class="hidden md:block">
+                                <div class="hidden md:block ms-3">
                                     <p class="text-sm font-medium text-gray-900">{{ _('Ali') }}</p>
                                     <p class="text-xs text-gray-500">{{ _('Advertiser') }}</p>
                                 </div>
-                                <i class="fas fa-chevron-down text-gray-400 text-sm hidden md:block"></i>
+                                <i class="fas fa-chevron-down text-gray-400 text-sm hidden md:block ms-2"></i>
                             </div>
                         </div>
                     </div>

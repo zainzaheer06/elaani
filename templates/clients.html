@@ -1,47 +1,47 @@
 {% extends "base.html" %}
 
-{% block title %}Clients & CRM - Elaani{% endblock %}
+{% block title %}{{ _('Clients & CRM') }} - {{ _('Elaani') }}{% endblock %}
 
-{% block page_title %}Clients & CRM Management{% endblock %}
-{% block page_subtitle %}Manage client relationships, track interactions, and grow your business in Saudi Arabia{% endblock %}
+{% block page_title %}{{ _('Clients & CRM Management') }}{% endblock %}
+{% block page_subtitle %}{{ _('Manage client relationships, track interactions, and grow your business in Saudi Arabia') }}{% endblock %}
 
 {% block content %}
 <!-- Action Bar -->
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
-    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
-        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <div class="flex flex-wrap gap-2">
             <button onclick="openModal('addClientModal')" 
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
-                <i class="fas fa-user-plus mr-2"></i>
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-xs font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap">
+                <i class="fas fa-user-plus me-2"></i>
                 {{ _('Add New Client') }}
             </button>
             <button onclick="exportClients()" 
-                    class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
-                <i class="fas fa-download mr-2"></i>
+                    class="inline-flex items-center px-3 py-2 border border-gray-300 text-xs font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors whitespace-nowrap">
+                <i class="fas fa-download me-2"></i>
                 {{ _('Export Clients') }}
             </button>
             <button onclick="sendBulkEmail()" 
-                    class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
-                <i class="fas fa-envelope mr-2"></i>
+                    class="inline-flex items-center px-3 py-2 border border-gray-300 text-xs font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors whitespace-nowrap">
+                <i class="fas fa-envelope me-2"></i>
                 {{ _('Bulk Email') }}
             </button>
         </div>
         
-        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+        <div class="flex flex-wrap gap-2">
             <!-- Search -->
             <div class="relative">
                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <i class="fas fa-search text-gray-400"></i>
+                    <i class="fas fa-search text-gray-400 text-xs"></i>
                 </div>
                 <input type="text" 
                        placeholder="{{ _('Search clients...') }}" 
                        id="clientSearch"
-                       class="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                       class="block w-full sm:w-48 pl-9 pr-3 py-2 text-xs border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
             </div>
             
             <!-- Filters -->
             <select id="clientTypeFilter" 
-                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    class="block w-auto px-2 py-2 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                 <option value="">{{ _('All Types') }}</option>
                 <option value="Educational">{{ _('Educational') }}</option>
                 <option value="Corporate">{{ _('Corporate') }}</option>
@@ -51,7 +51,7 @@
             </select>
             
             <select id="clientStatusFilter" 
-                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    class="block w-auto px-2 py-2 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
                 <option value="">{{ _('All Status') }}</option>
                 <option value="active">{{ _('Active') }}</option>
                 <option value="inactive">{{ _('Inactive') }}</option>
@@ -70,11 +70,11 @@
                     <i class="fas fa-users text-blue-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="ms-4">
                 <div class="text-2xl font-bold text-gray-900">156</div>
                 <div class="text-sm font-medium text-gray-600">{{ _('Total Clients') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
+                    <i class="fas fa-arrow-up me-1"></i>
                     {{ _('+12 this month') }}
                 </div>
             </div>
@@ -88,11 +88,11 @@
                     <i class="fas fa-handshake text-green-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="ms-4">
                 <div class="text-2xl font-bold text-gray-900">89</div>
                 <div class="text-sm font-medium text-gray-600">{{ _('Active Clients') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
+                    <i class="fas fa-arrow-up me-1"></i>
                     {{ _('+5 this week') }}
                 </div>
             </div>
@@ -106,11 +106,11 @@
                     <i class="fas fa-star text-yellow-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="ms-4">
                 <div class="text-2xl font-bold text-gray-900">23</div>
                 <div class="text-sm font-medium text-gray-600">{{ _('VIP Clients') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
+                    <i class="fas fa-arrow-up me-1"></i>
                     {{ _('+3 this month') }}
                 </div>
             </div>
@@ -124,11 +124,11 @@
                     <i class="fas fa-chart-line text-white text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="ms-4">
                 <div class="text-2xl font-bold text-gray-900">78%</div>
                 <div class="text-sm font-medium text-gray-600">{{ _('Retention Rate') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
+                    <i class="fas fa-arrow-up me-1"></i>
                     {{ _('+2.3%') }}
                 </div>
             </div>
@@ -141,15 +141,15 @@
     <div class="p-6 border-b border-gray-200">
         <div class="flex items-center justify-between">
             <h3 class="text-xl font-semibold text-gray-900">{{ _('Client Directory') }}</h3>
-            <div class="flex space-x-2">
+            <div class="flex gap-2">
                 <button onclick="toggleView('grid')" id="gridViewBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
-                    <i class="fas fa-th mr-2"></i>
+                    <i class="fas fa-th me-2"></i>
                     {{ _('Grid View') }}
                 </button>
                 <button onclick="toggleView('table')" id="tableViewBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
-                    <i class="fas fa-table mr-2"></i>
+                    <i class="fas fa-table me-2"></i>
                     {{ _('Table View') }}
                 </button>
             </div>
@@ -167,8 +167,8 @@
                         <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center">
                             <span class="text-white font-bold">AR</span>
                         </div>
-                        <div class="ml-3">
-                            <h4 class="font-semibold text-gray-900">Al-Rajhi School</h4>
+                        <div class="ms-3">
+                            <h4 class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}مدرسة الراجحي{% else %}Al-Rajhi School{% endif %}</h4>
                             <p class="text-sm text-gray-600">{{ _('Educational') }}</p>
                         </div>
                     </div>
@@ -179,15 +179,15 @@
                 
                 <div class="space-y-3 mb-4">
                     <div class="flex items-center text-sm text-gray-600">
-                        <i class="fas fa-user mr-3 text-gray-400"></i>
-                        <span>Ahmed Al-Rajhi</span>
+                        <i class="fas fa-user me-3 text-gray-400"></i>
+                        <span>{% if session.get('lang') == 'ar' %}أحمد الراجحي{% else %}Ahmed Al-Rajhi{% endif %}</span>
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
-                        <i class="fas fa-phone mr-3 text-gray-400"></i>
+                        <i class="fas fa-phone me-3 text-gray-400"></i>
                         <span>+966-12-345-6789</span>
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
-                        <i class="fas fa-envelope mr-3 text-gray-400"></i>
+                        <i class="fas fa-envelope me-3 text-gray-400"></i>
                         <span>ahmed@alrajhi-school.edu.sa</span>
                     </div>
                 </div>
@@ -195,25 +195,25 @@
                 <div class="border-t border-gray-200 pt-4">
                     <div class="grid grid-cols-2 gap-4 text-center">
                         <div>
-                            <div class="font-semibold text-gray-900">12</div>
+                            <div class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}١٢{% else %}12{% endif %}</div>
                             <div class="text-xs text-gray-600">{{ _('Bookings') }}</div>
                         </div>
                         <div>
-                            <div class="font-semibold text-elaani-primary">54,000 ريال</div>
+                            <div class="font-semibold text-elaani-primary">{% if session.get('lang') == 'ar' %}٥٤,٠٠٠ ريال{% else %}54,000 SAR{% endif %}</div>
                             <div class="text-xs text-gray-600">{{ _('Total Spent') }}</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="flex space-x-2 mt-4">
+                <div class="flex gap-2 mt-4">
                     <button onclick="viewClientDetails(1)" 
                             class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-eye mr-1"></i>
+                        <i class="fas fa-eye me-2"></i>
                         {{ _('View') }}
                     </button>
                     <button onclick="contactClient(1)" 
                             class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
-                        <i class="fas fa-phone mr-1"></i>
+                        <i class="fas fa-phone me-2"></i>
                         {{ _('Contact') }}
                     </button>
                 </div>
@@ -226,28 +226,28 @@
                         <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-full flex items-center justify-center">
                             <span class="text-white font-bold">RE</span>
                         </div>
-                        <div class="ml-3">
-                            <h4 class="font-semibold text-gray-900">Riyadh Events Co.</h4>
+                        <div class="ms-3">
+                            <h4 class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}شركة الرياض للفعاليات{% else %}Riyadh Events Co.{% endif %}</h4>
                             <p class="text-sm text-gray-600">{{ _('Event Planning') }}</p>
                         </div>
                     </div>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                        <i class="fas fa-star mr-1"></i>
+                        <i class="fas fa-star me-1"></i>
                         {{ _('VIP') }}
                     </span>
                 </div>
                 
                 <div class="space-y-3 mb-4">
                     <div class="flex items-center text-sm text-gray-600">
-                        <i class="fas fa-user mr-3 text-gray-400"></i>
-                        <span>Sarah Mohammed</span>
+                        <i class="fas fa-user me-3 text-gray-400"></i>
+                        <span>{% if session.get('lang') == 'ar' %}سارة محمد{% else %}Sarah Mohammed{% endif %}</span>
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
-                        <i class="fas fa-phone mr-3 text-gray-400"></i>
+                        <i class="fas fa-phone me-3 text-gray-400"></i>
                         <span>+966-11-987-6543</span>
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
-                        <i class="fas fa-envelope mr-3 text-gray-400"></i>
+                        <i class="fas fa-envelope me-3 text-gray-400"></i>
                         <span>sarah@riyadh-events.com</span>
                     </div>
                 </div>
@@ -255,25 +255,25 @@
                 <div class="border-t border-gray-200 pt-4">
                     <div class="grid grid-cols-2 gap-4 text-center">
                         <div>
-                            <div class="font-semibold text-gray-900">8</div>
+                            <div class="font-semibold text-gray-900">{% if session.get('lang') == 'ar' %}٨{% else %}8{% endif %}</div>
                             <div class="text-xs text-gray-600">{{ _('Bookings') }}</div>
                         </div>
                         <div>
-                            <div class="font-semibold text-elaani-primary">72,000 ريال</div>
+                            <div class="font-semibold text-elaani-primary">{% if session.get('lang') == 'ar' %}٧٢,٠٠٠ ريال{% else %}72,000 SAR{% endif %}</div>
                             <div class="text-xs text-gray-600">{{ _('Total Spent') }}</div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="flex space-x-2 mt-4">
+                <div class="flex {{ 'space-x-2' if session.get('lang') == 'en' else 'space-x-reverse space-x-2' }} mt-4">
                     <button onclick="viewClientDetails(2)" 
                             class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-eye mr-1"></i>
+                        <i class="fas fa-eye {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                         {{ _('View') }}
                     </button>
                     <button onclick="contactClient(2)" 
                             class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
-                        <i class="fas fa-phone mr-1"></i>
+                        <i class="fas fa-phone {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                         {{ _('Contact') }}
                     </button>
                 </div>

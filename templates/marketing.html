@@ -12,17 +12,17 @@
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <button onclick="createCampaign()" 
                     class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
-                <i class="fas fa-megaphone mr-2"></i>
+                <i class="fas fa-megaphone {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                 {{ _('Create Campaign') }}
             </button>
             <button onclick="manageLeads()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
-                <i class="fas fa-user-plus mr-2"></i>
+                <i class="fas fa-user-plus {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                 {{ _('Manage Leads') }}
             </button>
             <button onclick="marketingAnalytics()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
-                <i class="fas fa-chart-pie mr-2"></i>
+                <i class="fas fa-chart-pie {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                 {{ _('Analytics') }}
         </div>
         
@@ -39,7 +39,7 @@
             <!-- Social Media -->
             <button onclick="socialMediaDashboard()" 
                    class="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-200">
-                <i class="fas fa-share-alt mr-2"></i>
+                <i class="fas fa-share-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                 {{ _('Media') }}
             </button>
         </div>
@@ -55,12 +55,12 @@
                     <i class="fas fa-eye text-green-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                 <div class="text-2xl font-bold text-gray-900">24,500</div>
                 <div class="text-sm font-medium text-gray-600">{{ _('Website Visitors') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
-                    {{ _('+15.3% this month') }}
+                    <i class="fas fa-arrow-up {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>
+                    {{ _('+15.3%% this month') }}
                 </div>
             </div>
         </div>
@@ -73,11 +73,11 @@
                     <i class="fas fa-user-plus text-blue-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                 <div class="text-2xl font-bold text-gray-900">387</div>
                 <div class="text-sm font-medium text-gray-600">{{ _('New Leads') }}</div>
                 <div class="text-xs text-blue-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
+                    <i class="fas fa-arrow-up {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>
                     {{ _('+23 this week') }}
                 </div>
             </div>
@@ -91,12 +91,12 @@
                     <i class="fas fa-percentage text-purple-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                 <div class="text-2xl font-bold text-gray-900">12.5%</div>
                 <div class="text-sm font-medium text-gray-600">{{ _('Conversion Rate') }}</div>
                 <div class="text-xs text-purple-600 font-medium mt-1">
-                    <i class="fas fa-arrow-up mr-1"></i>
-                    {{ _('+2.1% improvement') }}
+                    <i class="fas fa-arrow-up {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>
+                    {{ _('+2.1%% improvement') }}
                 </div>
             </div>
         </div>
@@ -109,12 +109,12 @@
                     <i class="fas fa-dollar-sign text-yellow-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                 <div class="text-2xl font-bold text-gray-900">185 ريال</div>
                 <div class="text-sm font-medium text-gray-600">{{ _('Cost Per Lead') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
-                    <i class="fas fa-arrow-down mr-1"></i>
-                    {{ _('-8.5% decrease') }}
+                    <i class="fas fa-arrow-down {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>
+                    {{ _('-8.5%% decrease') }}
                 </div>
             </div>
         </div>
@@ -143,7 +143,7 @@
                 <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center mr-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %}">
                                 <i class="fab fa-google text-white text-xl"></i>
                             </div>
                             <div>
@@ -176,15 +176,15 @@
                         </div>
                     </div>
                     
-                    <div class="flex space-x-2">
+                    <div class="flex {{ 'space-x-2' if session.get('lang') == 'en' else 'space-x-reverse space-x-2' }}">
                         <button onclick="editCampaign('google-ads')" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
-                            <i class="fas fa-edit mr-1"></i>
+                            <i class="fas fa-edit {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                             {{ _('Edit') }}
                         </button>
                         <button onclick="viewCampaignDetails('google-ads')" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
-                            <i class="fas fa-chart-line mr-1"></i>
+                            <i class="fas fa-chart-line {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                             {{ _('Analytics') }}
                         </button>
                     </div>
@@ -194,7 +194,7 @@
                 <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %}">
                                 <i class="fab fa-facebook text-white text-xl"></i>
                             </div>
                             <div>
@@ -203,7 +203,7 @@
                             </div>
                         </div>
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                            <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
+                            <i class="w-2 h-2 {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} bg-green-400 rounded-full"></i>
                             {{ _('Active') }}
                         </span>
                     </div>
@@ -227,15 +227,15 @@
                         </div>
                     </div>
                     
-                    <div class="flex space-x-2">
+                    <div class="flex {{ 'space-x-2' if session.get('lang') == 'en' else 'space-x-reverse space-x-2' }}">
                         <button onclick="editCampaign('social-media')" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
-                            <i class="fas fa-edit mr-1"></i>
+                            <i class="fas fa-edit {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                             {{ _('Edit') }}
                         </button>
                         <button onclick="viewCampaignDetails('social-media')" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
-                            <i class="fas fa-chart-line mr-1"></i>
+                            <i class="fas fa-chart-line {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                             {{ _('Analytics') }}
                         </button>
                     </div>
@@ -245,7 +245,7 @@
                 <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-4">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-4{% else %}mr-4{% endif %}">
                                 <i class="fas fa-envelope text-white text-xl"></i>
                             </div>
                             <div>
@@ -254,7 +254,7 @@
                             </div>
                         </div>
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                            <i class="w-2 h-2 mr-1 bg-yellow-400 rounded-full"></i>
+                            <i class="w-2 h-2 {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} bg-yellow-400 rounded-full"></i>
                             {{ _('Scheduled') }}
                         </span>
                     </div>
@@ -278,15 +278,15 @@
                         </div>
                     </div>
                     
-                    <div class="flex space-x-2">
+                    <div class="flex {{ 'space-x-2' if session.get('lang') == 'en' else 'space-x-reverse space-x-2' }}">
                         <button onclick="editCampaign('email')" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
-                            <i class="fas fa-edit mr-1"></i>
+                            <i class="fas fa-edit {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                             {{ _('Edit') }}
                         </button>
                         <button onclick="sendNow('email')" 
                                 class="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
-                            <i class="fas fa-paper-plane mr-1"></i>
+                            <i class="fas fa-paper-plane {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                             {{ _('Send Now') }}
                         </button>
                     </div>
@@ -433,66 +433,66 @@
         <div class="p-6">
             <div class="space-y-4">
                 <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center mr-3">
+                    <div class="flex items-center flex-1">
+                        <div class="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                             <i class="fab fa-google text-red-600"></i>
                         </div>
-                        <div>
+                        <div class="flex-1">
                             <div class="font-medium text-gray-900">{{ _('Google Ads') }}</div>
                             <div class="text-sm text-gray-600">{{ _('Search & Display') }}</div>
                         </div>
                     </div>
-                    <div class="text-right">
+                    <div class="text-{{ 'left' if session.get('lang', 'ar') == 'ar' else 'right' }} {% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %}">
                         <div class="font-semibold text-gray-900">{{ _('156 leads') }}</div>
-                        <div class="text-xs text-green-600">{{ _('+12.5% conversion') }}</div>
+                        <div class="text-xs text-green-600">{{ _('+12.5%% conversion') }}</div>
                     </div>
                 </div>
                 
                 <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
+                    <div class="flex items-center flex-1">
+                        <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                             <i class="fab fa-facebook text-blue-600"></i>
                         </div>
-                        <div>
+                        <div class="flex-1">
                             <div class="font-medium text-gray-900">{{ _('Social Media') }}</div>
                             <div class="text-sm text-gray-600">{{ _('Facebook & Instagram') }}</div>
                         </div>
                     </div>
-                    <div class="text-right">
+                    <div class="text-{{ 'left' if session.get('lang', 'ar') == 'ar' else 'right' }} {% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %}">
                         <div class="font-semibold text-gray-900">{{ _('89 leads') }}</div>
-                        <div class="text-xs text-blue-600">{{ _('+8.3% conversion') }}</div>
+                        <div class="text-xs text-blue-600">{{ _('+8.3%% conversion') }}</div>
                     </div>
                 </div>
                 
                 <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mr-3">
+                    <div class="flex items-center flex-1">
+                        <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                             <i class="fas fa-envelope text-green-600"></i>
                         </div>
-                        <div>
+                        <div class="flex-1">
                             <div class="font-medium text-gray-900">{{ _('Email Marketing') }}</div>
                             <div class="text-sm text-gray-600">{{ _('Newsletters & Campaigns') }}</div>
                         </div>
                     </div>
-                    <div class="text-right">
+                    <div class="text-{{ 'left' if session.get('lang', 'ar') == 'ar' else 'right' }} {% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %}">
                         <div class="font-semibold text-gray-900">{{ _('67 leads') }}</div>
-                        <div class="text-xs text-green-600">{{ _('+15.2% conversion') }}</div>
+                        <div class="text-xs text-green-600">{{ _('+15.2%% conversion') }}</div>
                     </div>
                 </div>
                 
                 <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                    <div class="flex items-center">
-                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
+                    <div class="flex items-center flex-1">
+                        <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                             <i class="fas fa-handshake text-purple-600"></i>
                         </div>
-                        <div>
+                        <div class="flex-1">
                             <div class="font-medium text-gray-900">{{ _('Referrals') }}</div>
                             <div class="text-sm text-gray-600">{{ _('Word of mouth') }}</div>
                         </div>
                     </div>
-                    <div class="text-right">
+                    <div class="text-{{ 'left' if session.get('lang', 'ar') == 'ar' else 'right' }} {% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %}">
                         <div class="font-semibold text-gray-900">{{ _('75 leads') }}</div>
-                        <div class="text-xs text-purple-600">{{ _('+25.8% conversion') }}</div>
+                        <div class="text-xs text-purple-600">{{ _('+25.8%% conversion') }}</div>
                     </div>
                 </div>
                 
@@ -530,7 +530,7 @@
                         <div class="text-center p-3 bg-green-50 rounded-lg border border-green-200">
                             <div class="text-xl font-bold text-green-600">24,500</div>
                             <div class="text-sm text-green-700">{{ _('Organic Visitors') }}</div>
-                            <div class="text-xs text-green-600">{{ _('+18.5% growth') }}</div>
+                            <div class="text-xs text-green-600">{{ _('+18.5%% growth') }}</div>
                         </div>
                         <div class="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
                             <div class="text-xl font-bold text-blue-600">85</div>

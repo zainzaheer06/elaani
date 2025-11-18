@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ session.get('lang', 'ar') }}" dir="{{ 'rtl' if session.get('lang', 'ar') == 'ar' else 'ltr' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +20,12 @@
         }
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: {{ "'Tajawal', sans-serif" if session.get('lang', 'ar') == 'ar' else "system-ui, -apple-system, sans-serif" }};
+        }
+    </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
@@ -32,16 +38,23 @@
                     </a>
                 </div>
                 
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center {{ 'space-x-8' if session.get('lang', 'ar') == 'en' else 'space-x-reverse space-x-8' }}">
                     <a href="{{ url_for('browse_screens') }}" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Browse Screens') }}</a>
-                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('How it Works') }}</a>
-                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Pricing') }}</a>
-                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Support') }}</a>
+                    <a href="#how-it-works" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('How it Works') }}</a>
+                    <a href="#pricing" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Pricing') }}</a>
+                    <a href="#support" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Support') }}</a>
                 </div>
 
-                <div class="flex items-center space-x-4">
-                    <a href="{{ url_for('login') }}" class="text-elaani-primary hover:text-elaani-dark transition-colors">{{ _('Login') }}</a>
-                    <a href="{{ url_for('register') }}" class="bg-elaani-primary hover:bg-elaani-dark text-white px-4 py-2 rounded-lg transition-colors">
+                <div class="flex items-center {{ 'space-x-4' if session.get('lang', 'ar') == 'en' else 'space-x-reverse space-x-4' }}">
+                    <!-- Language Toggle -->
+                    <div class="relative">
+                        <button onclick="toggleLanguage()" class="flex items-center {{ 'space-x-2' if session.get('lang', 'ar') == 'en' else 'space-x-reverse space-x-2' }} text-gray-700 hover:text-elaani-primary transition-colors px-3 py-2 rounded-lg border border-gray-300 hover:border-elaani-primary">
+                            <i class="fas fa-globe"></i>
+                            <span class="font-medium">{{ 'العربية' if session.get('lang', 'ar') == 'en' else 'English' }}</span>
+                        </button>
+                    </div>
+                    <a href="{{ url_for('login') }}" class="text-elaani-primary hover:text-elaani-dark transition-colors font-medium">{{ _('Login') }}</a>
+                    <a href="{{ url_for('register') }}" class="bg-elaani-primary hover:bg-elaani-dark text-white px-4 py-2 rounded-lg transition-colors font-medium">
                         {{ _('Get Started') }}
                     </a>
                 </div>
@@ -59,9 +72,13 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="{{ url_for('browse_screens') }}" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Browse Screens') }}</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('How it Works') }}</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Pricing') }}</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Support') }}</a>
+                <a href="#how-it-works" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('How it Works') }}</a>
+                <a href="#pricing" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Pricing') }}</a>
+                <a href="#support" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Support') }}</a>
+                <button onclick="toggleLanguage()" class="w-full text-{{ 'left' if session.get('lang', 'ar') == 'en' else 'right' }} px-3 py-2 text-gray-700 hover:text-elaani-primary flex items-center {{ 'space-x-2' if session.get('lang', 'ar') == 'en' else 'space-x-reverse space-x-2' }}">
+                    <i class="fas fa-globe"></i>
+                    <span>{{ 'العربية' if session.get('lang', 'ar') == 'en' else 'English' }}</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -132,6 +149,12 @@
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
+        }
+
+        function toggleLanguage() {
+            const currentLang = '{{ session.get("lang", "ar") }}';
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            window.location.href = '{{ url_for("set_language", lang="LANG") }}'.replace('LANG', newLang);
         }
 
         // Auto-hide flash messages after 5 seconds

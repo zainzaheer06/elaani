@@ -436,6 +436,78 @@ msgstr "Business Tower LED"
 msgid "Financial District"
 msgstr "Financial District"
 
+msgid "Recent Activity"
+msgstr "Recent Activity"
+
+msgid "Latest updates and actions"
+msgstr "Latest updates and actions"
+
+msgid "View All"
+msgstr "View All"
+
+msgid "Just now"
+msgstr "Just now"
+
+msgid "New booking confirmed"
+msgstr "New booking confirmed"
+
+msgid "Al-Rajhi School - 2 hours ago"
+msgstr "Al-Rajhi School - 2 hours ago"
+
+msgid "Delivery completed"
+msgstr "Delivery completed"
+
+msgid "LED Screen 55\" - 4 hours ago"
+msgstr "LED Screen 55\" - 4 hours ago"
+
+msgid "Payment received"
+msgstr "Payment received"
+
+msgid "135,000 SAR - Wedding Event"
+msgstr "135,000 SAR - Wedding Event"
+
+msgid "New client registered"
+msgstr "New client registered"
+
+msgid "Riyadh Events Co."
+msgstr "Riyadh Events Co."
+
+msgid "Recent Activity"
+msgstr "Recent Activity"
+
+msgid "Latest updates and actions"
+msgstr "Latest updates and actions"
+
+msgid "View All"
+msgstr "View All"
+
+msgid "New booking confirmed"
+msgstr "New booking confirmed"
+
+msgid "Al-Rajhi School - 2 hours ago"
+msgstr "Al-Rajhi School - 2 hours ago"
+
+msgid "Delivery completed"
+msgstr "Delivery completed"
+
+msgid "LED Screen 55\" - 4 hours ago"
+msgstr "LED Screen 55\" - 4 hours ago"
+
+msgid "Payment received"
+msgstr "Payment received"
+
+msgid "135,000 SAR - Wedding Event"
+msgstr "135,000 SAR - Wedding Event"
+
+msgid "New client registered"
+msgstr "New client registered"
+
+msgid "Riyadh Events Co."
+msgstr "Riyadh Events Co."
+
+msgid "Just now"
+msgstr "Just now"
+
 # Customer Base Navigation
 msgid "Browse Displays"
 msgstr "Browse Displays"

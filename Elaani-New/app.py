@@ -147,6 +147,14 @@ def list_screen():
 def manage_screens():
     return render_template('vendor/manage_screens.html', screens=mock_screens)
 
+@app.route('/vendor/support')
+def vendor_support():
+    return render_template('vendor/support.html')
+
+@app.route('/vendor/settings')
+def vendor_settings():
+    return render_template('vendor/settings.html')
+
 # Admin Routes
 @app.route('/admin/dashboard')
 def admin_dashboard():

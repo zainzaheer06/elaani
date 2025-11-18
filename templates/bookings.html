@@ -1,28 +1,28 @@
 {% extends "base.html" %}
 
-{% block title %}Bookings & Rentals - Elaani{% endblock %}
+{% block title %}{{ _('Bookings & Rentals') }} - {{ _('Elaani') }}{% endblock %}
 
-{% block page_title %}Bookings & Rentals Management{% endblock %}
-{% block page_subtitle %}Manage your rental bookings, track active rentals, and process new reservations{% endblock %}
+{% block page_title %}{{ _('Bookings & Rentals Management') }}{% endblock %}
+{% block page_subtitle %}{{ _('Manage your rental bookings, track active rentals, and process new reservations') }}{% endblock %}
 
 {% block content %}
 <!-- Action Bar -->
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 mb-8">
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
-        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+        <div class="flex flex-col sm:flex-row gap-3">
             <button onclick="openModal('newBookingModal')" 
                     class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
-                <i class="fas fa-plus mr-2"></i>
+                <i class="fas fa-plus me-2"></i>
                 {{ _('New Booking') }}
             </button>
             <button onclick="exportBookings()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
-                <i class="fas fa-download mr-2"></i>
+                <i class="fas fa-download me-2"></i>
                 {{ _('Export Data') }}
             </button>
         </div>
         
-        <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+        <div class="flex flex-col sm:flex-row gap-3">
             <!-- Search -->
             <div class="relative">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -62,7 +62,7 @@
                     <i class="fas fa-clock text-yellow-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="ms-4">
                 <div class="text-2xl font-bold text-gray-900">
                     {{ bookings|selectattr("status", "equalto", "pending")|list|length }}
                 </div>
@@ -78,7 +78,7 @@
                     <i class="fas fa-check-circle text-green-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="ms-4">
                 <div class="text-2xl font-bold text-gray-900">
                     {{ bookings|selectattr("status", "equalto", "confirmed")|list|length }}
                 </div>
@@ -94,7 +94,7 @@
                     <i class="fas fa-play-circle text-blue-600 text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="ms-4">
                 <div class="text-2xl font-bold text-gray-900">
                     {{ bookings|selectattr("status", "equalto", "active")|list|length }}
                 </div>
@@ -110,9 +110,9 @@
                     <i class="fas fa-money-bill-wave text-white text-xl"></i>
                 </div>
             </div>
-            <div class="ml-4">
+            <div class="ms-4">
                 <div class="text-2xl font-bold text-gray-900">
-                    ريال{{ bookings|sum(attribute='total_amount')|format_currency_simple }}
+                    {{ bookings|sum(attribute='total_amount')|format_currency_simple }} {{ _('SAR') }}
                 </div>
                 <div class="text-sm font-medium text-gray-600">{{ _('Total Revenue') }}</div>
             </div>
@@ -125,15 +125,15 @@
     <div class="p-6 border-b border-gray-200">
         <div class="flex items-center justify-between">
             <h3 class="text-xl font-semibold text-gray-900">{{ _('All Bookings') }}</h3>
-            <div class="flex space-x-2">
+            <div class="flex gap-2">
                 <button onclick="toggleView('table')" id="tableViewBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
-                    <i class="fas fa-table mr-2"></i>
+                    <i class="fas fa-table me-2"></i>
                     {{ _('Table View') }}
                 </button>
                 <button onclick="toggleView('card')" id="cardViewBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
-                    <i class="fas fa-th-large mr-2"></i>
+                    <i class="fas fa-th-large me-2"></i>
                     {{ _('Card View') }}
                 </button>
             </div>
@@ -141,18 +141,18 @@
     </div>
     
     <!-- Table View -->
-    <div id="tableView" class="overflow-x-auto">
+    <div id="tableView" class="overflow-x-auto" dir="{{ 'rtl' if session.get('lang', 'ar') == 'ar' else 'ltr' }}">
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Booking') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Client') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Event') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Screen') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Dates') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Amount') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Status') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Actions') }}</th>
+                    <th class="px-6 py-3 text-{{ 'right' if session.get('lang', 'ar') == 'ar' else 'left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Booking') }}</th>
+                    <th class="px-6 py-3 text-{{ 'right' if session.get('lang', 'ar') == 'ar' else 'left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Client') }}</th>
+                    <th class="px-6 py-3 text-{{ 'right' if session.get('lang', 'ar') == 'ar' else 'left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Event') }}</th>
+                    <th class="px-6 py-3 text-{{ 'right' if session.get('lang', 'ar') == 'ar' else 'left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Screen') }}</th>
+                    <th class="px-6 py-3 text-{{ 'right' if session.get('lang', 'ar') == 'ar' else 'left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Dates') }}</th>
+                    <th class="px-6 py-3 text-{{ 'right' if session.get('lang', 'ar') == 'ar' else 'left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Amount') }}</th>
+                    <th class="px-6 py-3 text-{{ 'right' if session.get('lang', 'ar') == 'ar' else 'left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Status') }}</th>
+                    <th class="px-6 py-3 text-{{ 'right' if session.get('lang', 'ar') == 'ar' else 'left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Actions') }}</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -172,7 +172,7 @@
                                     <span class="text-white font-medium text-sm">{{ booking.client_name[0] }}</span>
                                 </div>
                             </div>
-                            <div class="ml-4">
+                            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                                 <div class="text-sm font-medium text-gray-900">{{ booking.client_name }}</div>
                                 <div class="text-sm text-gray-500">{{ booking.contact }}</div>
                             </div>
@@ -205,33 +205,33 @@
                             {{ booking.status.title() }}
                         </span>
                     </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <div class="flex space-x-2">
+                    <td class="px-6 py-4 whitespace-nowrap text-{{ 'left' if session.get('lang', 'ar') == 'ar' else 'right' }} text-sm font-medium">
+                        <div class="flex gap-3 {{ 'justify-start' if session.get('lang', 'ar') == 'ar' else 'justify-end' }}">
                             <button onclick="viewBookingDetails({{ booking.id }})"
-                                    class="text-elaani-primary hover:text-elaani-secondary transition-colors"
+                                    class="text-elaani-primary hover:text-elaani-secondary transition-colors p-2"
                                     title="{{ _('View Details') }}">
                                 <i class="fas fa-eye"></i>
                             </button>
                             {% if booking.status == 'pending' %}
                             <button onclick="approveBooking({{ booking.id }})"
-                                    class="text-green-600 hover:text-green-700 transition-colors"
+                                    class="text-green-600 hover:text-green-700 transition-colors p-2"
                                     title="{{ _('Approve') }}">
                                 <i class="fas fa-check"></i>
                             </button>
                             <button onclick="rejectBooking({{ booking.id }})"
-                                    class="text-red-600 hover:text-red-700 transition-colors"
+                                    class="text-red-600 hover:text-red-700 transition-colors p-2"
                                     title="{{ _('Reject') }}">
                                 <i class="fas fa-times"></i>
                             </button>
                             {% elif booking.status == 'confirmed' %}
                             <button onclick="startRental({{ booking.id }})"
-                                    class="text-blue-600 hover:text-blue-700 transition-colors"
+                                    class="text-blue-600 hover:text-blue-700 transition-colors p-2"
                                     title="{{ _('Start Rental') }}">
                                 <i class="fas fa-play"></i>
                             </button>
                             {% elif booking.status == 'active' %}
                             <button onclick="endRental({{ booking.id }})"
-                                    class="text-purple-600 hover:text-purple-700 transition-colors"
+                                    class="text-purple-600 hover:text-purple-700 transition-colors p-2"
                                     title="{{ _('End Rental') }}">
                                 <i class="fas fa-stop"></i>
                             </button>
@@ -301,28 +301,28 @@
                 </div>
                 
                 <!-- Actions -->
-                <div class="flex space-x-2">
+                <div class="flex gap-2">
                     <button onclick="viewBookingDetails({{ booking.id }})" 
                             class="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-eye mr-1"></i>
+                        <i class="fas fa-eye me-2"></i>
                         {{ _('View') }}
                     </button>
                     {% if booking.status == 'pending' %}
                     <button onclick="approveBooking({{ booking.id }})" 
                             class="flex-1 bg-green-100 hover:bg-green-200 text-green-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-check mr-1"></i>
+                        <i class="fas fa-check me-2"></i>
                         {{ _('Approve') }}
                     </button>
                     {% elif booking.status == 'confirmed' %}
                     <button onclick="startRental({{ booking.id }})" 
                             class="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-play mr-1"></i>
+                        <i class="fas fa-play me-2"></i>
                         {{ _('Start') }}
                     </button>
                     {% elif booking.status == 'active' %}
                     <button onclick="endRental({{ booking.id }})" 
                             class="flex-1 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
-                        <i class="fas fa-stop mr-1"></i>
+                        <i class="fas fa-stop me-2"></i>
                         {{ _('End') }}
                     </button>
                     {% endif %}

@@ -1,0 +1,312 @@
+# English translations for Elaani.
+# Copyright (C) 2025 Elaani
+# This file is distributed under the same license as the Elaani project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-11-18 10:00+0300\n"
+"PO-Revision-Date: 2025-11-18 10:00+0300\n"
+"Last-Translator: \n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+msgid "Elaani"
+msgstr "Elaani"
+
+msgid "Digital Screen Marketplace"
+msgstr "Digital Screen Marketplace"
+
+msgid "Browse Screens"
+msgstr "Browse Screens"
+
+msgid "How it Works"
+msgstr "How it Works"
+
+msgid "Pricing"
+msgstr "Pricing"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Get Started"
+msgstr "Get Started"
+
+msgid "Digital Screen Advertising Made Simple"
+msgstr "Digital Screen Advertising Made Simple"
+
+msgid "Connect advertisers with premium digital screens across Riyadh. Book instantly, pay securely, and reach your audience where they are."
+msgstr "Connect advertisers with premium digital screens across Riyadh. Book instantly, pay securely, and reach your audience where they are."
+
+msgid "List Your Screen"
+msgstr "List Your Screen"
+
+msgid "500+"
+msgstr "500+"
+
+msgid "Digital Screens"
+msgstr "Digital Screens"
+
+msgid "1200+"
+msgstr "1200+"
+
+msgid "Campaigns"
+msgstr "Campaigns"
+
+msgid "24/7"
+msgstr "24/7"
+
+msgid "99%"
+msgstr "99%"
+
+msgid "Uptime"
+msgstr "Uptime"
+
+msgid "How Elaani Works"
+msgstr "How Elaani Works"
+
+msgid "Simple steps to reach your audience"
+msgstr "Simple steps to reach your audience"
+
+msgid "1. Browse & Select"
+msgstr "1. Browse & Select"
+
+msgid "Browse digital screens by location, size, and price. Use our map view to find the perfect spots in Riyadh."
+msgstr "Browse digital screens by location, size, and price. Use our map view to find the perfect spots in Riyadh."
+
+msgid "2. Book & Pay"
+msgstr "2. Book & Pay"
+
+msgid "Select your dates, upload your creative, and pay securely. Get instant confirmation for your campaign."
+msgstr "Select your dates, upload your creative, and pay securely. Get instant confirmation for your campaign."
+
+msgid "3. Track Results"
+msgstr "3. Track Results"
+
+msgid "Monitor your campaign performance with real-time analytics and engagement metrics."
+msgstr "Monitor your campaign performance with real-time analytics and engagement metrics."
+
+msgid "Featured Screens"
+msgstr "Featured Screens"
+
+msgid "Premium locations across Riyadh"
+msgstr "Premium locations across Riyadh"
+
+msgid "SAR/hour"
+msgstr "SAR/hour"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "View All Screens"
+msgstr "View All Screens"
+
+msgid "Ready to Start Advertising?"
+msgstr "Ready to Start Advertising?"
+
+msgid "Join hundreds of businesses reaching their audience through digital screens"
+msgstr "Join hundreds of businesses reaching their audience through digital screens"
+
+msgid "Start Advertising"
+msgstr "Start Advertising"
+
+msgid "The premier digital screen advertising marketplace in Riyadh, KSA."
+msgstr "The premier digital screen advertising marketplace in Riyadh, KSA."
+
+msgid "For Advertisers"
+msgstr "For Advertisers"
+
+msgid "Campaign Tools"
+msgstr "Campaign Tools"
+
+msgid "For Screen Owners"
+msgstr "For Screen Owners"
+
+msgid "Earnings"
+msgstr "Earnings"
+
+msgid "Help Center"
+msgstr "Help Center"
+
+msgid "Contact Us"
+msgstr "Contact Us"
+
+msgid "Terms of Service"
+msgstr "Terms of Service"
+
+msgid "All rights reserved."
+msgstr "All rights reserved."
+
+msgid "Made in Riyadh, KSA"
+msgstr "Made in Riyadh, KSA"
+
+msgid "Riyadh"
+msgstr "Riyadh"
+
+msgid "KSA"
+msgstr "KSA"
+
+msgid "Sign in to your account"
+msgstr "Sign in to your account"
+
+msgid "Or"
+msgstr "Or"
+
+msgid "create a new account"
+msgstr "create a new account"
+
+msgid "Email address"
+msgstr "Email address"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Remember me"
+msgstr "Remember me"
+
+msgid "Forgot your password?"
+msgstr "Forgot your password?"
+
+msgid "Sign in"
+msgstr "Sign in"
+
+msgid "Quotes & Requests"
+msgstr "Quotes & Requests"
+
+msgid "Manage your quote requests and get custom pricing"
+msgstr "Manage your quote requests and get custom pricing"
+
+msgid "Request Status Overview"
+msgstr "Request Status Overview"
+
+msgid "Track all your quote requests and responses"
+msgstr "Track all your quote requests and responses"
+
+msgid "Request Quote"
+msgstr "Request Quote"
+
+msgid "Total Requests"
+msgstr "Total Requests"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Quoted"
+msgstr "Quoted"
+
+msgid "Accepted"
+msgstr "Accepted"
+
+msgid "All Quotes"
+msgstr "All Quotes"
+
+msgid "Size"
+msgstr "Size"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Duration"
+msgstr "Duration"
+
+msgid "Days"
+msgstr "Days"
+
+msgid "Requested Budget"
+msgstr "Requested Budget"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "Cancel Request"
+msgstr "Cancel Request"
+
+msgid "Quoted Price"
+msgstr "Quoted Price"
+
+msgid "Accept Quote"
+msgstr "Accept Quote"
+
+msgid "Reject"
+msgstr "Reject"
+
+msgid "Final Price"
+msgstr "Final Price"
+
+msgid "Book Now"
+msgstr "Book Now"
+
+msgid "View Invoice"
+msgstr "View Invoice"
+
+msgid "Request a Quote"
+msgstr "Request a Quote"
+
+msgid "Display Type"
+msgstr "Display Type"
+
+msgid "Select display type..."
+msgstr "Select display type..."
+
+msgid "LED Screen"
+msgstr "LED Screen"
+
+msgid "LCD Display"
+msgstr "LCD Display"
+
+msgid "Outdoor LED"
+msgstr "Outdoor LED"
+
+msgid "Mobile LED Truck"
+msgstr "Mobile LED Truck"
+
+msgid "Location/Area"
+msgstr "Location/Area"
+
+msgid "Start Date"
+msgstr "Start Date"
+
+msgid "End Date"
+msgstr "End Date"
+
+msgid "Budget Range"
+msgstr "Budget Range"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Additional Details"
+msgstr "Additional Details"
+
+msgid "Tell us more about your event or requirements..."
+msgstr "Tell us more about your event or requirements..."
+
+msgid "Submit Request"
+msgstr "Submit Request"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "King Fahd Road"
+msgstr "King Fahd Road"
+
+msgid "Downtown"
+msgstr "Downtown"
+
+msgid "Olaya Street"
+msgstr "Olaya Street"
+
+msgid "Financial District"
+msgstr "Financial District"

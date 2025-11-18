@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{{ _('Elaani - Digital Screen Marketplace') }}{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    {% if session.get('lang') == 'ar' %}
+    <link href="{{ url_for('static', filename='css/rtl.css') }}" rel="stylesheet">
+    {% else %}
+    <link href="{{ url_for('static', filename='css/ltr.css') }}" rel="stylesheet">
+    {% endif %}
     <script>
         tailwind.config = {
             theme: {
@@ -19,7 +25,6 @@
             }
         }
     </script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->

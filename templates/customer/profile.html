@@ -11,16 +11,16 @@
     <div class="border-b border-gray-200">
         <div class="flex flex-wrap">
             <button onclick="switchTab('personal')" class="profile-tab active px-6 py-4 text-sm font-medium text-elaani-primary border-b-2 border-elaani-primary">
-                <i class="fas fa-user mr-2"></i>{{ _('Personal Info') }}
+                <i class="fas fa-user {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Personal Info') }}
             </button>
             <button onclick="switchTab('company')" class="profile-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                <i class="fas fa-building mr-2"></i>{{ _('Company Info') }}
+                <i class="fas fa-building {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Company Info') }}
             </button>
             <button onclick="switchTab('preferences')" class="profile-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                <i class="fas fa-sliders-h mr-2"></i>{{ _('Preferences') }}
+                <i class="fas fa-sliders-h {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Preferences') }}
             </button>
             <button onclick="switchTab('security')" class="profile-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                <i class="fas fa-lock mr-2"></i>{{ _('Security') }}
+                <i class="fas fa-lock {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Security') }}
             </button>
         </div>
     </div>
@@ -32,13 +32,13 @@
             
             <form class="space-y-6">
                 <!-- Profile Photo -->
-                <div class="flex items-center space-x-6">
+                <div class="flex items-center {{ 'space-x-6' if session.get('lang') == 'en' else 'space-x-reverse space-x-6' }}">
                     <div class="w-24 h-24 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-full flex items-center justify-center">
                         <i class="fas fa-user text-white text-4xl"></i>
                     </div>
                     <div>
                         <button type="button" class="px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
-                            <i class="fas fa-camera mr-2"></i>{{ _('Change Photo') }}
+                            <i class="fas fa-camera {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Change Photo') }}
                         </button>
                         <p class="text-xs text-gray-500 mt-2">{{ _('Max size: 5MB. Formats: JPG, PNG') }}</p>
                     </div>
@@ -82,7 +82,7 @@
 
                 <div class="flex gap-4 pt-4">
                     <button type="submit" class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
-                        <i class="fas fa-check mr-2"></i>{{ _('Save Changes') }}
+                        <i class="fas fa-check {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Save Changes') }}
                     </button>
                     <button type="button" class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
                         {{ _('Cancel') }}
@@ -147,7 +147,7 @@
 
                 <div class="flex gap-4 pt-4">
                     <button type="submit" class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
-                        <i class="fas fa-check mr-2"></i>{{ _('Save Changes') }}
+                        <i class="fas fa-check {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Save Changes') }}
                     </button>
                     <button type="button" class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
                         {{ _('Cancel') }}
@@ -169,21 +169,21 @@
                     <div class="space-y-3">
                         <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
                             <input type="checkbox" checked class="rounded border-gray-300">
-                            <div class="ml-3">
+                            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                                 <p class="font-medium text-gray-900">{{ _('Booking Confirmations') }}</p>
                                 <p class="text-sm text-gray-600">{{ _('Get notified when bookings are confirmed') }}</p>
                             </div>
                         </label>
                         <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
                             <input type="checkbox" checked class="rounded border-gray-300">
-                            <div class="ml-3">
+                            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                                 <p class="font-medium text-gray-900">{{ _('Promotional Offers') }}</p>
                                 <p class="text-sm text-gray-600">{{ _('Receive special discounts and promotions') }}</p>
                             </div>
                         </label>
                         <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <div class="ml-3">
+                            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                                 <p class="font-medium text-gray-900">{{ _('Weekly Newsletter') }}</p>
                                 <p class="text-sm text-gray-600">{{ _('Stay updated with new displays and news') }}</p>
                             </div>
@@ -197,14 +197,14 @@
                     <div class="space-y-3">
                         <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <div class="ml-3">
+                            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                                 <p class="font-medium text-gray-900">{{ _('Show Profile in Directory') }}</p>
                                 <p class="text-sm text-gray-600">{{ _('Let other businesses discover you') }}</p>
                             </div>
                         </label>
                         <label class="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all cursor-pointer">
                             <input type="checkbox" checked class="rounded border-gray-300">
-                            <div class="ml-3">
+                            <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %}">
                                 <p class="font-medium text-gray-900">{{ _('Keep Booking History Private') }}</p>
                                 <p class="text-sm text-gray-600">{{ _('Only you can see your booking history') }}</p>
                             </div>
@@ -214,7 +214,7 @@
 
                 <div class="flex gap-4 pt-4">
                     <button class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
-                        <i class="fas fa-check mr-2"></i>{{ _('Save Preferences') }}
+                        <i class="fas fa-check {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Save Preferences') }}
                     </button>
                 </div>
             </div>
@@ -266,7 +266,7 @@
                     <div class="space-y-3">
                         <div class="flex items-center justify-between p-3 bg-white rounded border border-gray-200">
                             <div>
-                                <p class="font-medium text-gray-900"><i class="fas fa-laptop mr-2 text-elaani-primary"></i>{{ _('Chrome on Windows') }}</p>
+                                <p class="font-medium text-gray-900"><i class="fas fa-laptop {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Chrome on Windows') }}</p>
                                 <p class="text-sm text-gray-600">{{ _('Last active: 1 hour ago') }}</p>
                             </div>
                             <button class="text-red-600 hover:text-red-700 font-medium text-sm">
@@ -275,7 +275,7 @@
                         </div>
                         <div class="flex items-center justify-between p-3 bg-white rounded border border-gray-200">
                             <div>
-                                <p class="font-medium text-gray-900"><i class="fas fa-mobile mr-2 text-elaani-primary"></i>{{ _('Safari on iPhone') }}</p>
+                                <p class="font-medium text-gray-900"><i class="fas fa-mobile {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Safari on iPhone') }}</p>
                                 <p class="text-sm text-gray-600">{{ _('Last active: 3 days ago') }}</p>
                             </div>
                             <button class="text-red-600 hover:text-red-700 font-medium text-sm">

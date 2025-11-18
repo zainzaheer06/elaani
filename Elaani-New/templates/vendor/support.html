@@ -1,0 +1,146 @@
+{% extends "vendor/base_vendor.html" %}
+
+{% block page_title %}{{ _('Support') }}{% endblock %}
+{% block page_subtitle %}{{ _('Get help and contact our support team') }}{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto">
+    <!-- Support Options -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div class="bg-white rounded-xl shadow-sm p-6 text-center hover:shadow-md transition-shadow">
+            <div class="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-headset text-blue-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ _('Live Chat') }}</h3>
+            <p class="text-sm text-gray-600 mb-4">{{ _('Chat with our support team in real-time') }}</p>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                {{ _('Start Chat') }}
+            </button>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6 text-center hover:shadow-md transition-shadow">
+            <div class="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-phone text-green-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ _('Phone Support') }}</h3>
+            <p class="text-sm text-gray-600 mb-4">{{ _('Call us: +966 11 234 5678') }}</p>
+            <button class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
+                {{ _('Call Now') }}
+            </button>
+        </div>
+
+        <div class="bg-white rounded-xl shadow-sm p-6 text-center hover:shadow-md transition-shadow">
+            <div class="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-envelope text-purple-600 text-2xl"></i>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">{{ _('Email Support') }}</h3>
+            <p class="text-sm text-gray-600 mb-4">{{ _('support@elaani.sa') }}</p>
+            <button class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                {{ _('Send Email') }}
+            </button>
+        </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="bg-white rounded-xl shadow-sm p-8 mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">{{ _('Submit a Support Request') }}</h2>
+        <form class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Subject') }}</label>
+                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent" placeholder="{{ _('Brief description of your issue') }}">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Category') }}</label>
+                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <option>{{ _('Technical Issue') }}</option>
+                        <option>{{ _('Billing Question') }}</option>
+                        <option>{{ _('Account Help') }}</option>
+                        <option>{{ _('Screen Management') }}</option>
+                        <option>{{ _('Other') }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Priority') }}</label>
+                <div class="flex space-x-4">
+                    <label class="flex items-center">
+                        <input type="radio" name="priority" value="low" class="mr-2">
+                        <span class="text-sm text-gray-700">{{ _('Low') }}</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="priority" value="medium" class="mr-2" checked>
+                        <span class="text-sm text-gray-700">{{ _('Medium') }}</span>
+                    </label>
+                    <label class="flex items-center">
+                        <input type="radio" name="priority" value="high" class="mr-2">
+                        <span class="text-sm text-gray-700">{{ _('High') }}</span>
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Description') }}</label>
+                <textarea rows="6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent" placeholder="{{ _('Please provide detailed information about your issue...') }}"></textarea>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Attachments') }}</label>
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                    <i class="fas fa-cloud-upload-alt text-gray-400 text-3xl mb-2"></i>
+                    <p class="text-sm text-gray-600">{{ _('Drag and drop files here or click to browse') }}</p>
+                    <input type="file" class="hidden" multiple>
+                </div>
+            </div>
+
+            <div class="flex justify-end space-x-4">
+                <button type="button" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition-colors">
+                    {{ _('Cancel') }}
+                </button>
+                <button type="submit" class="px-6 py-2 bg-elaani-primary text-white rounded-lg hover:bg-elaani-dark transition-colors">
+                    {{ _('Submit Request') }}
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="bg-white rounded-xl shadow-sm p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">{{ _('Frequently Asked Questions') }}</h2>
+        <div class="space-y-4">
+            <div class="border-b border-gray-200 pb-4">
+                <button class="flex items-center justify-between w-full text-left">
+                    <h3 class="text-lg font-semibold text-gray-900">{{ _('How do I add a new screen?') }}</h3>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </button>
+                <p class="mt-2 text-gray-600">{{ _('Navigate to "Add New Screen" from the sidebar menu and fill in the required information about your screen.') }}</p>
+            </div>
+
+            <div class="border-b border-gray-200 pb-4">
+                <button class="flex items-center justify-between w-full text-left">
+                    <h3 class="text-lg font-semibold text-gray-900">{{ _('When will I receive my payments?') }}</h3>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </button>
+                <p class="mt-2 text-gray-600">{{ _('Payments are processed within 3-5 business days after the booking is completed.') }}</p>
+            </div>
+
+            <div class="border-b border-gray-200 pb-4">
+                <button class="flex items-center justify-between w-full text-left">
+                    <h3 class="text-lg font-semibold text-gray-900">{{ _('How do I update my screen availability?') }}</h3>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </button>
+                <p class="mt-2 text-gray-600">{{ _('Go to "My Screens", select the screen you want to update, and modify the availability calendar.') }}</p>
+            </div>
+
+            <div class="pb-4">
+                <button class="flex items-center justify-between w-full text-left">
+                    <h3 class="text-lg font-semibold text-gray-900">{{ _('What are the commission rates?') }}</h3>
+                    <i class="fas fa-chevron-down text-gray-400"></i>
+                </button>
+                <p class="mt-2 text-gray-600">{{ _('Elaani charges a 15% commission on all bookings. This covers platform maintenance, payment processing, and customer support.') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

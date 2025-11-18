@@ -63,19 +63,19 @@
                     <div class="space-y-2">
                         <label class="flex items-center">
                             <input type="checkbox" checked class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('King Fahd Road') }} (4)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('King Fahd Road') }} ({% if session.get('lang') == 'ar' %}٤{% else %}4{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('Olaya Street') }} (3)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('Olaya Street') }} ({% if session.get('lang') == 'ar' %}٣{% else %}3{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('Downtown') }} (5)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('Downtown') }} ({% if session.get('lang') == 'ar' %}٥{% else %}5{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('Financial District') }} (2)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('Financial District') }} ({% if session.get('lang') == 'ar' %}٢{% else %}2{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
@@ -90,19 +90,19 @@
                     <div class="space-y-2">
                         <label class="flex items-center">
                             <input type="checkbox" checked class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('LED Screen') }} (8)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('LED Screen') }} ({% if session.get('lang') == 'ar' %}٨{% else %}8{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('LCD Display') }} (5)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('LCD Display') }} ({% if session.get('lang') == 'ar' %}٥{% else %}5{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('Outdoor LED') }} (6)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('Outdoor LED') }} ({% if session.get('lang') == 'ar' %}٦{% else %}6{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('Mobile Truck') }} (2)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('Mobile Truck') }} ({% if session.get('lang') == 'ar' %}٢{% else %}2{% endif %})</span>
                         </label>
                     </div>
                 </div>
@@ -113,19 +113,19 @@
                     <div class="space-y-2">
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('Up to 50"') }} (3)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('Up to 50"') }} ({% if session.get('lang') == 'ar' %}٣{% else %}3{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('50" - 65"') }} (5)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('50" - 65"') }} ({% if session.get('lang') == 'ar' %}٥{% else %}5{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" checked class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('65" - 85"') }} (7)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('65" - 85"') }} ({% if session.get('lang') == 'ar' %}٧{% else %}7{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('85"+') }} (4)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('85"+') }} ({% if session.get('lang') == 'ar' %}٤{% else %}4{% endif %})</span>
                         </label>
                     </div>
                 </div>
@@ -148,26 +148,26 @@
                     <div class="space-y-2">
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">
-                                <i class="fas fa-star text-yellow-400 mr-1"></i>{{ _('4.5 & up') }} (8)
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">
+                                <i class="fas fa-star text-yellow-400 {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('4.5 & up') }} ({% if session.get('lang') == 'ar' %}٨{% else %}8{% endif %})
                             </span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">
-                                <i class="fas fa-star text-yellow-400 mr-1"></i>{{ _('4.0 & up') }} (12)
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">
+                                <i class="fas fa-star text-yellow-400 {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('4.0 & up') }} ({% if session.get('lang') == 'ar' %}١٢{% else %}12{% endif %})
                             </span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" checked class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">
-                                <i class="fas fa-star text-yellow-400 mr-1"></i>{{ _('3.5 & up') }} (17)
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">
+                                <i class="fas fa-star text-yellow-400 {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('3.5 & up') }} ({% if session.get('lang') == 'ar' %}١٧{% else %}17{% endif %})
                             </span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">
-                                <i class="fas fa-star text-yellow-400 mr-1"></i>{{ _('Any') }} (21)
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">
+                                <i class="fas fa-star text-yellow-400 {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Any') }} ({% if session.get('lang') == 'ar' %}٢١{% else %}21{% endif %})
                             </span>
                         </label>
                     </div>
@@ -179,15 +179,15 @@
                     <div class="space-y-2">
                         <label class="flex items-center">
                             <input type="checkbox" checked class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('Available Now') }} (12)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('Available Now') }} ({% if session.get('lang') == 'ar' %}١٢{% else %}12{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('Available This Month') }} (18)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('Available This Month') }} ({% if session.get('lang') == 'ar' %}١٨{% else %}18{% endif %})</span>
                         </label>
                         <label class="flex items-center">
                             <input type="checkbox" class="rounded border-gray-300">
-                            <span class="ml-2 text-sm text-gray-700">{{ _('All') }} (21)</span>
+                            <span class="{% if session.get('lang') == 'ar' %}mr-3{% else %}ml-3{% endif %} text-sm text-gray-700">{{ _('All') }} ({% if session.get('lang') == 'ar' %}٢١{% else %}21{% endif %})</span>
                         </label>
                     </div>
                 </div>
@@ -219,7 +219,7 @@
                 </div>
                 <div class="p-5">
                     <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('King Fahd Road LED Screen') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt mr-1 text-elaani-primary"></i>{{ _('King Fahd Road') }}</p>
+                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('King Fahd Road') }}</p>
                     
                     <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
                         <div>
@@ -260,7 +260,7 @@
                 </div>
                 <div class="p-5">
                     <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Olaya Street Indoor Display') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt mr-1 text-elaani-primary"></i>{{ _('Olaya Street') }}</p>
+                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Olaya Street') }}</p>
                     
                     <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
                         <div>
@@ -301,7 +301,7 @@
                 </div>
                 <div class="p-5">
                     <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Downtown Business LED Display') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt mr-1 text-elaani-primary"></i>{{ _('Downtown Riyadh') }}</p>
+                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Downtown Riyadh') }}</p>
                     
                     <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
                         <div>
@@ -342,7 +342,7 @@
                 </div>
                 <div class="p-5">
                     <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Mall Indoor Display Premium') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt mr-1 text-elaani-primary"></i>{{ _('Riyadh Gallery') }}</p>
+                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Riyadh Gallery') }}</p>
                     
                     <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
                         <div>
@@ -383,7 +383,7 @@
                 </div>
                 <div class="p-5">
                     <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Al Nakheel District Screen') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt mr-1 text-elaani-primary"></i>{{ _('Al Nakheel District') }}</p>
+                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Al Nakheel District') }}</p>
                     
                     <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
                         <div>
@@ -424,7 +424,7 @@
                 </div>
                 <div class="p-5">
                     <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Business Park Tower LED') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt mr-1 text-elaani-primary"></i>{{ _('Financial District') }}</p>
+                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Financial District') }}</p>
                     
                     <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
                         <div>
