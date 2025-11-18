@@ -1,10 +1,16 @@
 # app.py - Main Flask Application
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for
-from flask_babel import Babel
+from flask_babel import Babel, gettext
 from datetime import datetime, timedelta
 import json
+import os
 
-app = Flask(__name__)
+# Get the directory containing this file
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+app = Flask(__name__,
+            static_folder=os.path.join(basedir, 'static'),
+            static_url_path='/static')
 app.secret_key = 'elaani-bilingual-2025'
 
 # Minimal Babel Configuration
@@ -35,7 +41,7 @@ def format_sar(value):
 # Template context processor for customer routes
 @app.context_processor
 def inject_current_user():
-    """Make current_user available in all templates for customer routes"""
+    """Make current_user and translation function available in all templates"""
     current_user_data = {
         'id': 1,
         'name': 'Omar Al-Rashid',
@@ -47,7 +53,7 @@ def inject_current_user():
         'total_bookings': 12,
         'total_spent': 75000
     }
-    
+
     user_stats_data = {
         'active_bookings': 3,
         'saved_displays': 12,
@@ -55,8 +61,8 @@ def inject_current_user():
         'pending_quotes': 2,
         'completed_events': 15
     }
-    
-    return dict(current_user=current_user_data, user_stats=user_stats_data)
+
+    return dict(current_user=current_user_data, user_stats=user_stats_data, _=gettext)
 
 # Sample data (in production, this would come from a database)
 screens_data = [
@@ -210,29 +216,29 @@ def dashboard():
     recent_activity = [
         {
             'type': 'booking',
-            'title': 'New booking confirmed',
-            'description': 'Al-Rajhi School - 2 hours ago',
+            'title': gettext('New booking confirmed'),
+            'description': gettext('Al-Rajhi School - 2 hours ago'),
             'icon': 'fas fa-check',
             'color': 'green'
         },
         {
             'type': 'delivery',
-            'title': 'Delivery completed',
-            'description': 'LED Screen 55" - 4 hours ago',
+            'title': gettext('Delivery completed'),
+            'description': gettext('LED Screen 55" - 4 hours ago'),
             'icon': 'fas fa-truck',
             'color': 'blue'
         },
         {
             'type': 'payment',
-            'title': 'Payment received',
-            'description': '135,000 ريال - Wedding Event',
+            'title': gettext('Payment received'),
+            'description': gettext('135,000 SAR - Wedding Event'),
             'icon': 'fas fa-coins',
             'color': 'orange'
         },
         {
             'type': 'client',
-            'title': 'New client registered',
-            'description': 'Riyadh Events Co.',
+            'title': gettext('New client registered'),
+            'description': gettext('Riyadh Events Co.'),
             'icon': 'fas fa-user-plus',
             'color': 'purple'
         }
@@ -466,4 +472,6 @@ def test_en():
     """
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5900)
+    # Use environment variable for port (Render provides this)
+    port = int(os.environ.get('PORT', 5900))
+    app.run(host='0.0.0.0', port=port, debug=False)
