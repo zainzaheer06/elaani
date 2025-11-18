@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Operations - Elaani{% endblock %}
+{% block title %}{{ _('Operations - Elaani') }}{% endblock %}
 
-{% block page_title %}Operations Management{% endblock %}
-{% block page_subtitle %}Manage logistics, deliveries, installations, and field operations across Saudi Arabia{% endblock %}
+{% block page_title %}{{ _('Operations Management') }}{% endblock %}
+{% block page_subtitle %}{{ _('Manage logistics, deliveries, installations, and field operations across Saudi Arabia') }}{% endblock %}
 
 {% block content %}
 <!-- Action Bar -->
@@ -13,17 +13,17 @@
             <button onclick="scheduleDelivery()" 
                     class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-truck mr-2"></i>
-                Schedule Delivery
+                {{ _('Schedule Delivery') }}
             </button>
             <button onclick="assignTechnician()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-user-cog mr-2"></i>
-                Assign Technician
+                {{ _('Assign Technician') }}
             </button>
             <button onclick="trackVehicles()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-map-marked-alt mr-2"></i>
-                Track Vehicles
+                {{ _('Track Vehicles') }}
             </button>
         </div>
         
@@ -31,19 +31,19 @@
             <!-- Location Filter -->
             <select id="locationFilter" 
                     class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                <option value="">All Locations</option>
-                <option value="riyadh">Riyadh</option>
-                <option value="jeddah">Jeddah</option>
-                <option value="dammam">Dammam</option>
-                <option value="mecca">Mecca</option>
-                <option value="medina">Medina</option>
+                <option value="">{{ _('All Locations') }}</option>
+                <option value="riyadh">{{ _('Riyadh') }}</option>
+                <option value="jeddah">{{ _('Jeddah') }}</option>
+                <option value="dammam">{{ _('Dammam') }}</option>
+                <option value="mecca">{{ _('Mecca') }}</option>
+                <option value="medina">{{ _('Medina') }}</option>
             </select>
             
             <!-- Emergency Contact -->
             <button onclick="emergencySupport()" 
                    class="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 transition-all duration-200">
                 <i class="fas fa-phone mr-2"></i>
-                Emergency Support
+                {{ _('Emergency Support') }}
             </button>
         </div>
     </div>
@@ -60,10 +60,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">8</div>
-                <div class="text-sm font-medium text-gray-600">Active Deliveries</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Active Deliveries') }}</div>
                 <div class="text-xs text-blue-600 font-medium mt-1">
                     <i class="fas fa-route mr-1"></i>
-                    3 in Riyadh
+                    {{ _('3 in Riyadh') }}
                 </div>
             </div>
         </div>
@@ -78,10 +78,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">12</div>
-                <div class="text-sm font-medium text-gray-600">Field Technicians</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Field Technicians') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-check mr-1"></i>
-                    All available
+                    {{ _('All available') }}
                 </div>
             </div>
         </div>
@@ -96,10 +96,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">3</div>
-                <div class="text-sm font-medium text-gray-600">Pending Installations</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Pending Installations') }}</div>
                 <div class="text-xs text-yellow-600 font-medium mt-1">
                     <i class="fas fa-clock mr-1"></i>
-                    Due today
+                    {{ _('Due today') }}
                 </div>
             </div>
         </div>
@@ -114,10 +114,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">98%</div>
-                <div class="text-sm font-medium text-gray-600">On-Time Delivery</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('On-Time Delivery') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
-                    +2% this month
+                    {{ _('+2% this month') }}
                 </div>
             </div>
         </div>
@@ -131,21 +131,21 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Live Operations Map</h3>
-                    <p class="text-sm text-gray-600 mt-1">Real-time tracking of vehicles and technicians</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Live Operations Map') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Real-time tracking of vehicles and technicians') }}</p>
                 </div>
                 <div class="flex space-x-2">
                     <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-elaani-primary">
                         <i class="fas fa-truck mr-1"></i>
-                        Vehicles
+                        {{ _('Vehicles') }}
                     </button>
                     <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
                         <i class="fas fa-user-cog mr-1"></i>
-                        Technicians
+                        {{ _('Technicians') }}
                     </button>
                     <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
                         <i class="fas fa-map-pin mr-1"></i>
-                        Warehouses
+                        {{ _('Warehouses') }}
                     </button>
                 </div>
             </div>
@@ -156,22 +156,22 @@
                 <div class="absolute inset-0 bg-gradient-to-br from-green-100 to-green-200 opacity-50"></div>
                 <div class="relative z-10 text-center">
                     <i class="fas fa-map text-gray-400 text-6xl mb-4"></i>
-                    <p class="text-gray-600 font-medium text-lg">Interactive Saudi Arabia Map</p>
-                    <p class="text-sm text-gray-500 mb-6">Real-time GPS tracking and route optimization</p>
+                    <p class="text-gray-600 font-medium text-lg">{{ _('Interactive Saudi Arabia Map') }}</p>
+                    <p class="text-sm text-gray-500 mb-6">{{ _('Real-time GPS tracking and route optimization') }}</p>
                     
                     <!-- Map Legend -->
                     <div class="flex justify-center space-x-6 text-sm">
                         <div class="flex items-center">
                             <div class="w-4 h-4 bg-blue-500 rounded-full mr-2"></div>
-                            <span>Active Deliveries (8)</span>
+                            <span>{{ _('Active Deliveries (8)') }}</span>
                         </div>
                         <div class="flex items-center">
                             <div class="w-4 h-4 bg-green-500 rounded-full mr-2"></div>
-                            <span>Technicians (12)</span>
+                            <span>{{ _('Technicians (12)') }}</span>
                         </div>
                         <div class="flex items-center">
                             <div class="w-4 h-4 bg-red-500 rounded-full mr-2"></div>
-                            <span>Warehouses (3)</span>
+                            <span>{{ _('Warehouses (3)') }}</span>
                         </div>
                     </div>
                 </div>
@@ -190,11 +190,11 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Task Queue</h3>
-                    <p class="text-sm text-gray-600 mt-1">Pending operations and assignments</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Task Queue') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Pending operations and assignments') }}</p>
                 </div>
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                    5 Urgent
+                    {{ _('5 Urgent') }}
                 </span>
             </div>
         </div>
@@ -205,15 +205,15 @@
                     <div class="flex items-center justify-between mb-2">
                         <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
                             <i class="fas fa-exclamation-triangle mr-1"></i>
-                            Urgent
+                            {{ _('Urgent') }}
                         </span>
-                        <span class="text-xs text-red-600">Due in 2 hours</span>
+                        <span class="text-xs text-red-600">{{ _('Due in 2 hours') }}</span>
                     </div>
-                    <div class="font-medium text-red-800">Emergency Setup</div>
-                    <div class="text-sm text-red-600">Al-Rajhi School - LED Display malfunction</div>
+                    <div class="font-medium text-red-800">{{ _('Emergency Setup') }}</div>
+                    <div class="text-sm text-red-600">{{ _('Al-Rajhi School - LED Display malfunction') }}</div>
                     <div class="text-xs text-red-500 mt-1">
                         <i class="fas fa-map-marker-alt mr-1"></i>
-                        Riyadh, King Fahd District
+                        {{ _('Riyadh, King Fahd District') }}
                     </div>
                 </div>
 
@@ -222,15 +222,15 @@
                     <div class="flex items-center justify-between mb-2">
                         <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                             <i class="fas fa-clock mr-1"></i>
-                            High Priority
+                            {{ _('High Priority') }}
                         </span>
-                        <span class="text-xs text-yellow-600">Due today</span>
+                        <span class="text-xs text-yellow-600">{{ _('Due today') }}</span>
                     </div>
-                    <div class="font-medium text-yellow-800">Installation Scheduled</div>
-                    <div class="text-sm text-yellow-600">Mobile LED Truck - Tech Conference</div>
+                    <div class="font-medium text-yellow-800">{{ _('Installation Scheduled') }}</div>
+                    <div class="text-sm text-yellow-600">{{ _('Mobile LED Truck - Tech Conference') }}</div>
                     <div class="text-xs text-yellow-500 mt-1">
                         <i class="fas fa-map-marker-alt mr-1"></i>
-                        Riyadh, KAFD
+                        {{ _('Riyadh, KAFD') }}
                     </div>
                 </div>
 
@@ -239,15 +239,15 @@
                     <div class="flex items-center justify-between mb-2">
                         <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                             <i class="fas fa-truck mr-1"></i>
-                            Delivery
+                            {{ _('Delivery') }}
                         </span>
-                        <span class="text-xs text-blue-600">Tomorrow</span>
+                        <span class="text-xs text-blue-600">{{ _('Tomorrow') }}</span>
                     </div>
-                    <div class="font-medium text-blue-800">Equipment Pickup</div>
-                    <div class="text-sm text-blue-600">Return from Riyadh Events Co.</div>
+                    <div class="font-medium text-blue-800">{{ _('Equipment Pickup') }}</div>
+                    <div class="text-sm text-blue-600">{{ _('Return from Riyadh Events Co.') }}</div>
                     <div class="text-xs text-blue-500 mt-1">
                         <i class="fas fa-map-marker-alt mr-1"></i>
-                        Riyadh, Olaya District
+                        {{ _('Riyadh, Olaya District') }}
                     </div>
                 </div>
 
@@ -256,15 +256,15 @@
                     <div class="flex items-center justify-between mb-2">
                         <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                             <i class="fas fa-check mr-1"></i>
-                            Completed
+                            {{ _('Completed') }}
                         </span>
-                        <span class="text-xs text-green-600">2 hours ago</span>
+                        <span class="text-xs text-green-600">{{ _('2 hours ago') }}</span>
                     </div>
-                    <div class="font-medium text-green-800">Setup Complete</div>
-                    <div class="text-sm text-green-600">LCD Video Wall - Wedding Event</div>
+                    <div class="font-medium text-green-800">{{ _('Setup Complete') }}</div>
+                    <div class="text-sm text-green-600">{{ _('LCD Video Wall - Wedding Event') }}</div>
                     <div class="text-xs text-green-500 mt-1">
                         <i class="fas fa-map-marker-alt mr-1"></i>
-                        Jeddah, Al-Rawdah
+                        {{ _('Jeddah, Al-Rawdah') }}
                     </div>
                 </div>
 
@@ -274,12 +274,12 @@
                         <button onclick="assignAllTasks()" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-users mr-1"></i>
-                            Auto-Assign
+                            {{ _('Auto-Assign') }}
                         </button>
                         <button onclick="prioritizeTasks()" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-sort mr-1"></i>
-                            Prioritize
+                            {{ _('Prioritize') }}
                         </button>
                     </div>
                 </div>
@@ -293,19 +293,19 @@
     <div class="p-6 border-b border-gray-200">
         <div class="flex items-center justify-between">
             <div>
-                <h3 class="text-xl font-semibold text-gray-900">Field Team Management</h3>
-                <p class="text-sm text-gray-600 mt-1">Track technicians, drivers, and field operations staff</p>
+                <h3 class="text-xl font-semibold text-gray-900">{{ _('Field Team Management') }}</h3>
+                <p class="text-sm text-gray-600 mt-1">{{ _('Track technicians, drivers, and field operations staff') }}</p>
             </div>
             <div class="flex space-x-2">
                 <button onclick="viewAvailableTeam()" 
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
                     <i class="fas fa-users mr-2"></i>
-                    Available Team
+                    {{ _('Available Team') }}
                 </button>
                 <button onclick="scheduleShifts()" 
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
                     <i class="fas fa-calendar-alt mr-2"></i>
-                    Schedule Shifts
+                    {{ _('Schedule Shifts') }}
                 </button>
             </div>
         </div>
@@ -321,13 +321,13 @@
                             <span class="text-white font-bold">AH</span>
                         </div>
                         <div class="ml-3">
-                            <h4 class="font-semibold text-gray-900">Ahmed Hassan</h4>
-                            <p class="text-sm text-gray-600">Senior Technician</p>
+                            <h4 class="font-semibold text-gray-900">{{ _('Ahmed Hassan') }}</h4>
+                            <p class="text-sm text-gray-600">{{ _('Senior Technician') }}</p>
                         </div>
                     </div>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                         <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
-                        Available
+                        {{ _('Available') }}
                     </span>
                 </div>
                 
@@ -342,7 +342,7 @@
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
                         <i class="fas fa-tools mr-3 text-gray-400"></i>
-                        <span>LED Displays, Mobile Setups</span>
+                        <span>{{ _('LED Displays, Mobile Setups') }}</span>
                     </div>
                 </div>
                 
@@ -350,11 +350,11 @@
                     <div class="grid grid-cols-2 gap-4 text-center mb-4">
                         <div>
                             <div class="font-semibold text-gray-900">15</div>
-                            <div class="text-xs text-gray-600">Jobs This Month</div>
+                            <div class="text-xs text-gray-600">{{ _('Jobs This Month') }}</div>
                         </div>
                         <div>
                             <div class="font-semibold text-green-600">4.9★</div>
-                            <div class="text-xs text-gray-600">Rating</div>
+                            <div class="text-xs text-gray-600">{{ _('Rating') }}</div>
                         </div>
                     </div>
                     
@@ -362,12 +362,12 @@
                         <button onclick="assignTask('ahmed')" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-plus mr-1"></i>
-                            Assign
+                            {{ _('Assign') }}
                         </button>
                         <button onclick="contactTechnician('ahmed')" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-phone mr-1"></i>
-                            Call
+                            {{ _('Call') }}
                         </button>
                     </div>
                 </div>
@@ -380,13 +380,13 @@
                             <span class="text-white font-bold">MA</span>
                         </div>
                         <div class="ml-3">
-                            <h4 class="font-semibold text-gray-900">Mohammed Ali</h4>
-                            <p class="text-sm text-gray-600">Delivery Driver</p>
+                            <h4 class="font-semibold text-gray-900">{{ _('Mohammed Ali') }}</h4>
+                            <p class="text-sm text-gray-600">{{ _('Delivery Driver') }}</p>
                         </div>
                     </div>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                         <i class="w-2 h-2 mr-1 bg-yellow-400 rounded-full"></i>
-                        On Route
+                        {{ _('On Route') }}
                     </span>
                 </div>
                 
@@ -397,11 +397,11 @@
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
                         <i class="fas fa-truck mr-3 text-gray-400"></i>
-                        <span>Vehicle: TR-001 (Mercedes Sprinter)</span>
+                        <span>{{ _('Vehicle: TR-001 (Mercedes Sprinter)') }}</span>
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
                         <i class="fas fa-route mr-3 text-gray-400"></i>
-                        <span>To: Tech Conference (KAFD)</span>
+                        <span>{{ _('To: Tech Conference (KAFD)') }}</span>
                     </div>
                 </div>
                 
@@ -409,11 +409,11 @@
                     <div class="grid grid-cols-2 gap-4 text-center mb-4">
                         <div>
                             <div class="font-semibold text-gray-900">23</div>
-                            <div class="text-xs text-gray-600">Deliveries</div>
+                            <div class="text-xs text-gray-600">{{ _('Deliveries') }}</div>
                         </div>
                         <div>
                             <div class="font-semibold text-blue-600">12 min</div>
-                            <div class="text-xs text-gray-600">ETA</div>
+                            <div class="text-xs text-gray-600">{{ _('ETA') }}</div>
                         </div>
                     </div>
                     
@@ -421,12 +421,12 @@
                         <button onclick="trackDriver('mohammed')" 
                                 class="flex-1 bg-blue-100 hover:bg-blue-200 text-blue-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-map-marked-alt mr-1"></i>
-                            Track
+                            {{ _('Track') }}
                         </button>
                         <button onclick="contactTechnician('mohammed')" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-phone mr-1"></i>
-                            Call
+                            {{ _('Call') }}
                         </button>
                     </div>
                 </div>
@@ -439,13 +439,13 @@
                             <span class="text-white font-bold">SA</span>
                         </div>
                         <div class="ml-3">
-                            <h4 class="font-semibold text-gray-900">Salem Abdullah</h4>
-                            <p class="text-sm text-gray-600">Installation Specialist</p>
+                            <h4 class="font-semibold text-gray-900">{{ _('Salem Abdullah') }}</h4>
+                            <p class="text-sm text-gray-600">{{ _('Installation Specialist') }}</p>
                         </div>
                     </div>
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
                         <i class="w-2 h-2 mr-1 bg-red-400 rounded-full"></i>
-                        Busy
+                        {{ _('Busy') }}
                     </span>
                 </div>
                 
@@ -456,11 +456,11 @@
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
                         <i class="fas fa-map-marker-alt mr-3 text-gray-400"></i>
-                        <span>Jeddah - Al-Rawdah District</span>
+                        <span>{{ _('Jeddah - Al-Rawdah District') }}</span>
                     </div>
                     <div class="flex items-center text-sm text-gray-600">
                         <i class="fas fa-cog mr-3 text-gray-400"></i>
-                        <span>Video Walls, Sound Systems</span>
+                        <span>{{ _('Video Walls, Sound Systems') }}</span>
                     </div>
                 </div>
                 
@@ -468,11 +468,11 @@
                     <div class="grid grid-cols-2 gap-4 text-center mb-4">
                         <div>
                             <div class="font-semibold text-gray-900">11</div>
-                            <div class="text-xs text-gray-600">Installations</div>
+                            <div class="text-xs text-gray-600">{{ _('Installations') }}</div>
                         </div>
                         <div>
                             <div class="font-semibold text-purple-600">2 hrs</div>
-                            <div class="text-xs text-gray-600">Est. Complete</div>
+                            <div class="text-xs text-gray-600">{{ _('Est. Complete') }}</div>
                         </div>
                     </div>
                     
@@ -480,12 +480,12 @@
                         <button onclick="viewProgress('salem')" 
                                 class="flex-1 bg-purple-100 hover:bg-purple-200 text-purple-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-eye mr-1"></i>
-                            Progress
+                            {{ _('Progress') }}
                         </button>
                         <button onclick="contactTechnician('salem')" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-phone mr-1"></i>
-                            Call
+                            {{ _('Call') }}
                         </button>
                     </div>
                 </div>
@@ -501,13 +501,13 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Fleet Management</h3>
-                    <p class="text-sm text-gray-600 mt-1">Vehicle status and maintenance</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Fleet Management') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Vehicle status and maintenance') }}</p>
                 </div>
                 <button onclick="addVehicle()" 
                         class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
                     <i class="fas fa-plus mr-1"></i>
-                    Add Vehicle
+                    {{ _('Add Vehicle') }}
                 </button>
             </div>
         </div>
@@ -519,15 +519,15 @@
                             <i class="fas fa-truck text-blue-600 text-xl"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-gray-900">TR-001 • Mercedes Sprinter</div>
-                            <div class="text-sm text-gray-600">Driver: Mohammed Ali</div>
-                            <div class="text-xs text-gray-500">Last service: Aug 15, 2025</div>
+                            <div class="font-medium text-gray-900">{{ _('TR-001 • Mercedes Sprinter') }}</div>
+                            <div class="text-sm text-gray-600">{{ _('Driver: Mohammed Ali') }}</div>
+                            <div class="text-xs text-gray-500">{{ _('Last service: Aug 15, 2025') }}</div>
                         </div>
                     </div>
                     <div class="text-right">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                             <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
-                            Active
+                            {{ _('Active') }}
                         </span>
                         <div class="text-xs text-gray-500 mt-1">45,230 km</div>
                     </div>
@@ -559,15 +559,15 @@
                             <i class="fas fa-truck text-yellow-600 text-xl"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-gray-900">TR-003 • Ford Transit</div>
-                            <div class="text-sm text-gray-600">Scheduled maintenance</div>
-                            <div class="text-xs text-gray-500">Return: Sep 25, 2025</div>
+                            <div class="font-medium text-gray-900">{{ _('TR-003 • Ford Transit') }}</div>
+                            <div class="text-sm text-gray-600">{{ _('Scheduled maintenance') }}</div>
+                            <div class="text-xs text-gray-500">{{ _('Return: Sep 25, 2025') }}</div>
                         </div>
                     </div>
                     <div class="text-right">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                             <i class="w-2 h-2 mr-1 bg-yellow-400 rounded-full"></i>
-                            Maintenance
+                            {{ _('Maintenance') }}
                         </span>
                         <div class="text-xs text-gray-500 mt-1">67,890 km</div>
                     </div>
@@ -578,12 +578,12 @@
                         <button onclick="scheduleMaintenace()" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-wrench mr-1"></i>
-                            Schedule Service
+                            {{ _('Schedule Service') }}
                         </button>
                         <button onclick="trackAllVehicles()" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-map mr-1"></i>
-                            Track All
+                            {{ _('Track All') }}
                         </button>
                     </div>
                 </div>
@@ -596,13 +596,13 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Performance Metrics</h3>
-                    <p class="text-sm text-gray-600 mt-1">Operations KPIs and analytics</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Performance Metrics') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Operations KPIs and analytics') }}</p>
                 </div>
                 <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-elaani-primary">
-                    <option>This Week</option>
-                    <option>This Month</option>
-                    <option>This Quarter</option>
+                    <option>{{ _('This Week') }}</option>
+                    <option>{{ _('This Month') }}</option>
+                    <option>{{ _('This Quarter') }}</option>
                 </select>
             </div>
         </div>
@@ -611,7 +611,7 @@
                 <!-- On-Time Delivery -->
                 <div>
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-medium text-gray-700">On-Time Delivery Rate</span>
+                        <span class="text-sm font-medium text-gray-700">{{ _('On-Time Delivery Rate') }}</span>
                         <span class="text-sm font-bold text-green-600">98%</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2">
@@ -622,7 +622,7 @@
                 <!-- Customer Satisfaction -->
                 <div>
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-medium text-gray-700">Customer Satisfaction</span>
+                        <span class="text-sm font-medium text-gray-700">{{ _('Customer Satisfaction') }}</span>
                         <span class="text-sm font-bold text-blue-600">4.8/5</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2">
@@ -633,7 +633,7 @@
                 <!-- Equipment Utilization -->
                 <div>
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-medium text-gray-700">Equipment Utilization</span>
+                        <span class="text-sm font-medium text-gray-700">{{ _('Equipment Utilization') }}</span>
                         <span class="text-sm font-bold text-purple-600">87%</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2">
@@ -644,7 +644,7 @@
                 <!-- Response Time -->
                 <div>
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-medium text-gray-700">Average Response Time</span>
+                        <span class="text-sm font-medium text-gray-700">{{ _('Average Response Time') }}</span>
                         <span class="text-sm font-bold text-orange-600">15 min</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2">
@@ -657,11 +657,11 @@
                     <div class="grid grid-cols-2 gap-4 text-center">
                         <div>
                             <div class="text-lg font-bold text-gray-900">125 ريال</div>
-                            <div class="text-xs text-gray-600">Avg Cost/Delivery</div>
+                            <div class="text-xs text-gray-600">{{ _('Avg Cost/Delivery') }}</div>
                         </div>
                         <div>
                             <div class="text-lg font-bold text-elaani-primary">2.3 hrs</div>
-                            <div class="text-xs text-gray-600">Avg Setup Time</div>
+                            <div class="text-xs text-gray-600">{{ _('Avg Setup Time') }}</div>
                         </div>
                     </div>
                 </div>
@@ -675,94 +675,94 @@
 <script>
     // Operations management functions
     function scheduleDelivery() {
-        showNotification('Opening delivery scheduler...', 'info');
+        showNotification('{{ _("Opening delivery scheduler...") }}', 'info');
     }
     
     function assignTechnician() {
-        showNotification('Opening technician assignment panel...', 'info');
+        showNotification('{{ _("Opening technician assignment panel...") }}', 'info');
     }
     
     function trackVehicles() {
-        showNotification('Loading vehicle tracking system...', 'info');
+        showNotification('{{ _("Loading vehicle tracking system...") }}', 'info');
     }
     
     function emergencySupport() {
-        showNotification('Connecting to emergency support...', 'error');
+        showNotification('{{ _("Connecting to emergency support...") }}', 'error');
         // In a real app, this would initiate emergency protocols
     }
     
     // Task management
     function assignAllTasks() {
-        showNotification('Auto-assigning tasks based on availability and location...', 'info');
+        showNotification('{{ _("Auto-assigning tasks based on availability and location...") }}', 'info');
         setTimeout(() => {
-            showNotification('All tasks assigned successfully!', 'success');
+            showNotification('{{ _("All tasks assigned successfully!") }}', 'success');
         }, 2000);
     }
     
     function prioritizeTasks() {
-        showNotification('Re-prioritizing tasks based on urgency and deadlines...', 'info');
+        showNotification('{{ _("Re-prioritizing tasks based on urgency and deadlines...") }}', 'info');
         setTimeout(() => {
-            showNotification('Tasks prioritized successfully!', 'success');
+            showNotification('{{ _("Tasks prioritized successfully!") }}', 'success');
         }, 1500);
     }
     
     // Team management
     function assignTask(technicianId) {
-        showNotification(`Assigning task to ${technicianId}...`, 'info');
+        showNotification(`{{ _("Assigning task to") }} ${technicianId}...`, 'info');
         setTimeout(() => {
-            showNotification('Task assigned successfully!', 'success');
+            showNotification('{{ _("Task assigned successfully!") }}', 'success');
         }, 1000);
     }
     
     function contactTechnician(technicianId) {
-        showNotification(`Calling ${technicianId}...`, 'info');
+        showNotification(`{{ _("Calling") }} ${technicianId}...`, 'info');
     }
     
     function trackDriver(driverId) {
-        showNotification(`Opening GPS tracking for ${driverId}...`, 'info');
+        showNotification(`{{ _("Opening GPS tracking for") }} ${driverId}...`, 'info');
     }
     
     function viewProgress(technicianId) {
-        showNotification(`Loading installation progress for ${technicianId}...`, 'info');
+        showNotification(`{{ _("Loading installation progress for") }} ${technicianId}...`, 'info');
     }
     
     function viewAvailableTeam() {
-        showNotification('Loading available team members...', 'info');
+        showNotification('{{ _("Loading available team members...") }}', 'info');
     }
     
     function scheduleShifts() {
-        showNotification('Opening shift scheduler...', 'info');
+        showNotification('{{ _("Opening shift scheduler...") }}', 'info');
     }
     
     // Fleet management
     function addVehicle() {
-        showNotification('Opening vehicle registration form...', 'info');
+        showNotification('{{ _("Opening vehicle registration form...") }}', 'info');
     }
     
     function scheduleMaintenace() {
-        showNotification('Opening maintenance scheduler...', 'info');
+        showNotification('{{ _("Opening maintenance scheduler...") }}', 'info');
     }
     
     function trackAllVehicles() {
-        showNotification('Loading fleet tracking dashboard...', 'info');
+        showNotification('{{ _("Loading fleet tracking dashboard...") }}', 'info');
     }
     
     // Location filter
     document.getElementById('locationFilter').addEventListener('change', function() {
         const location = this.value;
-        showNotification(`Filtering operations for: ${location || 'All locations'}`, 'info');
+        showNotification(`{{ _("Filtering operations for:") }} ${location || '{{ _("All locations") }}'}`, 'info');
     });
     
     // Real-time updates simulation
     setInterval(() => {
         // Simulate real-time updates for operations
-        console.log('Updating real-time operations data...');
+        console.log('{{ _("Updating real-time operations data...") }}');
         // In a real app, this would fetch live data from GPS, technicians, etc.
     }, 30000);
     
     // Initialize map and real-time features
     document.addEventListener('DOMContentLoaded', function() {
-        console.log('Operations dashboard initialized');
+        console.log('{{ _("Operations dashboard initialized") }}');
         // In a real app, this would initialize maps, GPS tracking, etc.
     });
 </script>

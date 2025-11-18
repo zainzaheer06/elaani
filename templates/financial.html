@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Financial & Billing - Elaani{% endblock %}
+{% block title %}{{ _('Financial & Billing - Elaani') }}{% endblock %}
 
-{% block page_title %}Financial & Billing Management{% endblock %}
-{% block page_subtitle %}Track revenue, manage invoices, and monitor financial performance in Saudi Arabia{% endblock %}
+{% block page_title %}{{ _('Financial & Billing Management') }}{% endblock %}
+{% block page_subtitle %}{{ _('Track revenue, manage invoices, and monitor financial performance in Saudi Arabia') }}{% endblock %}
 
 {% block content %}
 <!-- Action Bar -->
@@ -13,17 +13,17 @@
             <button onclick="generateInvoice()" 
                     class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-file-invoice mr-2"></i>
-                Generate Invoice
+                {{ _('Generate Invoice') }}
             </button>
             <button onclick="exportFinancialReport()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-download mr-2"></i>
-                Export Report
+                {{ _('Export Report') }}
             </button>
             <button onclick="sendPaymentReminder()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-bell mr-2"></i>
-                Payment Reminders
+                {{ _('Payment Reminders') }}
             </button>
         </div>
         
@@ -31,18 +31,18 @@
             <!-- Date Range Filter -->
             <select id="dateRange" 
                     class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                <option value="today">Today</option>
-                <option value="week">This Week</option>
-                <option value="month" selected>This Month</option>
-                <option value="quarter">This Quarter</option>
-                <option value="year">This Year</option>
+                <option value="today">{{ _('Today') }}</option>
+                <option value="week">{{ _('This Week') }}</option>
+                <option value="month" selected>{{ _('This Month') }}</option>
+                <option value="quarter">{{ _('This Quarter') }}</option>
+                <option value="year">{{ _('This Year') }}</option>
             </select>
             
             <!-- Quick Actions -->
             <button onclick="reconcileAccounts()" 
                    class="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-200">
                 <i class="fas fa-balance-scale mr-2"></i>
-                Reconcile
+                {{ _('Reconcile') }}
             </button>
         </div>
     </div>
@@ -59,10 +59,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">231,500 ريال</div>
-                <div class="text-sm font-medium text-gray-600">Total Revenue</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Total Revenue') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
-                    +15.3% from last month
+                    {{ _('+15.3% from last month') }}
                 </div>
             </div>
         </div>
@@ -77,10 +77,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">45,750 ريال</div>
-                <div class="text-sm font-medium text-gray-600">Outstanding Invoices</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Outstanding Invoices') }}</div>
                 <div class="text-xs text-yellow-600 font-medium mt-1">
                     <i class="fas fa-clock mr-1"></i>
-                    12 invoices pending
+                    {{ _('12 invoices pending') }}
                 </div>
             </div>
         </div>
@@ -95,10 +95,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">34,725 ريال</div>
-                <div class="text-sm font-medium text-gray-600">VAT Collected (15%)</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('VAT Collected (15%)') }}</div>
                 <div class="text-xs text-blue-600 font-medium mt-1">
                     <i class="fas fa-info-circle mr-1"></i>
-                    Due: End of month
+                    {{ _('Due: End of month') }}
                 </div>
             </div>
         </div>
@@ -113,10 +113,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">185,775 ريال</div>
-                <div class="text-sm font-medium text-gray-600">Net Profit</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Net Profit') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
-                    +22.1% margin
+                    {{ _('+22.1% margin') }}
                 </div>
             </div>
         </div>
@@ -130,18 +130,18 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Revenue Analytics</h3>
-                    <p class="text-sm text-gray-600 mt-1">Monthly revenue trends and projections</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Revenue Analytics') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Monthly revenue trends and projections') }}</p>
                 </div>
                 <div class="flex space-x-2">
                     <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-elaani-primary">
-                        Revenue
+                        {{ _('Revenue') }}
                     </button>
                     <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
-                        Profit
+                        {{ _('Profit') }}
                     </button>
                     <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
-                        Expenses
+                        {{ _('Expenses') }}
                     </button>
                 </div>
             </div>
@@ -150,20 +150,20 @@
             <div class="h-80 flex items-center justify-center bg-gray-50 rounded-lg">
                 <div class="text-center">
                     <i class="fas fa-chart-area text-gray-400 text-5xl mb-4"></i>
-                    <p class="text-gray-600 font-medium text-lg">Revenue Analytics Chart</p>
-                    <p class="text-sm text-gray-500">Interactive chart with monthly breakdown</p>
+                    <p class="text-gray-600 font-medium text-lg">{{ _('Revenue Analytics Chart') }}</p>
+                    <p class="text-sm text-gray-500">{{ _('Interactive chart with monthly breakdown') }}</p>
                     <div class="grid grid-cols-3 gap-6 mt-6 text-center">
                         <div>
                             <div class="text-2xl font-bold text-green-600">+15.3%</div>
-                            <div class="text-sm text-gray-600">Growth</div>
+                            <div class="text-sm text-gray-600">{{ _('Growth') }}</div>
                         </div>
                         <div>
                             <div class="text-2xl font-bold text-blue-600">231.5K</div>
-                            <div class="text-sm text-gray-600">This Month</div>
+                            <div class="text-sm text-gray-600">{{ _('This Month') }}</div>
                         </div>
                         <div>
                             <div class="text-2xl font-bold text-purple-600">250K</div>
-                            <div class="text-sm text-gray-600">Projected</div>
+                            <div class="text-sm text-gray-600">{{ _('Projected') }}</div>
                         </div>
                     </div>
                 </div>
@@ -176,12 +176,12 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Payment Status</h3>
-                    <p class="text-sm text-gray-600 mt-1">Outstanding and recent payments</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Payment Status') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Outstanding and recent payments') }}</p>
                 </div>
                 <button onclick="viewAllPayments()" 
                         class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
-                    View All
+                    {{ _('View All') }}
                 </button>
             </div>
         </div>
@@ -198,7 +198,7 @@
                         <div class="text-right">
                             <div class="font-bold text-red-800">4,500 ريال</div>
                             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                Overdue
+                                {{ _('Overdue') }}
                             </span>
                         </div>
                     </div>
@@ -215,7 +215,7 @@
                         <div class="text-right">
                             <div class="font-bold text-yellow-800">22,500 ريال</div>
                             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                Pending
+                                {{ _('Pending') }}
                             </span>
                         </div>
                     </div>
@@ -233,7 +233,7 @@
                             <div class="font-bold text-green-800">18,750 ريال</div>
                             <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                                 <i class="fas fa-check mr-1"></i>
-                                Paid
+                                {{ _('Paid') }}
                             </span>
                         </div>
                     </div>
@@ -245,12 +245,12 @@
                         <button onclick="sendPaymentReminder()" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-bell mr-1"></i>
-                            Send Reminder
+                            {{ _('Send Reminder') }}
                         </button>
                         <button onclick="markAsPaid()" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-check mr-1"></i>
-                            Mark Paid
+                            {{ _('Mark Paid') }}
                         </button>
                     </div>
                 </div>
@@ -264,21 +264,21 @@
     <div class="p-6 border-b border-gray-200">
         <div class="flex items-center justify-between">
             <div>
-                <h3 class="text-xl font-semibold text-gray-900">Invoice Management</h3>
-                <p class="text-sm text-gray-600 mt-1">Track and manage all invoices and billing</p>
+                <h3 class="text-xl font-semibold text-gray-900">{{ _('Invoice Management') }}</h3>
+                <p class="text-sm text-gray-600 mt-1">{{ _('Track and manage all invoices and billing') }}</p>
             </div>
             <div class="flex space-x-2">
                 <button onclick="toggleInvoiceView('all')" id="allInvoicesBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
-                    All Invoices
+                    {{ _('All Invoices') }}
                 </button>
                 <button onclick="toggleInvoiceView('outstanding')" id="outstandingBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
-                    Outstanding
+                    {{ _('Outstanding') }}
                 </button>
                 <button onclick="toggleInvoiceView('paid')" id="paidBtn"
                         class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
-                    Paid
+                    {{ _('Paid') }}
                 </button>
             </div>
         </div>
@@ -288,14 +288,14 @@
         <table class="min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Invoice</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Client</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Amount</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">VAT (15%)</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Due Date</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Invoice') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Client') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Amount') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('VAT (15%)') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Total') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Due Date') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Status') }}</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Actions') }}</th>
                 </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
@@ -313,7 +313,7 @@
                             </div>
                             <div class="ml-3">
                                 <div class="text-sm font-medium text-gray-900">Al-Rajhi School</div>
-                                <div class="text-sm text-gray-500">LED Display Rental</div>
+                                <div class="text-sm text-gray-500">{{ _('LED Display Rental') }}</div>
                             </div>
                         </div>
                     </td>
@@ -323,24 +323,24 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Sep 25, 2025</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                            Overdue
+                            {{ _('Overdue') }}
                         </span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <div class="flex space-x-2">
                             <button onclick="viewInvoice('INV-2025-0234')" 
                                     class="text-elaani-primary hover:text-elaani-secondary transition-colors"
-                                    title="View Invoice">
+                                    title="{{ _('View Invoice') }}"></button>
                                 <i class="fas fa-eye"></i>
                             </button>
                             <button onclick="downloadInvoice('INV-2025-0234')" 
                                     class="text-blue-600 hover:text-blue-700 transition-colors"
-                                    title="Download">
+                                    title="{{ _('Download') }}"></button>
                                 <i class="fas fa-download"></i>
                             </button>
                             <button onclick="sendInvoice('INV-2025-0234')" 
                                     class="text-green-600 hover:text-green-700 transition-colors"
-                                    title="Send">
+                                    title="{{ _('Send') }}"></button>
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </div>
@@ -361,7 +361,7 @@
                             </div>
                             <div class="ml-3">
                                 <div class="text-sm font-medium text-gray-900">Riyadh Events Co.</div>
-                                <div class="text-sm text-gray-500">Mobile LED Truck</div>
+                                <div class="text-sm text-gray-500">{{ _('Mobile LED Truck') }}</div>
                             </div>
                         </div>
                     </td>
@@ -371,24 +371,24 @@
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">Sep 30, 2025</td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                            Pending
+                            {{ _('Pending') }}
                         </span>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <div class="flex space-x-2">
                             <button onclick="viewInvoice('INV-2025-0235')" 
                                     class="text-elaani-primary hover:text-elaani-secondary transition-colors"
-                                    title="View Invoice">
+                                    title="{{ _('View Invoice') }}">
                                 <i class="fas fa-eye"></i>
                             </button>
                             <button onclick="downloadInvoice('INV-2025-0235')" 
                                     class="text-blue-600 hover:text-blue-700 transition-colors"
-                                    title="Download">
+                                    title="{{ _('Download') }}"></button>
                                 <i class="fas fa-download"></i>
                             </button>
                             <button onclick="sendInvoice('INV-2025-0235')" 
                                     class="text-green-600 hover:text-green-700 transition-colors"
-                                    title="Send">
+                                    title="{{ _('Send') }}"></button>
                                 <i class="fas fa-paper-plane"></i>
                             </button>
                         </div>
@@ -404,31 +404,31 @@
     <!-- VAT Summary -->
     <div class="bg-white rounded-2xl shadow-lg border border-gray-100">
         <div class="p-6 border-b border-gray-200">
-            <h3 class="text-xl font-semibold text-gray-900">VAT Summary (15%)</h3>
-            <p class="text-sm text-gray-600 mt-1">Saudi Arabia VAT compliance tracking</p>
+            <h3 class="text-xl font-semibold text-gray-900">{{ _('VAT Summary (15%)') }}</h3>
+            <p class="text-sm text-gray-600 mt-1">{{ _('Saudi Arabia VAT compliance tracking') }}</p>
         </div>
         <div class="p-6">
             <div class="space-y-4">
                 <div class="flex justify-between items-center p-4 bg-blue-50 rounded-lg">
                     <div>
-                        <div class="font-medium text-blue-800">VAT Collected</div>
-                        <div class="text-sm text-blue-600">From client payments</div>
+                        <div class="font-medium text-blue-800">{{ _('VAT Collected') }}</div>
+                        <div class="text-sm text-blue-600">{{ _('From client payments') }}</div>
                     </div>
                     <div class="text-xl font-bold text-blue-800">34,725 ريال</div>
                 </div>
                 
                 <div class="flex justify-between items-center p-4 bg-green-50 rounded-lg">
                     <div>
-                        <div class="font-medium text-green-800">VAT Paid</div>
-                        <div class="text-sm text-green-600">On business expenses</div>
+                        <div class="font-medium text-green-800">{{ _('VAT Paid') }}</div>
+                        <div class="text-sm text-green-600">{{ _('On business expenses') }}</div>
                     </div>
                     <div class="text-xl font-bold text-green-800">8,450 ريال</div>
                 </div>
                 
                 <div class="flex justify-between items-center p-4 bg-yellow-50 rounded-lg border-2 border-yellow-200">
                     <div>
-                        <div class="font-medium text-yellow-800">Net VAT Due</div>
-                        <div class="text-sm text-yellow-600">Due: End of month</div>
+                        <div class="font-medium text-yellow-800">{{ _('Net VAT Due') }}</div>
+                        <div class="text-sm text-yellow-600">{{ _('Due: End of month') }}</div>
                     </div>
                     <div class="text-xl font-bold text-yellow-800">26,275 ريال</div>
                 </div>
@@ -436,7 +436,7 @@
                 <button onclick="generateVATReport()" 
                         class="w-full bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium py-3 px-4 rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
                     <i class="fas fa-file-alt mr-2"></i>
-                    Generate VAT Report
+                    {{ _('Generate VAT Report') }}
                 </button>
             </div>
         </div>
@@ -447,13 +447,13 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Expense Tracking</h3>
-                    <p class="text-sm text-gray-600 mt-1">Business expenses and costs</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Expense Tracking') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Business expenses and costs') }}</p>
                 </div>
                 <button onclick="addExpense()" 
                         class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
                     <i class="fas fa-plus mr-1"></i>
-                    Add Expense
+                    {{ _('Add Expense') }}
                 </button>
             </div>
         </div>
@@ -465,13 +465,13 @@
                             <i class="fas fa-truck text-red-600 text-sm"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-gray-900">Transportation</div>
-                            <div class="text-sm text-gray-600">Delivery & setup costs</div>
+                            <div class="font-medium text-gray-900">{{ _('Transportation') }}</div>
+                            <div class="text-sm text-gray-600">{{ _('Delivery & setup costs') }}</div>
                         </div>
                     </div>
                     <div class="text-right">
                         <div class="font-semibold text-gray-900">12,500 ريال</div>
-                        <div class="text-xs text-gray-500">This month</div>
+
                     </div>
                 </div>
                 
@@ -481,13 +481,13 @@
                             <i class="fas fa-tools text-orange-600 text-sm"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-gray-900">Maintenance</div>
-                            <div class="text-sm text-gray-600">Equipment servicing</div>
+                            <div class="font-medium text-gray-900">{{ _('Maintenance') }}</div>
+                            <div class="text-sm text-gray-600">{{ _('Equipment servicing') }}</div>
                         </div>
                     </div>
                     <div class="text-right">
                         <div class="font-semibold text-gray-900">8,750 ريال</div>
-                        <div class="text-xs text-gray-500">This month</div>
+                        <div class="text-xs text-gray-500">{{ _('This month') }}</div>
                     </div>
                 </div>
                 
@@ -497,19 +497,19 @@
                             <i class="fas fa-building text-blue-600 text-sm"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-gray-900">Office & Utilities</div>
-                            <div class="text-sm text-gray-600">Rent, electricity, etc.</div>
+                            <div class="font-medium text-gray-900">{{ _('Office & Utilities') }}</div>
+                            <div class="text-sm text-gray-600">{{ _('Rent, electricity, etc.') }}</div>
                         </div>
                     </div>
                     <div class="text-right">
                         <div class="font-semibold text-gray-900">15,200 ريال</div>
-                        <div class="text-xs text-gray-500">This month</div>
+                        <div class="text-xs text-gray-500">{{ _('This month') }}</div>
                     </div>
                 </div>
                 
                 <div class="pt-3 border-t border-gray-200">
                     <div class="flex justify-between items-center">
-                        <span class="font-medium text-gray-900">Total Expenses</span>
+                        <span class="font-medium text-gray-900">{{ _('Total Expenses') }}</span>
                         <span class="text-lg font-bold text-red-600">36,450 ريال</span>
                     </div>
                 </div>
@@ -523,37 +523,37 @@
 <script>
     // Financial management functions
     function generateInvoice() {
-        showNotification('Opening invoice generator...', 'info');
+        showNotification('{{ _("Opening invoice generator...") }}', 'info');
         // In a real app, this would open an invoice creation modal
     }
     
     function exportFinancialReport() {
-        showNotification('Generating financial report...', 'info');
+        showNotification('{{ _("Generating financial report...") }}', 'info');
         setTimeout(() => {
-            showNotification('Financial report exported successfully!', 'success');
+            showNotification('{{ _("Financial report exported successfully!") }}', 'success');
         }, 2000);
     }
     
     function sendPaymentReminder() {
-        showNotification('Sending payment reminders to overdue clients...', 'info');
+        showNotification('{{ _("Sending payment reminders to overdue clients...', 'info');
         setTimeout(() => {
-            showNotification('Payment reminders sent successfully!', 'success');
+            showNotification('{{ _("Payment reminders sent successfully!") }}', 'success');
         }, 1500);
     }
     
     function reconcileAccounts() {
-        showNotification('Starting account reconciliation...', 'info');
+        showNotification('{{ _("Starting account reconciliation...") }}', 'info');
         setTimeout(() => {
-            showNotification('Accounts reconciled successfully!', 'success');
+            showNotification('{{ _("Accounts reconciled successfully!") }}', 'success');
         }, 2500);
     }
     
     function viewAllPayments() {
-        showNotification('Loading all payment records...', 'info');
+        showNotification('{{ _("Loading all payment records...") }}', 'info');
     }
     
     function markAsPaid() {
-        showNotification('Marking selected invoices as paid...', 'success');
+        showNotification('{{ _("Marking selected invoices as paid...") }}', 'success');
     }
     
     // Invoice management
@@ -585,43 +585,43 @@
         activeBtn.classList.remove('text-gray-700', 'bg-gray-100');
         activeBtn.classList.add('text-white', 'bg-elaani-primary');
         
-        showNotification(`Filtering invoices: ${view}`, 'info');
+        showNotification(`{{ _("Filtering invoices:") }} ${view}`, 'info');
     }
     
     function viewInvoice(invoiceId) {
-        showNotification(`Opening invoice ${invoiceId}...`, 'info');
+        showNotification(`{{ _("Opening invoice") }} ${invoiceId}...`, 'info');
     }
     
     function downloadInvoice(invoiceId) {
-        showNotification(`Downloading invoice ${invoiceId}...`, 'info');
+        showNotification(`{{ _("Downloading invoice") }} ${invoiceId}...`, 'info');
         setTimeout(() => {
-            showNotification('Invoice downloaded successfully!', 'success');
+            showNotification('{{ _("Invoice downloaded successfully!") }}', 'success');
         }, 1000);
     }
     
     function sendInvoice(invoiceId) {
-        showNotification(`Sending invoice ${invoiceId} to client...`, 'info');
+        showNotification(`{{ _("Sending invoice") }} ${invoiceId} {{ _("to client...") }}`, 'info');
         setTimeout(() => {
-            showNotification('Invoice sent successfully!', 'success');
+            showNotification('{{ _("Invoice sent successfully!") }}', 'success');
         }, 1500);
     }
     
     // VAT and compliance
     function generateVATReport() {
-        showNotification('Generating VAT report for ZATCA compliance...', 'info');
+        showNotification('{{ _("Generating VAT report for ZATCA compliance...") }}', 'info');
         setTimeout(() => {
-            showNotification('VAT report generated successfully!', 'success');
+            showNotification('{{ _("VAT report generated successfully!") }}', 'success');
         }, 2000);
     }
     
     function addExpense() {
-        showNotification('Opening expense entry form...', 'info');
+        showNotification('{{ _("Opening expense entry form...") }}', 'info');
     }
     
     // Date range filter
     document.getElementById('dateRange').addEventListener('change', function() {
         const range = this.value;
-        showNotification(`Filtering financial data for: ${range}`, 'info');
+        showNotification(`{{ _("Filtering financial data for:") }} ${range}`, 'info');
         // In a real app, this would filter all financial data
     });
     

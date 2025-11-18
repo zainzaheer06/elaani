@@ -427,47 +427,47 @@
     // Calendar interaction
     document.querySelectorAll('.calendar-day.available').forEach(day => {
         day.addEventListener('click', function() {
-            showNotification(`Selected date: September ${this.textContent}, 2025`, 'success');
+            showNotification(`{{ _("Selected date: September") }} ${this.textContent}, 2025`, 'success');
         });
     });
 
     // Dashboard functions
     function refreshDashboard() {
-        showNotification('Refreshing dashboard data...', 'info');
+        showNotification('{{ _("Refreshing dashboard data...") }}', 'info');
         setTimeout(() => {
-            showNotification('Dashboard updated successfully!', 'success');
+            showNotification('{{ _("Dashboard updated successfully!") }}', 'success');
             location.reload();
         }, 1500);
     }
 
     function exportReport() {
-        showNotification('Generating dashboard report...', 'info');
+        showNotification('{{ _("Generating dashboard report...") }}', 'info');
         setTimeout(() => {
-            showNotification('Report exported successfully!', 'success');
+            showNotification('{{ _("Report exported successfully!") }}', 'success');
         }, 2000);
     }
 
     function openFullCalendar() {
-        showNotification('Opening full calendar view...', 'info');
+        showNotification('{{ _("Opening full calendar view...") }}', 'info');
         // In a real app, this would open a full calendar modal or page
     }
 
     function viewAllActivity() {
-        showNotification('Loading all activities...', 'info');
+        showNotification('{{ _("Loading all activities...") }}', 'info');
         // In a real app, this would show all recent activities
     }
 
     // View screen details
     function viewScreenDetails(screenId) {
-        showNotification(`Loading screen details for Screen #${screenId}...`, 'info');
+        showNotification(`{{ _("Loading screen details for Screen #") }}${screenId}...`, 'info');
         setTimeout(() => {
-            showNotification('Screen details loaded successfully!', 'success');
+            showNotification('{{ _("Screen details loaded successfully!") }}', 'success');
         }, 1000);
     }
 
     // Quick book screen
     function quickBookScreen(screenId) {
-        showNotification(`Redirecting to booking page for Screen #${screenId}...`, 'info');
+        showNotification(`{{ _("Redirecting to booking page for Screen #") }}${screenId}...`, 'info');
         setTimeout(() => {
             window.location.href = '/bookings';
         }, 1500);
@@ -476,7 +476,7 @@
     // Date range filter
     document.getElementById('dateRange').addEventListener('change', function() {
         const range = this.value;
-        showNotification(`Filtering data for: ${range}`, 'info');
+        showNotification(`{{ _("Filtering data for:") }} ${range}`, 'info');
         // In a real app, this would filter the dashboard data
     });
 

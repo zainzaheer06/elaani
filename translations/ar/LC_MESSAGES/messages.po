@@ -893,7 +893,6 @@ msgstr "مرحباً بعودتك، المسؤول"
 msgid "Here's what's happening with your digital display business"
 msgstr "إليك ما يحدث في أعمال العرض الرقمي الخاصة بك"
 
-
 msgid "Modern Display Solutions For Every Event"
 msgstr "حلول عرض حديثة لكل حدث"
 
@@ -2093,13 +2092,13 @@ msgid "Total Revenue (YTD)"
 msgstr "إجمالي الإيرادات (من بداية العام)"
 
 msgid "+24.5% from last year"
-msgstr "+24.5٪ من العام الماضي"
+msgstr "+24.5% من العام الماضي"
 
 msgid "+15 new this month"
 msgstr "+15 جديد هذا الشهر"
 
 msgid "+18.2% booking rate"
-msgstr "+18.2٪ معدل الحجز"
+msgstr "+18.2% معدل الحجز"
 
 msgid "+0.3 from last quarter"
 msgstr "+0.3 من الربع الماضي"
@@ -2126,16 +2125,16 @@ msgid "Customer Segments"
 msgstr "شرائح العملاء"
 
 msgid "Educational (45%)"
-msgstr "تعليمي (45٪)"
+msgstr "تعليمي (45%)"
 
 msgid "Corporate (30%)"
-msgstr "شركات (30٪)"
+msgstr "شركات (30%)"
 
 msgid "Event Planning (20%)"
-msgstr "تخطيط الفعاليات (20٪)"
+msgstr "تخطيط الفعاليات (20%)"
 
 msgid "Government (5%)"
-msgstr "حكومي (5٪)"
+msgstr "حكومي (5%)"
 
 msgid "Geographic Distribution"
 msgstr "التوزيع الجغرافي"
@@ -2204,13 +2203,13 @@ msgid "Predicted Revenue (ريال)"
 msgstr "الإيرادات المتوقعة (ريال)"
 
 msgid "+27% growth"
-msgstr "+27٪ نمو"
+msgstr "+27% نمو"
 
 msgid "Expected Bookings"
 msgstr "الحجوزات المتوقعة"
 
 msgid "+15% increase"
-msgstr "+15٪ زيادة"
+msgstr "+15% زيادة"
 
 msgid "Equipment Demand Predictions"
 msgstr "تنبؤات الطلب على المعدات"
@@ -2295,3 +2294,3566 @@ msgstr "&copy; 2025 إيلاني. جميع الحقوق محفوظة. صنع ف�
 msgid "Logout"
 msgstr "تسجيل الخروج"
 
+
+# Bookings & Rentals Page
+msgid "Bookings & Rentals - Elaani"
+msgstr "الحجوزات والإيجارات - إيلاني"
+
+msgid "Bookings & Rentals Management"
+msgstr "إدارة الحجوزات والإيجارات"
+
+msgid "Manage your rental bookings, track active rentals, and process new reservations"
+msgstr "إدارة حجوزات الإيجار وتتبع الإيجارات النشطة ومعالجة الحجوزات الجديدة"
+
+msgid "Export Data"
+msgstr "تصدير البيانات"
+
+msgid "Search bookings..."
+msgstr "البحث في الحجوزات..."
+
+msgid "All Status"
+msgstr "جميع الحالات"
+
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+msgid "Confirmed"
+msgstr "مؤكد"
+
+msgid "Active"
+msgstr "نشط"
+
+msgid "Completed"
+msgstr "مكتمل"
+
+msgid "Cancelled"
+msgstr "ملغي"
+
+msgid "Pending Approval"
+msgstr "في انتظار الموافقة"
+
+msgid "Currently Active"
+msgstr "نشط حالياً"
+
+msgid "Total Revenue"
+msgstr "إجمالي الإيرادات"
+
+msgid "All Bookings"
+msgstr "جميع الحجوزات"
+
+msgid "Table View"
+msgstr "عرض الجدول"
+
+msgid "Card View"
+msgstr "عرض البطاقات"
+
+msgid "Booking"
+msgstr "الحجز"
+
+msgid "Client"
+msgstr "العميل"
+
+msgid "Event"
+msgstr "الحدث"
+
+msgid "Screen"
+msgstr "الشاشة"
+
+msgid "Dates"
+msgstr "التواريخ"
+
+msgid "Amount"
+msgstr "المبلغ"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "Actions"
+msgstr "الإجراءات"
+
+msgid "to"
+msgstr "إلى"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "Approve"
+msgstr "موافقة"
+
+msgid "Reject"
+msgstr "رفض"
+
+msgid "Start Rental"
+msgstr "بدء الإيجار"
+
+msgid "End Rental"
+msgstr "إنهاء الإيجار"
+
+msgid "Screen:"
+msgstr "الشاشة:"
+
+msgid "Duration:"
+msgstr "المدة:"
+
+msgid "Amount:"
+msgstr "المبلغ:"
+
+msgid "View"
+msgstr "عرض"
+
+msgid "Start"
+msgstr "بدء"
+
+msgid "End"
+msgstr "إنهاء"
+
+msgid "Create New Booking"
+msgstr "إنشاء حجز جديد"
+
+msgid "Client Information"
+msgstr "معلومات العميل"
+
+msgid "Client Name"
+msgstr "اسم العميل"
+
+msgid "Contact Number"
+msgstr "رقم الاتصال"
+
+msgid "Event Type"
+msgstr "نوع الحدث"
+
+msgid "Select Event Type"
+msgstr "اختر نوع الحدث"
+
+msgid "School Event"
+msgstr "حدث مدرسي"
+
+msgid "Wedding"
+msgstr "حفل زفاف"
+
+msgid "Corporate Event"
+msgstr "حدث شركات"
+
+msgid "Exhibition"
+msgstr "معرض"
+
+msgid "Conference"
+msgstr "مؤتمر"
+
+msgid "Concert"
+msgstr "حفل موسيقي"
+
+msgid "Sports Event"
+msgstr "حدث رياضي"
+
+msgid "Other"
+msgstr "أخرى"
+
+msgid "Booking Details"
+msgstr "تفاصيل الحجز"
+
+msgid "Select Screen"
+msgstr "اختر الشاشة"
+
+msgid "Choose Available Screen"
+msgstr "اختر شاشة متاحة"
+
+msgid "day"
+msgstr "يوم"
+
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "Event Details"
+msgstr "تفاصيل الحدث"
+
+msgid "Describe the event, special requirements, setup instructions..."
+msgstr "وصف الحدث، المتطلبات الخاصة، تعليمات الإعداد..."
+
+msgid "Pricing Summary"
+msgstr "ملخص التسعير"
+
+msgid "Daily Rate"
+msgstr "السعر اليومي"
+
+msgid "Number of Days"
+msgstr "عدد الأيام"
+
+msgid "Total Amount"
+msgstr "المبلغ الإجمالي"
+
+msgid "Cancel"
+msgstr "إلغاء"
+
+msgid "Create Booking"
+msgstr "إنشاء حجز"
+
+# Clients & CRM Page
+msgid "Clients & CRM - Elaani"
+msgstr "العملاء وإدارة العلاقات - إيلاني"
+
+msgid "Clients & CRM Management"
+msgstr "إدارة العملاء والعلاقات"
+
+msgid "Manage client relationships, track interactions, and grow your business in Saudi Arabia"
+msgstr "إدارة علاقات العملاء وتتبع التفاعلات وتنمية أعمالك في المملكة العربية السعودية"
+
+msgid "Add New Client"
+msgstr "إضافة عميل جديد"
+
+msgid "Export Clients"
+msgstr "تصدير العملاء"
+
+msgid "Bulk Email"
+msgstr "بريد إلكتروني جماعي"
+
+msgid "Search clients..."
+msgstr "البحث في العملاء..."
+
+msgid "All Types"
+msgstr "جميع الأنواع"
+
+msgid "Educational"
+msgstr "تعليمي"
+
+msgid "Corporate"
+msgstr "شركات"
+
+msgid "Event Planning"
+msgstr "تخطيط الفعاليات"
+
+msgid "Government"
+msgstr "حكومي"
+
+msgid "Individual"
+msgstr "فردي"
+
+msgid "Inactive"
+msgstr "غير نشط"
+
+msgid "VIP"
+msgstr "كبار الشخصيات"
+
+msgid "Total Clients"
+msgstr "إجمالي العملاء"
+
+msgid "+12 this month"
+msgstr "+12 هذا الشهر"
+
+msgid "Active Clients"
+msgstr "العملاء النشطين"
+
+msgid "+5 this week"
+msgstr "+5 هذا الأسبوع"
+
+msgid "VIP Clients"
+msgstr "عملاء كبار الشخصيات"
+
+msgid "+3 this month"
+msgstr "+3 هذا الشهر"
+
+msgid "Retention Rate"
+msgstr "معدل الاحتفاظ"
+
+msgid "+2.3%"
+msgstr "+2.3%"
+
+msgid "Client Directory"
+msgstr "دليل العملاء"
+
+msgid "Grid View"
+msgstr "عرض الشبكة"
+
+msgid "Bookings"
+msgstr "الحجوزات"
+
+msgid "Total Spent"
+msgstr "إجمالي الإنفاق"
+
+msgid "Contact"
+msgstr "اتصال"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Add New Client"
+msgstr "إضافة عميل جديد"
+
+msgid "Company/Organization Name *"
+msgstr "اسم الشركة/المؤسسة *"
+
+msgid "Client Type *"
+msgstr "نوع العميل *"
+
+msgid "Select Type"
+msgstr "اختر النوع"
+
+msgid "Contact Person *"
+msgstr "الشخص المسؤول *"
+
+msgid "Phone Number *"
+msgstr "رقم الهاتف *"
+
+msgid "+966-XX-XXX-XXXX"
+msgstr "+966-XX-XXX-XXXX"
+
+msgid "Email Address *"
+msgstr "البريد الإلكتروني *"
+
+msgid "City *"
+msgstr "المدينة *"
+
+msgid "Select City"
+msgstr "اختر المدينة"
+
+msgid "Riyadh"
+msgstr "الرياض"
+
+msgid "Jeddah"
+msgstr "جدة"
+
+msgid "Dammam"
+msgstr "الدمام"
+
+msgid "Mecca"
+msgstr "مكة المكرمة"
+
+msgid "Medina"
+msgstr "المدينة المنورة"
+
+msgid "Address"
+msgstr "العنوان"
+
+msgid "Complete address..."
+msgstr "العنوان الكامل..."
+
+msgid "Notes"
+msgstr "ملاحظات"
+
+msgid "Additional notes about the client..."
+msgstr "ملاحظات إضافية عن العميل..."
+
+msgid "Add Client"
+msgstr "إضافة عميل"
+
+# Dashboard Page
+msgid "September 2025 • Saudi Business Schedule"
+msgstr "سبتمبر 2025 • جدول الأعمال السعودي"
+
+msgid "Full Calendar"
+msgstr "التقويم الكامل"
+
+msgid "Booked"
+msgstr "محجوز"
+
+msgid "Available"
+msgstr "متاح"
+
+msgid "Friday (Weekend)"
+msgstr "الجمعة (عطلة نهاية الأسبوع)"
+
+msgid "Sun"
+msgstr "الأحد"
+
+msgid "Mon"
+msgstr "الإثنين"
+
+msgid "Tue"
+msgstr "الثلاثاء"
+
+msgid "Wed"
+msgstr "الأربعاء"
+
+msgid "Thu"
+msgstr "الخميس"
+
+msgid "Fri"
+msgstr "الجمعة"
+
+msgid "Sat"
+msgstr "السبت"
+
+msgid "Recent Activity"
+msgstr "النشاط الأخير"
+
+msgid "Latest updates and actions"
+msgstr "آخر التحديثات والإجراءات"
+
+msgid "Just now"
+msgstr "الآن"
+
+msgid "Today's Bookings"
+msgstr "حجوزات اليوم"
+
+msgid "3 Active"
+msgstr "3 نشط"
+
+msgid "Al-Rajhi School"
+msgstr "مدرسة الراجحي"
+
+msgid "LED Display 65\" • 9:00 AM - 3:00 PM"
+msgstr "شاشة LED 65 بوصة • 9:00 صباحاً - 3:00 مساءً"
+
+msgid "Tech Conference"
+msgstr "مؤتمر التقنية"
+
+msgid "Mobile LED Truck • All Day"
+msgstr "شاحنة LED متنقلة • طوال اليوم"
+
+msgid "Riyadh Events Co."
+msgstr "شركة فعاليات الرياض"
+
+msgid "Outdoor LED 85\" • 6:00 PM - 11:00 PM"
+msgstr "شاشة LED خارجية 85 بوصة • 6:00 مساءً - 11:00 مساءً"
+
+msgid "Scheduled"
+msgstr "مجدول"
+
+msgid "Revenue Trend"
+msgstr "اتجاه الإيرادات"
+
+msgid "Last 7 days"
+msgstr "آخر 7 أيام"
+
+msgid "Last 30 days"
+msgstr "آخر 30 يوماً"
+
+msgid "Last 3 months"
+msgstr "آخر 3 أشهر"
+
+msgid "Revenue Chart"
+msgstr "مخطط الإيرادات"
+
+msgid "Chart visualization coming soon"
+msgstr "تصور المخطط قريباً"
+
+# Financial & Billing Page
+msgid "Financial & Billing - Elaani"
+msgstr "المالية والفواتير - إيلاني"
+
+msgid "Financial & Billing Management"
+msgstr "إدارة المالية والفواتير"
+
+msgid "Track revenue, manage invoices, and monitor financial performance in Saudi Arabia"
+msgstr "تتبع الإيرادات وإدارة الفواتير ومراقبة الأداء المالي في المملكة العربية السعودية"
+
+msgid "Generate Invoice"
+msgstr "إنشاء فاتورة"
+
+msgid "Payment Reminders"
+msgstr "تذكيرات الدفع"
+
+msgid "Reconcile"
+msgstr "تسوية"
+
+msgid "Total Revenue"
+msgstr "إجمالي الإيرادات"
+
+msgid "+15.3% from last month"
+msgstr "+15.3% من الشهر الماضي"
+
+msgid "Outstanding Invoices"
+msgstr "الفواتير المستحقة"
+
+msgid "12 invoices pending"
+msgstr "12 فاتورة معلقة"
+
+msgid "VAT Collected (15%)"
+msgstr "ضريبة القيمة المضافة المحصلة (15%)"
+
+msgid "Due: End of month"
+msgstr "الاستحقاق: نهاية الشهر"
+
+msgid "Net Profit"
+msgstr "صافي الربح"
+
+msgid "+22.1% margin"
+msgstr "+22.1% هامش"
+
+msgid "Revenue Analytics"
+msgstr "تحليلات الإيرادات"
+
+msgid "Monthly revenue trends and projections"
+msgstr "اتجاهات وتوقعات الإيرادات الشهرية"
+
+msgid "Revenue"
+msgstr "الإيرادات"
+
+msgid "Profit"
+msgstr "الربح"
+
+msgid "Expenses"
+msgstr "المصروفات"
+
+msgid "Revenue Analytics Chart"
+msgstr "مخطط تحليلات الإيرادات"
+
+msgid "Interactive chart with monthly breakdown"
+msgstr "مخطط تفاعلي مع تفصيل شهري"
+
+msgid "Growth"
+msgstr "النمو"
+
+msgid "Projected"
+msgstr "متوقع"
+
+msgid "Payment Status"
+msgstr "حالة الدفع"
+
+msgid "Outstanding and recent payments"
+msgstr "المدفوعات المستحقة والأخيرة"
+
+msgid "Invoice #INV-2025-0234"
+msgstr "فاتورة #INV-2025-0234"
+
+msgid "Due: Sep 25, 2025"
+msgstr "الاستحقاق: 25 سبتمبر 2025"
+
+msgid "Overdue"
+msgstr "متأخر"
+
+msgid "Invoice #INV-2025-0235"
+msgstr "فاتورة #INV-2025-0235"
+
+msgid "Due: Sep 30, 2025"
+msgstr "الاستحقاق: 30 سبتمبر 2025"
+
+msgid "Invoice #INV-2025-0233"
+msgstr "فاتورة #INV-2025-0233"
+
+msgid "Paid: Sep 20, 2025"
+msgstr "مدفوع: 20 سبتمبر 2025"
+
+msgid "Paid"
+msgstr "مدفوع"
+
+msgid "Send Reminder"
+msgstr "إرسال تذكير"
+
+msgid "Mark Paid"
+msgstr "تحديد كمدفوع"
+
+msgid "Invoice Management"
+msgstr "إدارة الفواتير"
+
+msgid "Track and manage all invoices and billing"
+msgstr "تتبع وإدارة جميع الفواتير والفوترة"
+
+msgid "All Invoices"
+msgstr "جميع الفواتير"
+
+msgid "Outstanding"
+msgstr "مستحق"
+
+msgid "Invoice"
+msgstr "الفاتورة"
+
+msgid "VAT (15%)"
+msgstr "ضريبة القيمة المضافة (15%)"
+
+msgid "Total"
+msgstr "الإجمالي"
+
+msgid "Due Date"
+msgstr "تاريخ الاستحقاق"
+
+msgid "LED Display Rental"
+msgstr "إيجار شاشة LED"
+
+msgid "Mobile LED Truck"
+msgstr "شاحنة LED متنقلة"
+
+msgid "View Invoice"
+msgstr "عرض الفاتورة"
+
+msgid "Download"
+msgstr "تحميل"
+
+msgid "Send"
+msgstr "إرسال"
+
+msgid "VAT Summary (15%)"
+msgstr "ملخص ضريبة القيمة المضافة (15%)"
+
+msgid "Saudi Arabia VAT compliance tracking"
+msgstr "تتبع الامتثال لضريبة القيمة المضافة في المملكة العربية السعودية"
+
+msgid "VAT Collected"
+msgstr "ضريبة القيمة المضافة المحصلة"
+
+msgid "From client payments"
+msgstr "من مدفوعات العملاء"
+
+msgid "VAT Paid"
+msgstr "ضريبة القيمة المضافة المدفوعة"
+
+msgid "On business expenses"
+msgstr "على مصروفات الأعمال"
+
+msgid "Net VAT Due"
+msgstr "صافي ضريبة القيمة المضافة المستحقة"
+
+msgid "Generate VAT Report"
+msgstr "إنشاء تقرير ضريبة القيمة المضافة"
+
+msgid "Expense Tracking"
+msgstr "تتبع المصروفات"
+
+msgid "Business expenses and costs"
+msgstr "مصروفات وتكاليف الأعمال"
+
+msgid "Add Expense"
+msgstr "إضافة مصروف"
+
+msgid "Transportation"
+msgstr "النقل"
+
+msgid "Delivery & setup costs"
+msgstr "تكاليف التوصيل والإعداد"
+
+msgid "This month"
+msgstr "هذا الشهر"
+
+msgid "Maintenance"
+msgstr "الصيانة"
+
+msgid "Equipment servicing"
+msgstr "صيانة المعدات"
+
+msgid "Office & Utilities"
+msgstr "المكتب والمرافق"
+
+msgid "Rent, electricity, etc."
+msgstr "الإيجار، الكهرباء، إلخ."
+
+msgid "Total Expenses"
+msgstr "إجمالي المصروفات"
+
+# JavaScript Messages - Dashboard
+msgid "Selected date: September"
+msgstr "التاريخ المحدد: سبتمبر"
+
+msgid "Refreshing dashboard data..."
+msgstr "جاري تحديث بيانات لوحة التحكم..."
+
+msgid "Dashboard updated successfully!"
+msgstr "تم تحديث لوحة التحكم بنجاح!"
+
+msgid "Generating dashboard report..."
+msgstr "جاري إنشاء تقرير لوحة التحكم..."
+
+msgid "Report exported successfully!"
+msgstr "تم تصدير التقرير بنجاح!"
+
+msgid "Opening full calendar view..."
+msgstr "جاري فتح عرض التقويم الكامل..."
+
+msgid "Loading all activities..."
+msgstr "جاري تحميل جميع الأنشطة..."
+
+msgid "Loading screen details for Screen #"
+msgstr "جاري تحميل تفاصيل الشاشة #"
+
+msgid "Screen details loaded successfully!"
+msgstr "تم تحميل تفاصيل الشاشة بنجاح!"
+
+msgid "Redirecting to booking page for Screen #"
+msgstr "جاري التوجيه إلى صفحة الحجز للشاشة #"
+
+msgid "Filtering data for:"
+msgstr "تصفية البيانات لـ:"
+
+# JavaScript Messages - Financial
+msgid "Opening invoice generator..."
+msgstr "جاري فتح منشئ الفواتير..."
+
+msgid "Generating financial report..."
+msgstr "جاري إنشاء التقرير المالي..."
+
+msgid "Financial report exported successfully!"
+msgstr "تم تصدير التقرير المالي بنجاح!"
+
+msgid "Sending payment reminders to overdue clients..."
+msgstr "جاري إرسال تذكيرات الدفع للعملاء المتأخرين..."
+
+msgid "Payment reminders sent successfully!"
+msgstr "تم إرسال تذكيرات الدفع بنجاح!"
+
+msgid "Starting account reconciliation..."
+msgstr "جاري بدء تسوية الحسابات..."
+
+msgid "Accounts reconciled successfully!"
+msgstr "تم تسوية الحسابات بنجاح!"
+
+msgid "Loading all payment records..."
+msgstr "جاري تحميل جميع سجلات الدفع..."
+
+msgid "Marking selected invoices as paid..."
+msgstr "جاري تحديد الفواتير المحددة كمدفوعة..."
+
+msgid "Filtering invoices:"
+msgstr "تصفية الفواتير:"
+
+msgid "Opening invoice"
+msgstr "جاري فتح الفاتورة"
+
+msgid "Downloading invoice"
+msgstr "جاري تحميل الفاتورة"
+
+msgid "Invoice downloaded successfully!"
+msgstr "تم تحميل الفاتورة بنجاح!"
+
+msgid "Sending invoice"
+msgstr "جاري إرسال الفاتورة"
+
+msgid "to client..."
+msgstr "إلى العميل..."
+
+msgid "Invoice sent successfully!"
+msgstr "تم إرسال الفاتورة بنجاح!"
+
+msgid "Generating VAT report for ZATCA compliance..."
+msgstr "جاري إنشاء تقرير ضريبة القيمة المضافة للامتثال لهيئة الزكاة والضريبة والجمارك..."
+
+msgid "VAT report generated successfully!"
+msgstr "تم إنشاء تقرير ضريبة القيمة المضافة بنجاح!"
+
+msgid "Opening expense entry form..."
+msgstr "جاري فتح نموذج إدخال المصروفات..."
+
+msgid "Filtering financial data for:"
+msgstr "تصفية البيانات المالية لـ:"
+
+# Home & Index Pages
+msgid "Elaani - Digital Screen Marketplace | Riyadh, KSA"
+msgstr "إيلاني - سوق الشاشات الرقمية | الرياض، المملكة العربية السعودية"
+
+msgid "Digital Screen Advertising Made Simple"
+msgstr "إعلانات الشاشات الرقمية أصبحت بسيطة"
+
+msgid "Connect advertisers with premium digital screens across Riyadh. Book instantly, pay securely, and reach your audience where they are."
+msgstr "ربط المعلنين بالشاشات الرقمية المميزة في جميع أنحاء الرياض. احجز فوراً، ادفع بأمان، واصل إلى جمهورك أينما كانوا."
+
+msgid "Browse Screens"
+msgstr "تصفح الشاشات"
+
+msgid "List Your Screen"
+msgstr "أضف شاشتك"
+
+msgid "Digital Screens"
+msgstr "الشاشات الرقمية"
+
+msgid "Campaigns"
+msgstr "الحملات"
+
+msgid "Support"
+msgstr "الدعم"
+
+msgid "Uptime"
+msgstr "وقت التشغيل"
+
+msgid "How Elaani Works"
+msgstr "كيف يعمل إيلاني"
+
+msgid "Simple steps to reach your audience"
+msgstr "خطوات بسيطة للوصول إلى جمهورك"
+
+msgid "1. Browse & Select"
+msgstr "1. تصفح واختر"
+
+msgid "Browse digital screens by location, size, and price. Use our map view to find the perfect spots in Riyadh."
+msgstr "تصفح الشاشات الرقمية حسب الموقع والحجم والسعر. استخدم عرض الخريطة للعثور على الأماكن المثالية في الرياض."
+
+msgid "2. Book & Pay"
+msgstr "2. احجز وادفع"
+
+msgid "Select your dates, upload your creative, and pay securely. Get instant confirmation for your campaign."
+msgstr "اختر تواريخك، ارفع تصميمك الإبداعي، وادفع بأمان. احصل على تأكيد فوري لحملتك."
+
+msgid "3. Track Results"
+msgstr "3. تتبع النتائج"
+
+msgid "Monitor your campaign performance with real-time analytics and engagement metrics."
+msgstr "راقب أداء حملتك من خلال التحليلات الفورية ومقاييس التفاعل."
+
+msgid "Featured Screens"
+msgstr "الشاشات المميزة"
+
+msgid "Premium locations across Riyadh"
+msgstr "مواقع مميزة في جميع أنحاء الرياض"
+
+msgid "View All Screens"
+msgstr "عرض جميع الشاشات"
+
+msgid "Ready to Start Advertising?"
+msgstr "هل أنت مستعد لبدء الإعلان؟"
+
+msgid "Join hundreds of businesses reaching their audience through digital screens"
+msgstr "انضم إلى مئات الشركات التي تصل إلى جمهورها من خلال الشاشات الرقمية"
+
+msgid "Start Advertising"
+msgstr "ابدأ الإعلان"
+
+# Inventory Page
+msgid "Billboard Inventory - Elaani"
+msgstr "مخزون اللوحات الإعلانية - إيلاني"
+
+msgid "Billboard Inventory Management"
+msgstr "إدارة مخزون اللوحات الإعلانية"
+
+msgid "Manage your billboard locations, track advertising campaigns, and maintain your outdoor advertising network"
+msgstr "إدارة مواقع اللوحات الإعلانية وتتبع الحملات الإعلانية وصيانة شبكة الإعلانات الخارجية"
+
+msgid "Add New Billboard"
+msgstr "إضافة لوحة إعلانية جديدة"
+
+msgid "Search billboards..."
+msgstr "البحث في اللوحات الإعلانية..."
+
+msgid "All Types"
+msgstr "جميع الأنواع"
+
+msgid "Digital LED Billboard"
+msgstr "لوحة LED رقمية"
+
+msgid "Static Billboard"
+msgstr "لوحة إعلانية ثابتة"
+
+msgid "Mobile LED Truck"
+msgstr "شاحنة LED متنقلة"
+
+msgid "Premium Location"
+msgstr "موقع مميز"
+
+msgid "Available Billboards"
+msgstr "اللوحات الإعلانية المتاحة"
+
+msgid "Ready for campaigns"
+msgstr "جاهزة للحملات"
+
+msgid "Active Campaigns"
+msgstr "الحملات النشطة"
+
+msgid "In use"
+msgstr "قيد الاستخدام"
+
+msgid "Service required"
+msgstr "تتطلب صيانة"
+
+msgid "Total Inventory"
+msgstr "إجمالي المخزون"
+
+msgid "All screens"
+msgstr "جميع الشاشات"
+
+msgid "per day"
+msgstr "في اليوم"
+
+msgid "Type:"
+msgstr "النوع:"
+
+msgid "Size:"
+msgstr "الحجم:"
+
+msgid "Resolution:"
+msgstr "الدقة:"
+
+msgid "Location:"
+msgstr "الموقع:"
+
+msgid "Current Rental"
+msgstr "الإيجار الحالي"
+
+msgid "Client:"
+msgstr "العميل:"
+
+msgid "Return:"
+msgstr "الإرجاع:"
+
+msgid "Issue:"
+msgstr "المشكلة:"
+
+msgid "Expected:"
+msgstr "المتوقع:"
+
+msgid "Ready for Rental"
+msgstr "جاهز للإيجار"
+
+msgid "Last Service:"
+msgstr "آخر صيانة:"
+
+msgid "Condition:"
+msgstr "الحالة:"
+
+msgid "Excellent"
+msgstr "ممتازة"
+
+msgid "Book Now"
+msgstr "احجز الآن"
+
+msgid "Add New Screen"
+msgstr "إضافة شاشة جديدة"
+
+msgid "Screen Name"
+msgstr "اسم الشاشة"
+
+msgid "Screen Type"
+msgstr "نوع الشاشة"
+
+msgid "Select Type"
+msgstr "اختر النوع"
+
+msgid "LED Display"
+msgstr "شاشة LED"
+
+msgid "LCD Video Wall"
+msgstr "جدار فيديو LCD"
+
+msgid "Mobile LED"
+msgstr "LED متنقل"
+
+msgid "Outdoor LED"
+msgstr "LED خارجي"
+
+msgid "Screen Size"
+msgstr "حجم الشاشة"
+
+msgid "Select Resolution"
+msgstr "اختر الدقة"
+
+msgid "4K Ultra HD"
+msgstr "4K فائق الوضوح"
+
+msgid "Full HD"
+msgstr "عالي الوضوح الكامل"
+
+msgid "HD"
+msgstr "عالي الوضوح"
+
+msgid "P6 LED"
+msgstr "P6 LED"
+
+msgid "P4 LED"
+msgstr "P4 LED"
+
+msgid "Daily Rate (SAR) *"
+msgstr "السعر اليومي (ريال) *"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Additional details about the screen..."
+msgstr "تفاصيل إضافية عن الشاشة..."
+
+msgid "Add Screen"
+msgstr "إضافة شاشة"
+
+msgid "Screen Details"
+msgstr "تفاصيل الشاشة"
+
+# Map Page
+msgid "Screens Map - Elaani"
+msgstr "خريطة الشاشات - إيلاني"
+
+msgid "Screens & Billboards Map"
+msgstr "خريطة الشاشات واللوحات الإعلانية"
+
+msgid "View all available screens across Riyadh on an interactive map"
+msgstr "عرض جميع الشاشات المتاحة في جميع أنحاء الرياض على خريطة تفاعلية"
+
+msgid "Filter Screens"
+msgstr "تصفية الشاشات"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "Rented"
+msgstr "مؤجر"
+
+msgid "Screens Nearby"
+msgstr "الشاشات القريبة"
+
+# JavaScript Messages - Inventory
+msgid "Failed to load screen details"
+msgstr "فشل تحميل تفاصيل الشاشة"
+
+msgid "Edit functionality for screen"
+msgstr "وظيفة التعديل للشاشة"
+
+msgid "- Coming soon!"
+msgstr "- قريباً!"
+
+msgid "Redirecting to bookings page for screen"
+msgstr "جاري التوجيه إلى صفحة الحجوزات للشاشة"
+
+msgid "Screen added successfully!"
+msgstr "تمت إضافة الشاشة بنجاح!"
+
+msgid "Failed to add screen"
+msgstr "فشل إضافة الشاشة"
+
+msgid "Exporting inventory data..."
+msgstr "جاري تصدير بيانات المخزون..."
+
+msgid "Inventory exported successfully!"
+msgstr "تم تصدير المخزون بنجاح!"
+
+msgid "Basic Information"
+msgstr "المعلومات الأساسية"
+
+msgid "Name:"
+msgstr "الاسم:"
+
+msgid "Daily Rate:"
+msgstr "السعر اليومي:"
+
+msgid "Status & Maintenance"
+msgstr "الحالة والصيانة"
+
+msgid "Status:"
+msgstr "الحالة:"
+
+msgid "Last Service:"
+msgstr "آخر صيانة:"
+
+msgid "Current Client:"
+msgstr "العميل الحالي:"
+
+msgid "Return Date:"
+msgstr "تاريخ الإرجاع:"
+
+msgid "Edit Screen"
+msgstr "تعديل الشاشة"
+
+# JavaScript Messages - Map
+msgid "Opening details for screen #"
+msgstr "جاري فتح تفاصيل الشاشة #"
+
+msgid "Redirecting to booking for screen #"
+msgstr "جاري التوجيه إلى الحجز للشاشة #"
+
+msgid "Book This Screen"
+msgstr "احجز هذه الشاشة"
+
+msgid "Size"
+msgstr "الحجم"
+
+msgid "Direction"
+msgstr "الاتجاه"
+
+msgid "Rating"
+msgstr "التقييم"
+
+msgid "Price:"
+msgstr "السعر:"
+
+msgid "Hourly:"
+msgstr "بالساعة:"
+
+msgid "SAR/day"
+msgstr "ريال/يوم"
+
+msgid "SAR/hr"
+msgstr "ريال/ساعة"
+
+msgid "more screens"
+msgstr "شاشة أخرى"
+
+# Map Page (Additional)
+msgid "All Screens"
+msgstr "جميع الشاشات"
+
+msgid "Sort by Name"
+msgstr "ترتيب حسب الاسم"
+
+msgid "Sort by Price (Low-High)"
+msgstr "ترتيب حسب السعر (من الأقل للأعلى)"
+
+msgid "Sort by Rating"
+msgstr "ترتيب حسب التقييم"
+
+msgid "Sort by Status"
+msgstr "ترتيب حسب الحالة"
+
+msgid "Live Map View"
+msgstr "عرض الخريطة المباشر"
+
+msgid "Click on markers to view screen details and availability"
+msgstr "انقر على العلامات لعرض تفاصيل الشاشة والتوفر"
+
+msgid "Total Screens"
+msgstr "إجمالي الشاشات"
+
+msgid "Screens List"
+msgstr "قائمة الشاشات"
+
+msgid "All available screens and billboards in Riyadh"
+msgstr "جميع الشاشات واللوحات الإعلانية المتاحة في الرياض"
+
+msgid "No screens found"
+msgstr "لم يتم العثور على شاشات"
+
+# Marketing Page
+msgid "Marketing - Elaani"
+msgstr "التسويق - إيلاني"
+
+msgid "Marketing & Customer Acquisition"
+msgstr "التسويق واكتساب العملاء"
+
+msgid "Manage campaigns, track leads, and grow your digital display rental business in Saudi Arabia"
+msgstr "إدارة الحملات وتتبع العملاء المحتملين وتنمية أعمال تأجير الشاشات الرقمية في المملكة العربية السعودية"
+
+msgid "Create Campaign"
+msgstr "إنشاء حملة"
+
+msgid "Manage Leads"
+msgstr "إدارة العملاء المحتملين"
+
+msgid "Analytics"
+msgstr "التحليلات"
+
+msgid "All Campaigns"
+msgstr "جميع الحملات"
+
+msgid "Paused"
+msgstr "متوقف مؤقتاً"
+
+msgid "Media"
+msgstr "الوسائط"
+
+msgid "Website Visitors"
+msgstr "زوار الموقع"
+
+msgid "+15.3% this month"
+msgstr "+15.3% هذا الشهر"
+
+msgid "New Leads"
+msgstr "عملاء محتملون جدد"
+
+msgid "+23 this week"
+msgstr "+23 هذا الأسبوع"
+
+msgid "Conversion Rate"
+msgstr "معدل التحويل"
+
+msgid "+2.1% improvement"
+msgstr "+2.1% تحسن"
+
+msgid "Cost Per Lead"
+msgstr "تكلفة العميل المحتمل"
+
+msgid "-8.5% decrease"
+msgstr "-8.5% انخفاض"
+
+msgid "Active Marketing Campaigns"
+msgstr "الحملات التسويقية النشطة"
+
+msgid "Track performance of ongoing marketing initiatives"
+msgstr "تتبع أداء المبادرات التسويقية الجارية"
+
+msgid "Lead Pipeline"
+msgstr "مسار العملاء المحتملين"
+
+msgid "Track and manage sales opportunities"
+msgstr "تتبع وإدارة فرص المبيعات"
+
+msgid "47 Active"
+msgstr "47 نشط"
+
+msgid "Marketing Channels"
+msgstr "قنوات التسويق"
+
+msgid "Performance by acquisition channel"
+msgstr "الأداء حسب قناة الاكتساب"
+
+msgid "Content Strategy"
+msgstr "استراتيجية المحتوى"
+
+msgid "SEO performance and content marketing"
+msgstr "أداء تحسين محركات البحث والتسويق بالمحتوى"
+
+msgid "Content Calendar"
+msgstr "تقويم المحتوى"
+
+# Marketing Page - Additional Translations
+msgid "Last Month"
+msgstr "الشهر الماضي"
+
+msgid "This Quarter"
+msgstr "هذا الربع"
+
+# JavaScript Messages - Marketing
+msgid "Opening campaign creation wizard..."
+msgstr "جاري فتح معالج إنشاء الحملة..."
+
+msgid "Loading lead management dashboard..."
+msgstr "جاري تحميل لوحة تحكم إدارة العملاء المحتملين..."
+
+msgid "Opening detailed marketing analytics..."
+msgstr "جاري فتح تحليلات التسويق التفصيلية..."
+
+msgid "Loading social media management dashboard..."
+msgstr "جاري تحميل لوحة تحكم إدارة وسائل التواصل الاجتماعي..."
+
+msgid "Loading all marketing campaigns..."
+msgstr "جاري تحميل جميع الحملات التسويقية..."
+
+msgid "Opening editor for"
+msgstr "جاري فتح المحرر لـ"
+
+msgid "campaign..."
+msgstr "الحملة..."
+
+msgid "Loading detailed analytics for"
+msgstr "جاري تحميل التحليلات التفصيلية لـ"
+
+msgid "Are you sure you want to send this campaign now?"
+msgstr "هل أنت متأكد أنك تريد إرسال هذه الحملة الآن؟"
+
+msgid "Sending"
+msgstr "جاري الإرسال"
+
+msgid "campaign to all recipients..."
+msgstr "الحملة إلى جميع المستلمين..."
+
+msgid "Campaign sent successfully!"
+msgstr "تم إرسال الحملة بنجاح!"
+
+msgid "Opening lead follow-up tools..."
+msgstr "جاري فتح أدوات متابعة العملاء المحتملين..."
+
+msgid "Converting leads to customers..."
+msgstr "جاري تحويل العملاء المحتملين إلى عملاء..."
+
+msgid "Opening content calendar..."
+msgstr "جاري فتح تقويم المحتوى..."
+
+msgid "Opening content creation tools..."
+msgstr "جاري فتح أدوات إنشاء المحتوى..."
+
+msgid "Opening social media scheduler..."
+msgstr "جاري فتح جدولة وسائل التواصل الاجتماعي..."
+
+msgid "Filtering campaigns:"
+msgstr "تصفية الحملات:"
+
+# Marketing Page - Campaign Details
+msgid "Google Ads - LED Display Rental"
+msgstr "إعلانات جوجل - تأجير شاشات LED"
+
+msgid "Search & Display Campaign"
+msgstr "حملة البحث والعرض"
+
+msgid "Impressions"
+msgstr "مرات الظهور"
+
+msgid "Clicks"
+msgstr "النقرات"
+
+msgid "CTR"
+msgstr "نسبة النقر إلى الظهور"
+
+msgid "Spent"
+msgstr "المنفق"
+
+msgid "Facebook & Instagram - Event Promotion"
+msgstr "فيسبوك وإنستغرام - الترويج للفعاليات"
+
+msgid "Social Media Campaign"
+msgstr "حملة وسائل التواصل الاجتماعي"
+
+msgid "Reach"
+msgstr "الوصول"
+
+msgid "Engagement"
+msgstr "التفاعل"
+
+msgid "Engagement Rate"
+msgstr "معدل التفاعل"
+
+msgid "Email Newsletter - Monthly Offers"
+msgstr "النشرة الإخبارية - العروض الشهرية"
+
+msgid "Email Marketing Campaign"
+msgstr "حملة التسويق عبر البريد الإلكتروني"
+
+msgid "Scheduled"
+msgstr "مجدول"
+
+msgid "Recipients"
+msgstr "المستلمون"
+
+msgid "Opens"
+msgstr "عمليات الفتح"
+
+msgid "Open Rate"
+msgstr "معدل الفتح"
+
+msgid "Cost"
+msgstr "التكلفة"
+
+msgid "Send Now"
+msgstr "إرسال الآن"
+
+# ========================================
+# MARKETING PAGE - Complete Translations
+# ========================================
+
+msgid "Marketing - Elaani"
+msgstr "التسويق - إيلاني"
+
+msgid "Marketing & Customer Acquisition"
+msgstr "التسويق واكتساب العملاء"
+
+msgid "Manage campaigns, track leads, and grow your digital display rental business in Saudi Arabia"
+msgstr "إدارة الحملات وتتبع العملاء المحتملين وتنمية أعمال تأجير الشاشات الرقمية في المملكة العربية السعودية"
+
+msgid "Create Campaign"
+msgstr "إنشاء حملة"
+
+msgid "Manage Leads"
+msgstr "إدارة العملاء المحتملين"
+
+msgid "All Campaigns"
+msgstr "جميع الحملات"
+
+msgid "Paused"
+msgstr "متوقف مؤقتاً"
+
+msgid "Media"
+msgstr "الوسائط"
+
+msgid "Website Visitors"
+msgstr "زوار الموقع"
+
+msgid "+15.3% this month"
+msgstr "+15.3% هذا الشهر"
+
+msgid "New Leads"
+msgstr "عملاء محتملون جدد"
+
+msgid "+23 this week"
+msgstr "+23 هذا الأسبوع"
+
+msgid "Conversion Rate"
+msgstr "معدل التحويل"
+
+msgid "+2.1% improvement"
+msgstr "+2.1% تحسن"
+
+msgid "Cost Per Lead"
+msgstr "تكلفة العميل المحتمل"
+
+msgid "-8.5% decrease"
+msgstr "-8.5% انخفاض"
+
+msgid "Active Marketing Campaigns"
+msgstr "الحملات التسويقية النشطة"
+
+msgid "Track performance of ongoing marketing initiatives"
+msgstr "تتبع أداء المبادرات التسويقية الجارية"
+
+msgid "Google Ads - LED Display Rental"
+msgstr "إعلانات جوجل - تأجير شاشات LED"
+
+msgid "Search & Display Campaign"
+msgstr "حملة البحث والعرض"
+
+msgid "Impressions"
+msgstr "مرات الظهور"
+
+msgid "Clicks"
+msgstr "النقرات"
+
+msgid "CTR"
+msgstr "نسبة النقر إلى الظهور"
+
+msgid "Spent"
+msgstr "المنفق"
+
+msgid "Facebook & Instagram - Event Promotion"
+msgstr "فيسبوك وإنستغرام - ترويج الفعاليات"
+
+msgid "Social Media Campaign"
+msgstr "حملة وسائل التواصل الاجتماعي"
+
+msgid "Reach"
+msgstr "الوصول"
+
+msgid "Engagement"
+msgstr "التفاعل"
+
+msgid "Engagement Rate"
+msgstr "معدل التفاعل"
+
+msgid "Email Newsletter - Monthly Offers"
+msgstr "النشرة الإخبارية - العروض الشهرية"
+
+msgid "Email Marketing Campaign"
+msgstr "حملة التسويق عبر البريد الإلكتروني"
+
+msgid "Recipients"
+msgstr "المستلمون"
+
+msgid "Opens"
+msgstr "عمليات الفتح"
+
+msgid "Open Rate"
+msgstr "معدل الفتح"
+
+msgid "Cost"
+msgstr "التكلفة"
+
+msgid "Send Now"
+msgstr "إرسال الآن"
+
+msgid "Lead Pipeline"
+msgstr "مسار العملاء المحتملين"
+
+msgid "Track and manage sales opportunities"
+msgstr "تتبع وإدارة فرص المبيعات"
+
+msgid "47 Active"
+msgstr "47 نشط"
+
+msgid "New Leads (15)"
+msgstr "عملاء محتملون جدد (15)"
+
+msgid "Qualified (12)"
+msgstr "مؤهلون (12)"
+
+msgid "Proposal Sent (12)"
+msgstr "تم إرسال العرض (12)"
+
+msgid "Negotiation (8)"
+msgstr "التفاوض (8)"
+
+msgid "Recent High-Value Leads"
+msgstr "عملاء محتملون ذوو قيمة عالية حديثون"
+
+msgid "King Saud University"
+msgstr "جامعة الملك سعود"
+
+msgid "Educational Event - Multiple LEDs"
+msgstr "فعالية تعليمية - شاشات LED متعددة"
+
+msgid "2 hours ago"
+msgstr "منذ ساعتين"
+
+msgid "Potential Value"
+msgstr "القيمة المحتملة"
+
+msgid "Saudi Aramco"
+msgstr "أرامكو السعودية"
+
+msgid "Corporate Conference Setup"
+msgstr "إعداد مؤتمر شركات"
+
+msgid "5 hours ago"
+msgstr "منذ 5 ساعات"
+
+msgid "Jeddah Wedding Hall"
+msgstr "قاعة أفراح جدة"
+
+msgid "Premium Wedding Package"
+msgstr "باقة الزفاف المميزة"
+
+msgid "1 day ago"
+msgstr "منذ يوم واحد"
+
+msgid "Follow Up"
+msgstr "المتابعة"
+
+msgid "Convert"
+msgstr "تحويل"
+
+msgid "Marketing Channels"
+msgstr "قنوات التسويق"
+
+msgid "Performance by acquisition channel"
+msgstr "الأداء حسب قناة الاكتساب"
+
+msgid "Google Ads"
+msgstr "إعلانات جوجل"
+
+msgid "Search & Display"
+msgstr "البحث والعرض"
+
+msgid "156 leads"
+msgstr "156 عميل محتمل"
+
+msgid "+12.5% conversion"
+msgstr "+12.5% تحويل"
+
+msgid "Social Media"
+msgstr "وسائل التواصل الاجتماعي"
+
+msgid "Facebook & Instagram"
+msgstr "فيسبوك وإنستغرام"
+
+msgid "89 leads"
+msgstr "89 عميل محتمل"
+
+msgid "+8.3% conversion"
+msgstr "+8.3% تحويل"
+
+msgid "Email Marketing"
+msgstr "التسويق عبر البريد الإلكتروني"
+
+msgid "Newsletters & Campaigns"
+msgstr "النشرات الإخبارية والحملات"
+
+msgid "67 leads"
+msgstr "67 عميل محتمل"
+
+msgid "+15.2% conversion"
+msgstr "+15.2% تحويل"
+
+msgid "Referrals"
+msgstr "الإحالات"
+
+msgid "Word of mouth"
+msgstr "الكلام الشفهي"
+
+msgid "75 leads"
+msgstr "75 عميل محتمل"
+
+msgid "+25.8% conversion"
+msgstr "+25.8% تحويل"
+
+msgid "Total Leads This Month"
+msgstr "إجمالي العملاء المحتملين هذا الشهر"
+
+msgid "Content Strategy & SEO"
+msgstr "استراتيجية المحتوى وتحسين محركات البحث"
+
+msgid "SEO performance and content marketing"
+msgstr "أداء تحسين محركات البحث والتسويق بالمحتوى"
+
+msgid "Content Calendar"
+msgstr "تقويم المحتوى"
+
+msgid "SEO Performance"
+msgstr "أداء تحسين محركات البحث"
+
+msgid "Organic Visitors"
+msgstr "الزوار العضويون"
+
+msgid "+18.5% growth"
+msgstr "+18.5% نمو"
+
+msgid "Keywords Ranking"
+msgstr "تصنيف الكلمات المفتاحية"
+
+msgid "Top 10 positions"
+msgstr "أفضل 10 مراكز"
+
+msgid "Top Performing Content"
+msgstr "المحتوى الأفضل أداءً"
+
+msgid "LED Display Setup Guide"
+msgstr "دليل إعداد شاشة LED"
+
+msgid "Blog Post"
+msgstr "مقالة مدونة"
+
+msgid "Views"
+msgstr "المشاهدات"
+
+msgid "Wedding Display Packages"
+msgstr "باقات شاشات الزفاف"
+
+msgid "Service Page"
+msgstr "صفحة الخدمة"
+
+msgid "Corporate Event Solutions"
+msgstr "حلول الفعاليات الشركاتية"
+
+msgid "Landing Page"
+msgstr "صفحة الهبوط"
+
+msgid "Social Media Growth"
+msgstr "نمو وسائل التواصل الاجتماعي"
+
+msgid "Facebook Followers"
+msgstr "متابعو فيسبوك"
+
+msgid "+245 this month"
+msgstr "+245 هذا الشهر"
+
+msgid "Instagram Followers"
+msgstr "متابعو إنستغرام"
+
+msgid "+189 this month"
+msgstr "+189 هذا الشهر"
+
+msgid "LinkedIn Connections"
+msgstr "اتصالات لينكد إن"
+
+msgid "+67 this month"
+msgstr "+67 هذا الشهر"
+
+msgid "YouTube Subscribers"
+msgstr "مشتركو يوتيوب"
+
+msgid "+123 this month"
+msgstr "+123 هذا الشهر"
+
+msgid "Create Content"
+msgstr "إنشاء محتوى"
+
+msgid "Schedule Posts"
+msgstr "جدولة المنشورات"
+
+# JavaScript Messages - Marketing
+msgid "Opening campaign creation wizard..."
+msgstr "جاري فتح معالج إنشاء الحملة..."
+
+msgid "Loading lead management dashboard..."
+msgstr "جاري تحميل لوحة تحكم إدارة العملاء المحتملين..."
+
+msgid "Opening detailed marketing analytics..."
+msgstr "جاري فتح تحليلات التسويق التفصيلية..."
+
+msgid "Loading social media management dashboard..."
+msgstr "جاري تحميل لوحة تحكم إدارة وسائل التواصل الاجتماعي..."
+
+msgid "Loading all marketing campaigns..."
+msgstr "جاري تحميل جميع الحملات التسويقية..."
+
+msgid "Opening editor for"
+msgstr "جاري فتح المحرر لـ"
+
+msgid "campaign..."
+msgstr "الحملة..."
+
+msgid "Loading detailed analytics for"
+msgstr "جاري تحميل التحليلات التفصيلية لـ"
+
+msgid "Are you sure you want to send this campaign now?"
+msgstr "هل أنت متأكد من أنك تريد إرسال هذه الحملة الآن؟"
+
+msgid "Sending"
+msgstr "جاري الإرسال"
+
+msgid "campaign to all recipients..."
+msgstr "الحملة إلى جميع المستلمين..."
+
+msgid "Campaign sent successfully!"
+msgstr "تم إرسال الحملة بنجاح!"
+
+msgid "Opening lead follow-up tools..."
+msgstr "جاري فتح أدوات متابعة العملاء المحتملين..."
+
+msgid "Converting leads to customers..."
+msgstr "جاري تحويل العملاء المحتملين إلى عملاء..."
+
+msgid "Opening content calendar..."
+msgstr "جاري فتح تقويم المحتوى..."
+
+msgid "Opening content creation tools..."
+msgstr "جاري فتح أدوات إنشاء المحتوى..."
+
+msgid "Opening social media scheduler..."
+msgstr "جاري فتح جدولة وسائل التواصل الاجتماعي..."
+
+msgid "Filtering campaigns:"
+msgstr "تصفية الحملات:"
+
+msgid "Refreshing marketing KPIs..."
+msgstr "جاري تحديث مؤشرات الأداء الرئيسية للتسويق..."
+
+msgid "Marketing dashboard initialized"
+msgstr "تم تهيئة لوحة تحكم التسويق"
+
+# ========================================
+# OPERATIONS PAGE - Complete Translations
+# ========================================
+
+msgid "Operations - Elaani"
+msgstr "العمليات - إيلاني"
+
+msgid "Operations Management"
+msgstr "إدارة العمليات"
+
+msgid "Manage logistics, deliveries, installations, and field operations across Saudi Arabia"
+msgstr "إدارة اللوجستيات والتسليم والتركيب والعمليات الميدانية في جميع أنحاء المملكة العربية السعودية"
+
+msgid "Schedule Delivery"
+msgstr "جدولة التسليم"
+
+msgid "Assign Technician"
+msgstr "تعيين فني"
+
+msgid "Track Vehicles"
+msgstr "تتبع المركبات"
+
+msgid "All Locations"
+msgstr "جميع المواقع"
+
+msgid "Emergency Support"
+msgstr "الدعم الطارئ"
+
+msgid "Active Deliveries"
+msgstr "عمليات التسليم النشطة"
+
+msgid "3 in Riyadh"
+msgstr "3 في الرياض"
+
+msgid "Field Technicians"
+msgstr "الفنيون الميدانيون"
+
+msgid "All available"
+msgstr "الكل متاح"
+
+msgid "Pending Installations"
+msgstr "التركيبات المعلقة"
+
+msgid "Due today"
+msgstr "مستحق اليوم"
+
+msgid "On-Time Delivery"
+msgstr "التسليم في الوقت المحدد"
+
+msgid "+2% this month"
+msgstr "+2% هذا الشهر"
+
+msgid "Live Operations Map"
+msgstr "خريطة العمليات المباشرة"
+
+msgid "Real-time tracking of vehicles and technicians"
+msgstr "تتبع المركبات والفنيين في الوقت الفعلي"
+
+msgid "Vehicles"
+msgstr "المركبات"
+
+msgid "Warehouses"
+msgstr "المستودعات"
+
+msgid "Interactive Saudi Arabia Map"
+msgstr "خريطة المملكة العربية السعودية التفاعلية"
+
+msgid "Real-time GPS tracking and route optimization"
+msgstr "تتبع GPS في الوقت الفعلي وتحسين المسار"
+
+msgid "Active Deliveries (8)"
+msgstr "عمليات التسليم النشطة (8)"
+
+msgid "Technicians (12)"
+msgstr "الفنيون (12)"
+
+msgid "Warehouses (3)"
+msgstr "المستودعات (3)"
+
+msgid "Task Queue"
+msgstr "قائمة انتظار المهام"
+
+msgid "Pending operations and assignments"
+msgstr "العمليات والمهام المعلقة"
+
+msgid "5 Urgent"
+msgstr "5 عاجل"
+
+msgid "Urgent"
+msgstr "عاجل"
+
+msgid "Due in 2 hours"
+msgstr "مستحق خلال ساعتين"
+
+msgid "Emergency Setup"
+msgstr "إعداد طارئ"
+
+msgid "Al-Rajhi School - LED Display malfunction"
+msgstr "مدرسة الراجحي - عطل في شاشة LED"
+
+msgid "Riyadh, King Fahd District"
+msgstr "الرياض، حي الملك فهد"
+
+msgid "High Priority"
+msgstr "أولوية عالية"
+
+msgid "Installation Scheduled"
+msgstr "تم جدولة التركيب"
+
+msgid "Mobile LED Truck - Tech Conference"
+msgstr "شاحنة LED متنقلة - مؤتمر التقنية"
+
+msgid "Riyadh, KAFD"
+msgstr "الرياض، مركز الملك عبدالله المالي"
+
+msgid "Tomorrow"
+msgstr "غداً"
+
+msgid "Equipment Pickup"
+msgstr "استلام المعدات"
+
+msgid "Return from Riyadh Events Co."
+msgstr "العودة من شركة فعاليات الرياض"
+
+msgid "Riyadh, Olaya District"
+msgstr "الرياض، حي العليا"
+
+msgid "2 hours ago"
+msgstr "منذ ساعتين"
+
+msgid "Setup Complete"
+msgstr "اكتمل الإعداد"
+
+msgid "LCD Video Wall - Wedding Event"
+msgstr "جدار فيديو LCD - حفل زفاف"
+
+msgid "Jeddah, Al-Rawdah"
+msgstr "جدة، الروضة"
+
+msgid "Auto-Assign"
+msgstr "تعيين تلقائي"
+
+msgid "Field Team Management"
+msgstr "إدارة الفريق الميداني"
+
+msgid "Track technicians, drivers, and field operations staff"
+msgstr "تتبع الفنيين والسائقين وموظفي العمليات الميدانية"
+
+msgid "Available Team"
+msgstr "الفريق المتاح"
+
+msgid "Schedule Shifts"
+msgstr "جدولة المناوبات"
+
+msgid "Ahmed Hassan"
+msgstr "أحمد حسن"
+
+msgid "Senior Technician"
+msgstr "فني أول"
+
+msgid "LED Displays, Mobile Setups"
+msgstr "شاشات LED، إعدادات متنقلة"
+
+msgid "Jobs This Month"
+msgstr "الوظائف هذا الشهر"
+
+msgid "Mohammed Ali"
+msgstr "محمد علي"
+
+msgid "Delivery Driver"
+msgstr "سائق توصيل"
+
+msgid "On Route"
+msgstr "في الطريق"
+
+msgid "Vehicle: TR-001 (Mercedes Sprinter)"
+msgstr "المركبة: TR-001 (مرسيدس سبرينتر)"
+
+msgid "To: Tech Conference (KAFD)"
+msgstr "إلى: مؤتمر التقنية (مركز الملك عبدالله المالي)"
+
+msgid "ETA"
+msgstr "الوقت المتوقع للوصول"
+
+msgid "Salem Abdullah"
+msgstr "سالم عبدالله"
+
+msgid "Installation Specialist"
+msgstr "أخصائي تركيب"
+
+msgid "Jeddah - Al-Rawdah District"
+msgstr "جدة - حي الروضة"
+
+msgid "Video Walls, Sound Systems"
+msgstr "جدران الفيديو، أنظمة الصوت"
+
+msgid "Est. Complete"
+msgstr "الوقت المتوقع للإنجاز"
+
+msgid "Fleet Management"
+msgstr "إدارة الأسطول"
+
+msgid "Vehicle status and maintenance"
+msgstr "حالة المركبات والصيانة"
+
+msgid "Add Vehicle"
+msgstr "إضافة مركبة"
+
+msgid "TR-001 • Mercedes Sprinter"
+msgstr "TR-001 • مرسيدس سبرينتر"
+
+msgid "Driver: Mohammed Ali"
+msgstr "السائق: محمد علي"
+
+msgid "Last service: Aug 15, 2025"
+msgstr "آخر صيانة: 15 أغسطس 2025"
+
+msgid "TR-002 • Toyota Hiace"
+msgstr "TR-002 • تويوتا هايس"
+
+msgid "Available for assignment"
+msgstr "متاح للتعيين"
+
+msgid "Last service: Sep 10, 2025"
+msgstr "آخر صيانة: 10 سبتمبر 2025"
+
+msgid "TR-003 • Ford Transit"
+msgstr "TR-003 • فورد ترانزيت"
+
+msgid "Scheduled maintenance"
+msgstr "صيانة مجدولة"
+
+msgid "Return: Sep 25, 2025"
+msgstr "العودة: 25 سبتمبر 2025"
+
+msgid "Schedule Service"
+msgstr "جدولة الخدمة"
+
+msgid "Track All"
+msgstr "تتبع الكل"
+
+msgid "Performance Metrics"
+msgstr "مقاييس الأداء"
+
+msgid "Operations KPIs and analytics"
+msgstr "مؤشرات الأداء الرئيسية للعمليات والتحليلات"
+
+msgid "This Week"
+msgstr "هذا الأسبوع"
+
+msgid "On-Time Delivery Rate"
+msgstr "معدل التسليم في الوقت المحدد"
+
+msgid "Customer Satisfaction"
+msgstr "رضا العملاء"
+
+msgid "Equipment Utilization"
+msgstr "استخدام المعدات"
+
+msgid "Average Response Time"
+msgstr "متوسط وقت الاستجابة"
+
+msgid "Avg Cost/Delivery"
+msgstr "متوسط التكلفة/التسليم"
+
+msgid "Avg Setup Time"
+msgstr "متوسط وقت الإعداد"
+
+# JavaScript Messages - Operations
+msgid "Opening delivery scheduler..."
+msgstr "جاري فتح جدولة التسليم..."
+
+msgid "Opening technician assignment panel..."
+msgstr "جاري فتح لوحة تعيين الفنيين..."
+
+msgid "Loading vehicle tracking system..."
+msgstr "جاري تحميل نظام تتبع المركبات..."
+
+msgid "Connecting to emergency support..."
+msgstr "جاري الاتصال بالدعم الطارئ..."
+
+msgid "Auto-assigning tasks based on availability and location..."
+msgstr "جاري التعيين التلقائي للمهام بناءً على التوفر والموقع..."
+
+msgid "All tasks assigned successfully!"
+msgstr "تم تعيين جميع المهام بنجاح!"
+
+msgid "Re-prioritizing tasks based on urgency and deadlines..."
+msgstr "جاري إعادة ترتيب أولويات المهام بناءً على الإلحاح والمواعيد النهائية..."
+
+msgid "Tasks prioritized successfully!"
+msgstr "تم ترتيب أولويات المهام بنجاح!"
+
+msgid "Assigning task to"
+msgstr "جاري تعيين المهمة إلى"
+
+msgid "Task assigned successfully!"
+msgstr "تم تعيين المهمة بنجاح!"
+
+msgid "Calling"
+msgstr "جاري الاتصال بـ"
+
+msgid "Opening GPS tracking for"
+msgstr "جاري فتح تتبع GPS لـ"
+
+msgid "Loading installation progress for"
+msgstr "جاري تحميل تقدم التركيب لـ"
+
+msgid "Loading available team members..."
+msgstr "جاري تحميل أعضاء الفريق المتاحين..."
+
+msgid "Opening shift scheduler..."
+msgstr "جاري فتح جدولة المناوبات..."
+
+msgid "Opening vehicle registration form..."
+msgstr "جاري فتح نموذج تسجيل المركبة..."
+
+msgid "Opening maintenance scheduler..."
+msgstr "جاري فتح جدولة الصيانة..."
+
+msgid "Loading fleet tracking dashboard..."
+msgstr "جاري تحميل لوحة تحكم تتبع الأسطول..."
+
+msgid "Filtering operations for:"
+msgstr "تصفية العمليات لـ:"
+
+msgid "Updating real-time operations data..."
+msgstr "جاري تحديث بيانات العمليات في الوقت الفعلي..."
+
+msgid "Operations dashboard initialized"
+msgstr "تم تهيئة لوحة تحكم العمليات"
+
+# ========================================
+# ADMIN DASHBOARD - Complete Translations
+# ========================================
+
+msgid "Admin Dashboard - Elaani"
+msgstr "لوحة تحكم المسؤول - إيلاني"
+
+msgid "Elaani Admin"
+msgstr "مسؤول إيلاني"
+
+msgid "Control Center"
+msgstr "مركز التحكم"
+
+msgid "Screen Management"
+msgstr "إدارة الشاشات"
+
+msgid "User Management"
+msgstr "إدارة المستخدمين"
+
+msgid "All Users"
+msgstr "جميع المستخدمين"
+
+msgid "Advertisers"
+msgstr "المعلنون"
+
+msgid "Verifications"
+msgstr "التحققات"
+
+msgid "Commission Settings"
+msgstr "إعدادات العمولة"
+
+msgid "Support Tickets"
+msgstr "تذاكر الدعم"
+
+msgid "Activity Logs"
+msgstr "سجلات النشاط"
+
+msgid "Admin User"
+msgstr "مستخدم المسؤول"
+
+msgid "System Administrator"
+msgstr "مسؤول النظام"
+
+msgid "Platform Overview"
+msgstr "نظرة عامة على المنصة"
+
+msgid "Monitor and manage the Elaani marketplace"
+msgstr "مراقبة وإدارة سوق إيلاني"
+
+msgid "System Online"
+msgstr "النظام متصل"
+
+msgid "+12% this month"
+msgstr "+12% هذا الشهر"
+
+msgid "+8% vs last week"
+msgstr "+8% مقارنة بالأسبوع الماضي"
+
+msgid "Pending Reviews"
+msgstr "المراجعات المعلقة"
+
+msgid "Needs attention"
+msgstr "يحتاج إلى اهتمام"
+
+msgid "+25% this month"
+msgstr "+25% هذا الشهر"
+
+msgid "System Health"
+msgstr "صحة النظام"
+
+msgid "API Status"
+msgstr "حالة API"
+
+msgid "Healthy"
+msgstr "سليم"
+
+msgid "Payment Gateway"
+msgstr "بوابة الدفع"
+
+msgid "Slow (245ms)"
+msgstr "بطيء (245 مللي ثانية)"
+
+msgid "Refresh Cache"
+msgstr "تحديث ذاكرة التخزين المؤقت"
+
+msgid "Backup Database"
+msgstr "نسخ احتياطي لقاعدة البيانات"
+
+msgid "Send Maintenance Alert"
+msgstr "إرسال تنبيه الصيانة"
+
+msgid "Last 90 days"
+msgstr "آخر 90 يوماً"
+
+msgid "Last year"
+msgstr "العام الماضي"
+
+msgid "Revenue Trends Chart"
+msgstr "مخطط اتجاهات الإيرادات"
+
+msgid "Daily/Monthly revenue visualization"
+msgstr "تصور الإيرادات اليومية/الشهرية"
+
+msgid "New Screen Submitted"
+msgstr "تم تقديم شاشة جديدة"
+
+msgid "King Abdullah Road LED by Urban Screens"
+msgstr "شاشة LED طريق الملك عبدالله من Urban Screens"
+
+msgid "Payment Processed"
+msgstr "تمت معالجة الدفع"
+
+msgid "45,000 SAR campaign booking"
+msgstr "حجز حملة 45,000 ريال"
+
+msgid "4 hours ago"
+msgstr "منذ 4 ساعات"
+
+msgid "Dispute Reported"
+msgstr "تم الإبلاغ عن نزاع"
+
+msgid "Content issue on Tahlia Street Display"
+msgstr "مشكلة محتوى على شاشة شارع التحلية"
+
+msgid "6 hours ago"
+msgstr "منذ 6 ساعات"
+
+msgid "New Vendor Registered"
+msgstr "تم تسجيل بائع جديد"
+
+msgid "Digital Media Solutions"
+msgstr "حلول الوسائط الرقمية"
+
+msgid "1 day ago"
+msgstr "منذ يوم واحد"
+
+msgid "Top Performing Screens"
+msgstr "الشاشات الأفضل أداءً"
+
+msgid "King Fahd Road LED"
+msgstr "شاشة LED طريق الملك فهد"
+
+msgid "15 bookings this month"
+msgstr "15 حجزاً هذا الشهر"
+
+msgid "Mall Indoor Screen"
+msgstr "شاشة المول الداخلية"
+
+msgid "12 bookings this month"
+msgstr "12 حجزاً هذا الشهر"
+
+msgid "Olaya Street Display"
+msgstr "شاشة شارع العليا"
+
+msgid "10 bookings this month"
+msgstr "10 حجوزات هذا الشهر"
+
+msgid "View Full Analytics"
+msgstr "عرض التحليلات الكاملة"
+
+# ========================================
+# PENDING APPROVALS - Complete Translations
+# ========================================
+
+msgid "Pending Approvals - Admin"
+msgstr "الموافقات المعلقة - المسؤول"
+
+msgid "Screen Approvals"
+msgstr "موافقات الشاشات"
+
+msgid "Review and approve new screen listings"
+msgstr "مراجعة والموافقة على قوائم الشاشات الجديدة"
+
+msgid "pending review"
+msgstr "في انتظار المراجعة"
+
+msgid "All Submissions"
+msgstr "جميع التقديمات"
+
+msgid "New Listings"
+msgstr "القوائم الجديدة"
+
+msgid "Updates"
+msgstr "التحديثات"
+
+msgid "Resubmissions"
+msgstr "إعادة التقديمات"
+
+msgid "Submission Date"
+msgstr "تاريخ التقديم"
+
+msgid "Oldest First"
+msgstr "الأقدم أولاً"
+
+msgid "Newest First"
+msgstr "الأحدث أولاً"
+
+msgid "By Location"
+msgstr "حسب الموقع"
+
+msgid "Showing"
+msgstr "عرض"
+
+msgid "of"
+msgstr "من"
+
+msgid "submissions"
+msgstr "التقديمات"
+
+msgid "Submitted 2 hours ago"
+msgstr "تم التقديم منذ ساعتين"
+
+msgid "Basic Info"
+msgstr "المعلومات الأساسية"
+
+msgid "Type:"
+msgstr "النوع:"
+
+msgid "Size:"
+msgstr "الحجم:"
+
+msgid "Location:"
+msgstr "الموقع:"
+
+msgid "Owner:"
+msgstr "المالك:"
+
+msgid "Hourly:"
+msgstr "بالساعة:"
+
+msgid "Daily:"
+msgstr "يومياً:"
+
+msgid "Weekly:"
+msgstr "أسبوعياً:"
+
+msgid "Est. Monthly:"
+msgstr "تقديري شهرياً:"
+
+msgid "Premium digital billboard located in one of Riyadh's busiest commercial areas. High visibility location with excellent foot traffic and vehicle exposure."
+msgstr "لوحة إعلانية رقمية مميزة تقع في واحدة من أكثر المناطق التجارية ازدحاماً في الرياض. موقع عالي الرؤية مع حركة مرور ممتازة للمشاة والمركبات."
+
+msgid "Review Actions"
+msgstr "إجراءات المراجعة"
+
+msgid "Location verified"
+msgstr "تم التحقق من الموقع"
+
+msgid "Pricing reasonable"
+msgstr "التسعير معقول"
+
+msgid "Photos quality good"
+msgstr "جودة الصور جيدة"
+
+msgid "Documentation complete"
+msgstr "الوثائق مكتملة"
+
+msgid "View on Map"
+msgstr "عرض على الخريطة"
+
+msgid "View All Photos"
+msgstr "عرض جميع الصور"
+
+msgid "Select all pending screens"
+msgstr "تحديد جميع الشاشات المعلقة"
+
+msgid "Bulk Approve"
+msgstr "موافقة جماعية"
+
+msgid "Bulk Reject"
+msgstr "رفض جماعي"
+
+# ========================================
+# ADVERTISER DASHBOARD - Complete Translations
+# ========================================
+
+msgid "Advertiser Dashboard - Elaani"
+msgstr "لوحة تحكم المعلن - إيلاني"
+
+msgid "Advertiser Dashboard"
+msgstr "لوحة تحكم المعلن"
+
+msgid "Manage your campaigns and bookings"
+msgstr "إدارة حملاتك وحجوزاتك"
+
+msgid "New Campaign"
+msgstr "حملة جديدة"
+
+msgid "Total Impressions"
+msgstr "إجمالي مرات الظهور"
+
+msgid "Screens Used"
+msgstr "الشاشات المستخدمة"
+
+msgid "Recent Bookings"
+msgstr "الحجوزات الأخيرة"
+
+msgid "Campaign"
+msgstr "الحملة"
+
+msgid "Duration"
+msgstr "المدة"
+
+# ========================================
+# BOOKING PAGE - Complete Translations
+# ========================================
+
+msgid "Book"
+msgstr "احجز"
+
+msgid "Complete Your Booking"
+msgstr "أكمل حجزك"
+
+msgid "Campaign Details"
+msgstr "تفاصيل الحملة"
+
+msgid "Campaign Name"
+msgstr "اسم الحملة"
+
+msgid "Enter campaign name"
+msgstr "أدخل اسم الحملة"
+
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "Start Time"
+msgstr "وقت البدء"
+
+msgid "End Time"
+msgstr "وقت الانتهاء"
+
+msgid "Your Creative"
+msgstr "إبداعك"
+
+msgid "Upload Creative"
+msgstr "تحميل الإبداع"
+
+msgid "Request Creative"
+msgstr "طلب الإبداع"
+
+msgid "Upload your ad creative"
+msgstr "قم بتحميل إبداعك الإعلاني"
+
+msgid "Drag and drop your files here, or click to browse"
+msgstr "اسحب وأفلت ملفاتك هنا، أو انقر للتصفح"
+
+msgid "Choose Files"
+msgstr "اختر الملفات"
+
+msgid "Supported formats: JPG, PNG, MP4, MOV (Max 50MB)"
+msgstr "التنسيقات المدعومة: JPG، PNG، MP4، MOV (الحد الأقصى 50 ميجابايت)"
+
+msgid "Creative Type"
+msgstr "نوع الإبداع"
+
+msgid "Select a creative type"
+msgstr "اختر نوع الإبداع"
+
+msgid "Static Image"
+msgstr "صورة ثابتة"
+
+msgid "Video (15-30 seconds)"
+msgstr "فيديو (15-30 ثانية)"
+
+msgid "Looping Animation"
+msgstr "رسوم متحركة متكررة"
+
+msgid "Interactive Display"
+msgstr "عرض تفاعلي"
+
+msgid "Dynamic Content"
+msgstr "محتوى ديناميكي"
+
+msgid "Campaign Message / Brief"
+msgstr "رسالة الحملة / الموجز"
+
+msgid "Describe your campaign, target audience, key message, brand colors, etc."
+msgstr "صف حملتك، الجمهور المستهدف، الرسالة الرئيسية، ألوان العلامة التجارية، إلخ."
+
+msgid "Brand/Logo (Optional)"
+msgstr "العلامة التجارية/الشعار (اختياري)"
+
+msgid "Creative Design Fee:"
+msgstr "رسوم تصميم الإبداع:"
+
+msgid "Our design team will create professional, high-quality creative tailored to your campaign."
+msgstr "سيقوم فريق التصميم لدينا بإنشاء إبداع احترافي عالي الجودة مصمم خصيصاً لحملتك."
+
+msgid "Billing Information"
+msgstr "معلومات الفوترة"
+
+msgid "First Name"
+msgstr "الاسم الأول"
+
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Company Name (Optional)"
+msgstr "اسم الشركة (اختياري)"
+
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+msgid "Credit/Debit Card"
+msgstr "بطاقة ائتمان/خصم"
+
+msgid "Card Number"
+msgstr "رقم البطاقة"
+
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "Bank Transfer"
+msgstr "تحويل بنكي"
+
+msgid "Order Summary"
+msgstr "ملخص الطلب"
+
+msgid "Duration:"
+msgstr "المدة:"
+
+msgid "Rate:"
+msgstr "السعر:"
+
+msgid "Subtotal:"
+msgstr "المجموع الفرعي:"
+
+msgid "Creative Design Fee:"
+msgstr "رسوم تصميم الإبداع:"
+
+msgid "Platform fee:"
+msgstr "رسوم المنصة:"
+
+msgid "VAT (15%):"
+msgstr "ضريبة القيمة المضافة (15%):"
+
+msgid "Total:"
+msgstr "الإجمالي:"
+
+msgid "Complete Booking"
+msgstr "إكمال الحجز"
+
+msgid "By completing this booking, you agree to our Terms of Service and Privacy Policy."
+msgstr "بإكمال هذا الحجز، فإنك توافق على شروط الخدمة وسياسة الخصوصية الخاصة بنا."
+
+# ========================================
+# BROWSE SCREENS - Complete Translations
+# ========================================
+
+msgid "Browse Screens - Elaani"
+msgstr "تصفح الشاشات - إيلاني"
+
+msgid "Browse Digital Screens"
+msgstr "تصفح الشاشات الرقمية"
+
+msgid "Find the perfect screens for your advertising campaign"
+msgstr "ابحث عن الشاشات المثالية لحملتك الإعلانية"
+
+msgid "All Riyadh"
+msgstr "جميع أنحاء الرياض"
+
+msgid "King Fahd Road"
+msgstr "طريق الملك فهد"
+
+msgid "Tahlia Street"
+msgstr "شارع التحلية"
+
+msgid "King Abdullah Road"
+msgstr "طريق الملك عبدالله"
+
+msgid "Screen Type"
+msgstr "نوع الشاشة"
+
+msgid "Mall Screen"
+msgstr "شاشة المول"
+
+msgid "Price Range"
+msgstr "نطاق السعر"
+
+msgid "Any Price"
+msgstr "أي سعر"
+
+msgid "Under 200 SAR/hour"
+msgstr "أقل من 200 ريال/ساعة"
+
+msgid "200-300 SAR/hour"
+msgstr "200-300 ريال/ساعة"
+
+msgid "300+ SAR/hour"
+msgstr "300+ ريال/ساعة"
+
+msgid "Availability"
+msgstr "التوفر"
+
+msgid "Apply Filters"
+msgstr "تطبيق الفلاتر"
+
+msgid "screens found"
+msgstr "شاشة تم العثور عليها"
+
+msgid "Map View"
+msgstr "عرض الخريطة"
+
+msgid "Unavailable"
+msgstr "غير متاح"
+
+msgid "/hour"
+msgstr "/ساعة"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "Book Now"
+msgstr "احجز الآن"
+
+# ========================================
+# SCREEN DETAILS - Complete Translations
+# ========================================
+
+msgid "Screen Details"
+msgstr "تفاصيل الشاشة"
+
+msgid "Browse Screens"
+msgstr "تصفح الشاشات"
+
+msgid "Screen Size"
+msgstr "حجم الشاشة"
+
+msgid "Screen Information"
+msgstr "معلومات الشاشة"
+
+msgid "reviews"
+msgstr "تقييمات"
+
+msgid "Specifications"
+msgstr "المواصفات"
+
+msgid "Direction:"
+msgstr "الاتجاه:"
+
+msgid "Resolution:"
+msgstr "الدقة:"
+
+msgid "Brightness:"
+msgstr "السطوع:"
+
+msgid "Refresh Rate:"
+msgstr "معدل التحديث:"
+
+msgid "Uptime:"
+msgstr "وقت التشغيل:"
+
+msgid "per hour"
+msgstr "في الساعة"
+
+msgid "per day"
+msgstr "في اليوم"
+
+msgid "Campaign Duration"
+msgstr "مدة الحملة"
+
+msgid "1 Hour"
+msgstr "ساعة واحدة"
+
+msgid "4 Hours"
+msgstr "4 ساعات"
+
+msgid "8 Hours"
+msgstr "8 ساعات"
+
+msgid "1 Day"
+msgstr "يوم واحد"
+
+msgid "3 Days"
+msgstr "3 أيام"
+
+msgid "1 Week"
+msgstr "أسبوع واحد"
+
+msgid "Custom"
+msgstr "مخصص"
+
+msgid "Book This Screen"
+msgstr "احجز هذه الشاشة"
+
+msgid "Owned by"
+msgstr "مملوكة من قبل"
+
+# ========================================
+# BOOKING PAGE - Complete Translations
+# ========================================
+
+msgid "Book"
+msgstr "احجز"
+
+msgid "Elaani"
+msgstr "إيلاني"
+
+msgid "Complete Your Booking"
+msgstr "أكمل حجزك"
+
+msgid "Campaign Details"
+msgstr "تفاصيل الحملة"
+
+msgid "Campaign Name"
+msgstr "اسم الحملة"
+
+msgid "Enter campaign name"
+msgstr "أدخل اسم الحملة"
+
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "Start Time"
+msgstr "وقت البدء"
+
+msgid "End Time"
+msgstr "وقت الانتهاء"
+
+msgid "Your Creative"
+msgstr "تصميمك الإبداعي"
+
+msgid "Upload Creative"
+msgstr "رفع التصميم الإبداعي"
+
+msgid "Request Creative"
+msgstr "طلب تصميم إبداعي"
+
+msgid "Upload your ad creative"
+msgstr "ارفع تصميمك الإعلاني"
+
+msgid "Drag and drop your files here, or click to browse"
+msgstr "اسحب وأفلت ملفاتك هنا، أو انقر للتصفح"
+
+msgid "Choose Files"
+msgstr "اختر الملفات"
+
+msgid "Supported formats:"
+msgstr "التنسيقات المدعومة:"
+
+msgid "JPG, PNG, MP4, MOV"
+msgstr "JPG، PNG، MP4، MOV"
+
+msgid "Max"
+msgstr "الحد الأقصى"
+
+msgid "MB"
+msgstr "ميجابايت"
+
+msgid "Creative Type"
+msgstr "نوع التصميم الإبداعي"
+
+msgid "Select a creative type"
+msgstr "اختر نوع التصميم الإبداعي"
+
+msgid "Static Image"
+msgstr "صورة ثابتة"
+
+msgid "Video (15-30 seconds)"
+msgstr "فيديو (15-30 ثانية)"
+
+msgid "Looping Animation"
+msgstr "رسوم متحركة متكررة"
+
+msgid "Interactive Display"
+msgstr "عرض تفاعلي"
+
+msgid "Dynamic Content"
+msgstr "محتوى ديناميكي"
+
+msgid "Campaign Message / Brief"
+msgstr "رسالة الحملة / الملخص"
+
+msgid "Describe your campaign, target audience, key message, brand colors, etc."
+msgstr "صف حملتك، الجمهور المستهدف، الرسالة الرئيسية، ألوان العلامة التجارية، إلخ."
+
+msgid "Brand/Logo (Optional)"
+msgstr "العلامة التجارية/الشعار (اختياري)"
+
+msgid "Creative Design Fee:"
+msgstr "رسوم التصميم الإبداعي:"
+
+msgid "SAR"
+msgstr "ريال"
+
+msgid "included in your total"
+msgstr "مشمول في إجماليك"
+
+msgid "Our design team will create professional, high-quality creative tailored to your campaign."
+msgstr "سيقوم فريق التصميم لدينا بإنشاء تصميم إبداعي احترافي عالي الجودة مصمم خصيصاً لحملتك."
+
+msgid "Billing Information"
+msgstr "معلومات الفوترة"
+
+msgid "First Name"
+msgstr "الاسم الأول"
+
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Company Name (Optional)"
+msgstr "اسم الشركة (اختياري)"
+
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+msgid "Credit/Debit Card"
+msgstr "بطاقة ائتمان/خصم"
+
+msgid "Card Number"
+msgstr "رقم البطاقة"
+
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "MM/YY"
+msgstr "شهر/سنة"
+
+msgid "CVV"
+msgstr "رمز الأمان"
+
+msgid "Bank Transfer"
+msgstr "تحويل بنكي"
+
+msgid "Order Summary"
+msgstr "ملخص الطلب"
+
+msgid "Duration:"
+msgstr "المدة:"
+
+msgid "days"
+msgstr "أيام"
+
+msgid "Rate:"
+msgstr "السعر:"
+
+msgid "SAR/day"
+msgstr "ريال/يوم"
+
+msgid "Subtotal:"
+msgstr "المجموع الفرعي:"
+
+msgid "Platform fee:"
+msgstr "رسوم المنصة:"
+
+msgid "VAT (15%):"
+msgstr "ضريبة القيمة المضافة (15%):"
+
+msgid "Total:"
+msgstr "الإجمالي:"
+
+msgid "Complete Booking"
+msgstr "إتمام الحجز"
+
+msgid "By completing this booking, you agree to our"
+msgstr "بإتمام هذا الحجز، فإنك توافق على"
+
+msgid "Terms of Service"
+msgstr "شروط الخدمة"
+
+msgid "and"
+msgstr "و"
+
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+# ========================================
+# BROWSE SCREENS PAGE - Complete Translations
+# ========================================
+
+msgid "Browse Screens"
+msgstr "تصفح الشاشات"
+
+msgid "Browse Digital Screens"
+msgstr "تصفح الشاشات الرقمية"
+
+msgid "Find the perfect screens for your advertising campaign"
+msgstr "ابحث عن الشاشات المثالية لحملتك الإعلانية"
+
+msgid "All Riyadh"
+msgstr "كل الرياض"
+
+msgid "King Fahd Road"
+msgstr "طريق الملك فهد"
+
+msgid "Tahlia Street"
+msgstr "شارع التحلية"
+
+msgid "King Abdullah Road"
+msgstr "طريق الملك عبدالله"
+
+msgid "LED Billboard"
+msgstr "لوحة LED إعلانية"
+
+msgid "Indoor LED"
+msgstr "LED داخلي"
+
+msgid "Mall Screen"
+msgstr "شاشة المول"
+
+msgid "Any Price"
+msgstr "أي سعر"
+
+msgid "Under 200 SAR/hour"
+msgstr "أقل من 200 ريال/ساعة"
+
+msgid "200-300 SAR/hour"
+msgstr "200-300 ريال/ساعة"
+
+msgid "300+ SAR/hour"
+msgstr "300+ ريال/ساعة"
+
+msgid "screens found"
+msgstr "شاشة تم العثور عليها"
+
+msgid "Unavailable"
+msgstr "غير متاح"
+
+msgid "hour"
+msgstr "ساعة"
+
+msgid "more"
+msgstr "المزيد"
+
+# ========================================
+# SCREEN DETAILS PAGE - Complete Translations
+# ========================================
+
+msgid "Screen Details"
+msgstr "تفاصيل الشاشة"
+
+msgid "Screen Billboard"
+msgstr "لوحة الشاشة الإعلانية"
+
+msgid "Screen Size"
+msgstr "حجم الشاشة"
+
+msgid "reviews"
+msgstr "تقييم"
+
+msgid "Specifications"
+msgstr "المواصفات"
+
+msgid "Size:"
+msgstr "الحجم:"
+
+msgid "Type:"
+msgstr "النوع:"
+
+msgid "Direction:"
+msgstr "الاتجاه:"
+
+msgid "North"
+msgstr "شمال"
+
+msgid "South"
+msgstr "جنوب"
+
+msgid "East"
+msgstr "شرق"
+
+msgid "West"
+msgstr "غرب"
+
+msgid "Resolution:"
+msgstr "الدقة:"
+
+msgid "Brightness:"
+msgstr "السطوع:"
+
+msgid "nits"
+msgstr "شمعة"
+
+msgid "Refresh Rate:"
+msgstr "معدل التحديث:"
+
+msgid "Uptime:"
+msgstr "وقت التشغيل:"
+
+msgid "Premium digital billboard located in one of Riyadh's busiest commercial areas. This high-resolution LED screen offers excellent visibility for both day and night advertising campaigns. Perfect for reaching business professionals and shoppers in the heart of the city."
+msgstr "لوحة إعلانية رقمية مميزة تقع في واحدة من أكثر المناطق التجارية ازدحاماً في الرياض. توفر شاشة LED عالية الدقة رؤية ممتازة لحملات الإعلان النهارية والليلية. مثالية للوصول إلى رجال الأعمال والمتسوقين في قلب المدينة."
+
+msgid "per hour"
+msgstr "في الساعة"
+
+msgid "per day"
+msgstr "في اليوم"
+
+msgid "Campaign Duration"
+msgstr "مدة الحملة"
+
+msgid "Hour"
+msgstr "ساعة"
+
+msgid "Hours"
+msgstr "ساعات"
+
+msgid "Day"
+msgstr "يوم"
+
+msgid "Week"
+msgstr "أسبوع"
+
+msgid "Custom"
+msgstr "مخصص"
+
+msgid "Book This Screen"
+msgstr "احجز هذه الشاشة"
+
+msgid "Owned by"
+msgstr "مملوكة من قبل"
+
+# ========================================
+# CHOOSE ROLE PAGE - Complete Translations
+# ========================================
+
+msgid "Choose Your Role"
+msgstr "اختر دورك"
+
+msgid "Select how you want to use Elaani marketplace"
+msgstr "اختر كيف تريد استخدام سوق إيلاني"
+
+msgid "I'm an Advertiser"
+msgstr "أنا معلن"
+
+msgid "I want to promote my business by booking digital screens for advertising campaigns."
+msgstr "أريد الترويج لأعمالي من خلال حجز الشاشات الرقمية للحملات الإعلانية."
+
+msgid "Browse available screens"
+msgstr "تصفح الشاشات المتاحة"
+
+msgid "Book advertising slots"
+msgstr "احجز فترات إعلانية"
+
+msgid "Track campaign performance"
+msgstr "تتبع أداء الحملة"
+
+msgid "Manage multiple campaigns"
+msgstr "إدارة حملات متعددة"
+
+msgid "Start Advertising"
+msgstr "ابدأ الإعلان"
+
+msgid "I Own Digital Screens"
+msgstr "أنا أملك شاشات رقمية"
+
+msgid "I have digital screens and want to rent them out to advertisers to generate revenue."
+msgstr "لدي شاشات رقمية وأريد تأجيرها للمعلنين لتوليد الإيرادات."
+
+msgid "List your screens"
+msgstr "أدرج شاشاتك"
+
+msgid "Set your own pricing"
+msgstr "حدد أسعارك الخاصة"
+
+msgid "Manage availability"
+msgstr "إدارة التوفر"
+
+msgid "Track earnings"
+msgstr "تتبع الأرباح"
+
+msgid "Not sure which option is right for you?"
+msgstr "غير متأكد من الخيار المناسب لك؟"
+
+msgid "Learn more about our platform"
+msgstr "تعرف على المزيد حول منصتنا"
+
+# ========================================
+# LOGIN PAGE - Complete Translations
+# ========================================
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "Sign in to your account"
+msgstr "سجل الدخول إلى حسابك"
+
+msgid "Or"
+msgstr "أو"
+
+msgid "create a new account"
+msgstr "أنشئ حساباً جديداً"
+
+msgid "Email address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Password"
+msgstr "كلمة المرور"
+
+msgid "Remember me"
+msgstr "تذكرني"
+
+msgid "Forgot your password?"
+msgstr "نسيت كلمة المرور؟"
+
+msgid "Sign in"
+msgstr "تسجيل الدخول"
+
+# ========================================
+# REGISTER PAGE - Complete Translations
+# ========================================
+
+msgid "Register"
+msgstr "التسجيل"
+
+msgid "Create your account"
+msgstr "أنشئ حسابك"
+
+msgid "sign in to existing account"
+msgstr "سجل الدخول إلى حساب موجود"
+
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+msgid "Enter your full name"
+msgstr "أدخل اسمك الكامل"
+
+msgid "Enter your email"
+msgstr "أدخل بريدك الإلكتروني"
+
+msgid "Create a password"
+msgstr "أنشئ كلمة مرور"
+
+msgid "Confirm Password"
+msgstr "تأكيد كلمة المرور"
+
+msgid "Confirm your password"
+msgstr "أكد كلمة المرور"
+
+msgid "I agree to the"
+msgstr "أوافق على"
+
+msgid "Create Account"
+msgstr "إنشاء حساب"
+
+# VENDOR PAGES
+msgid "Vendor Dashboard"
+msgstr "لوحة تحكم البائع"
+
+msgid "Screen Owner"
+msgstr "مالك الشاشة"
+
+msgid "Vendor Portal"
+msgstr "بوابة البائع"
+
+msgid "Screen Management"
+msgstr "إدارة الشاشات"
+
+msgid "Add New Screen"
+msgstr "إضافة شاشة جديدة"
+
+msgid "My Screens"
+msgstr "شاشاتي"
+
+msgid "Performance Analytics"
+msgstr "تحليلات الأداء"
+
+msgid "Bookings & Revenue"
+msgstr "الحجوزات والإيرادات"
+
+msgid "Pending Requests"
+msgstr "الطلبات المعلقة"
+
+msgid "Earnings & Payouts"
+msgstr "الأرباح والمدفوعات"
+
+msgid "Customer Management"
+msgstr "إدارة العملاء"
+
+msgid "Reviews & Ratings"
+msgstr "التقييمات والمراجعات"
+
+msgid "Manage your digital screens and earnings"
+msgstr "إدارة شاشاتك الرقمية وأرباحك"
+
+msgid "Active Screens"
+msgstr "الشاشات النشطة"
+
+msgid "+2 this month"
+msgstr "+2 هذا الشهر"
+
+msgid "Monthly Bookings"
+msgstr "الحجوزات الشهرية"
+
+msgid "+35% vs last month"
+msgstr "+35% مقارنة بالشهر الماضي"
+
+msgid "Monthly Earnings"
+msgstr "الأرباح الشهرية"
+
+msgid "+28% vs last month"
+msgstr "+28% مقارنة بالشهر الماضي"
+
+msgid "Average Rating"
+msgstr "متوسط التقييم"
+
+msgid "Based on 47 reviews"
+msgstr "بناءً على 47 تقييم"
+
+msgid "Earnings Overview"
+msgstr "نظرة عامة على الأرباح"
+
+msgid "Earnings"
+msgstr "الأرباح"
+
+msgid "Views"
+msgstr "المشاهدات"
+
+msgid "Monthly Earnings Chart"
+msgstr "مخطط الأرباح الشهرية"
+
+msgid "Track your revenue growth over time"
+msgstr "تتبع نمو إيراداتك بمرور الوقت"
+
+msgid "This Month"
+msgstr "هذا الشهر"
+
+msgid "Last Month"
+msgstr "الشهر الماضي"
+
+msgid "Top Performers"
+msgstr "الأفضل أداءً"
+
+msgid "View All"
+msgstr "عرض الكل"
+
+msgid "Recent Bookings"
+msgstr "الحجوزات الأخيرة"
+
+msgid "Restaurant Campaign"
+msgstr "حملة مطعم"
+
+msgid "Confirmed"
+msgstr "مؤكد"
+
+msgid "Fashion Campaign"
+msgstr "حملة أزياء"
+
+msgid "Upcoming"
+msgstr "قادم"
+
+msgid "Tech Campaign"
+msgstr "حملة تقنية"
+
+msgid "Pending approval"
+msgstr "في انتظار الموافقة"
+
+msgid "View All Bookings"
+msgstr "عرض جميع الحجوزات"
+
+msgid "Quick Actions"
+msgstr "إجراءات سريعة"
+
+msgid "Update Availability"
+msgstr "تحديث التوفر"
+
+msgid "Withdraw Earnings"
+msgstr "سحب الأرباح"
+
+msgid "View Analytics"
+msgstr "عرض التحليلات"
+
+msgid "Recent Notifications"
+msgstr "الإشعارات الأخيرة"
+
+msgid "Payment Received"
+msgstr "تم استلام الدفع"
+
+msgid "15,000 SAR deposited to your account"
+msgstr "تم إيداع 15,000 ريال في حسابك"
+
+msgid "2 hours ago"
+msgstr "منذ ساعتين"
+
+msgid "New Booking Request"
+msgstr "طلب حجز جديد"
+
+msgid "Fashion brand wants to book Mall Screen"
+msgstr "علامة تجارية للأزياء تريد حجز شاشة المول"
+
+msgid "4 hours ago"
+msgstr "منذ 4 ساعات"
+
+msgid "New Review"
+msgstr "تقييم جديد"
+
+msgid "5-star review for King Fahd Road LED"
+msgstr "تقييم 5 نجوم لشاشة LED طريق الملك فهد"
+
+msgid "1 day ago"
+msgstr "منذ يوم واحد"
+
+msgid "King Fahd Road LED"
+msgstr "شاشة LED طريق الملك فهد"
+
+msgid "Mall Indoor Screen"
+msgstr "شاشة المول الداخلية"
+
+msgid "Olaya Street Display"
+msgstr "شاشة شارع العليا"
+
+msgid "Pending"
+msgstr "قيد الانتظار"
+
+# LIST SCREEN & MANAGE SCREENS
+msgid "List New Screen"
+msgstr "إدراج شاشة جديدة"
+
+msgid "List Your Digital Screen"
+msgstr "أدرج شاشتك الرقمية"
+
+msgid "Add your screen to the Elaani marketplace and start earning"
+msgstr "أضف شاشتك إلى سوق إيلاني وابدأ في الكسب"
+
+msgid "Basic Information"
+msgstr "المعلومات الأساسية"
+
+msgid "Screen Title"
+msgstr "عنوان الشاشة"
+
+msgid "e.g., King Fahd Road LED Billboard"
+msgstr "مثال: لوحة LED طريق الملك فهد"
+
+msgid "4K Ultra HD"
+msgstr "4K فائق الوضوح"
+
+msgid "Other"
+msgstr "أخرى"
+
+msgid "Orientation"
+msgstr "الاتجاه"
+
+msgid "Landscape"
+msgstr "أفقي"
+
+msgid "Portrait"
+msgstr "عمودي"
+
+msgid "Square"
+msgstr "مربع"
+
+msgid "Describe your screen location, visibility, and target audience..."
+msgstr "صف موقع شاشتك والرؤية والجمهور المستهدف..."
+
+msgid "Location Details"
+msgstr "تفاصيل الموقع"
+
+msgid "Street Address"
+msgstr "عنوان الشارع"
+
+msgid "Enter street address"
+msgstr "أدخل عنوان الشارع"
+
+msgid "District"
+msgstr "الحي"
+
+msgid "Al Olaya"
+msgstr "العليا"
+
+msgid "Al Malaz"
+msgstr "الملز"
+
+msgid "Al Muhammadiyah"
+msgstr "المحمدية"
+
+msgid "Al Rawdah"
+msgstr "الروضة"
+
+msgid "King Fahd District"
+msgstr "حي الملك فهد"
+
+msgid "Postal Code"
+msgstr "الرمز البريدي"
+
+msgid "Pin Location on Map"
+msgstr "تحديد الموقع على الخريطة"
+
+msgid "Click to set screen location"
+msgstr "انقر لتحديد موقع الشاشة"
+
+msgid "Drag the pin to exact position"
+msgstr "اسحب الدبوس إلى الموقع الدقيق"
+
+msgid "Pricing"
+msgstr "التسعير"
+
+msgid "Hourly Rate (SAR)"
+msgstr "السعر بالساعة (ريال)"
+
+msgid "Daily Rate (SAR)"
+msgstr "السعر اليومي (ريال)"
+
+msgid "Weekly Rate (SAR)"
+msgstr "السعر الأسبوعي (ريال)"
+
+msgid "Monthly Rate (SAR)"
+msgstr "السعر الشهري (ريال)"
+
+msgid "Pricing Tips"
+msgstr "نصائح التسعير"
+
+msgid "Research competitor pricing in your area"
+msgstr "ابحث عن أسعار المنافسين في منطقتك"
+
+msgid "Consider peak hours and seasonal demand"
+msgstr "ضع في اعتبارك ساعات الذروة والطلب الموسمي"
+
+msgid "Offer discounts for longer bookings"
+msgstr "قدم خصومات للحجوزات الأطول"
+
+msgid "Screen Photos & Media"
+msgstr "صور ووسائط الشاشة"
+
+msgid "Upload Screen Photos"
+msgstr "رفع صور الشاشة"
+
+msgid "Upload screen photos"
+msgstr "ارفع صور الشاشة"
+
+msgid "Show your screen in action and location context"
+msgstr "أظهر شاشتك أثناء العمل وسياق الموقع"
+
+msgid "Choose Photos"
+msgstr "اختر الصور"
+
+msgid "JPG, PNG (Max 10MB each, up to 10 photos)"
+msgstr "JPG، PNG (حد أقصى 10 ميجابايت لكل منها، حتى 10 صور)"
+
+msgid "Demo Video (Optional)"
+msgstr "فيديو تجريبي (اختياري)"
+
+msgid "Upload a short video showing your screen"
+msgstr "ارفع فيديو قصير يعرض شاشتك"
+
+msgid "Upload Video"
+msgstr "رفع فيديو"
+
+msgid "MP4, MOV (Max 50MB)"
+msgstr "MP4، MOV (حد أقصى 50 ميجابايت)"
+
+msgid "Features & Specifications"
+msgstr "الميزات والمواصفات"
+
+msgid "Screen Features (Select all that apply)"
+msgstr "ميزات الشاشة (اختر كل ما ينطبق)"
+
+msgid "Weather Resistant"
+msgstr "مقاوم للطقس"
+
+msgid "High Brightness"
+msgstr "سطوع عالي"
+
+msgid "24/7 Operation"
+msgstr "تشغيل 24/7"
+
+msgid "Remote Control"
+msgstr "تحكم عن بعد"
+
+msgid "High Traffic Area"
+msgstr "منطقة حركة مرور عالية"
+
+msgid "Shopping Center"
+msgstr "مركز تسوق"
+
+msgid "Target Audience"
+msgstr "الجمهور المستهدف"
+
+msgid "Business Professionals"
+msgstr "رجال الأعمال المحترفون"
+
+msgid "Shoppers & Families"
+msgstr "المتسوقون والعائلات"
+
+msgid "Commuters"
+msgstr "المسافرون"
+
+msgid "Students"
+msgstr "الطلاب"
+
+msgid "General Public"
+msgstr "الجمهور العام"
+
+msgid "Mixed Audience"
+msgstr "جمهور مختلط"
+
+msgid "Daily Impressions (Est.)"
+msgstr "الانطباعات اليومية (تقديري)"
+
+msgid "I confirm that I own this digital screen or have authorization to list it. I agree to Elaani's"
+msgstr "أؤكد أنني أملك هذه الشاشة الرقمية أو لدي تفويض لإدراجها. أوافق على"
+
+msgid "Screen Owner Agreement"
+msgstr "اتفاقية مالك الشاشة"
+
+msgid "Save as Draft"
+msgstr "حفظ كمسودة"
+
+msgid "Submit for Review"
+msgstr "إرسال للمراجعة"
+
+msgid "Your screen will be reviewed within 24-48 hours before going live."
+msgstr "ستتم مراجعة شاشتك خلال 24-48 ساعة قبل النشر."
+
+msgid "Manage Screens"
+msgstr "إدارة الشاشات"
+
+msgid "Manage Your Screens"
+msgstr "إدارة شاشاتك"
+
+msgid "Monitor and update your digital screen listings"
+msgstr "راقب وحدّث قوائم شاشاتك الرقمية"
+
+msgid "All Screens"
+msgstr "جميع الشاشات"
+
+msgid "Pending Approval"
+msgstr "في انتظار الموافقة"
+
+msgid "Paused"
+msgstr "متوقف مؤقتاً"
+
+msgid "All Types"
+msgstr "جميع الأنواع"
+
+msgid "screens total"
+msgstr "إجمالي الشاشات"
+
+msgid "Booked"
+msgstr "محجوز"
+
+msgid "This Month:"
+msgstr "هذا الشهر:"
+
+msgid "Edit"
+msgstr "تعديل"
+
+msgid "Schedule"
+msgstr "جدولة"
+
+msgid "Stats"
+msgstr "الإحصائيات"
+
+msgid "Have More Screens?"
+msgstr "هل لديك المزيد من الشاشات؟"
+
+msgid "List additional digital screens to maximize your earning potential on Elaani."
+msgstr "أدرج شاشات رقمية إضافية لزيادة إمكانات أرباحك على إيلاني."
+
+msgid "List Another Screen"
+msgstr "إدراج شاشة أخرى"
+
+# BASE & INDEX PAGES
+msgid "Digital Screen Marketplace"
+msgstr "سوق الشاشات الرقمية"
+
+msgid "How it Works"
+msgstr "كيف يعمل"
+
+msgid "The premier digital screen advertising marketplace in Riyadh, KSA."
+msgstr "السوق الرائد للإعلانات على الشاشات الرقمية في الرياض، المملكة العربية السعودية."
+
+msgid "Help Center"
+msgstr "مركز المساعدة"
+
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+msgid "All rights reserved."
+msgstr "جميع الحقوق محفوظة."
+
+msgid "Made in Riyadh, KSA"
+msgstr "صنع في الرياض، المملكة العربية السعودية"
+
+msgid "Digital Screen Advertising Made Simple"
+msgstr "إعلانات الشاشات الرقمية أصبحت بسيطة"
+
+msgid "Connect advertisers with premium digital screens across Riyadh. Book instantly, pay securely, and reach your audience where they are."
+msgstr "ربط المعلنين بالشاشات الرقمية المميزة في جميع أنحاء الرياض. احجز فوراً، ادفع بأمان، واصل إلى جمهورك أينما كانوا."
+
+msgid "500+"
+msgstr "500+"
+
+msgid "Digital Screens"
+msgstr "الشاشات الرقمية"
+
+msgid "1200+"
+msgstr "1200+"
+
+msgid "24/7"
+msgstr "24/7"
+
+msgid "99%"
+msgstr "99%"
+
+msgid "How Elaani Works"
+msgstr "كيف يعمل إيلاني"
+
+msgid "Simple steps to reach your audience"
+msgstr "خطوات بسيطة للوصول إلى جمهورك"
+
+msgid "1. Browse & Select"
+msgstr "1. تصفح واختر"
+
+msgid "Browse digital screens by location, size, and price. Use our map view to find the perfect spots in Riyadh."
+msgstr "تصفح الشاشات الرقمية حسب الموقع والحجم والسعر. استخدم عرض الخريطة للعثور على الأماكن المثالية في الرياض."
+
+msgid "2. Book & Pay"
+msgstr "2. احجز وادفع"
+
+msgid "Select your dates, upload your creative, and pay securely. Get instant confirmation for your campaign."
+msgstr "اختر تواريخك، ارفع تصميمك الإبداعي، وادفع بأمان. احصل على تأكيد فوري لحملتك."
+
+msgid "3. Track Results"
+msgstr "3. تتبع النتائج"
+
+msgid "Monitor your campaign performance with real-time analytics and engagement metrics."
+msgstr "راقب أداء حملتك من خلال التحليلات الفورية ومقاييس التفاعل."
+
+msgid "Featured Screens"
+msgstr "الشاشات المميزة"
+
+msgid "Premium locations across Riyadh"
+msgstr "مواقع مميزة في جميع أنحاء الرياض"
+
+msgid "View All Screens"
+msgstr "عرض جميع الشاشات"
+
+msgid "Ready to Start Advertising?"
+msgstr "هل أنت مستعد لبدء الإعلان؟"
+
+msgid "Join hundreds of businesses reaching their audience through digital screens"
+msgstr "انضم إلى مئات الشركات التي تصل إلى جمهورها من خلال الشاشات الرقمية"
+
+msgid "Start Advertising"
+msgstr "ابدأ الإعلان"
+
+msgid "SAR/hour"
+msgstr "ريال/ساعة"
+
+msgid "KSA"
+msgstr "المملكة العربية السعودية"

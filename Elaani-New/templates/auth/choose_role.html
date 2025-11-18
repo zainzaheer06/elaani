@@ -2,7 +2,7 @@
 <!-- templates/auth/choose_role.html -->
 {% extends "base_public.html" %}
 
-{% block title %}Choose Your Role - Elaani{% endblock %}
+{% block title %}{{ _('Choose Your Role') }} - {{ _('Elaani') }}{% endblock %}
 
 {% block content %}
 <div class="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
@@ -12,10 +12,10 @@
                 <i class="fas fa-users text-white text-2xl"></i>
             </div>
             <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
-                Choose Your Role
+                {{ _('Choose Your Role') }}
             </h2>
             <p class="text-xl text-gray-600">
-                Select how you want to use Elaani marketplace
+                {{ _('Select how you want to use Elaani marketplace') }}
             </p>
         </div>
 
@@ -26,32 +26,32 @@
                     <div class="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-bullhorn text-3xl text-blue-600"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">I'm an Advertiser</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ _('I\'m an Advertiser') }}</h3>
                     <p class="text-gray-600 mb-6">
-                        I want to promote my business by booking digital screens for advertising campaigns.
+                        {{ _('I want to promote my business by booking digital screens for advertising campaigns.') }}
                     </p>
                     
                     <div class="text-left space-y-3 mb-8">
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-3"></i>
-                            <span class="text-gray-700">Browse available screens</span>
+                            <span class="text-gray-700">{{ _('Browse available screens') }}</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-3"></i>
-                            <span class="text-gray-700">Book advertising slots</span>
+                            <span class="text-gray-700">{{ _('Book advertising slots') }}</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-3"></i>
-                            <span class="text-gray-700">Track campaign performance</span>
+                            <span class="text-gray-700">{{ _('Track campaign performance') }}</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-3"></i>
-                            <span class="text-gray-700">Manage multiple campaigns</span>
+                            <span class="text-gray-700">{{ _('Manage multiple campaigns') }}</span>
                         </div>
                     </div>
                     
                     <a href="{{ url_for('advertiser_dashboard') }}" class="block w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-                        Start Advertising
+                        {{ _('Start Advertising') }}
                     </a>
                 </div>
             </div>
@@ -62,32 +62,32 @@
                     <div class="bg-elaani-primary bg-opacity-10 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-tv text-3xl text-elaani-primary"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 mb-4">I Own Digital Screens</h3>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">{{ _('I Own Digital Screens') }}</h3>
                     <p class="text-gray-600 mb-6">
-                        I have digital screens and want to rent them out to advertisers to generate revenue.
+                        {{ _('I have digital screens and want to rent them out to advertisers to generate revenue.') }}
                     </p>
                     
                     <div class="text-left space-y-3 mb-8">
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-3"></i>
-                            <span class="text-gray-700">List your screens</span>
+                            <span class="text-gray-700">{{ _('List your screens') }}</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-3"></i>
-                            <span class="text-gray-700">Set your own pricing</span>
+                            <span class="text-gray-700">{{ _('Set your own pricing') }}</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-3"></i>
-                            <span class="text-gray-700">Manage availability</span>
+                            <span class="text-gray-700">{{ _('Manage availability') }}</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-check text-green-500 mr-3"></i>
-                            <span class="text-gray-700">Track earnings</span>
+                            <span class="text-gray-700">{{ _('Track earnings') }}</span>
                         </div>
                     </div>
                     
                     <a href="{{ url_for('vendor_dashboard') }}" class="block w-full bg-elaani-primary text-white py-3 rounded-lg font-semibold hover:bg-elaani-dark transition-colors">
-                        List Your Screens
+                        {{ _('List Your Screens') }}
                     </a>
                 </div>
             </div>
@@ -95,10 +95,10 @@
 
         <div class="text-center mt-12">
             <p class="text-gray-600 mb-4">
-                Not sure which option is right for you?
+                {{ _('Not sure which option is right for you?') }}
             </p>
             <a href="#" class="text-elaani-primary hover:text-elaani-dark font-semibold">
-                Learn more about our platform
+                {{ _('Learn more about our platform') }}
             </a>
         </div>
     </div>

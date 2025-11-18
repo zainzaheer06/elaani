@@ -1,7 +1,7 @@
 <!-- templates/admin/dashboard.html -->
 {% extends "base.html" %}
 
-{% block title %}Admin Dashboard - Elaani{% endblock %}
+{% block title %}{{ _('Admin Dashboard - Elaani') }}{% endblock %}
 
 {% block content %}
 <div class="flex h-screen bg-gray-100">
@@ -14,8 +14,8 @@
                     E
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold">Elaani Admin</h1>
-                    <p class="text-gray-400 text-sm">Control Center</p>
+                    <h1 class="text-xl font-bold">{{ _('Elaani Admin') }}</h1>
+                    <p class="text-gray-400 text-sm">{{ _('Control Center') }}</p>
                 </div>
             </div>
         </div>
@@ -26,110 +26,110 @@
                 <!-- Dashboard -->
                 <a href="{{ url_for('admin_dashboard') }}" class="bg-elaani-primary bg-opacity-20 text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                     <i class="fas fa-tachometer-alt mr-3 text-lg"></i>
-                    Dashboard
+                    {{ _('Dashboard') }}
                 </a>
 
                 <!-- Screen Management -->
                 <div class="mt-6">
-                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Screen Management</h3>
+                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">{{ _('Screen Management') }}</h3>
                     <div class="mt-2 space-y-1">
                         <a href="{{ url_for('pending_approvals') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-clock mr-3 text-lg"></i>
-                            Pending Approvals
+                            {{ _('Pending Approvals') }}
                             <span class="ml-auto bg-red-500 text-white text-xs px-2 py-1 rounded-full">{{ stats.pending_approvals }}</span>
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-tv mr-3 text-lg"></i>
-                            All Screens
+                            {{ _('All Screens') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-map-marker-alt mr-3 text-lg"></i>
-                            Location Map
+                            {{ _('Location Map') }}
                         </a>
                     </div>
                 </div>
 
                 <!-- User Management -->
                 <div class="mt-6">
-                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">User Management</h3>
+                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">{{ _('User Management') }}</h3>
                     <div class="mt-2 space-y-1">
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-users mr-3 text-lg"></i>
-                            All Users
+                            {{ _('All Users') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-bullhorn mr-3 text-lg"></i>
-                            Advertisers
+                            {{ _('Advertisers') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-store mr-3 text-lg"></i>
-                            Vendors
+                            {{ _('Vendors') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-user-check mr-3 text-lg"></i>
-                            Verifications
+                            {{ _('Verifications') }}
                         </a>
                     </div>
                 </div>
 
                 <!-- Financial -->
                 <div class="mt-6">
-                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Financial</h3>
+                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">{{ _('Financial') }}</h3>
                     <div class="mt-2 space-y-1">
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-chart-line mr-3 text-lg"></i>
-                            Revenue Analytics
+                            {{ _('Revenue Analytics') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-receipt mr-3 text-lg"></i>
-                            Transactions
+                            {{ _('Transactions') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-percentage mr-3 text-lg"></i>
-                            Commission Settings
+                            {{ _('Commission Settings') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-file-invoice-dollar mr-3 text-lg"></i>
-                            Reports
+                            {{ _('Reports') }}
                         </a>
                     </div>
                 </div>
 
                 <!-- Support -->
                 <div class="mt-6">
-                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">Support</h3>
+                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">{{ _('Support') }}</h3>
                     <div class="mt-2 space-y-1">
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-exclamation-triangle mr-3 text-lg"></i>
-                            Disputes
+                            {{ _('Disputes') }}
                             <span class="ml-auto bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">2</span>
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-life-ring mr-3 text-lg"></i>
-                            Support Tickets
+                            {{ _('Support Tickets') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-comments mr-3 text-lg"></i>
-                            Messages
+                            {{ _('Messages') }}
                         </a>
                     </div>
                 </div>
 
                 <!-- System -->
                 <div class="mt-6">
-                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">System</h3>
+                    <h3 class="px-3 text-xs font-semibold text-gray-400 uppercase tracking-wider">{{ _('System') }}</h3>
                     <div class="mt-2 space-y-1">
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-cogs mr-3 text-lg"></i>
-                            Settings
+                            {{ _('Settings') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-shield-alt mr-3 text-lg"></i>
-                            Security
+                            {{ _('Security') }}
                         </a>
                         <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                             <i class="fas fa-history mr-3 text-lg"></i>
-                            Activity Logs
+                            {{ _('Activity Logs') }}
                         </a>
                     </div>
                 </div>
@@ -143,8 +143,8 @@
                     <i class="fas fa-user text-white text-sm"></i>
                 </div>
                 <div>
-                    <p class="text-sm font-medium">Admin User</p>
-                    <p class="text-xs text-gray-400">System Administrator</p>
+                    <p class="text-sm font-medium">{{ _('Admin User') }}</p>
+                    <p class="text-xs text-gray-400">{{ _('System Administrator') }}</p>
                 </div>
             </div>
         </div>
@@ -156,8 +156,8 @@
         <header class="bg-white shadow-sm border-b border-gray-200">
             <div class="flex items-center justify-between px-6 py-4">
                 <div>
-                    <h1 class="text-2xl font-bold text-gray-900">Platform Overview</h1>
-                    <p class="text-gray-600">Monitor and manage the Elaani marketplace</p>
+                    <h1 class="text-2xl font-bold text-gray-900">{{ _('Platform Overview') }}</h1>
+                    <p class="text-gray-600">{{ _('Monitor and manage the Elaani marketplace') }}</p>
                 </div>
                 <div class="flex items-center space-x-4">
                     <div class="relative">
@@ -168,7 +168,7 @@
                     </div>
                     <div class="flex items-center space-x-2">
                         <span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-semibold">
-                            <i class="fas fa-circle text-green-500 mr-1"></i>System Online
+                            <i class="fas fa-circle text-green-500 mr-1"></i>{{ _('System Online') }}
                         </span>
                     </div>
                 </div>
@@ -182,10 +182,10 @@
                 <div class="bg-white rounded-xl shadow-sm p-6 border-l-4 border-blue-500">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-gray-600">Total Screens</p>
+                            <p class="text-sm font-medium text-gray-600">{{ _('Total Screens') }}</p>
                             <p class="text-3xl font-bold text-gray-900">{{ stats.total_screens }}</p>
                             <p class="text-sm text-green-600 flex items-center mt-1">
-                                <i class="fas fa-arrow-up mr-1"></i>+12% this month
+                                <i class="fas fa-arrow-up mr-1"></i>{{ _('+12% this month') }}
                             </p>
                         </div>
                         <div class="bg-blue-100 rounded-full p-3">
@@ -197,10 +197,10 @@
                 <div class="bg-white rounded-xl shadow-sm p-6 border-l-4 border-green-500">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-gray-600">Active Bookings</p>
+                            <p class="text-sm font-medium text-gray-600">{{ _('Active Bookings') }}</p>
                             <p class="text-3xl font-bold text-gray-900">{{ stats.active_bookings }}</p>
                             <p class="text-sm text-green-600 flex items-center mt-1">
-                                <i class="fas fa-arrow-up mr-1"></i>+8% vs last week
+                                <i class="fas fa-arrow-up mr-1"></i>{{ _('+8% vs last week') }}
                             </p>
                         </div>
                         <div class="bg-green-100 rounded-full p-3">
@@ -212,10 +212,10 @@
                 <div class="bg-white rounded-xl shadow-sm p-6 border-l-4 border-yellow-500">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-gray-600">Pending Reviews</p>
+                            <p class="text-sm font-medium text-gray-600">{{ _('Pending Reviews') }}</p>
                             <p class="text-3xl font-bold text-gray-900">{{ stats.pending_approvals }}</p>
                             <p class="text-sm text-red-600 flex items-center mt-1">
-                                <i class="fas fa-exclamation-triangle mr-1"></i>Needs attention
+                                <i class="fas fa-exclamation-triangle mr-1"></i>{{ _('Needs attention') }}
                             </p>
                         </div>
                         <div class="bg-yellow-100 rounded-full p-3">
@@ -227,10 +227,10 @@
                 <div class="bg-white rounded-xl shadow-sm p-6 border-l-4 border-elaani-primary">
                     <div class="flex items-center justify-between">
                         <div>
-                            <p class="text-sm font-medium text-gray-600">Monthly Revenue</p>
-                            <p class="text-3xl font-bold text-gray-900">{{ "{:,}".format(stats.total_revenue) }} SAR</p>
+                            <p class="text-sm font-medium text-gray-600">{{ _('Monthly Revenue') }}</p>
+                            <p class="text-3xl font-bold text-gray-900">{{ "{:,}".format(stats.total_revenue) }} {{ _('SAR') }}</p>
                             <p class="text-sm text-green-600 flex items-center mt-1">
-                                <i class="fas fa-arrow-up mr-1"></i>+25% this month
+                                <i class="fas fa-arrow-up mr-1"></i>{{ _('+25% this month') }}
                             </p>
                         </div>
                         <div class="bg-elaani-primary bg-opacity-10 rounded-full p-3">
@@ -246,11 +246,11 @@
                 <div class="lg:col-span-2 bg-white rounded-xl shadow-sm">
                     <div class="p-6 border-b border-gray-200">
                         <div class="flex items-center justify-between">
-                            <h3 class="text-lg font-semibold text-gray-900">Revenue Analytics</h3>
+                            <h3 class="text-lg font-semibold text-gray-900">{{ _('Revenue Analytics') }}</h3>
                             <select class="border border-gray-300 rounded-md px-3 py-1 text-sm">
-                                <option>Last 30 days</option>
-                                <option>Last 90 days</option>
-                                <option>Last year</option>
+                                <option>{{ _('Last 30 days') }}</option>
+                                <option>{{ _('Last 90 days') }}</option>
+                                <option>{{ _('Last year') }}</option>
                             </select>
                         </div>
                     </div>
@@ -258,8 +258,8 @@
                         <div class="h-64 bg-gradient-to-br from-elaani-primary/5 to-blue-500/5 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-200">
                             <div class="text-center">
                                 <i class="fas fa-chart-area text-4xl text-gray-400 mb-3"></i>
-                                <p class="text-gray-600 font-semibold">Revenue Trends Chart</p>
-                                <p class="text-sm text-gray-500">Daily/Monthly revenue visualization</p>
+                                <p class="text-gray-600 font-semibold">{{ _('Revenue Trends Chart') }}</p>
+                                <p class="text-sm text-gray-500">{{ _('Daily/Monthly revenue visualization') }}</p>
                             </div>
                         </div>
                     </div>
@@ -268,51 +268,51 @@
                 <!-- System Health -->
                 <div class="bg-white rounded-xl shadow-sm">
                     <div class="p-6 border-b border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900">System Health</h3>
+                        <h3 class="text-lg font-semibold text-gray-900">{{ _('System Health') }}</h3>
                     </div>
                     <div class="p-6">
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">API Status</span>
+                                <span class="text-sm text-gray-600">{{ _('API Status') }}</span>
                                 <div class="flex items-center">
                                     <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                                    <span class="text-sm font-semibold text-green-600">Healthy</span>
+                                    <span class="text-sm font-semibold text-green-600">{{ _('Healthy') }}</span>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Database</span>
+                                <span class="text-sm text-gray-600">{{ _('Database') }}</span>
                                 <div class="flex items-center">
                                     <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                                    <span class="text-sm font-semibold text-green-600">Online</span>
+                                    <span class="text-sm font-semibold text-green-600">{{ _('Online') }}</span>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">Payment Gateway</span>
+                                <span class="text-sm text-gray-600">{{ _('Payment Gateway') }}</span>
                                 <div class="flex items-center">
                                     <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                                    <span class="text-sm font-semibold text-green-600">Connected</span>
+                                    <span class="text-sm font-semibold text-green-600">{{ _('Connected') }}</span>
                                 </div>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-sm text-gray-600">CDN</span>
+                                <span class="text-sm text-gray-600">{{ _('CDN') }}</span>
                                 <div class="flex items-center">
                                     <div class="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
-                                    <span class="text-sm font-semibold text-yellow-600">Slow (245ms)</span>
+                                    <span class="text-sm font-semibold text-yellow-600">{{ _('Slow (245ms)') }}</span>
                                 </div>
                             </div>
                         </div>
 
                         <div class="mt-6 pt-4 border-t border-gray-200">
-                            <h4 class="text-sm font-semibold text-gray-900 mb-3">Quick Actions</h4>
+                            <h4 class="text-sm font-semibold text-gray-900 mb-3">{{ _('Quick Actions') }}</h4>
                             <div class="space-y-2">
                                 <button class="w-full text-left px-3 py-2 text-sm bg-blue-50 text-blue-700 rounded-md hover:bg-blue-100">
-                                    <i class="fas fa-sync mr-2"></i>Refresh Cache
+                                    <i class="fas fa-sync mr-2"></i>{{ _('Refresh Cache') }}
                                 </button>
                                 <button class="w-full text-left px-3 py-2 text-sm bg-green-50 text-green-700 rounded-md hover:bg-green-100">
-                                    <i class="fas fa-database mr-2"></i>Backup Database
+                                    <i class="fas fa-database mr-2"></i>{{ _('Backup Database') }}
                                 </button>
                                 <button class="w-full text-left px-3 py-2 text-sm bg-yellow-50 text-yellow-700 rounded-md hover:bg-yellow-100">
-                                    <i class="fas fa-bell mr-2"></i>Send Maintenance Alert
+                                    <i class="fas fa-bell mr-2"></i>{{ _('Send Maintenance Alert') }}
                                 </button>
                             </div>
                         </div>
@@ -325,7 +325,7 @@
                 <!-- Activity Feed -->
                 <div class="bg-white rounded-xl shadow-sm">
                     <div class="p-6 border-b border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900">Recent Activity</h3>
+                        <h3 class="text-lg font-semibold text-gray-900">{{ _('Recent Activity') }}</h3>
                     </div>
                     <div class="p-6">
                         <div class="space-y-4 max-h-80 overflow-y-auto">
@@ -334,9 +334,9 @@
                                     <i class="fas fa-plus text-white text-sm"></i>
                                 </div>
                                 <div class="flex-1 min-w-0">
-                                    <p class="text-sm font-medium text-blue-900">New Screen Submitted</p>
-                                    <p class="text-xs text-blue-700 truncate">King Abdullah Road LED by Urban Screens</p>
-                                    <p class="text-xs text-blue-600">2 hours ago</p>
+                                    <p class="text-sm font-medium text-blue-900">{{ _('New Screen Submitted') }}</p>
+                                    <p class="text-xs text-blue-700 truncate">{{ _('King Abdullah Road LED by Urban Screens') }}</p>
+                                    <p class="text-xs text-blue-600">{{ _('2 hours ago') }}</p>
                                 </div>
                             </div>
 
@@ -345,9 +345,9 @@
                                     <i class="fas fa-check text-white text-sm"></i>
                                 </div>
                                 <div class="flex-1 min-w-0">
-                                    <p class="text-sm font-medium text-green-900">Payment Processed</p>
-                                    <p class="text-xs text-green-700 truncate">45,000 SAR campaign booking</p>
-                                    <p class="text-xs text-green-600">4 hours ago</p>
+                                    <p class="text-sm font-medium text-green-900">{{ _('Payment Processed') }}</p>
+                                    <p class="text-xs text-green-700 truncate">{{ _('45,000 SAR campaign booking') }}</p>
+                                    <p class="text-xs text-green-600">{{ _('4 hours ago') }}</p>
                                 </div>
                             </div>
 
@@ -356,9 +356,9 @@
                                     <i class="fas fa-exclamation text-white text-sm"></i>
                                 </div>
                                 <div class="flex-1 min-w-0">
-                                    <p class="text-sm font-medium text-yellow-900">Dispute Reported</p>
-                                    <p class="text-xs text-yellow-700 truncate">Content issue on Tahlia Street Display</p>
-                                    <p class="text-xs text-yellow-600">6 hours ago</p>
+                                    <p class="text-sm font-medium text-yellow-900">{{ _('Dispute Reported') }}</p>
+                                    <p class="text-xs text-yellow-700 truncate">{{ _('Content issue on Tahlia Street Display') }}</p>
+                                    <p class="text-xs text-yellow-600">{{ _('6 hours ago') }}</p>
                                 </div>
                             </div>
 
@@ -367,9 +367,9 @@
                                     <i class="fas fa-user text-white text-sm"></i>
                                 </div>
                                 <div class="flex-1 min-w-0">
-                                    <p class="text-sm font-medium text-purple-900">New Vendor Registered</p>
-                                    <p class="text-xs text-purple-700 truncate">Digital Media Solutions</p>
-                                    <p class="text-xs text-purple-600">1 day ago</p>
+                                    <p class="text-sm font-medium text-purple-900">{{ _('New Vendor Registered') }}</p>
+                                    <p class="text-xs text-purple-700 truncate">{{ _('Digital Media Solutions') }}</p>
+                                    <p class="text-xs text-purple-600">{{ _('1 day ago') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -379,7 +379,7 @@
                 <!-- Top Performance -->
                 <div class="bg-white rounded-xl shadow-sm">
                     <div class="p-6 border-b border-gray-200">
-                        <h3 class="text-lg font-semibold text-gray-900">Top Performing Screens</h3>
+                        <h3 class="text-lg font-semibold text-gray-900">{{ _('Top Performing Screens') }}</h3>
                     </div>
                     <div class="p-6">
                         <div class="space-y-4">
@@ -389,8 +389,8 @@
                                         <span class="text-white text-sm font-bold">1</span>
                                     </div>
                                     <div>
-                                        <p class="text-sm font-semibold text-gray-900">King Fahd Road LED</p>
-                                        <p class="text-xs text-gray-600">15 bookings this month</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ _('King Fahd Road LED') }}</p>
+                                        <p class="text-xs text-gray-600">{{ _('15 bookings this month') }}</p>
                                     </div>
                                 </div>
                                 <span class="text-sm font-bold text-green-600">+32%</span>
@@ -402,8 +402,8 @@
                                         <span class="text-white text-sm font-bold">2</span>
                                     </div>
                                     <div>
-                                        <p class="text-sm font-semibold text-gray-900">Mall Indoor Screen</p>
-                                        <p class="text-xs text-gray-600">12 bookings this month</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ _('Mall Indoor Screen') }}</p>
+                                        <p class="text-xs text-gray-600">{{ _('12 bookings this month') }}</p>
                                     </div>
                                 </div>
                                 <span class="text-sm font-bold text-green-600">+28%</span>
@@ -415,8 +415,8 @@
                                         <span class="text-white text-sm font-bold">3</span>
                                     </div>
                                     <div>
-                                        <p class="text-sm font-semibold text-gray-900">Olaya Street Display</p>
-                                        <p class="text-xs text-gray-600">10 bookings this month</p>
+                                        <p class="text-sm font-semibold text-gray-900">{{ _('Olaya Street Display') }}</p>
+                                        <p class="text-xs text-gray-600">{{ _('10 bookings this month') }}</p>
                                     </div>
                                 </div>
                                 <span class="text-sm font-bold text-green-600">+20%</span>
@@ -425,7 +425,7 @@
 
                         <div class="mt-6 pt-4 border-t border-gray-200">
                             <button class="w-full bg-elaani-primary text-white py-2 px-4 rounded-md hover:bg-elaani-dark transition-colors text-sm">
-                                View Full Analytics
+                                {{ _('View Full Analytics') }}
                             </button>
                         </div>
                     </div>

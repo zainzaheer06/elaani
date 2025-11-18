@@ -1,9 +1,9 @@
 
 
-{% block title %}Screens Map - Elaani{% endblock %}
+{% block title %}{{ _('Screens Map - Elaani') }}{% endblock %}
 
-{% block page_title %}Screens & Billboards Map{% endblock %}
-{% block page_subtitle %}View all available screens across Riyadh on an interactive map{% endblock %}
+{% block page_title %}{{ _('Screens & Billboards Map') }}{% endblock %}
+{% block page_subtitle %}{{ _('View all available screens across Riyadh on an interactive map') }}{% endblock %}
 
 {% block extra_css %}
  <script src="https://cdn.tailwindcss.com"></script>
@@ -254,12 +254,12 @@
     
     <!-- Map Controls Panel -->
     <div class="map-controls">
-        <h3>Filter Screens</h3>
+        <h3>{{ _('Filter Screens') }}</h3>
         <div class="filter-badges-group">
-            <span class="filter-badge active" data-filter="all">All</span>
-            <span class="filter-badge" data-filter="available">Available</span>
-            <span class="filter-badge" data-filter="rented">Rented</span>
-            <span class="filter-badge" data-filter="maintenance">Maintenance</span>
+            <span class="filter-badge active" data-filter="all">{{ _('All') }}</span>
+            <span class="filter-badge" data-filter="available">{{ _('Available') }}</span>
+            <span class="filter-badge" data-filter="rented">{{ _('Rented') }}</span>
+            <span class="filter-badge" data-filter="maintenance">{{ _('Maintenance') }}</span>
         </div>
     </div>
     
@@ -267,21 +267,21 @@
     <div class="map-legend">
         <div class="legend-item">
             <div class="legend-color" style="background: linear-gradient(135deg, #10b981, #059669);"></div>
-            <span>Available</span>
+            <span>{{ _('Available') }}</span>
         </div>
         <div class="legend-item">
             <div class="legend-color" style="background: linear-gradient(135deg, #f59e0b, #d97706);"></div>
-            <span>Rented</span>
+            <span>{{ _('Rented') }}</span>
         </div>
         <div class="legend-item">
             <div class="legend-color" style="background: linear-gradient(135deg, #ef4444, #dc2626);"></div>
-            <span>Maintenance</span>
+            <span>{{ _('Maintenance') }}</span>
         </div>
     </div>
     
     <!-- Screens List Mini Panel -->
     <div class="screens-list-panel">
-        <h4>📺 Screens Nearby</h4>
+        <h4>📺 {{ _('Screens Nearby') }}</h4>
         <div id="screens-mini-list"></div>
     </div>
 </div>
@@ -464,33 +464,33 @@
                     <div style="padding: 16px;">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; font-size: 13px;">
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">Size</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Size') }}</p>
                                 <p style="font-weight: bold; color: #333; margin: 0;">${screen.size}</p>
                             </div>
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">Type</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Type') }}</p>
                                 <p style="font-weight: bold; color: #333; margin: 0;">${screen.type}</p>
                             </div>
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">Direction</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Direction') }}</p>
                                 <p style="font-weight: bold; color: #333; margin: 0;"><i class="fas fa-compass" style="margin-right: 4px; color: #005430;"></i>${screen.direction}</p>
                             </div>
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">Rating</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Rating') }}</p>
                                 <p style="font-weight: bold; color: #f59e0b; margin: 0;">⭐ ${screen.rating}</p>
                             </div>
                         </div>
                         <div style="border-top: 1px solid #e5e7eb; padding-top: 12px; margin-top: 12px;">
                             <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px;">
-                                <span style="color: #666;">Price:</span>
-                                <span style="font-weight: bold; color: #005430;">${screen.price_per_day.toLocaleString()} SAR/day</span>
+                                <span style="color: #666;">{{ _('Price:') }}</span>
+                                <span style="font-weight: bold; color: #005430;">${screen.price_per_day.toLocaleString()} {{ _('SAR/day') }}</span>
                             </div>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px;">
-                                <span style="color: #666;">Hourly:</span>
-                                <span style="font-weight: bold; color: #005430;">${screen.price_per_hour} SAR/hr</span>
+                                <span style="color: #666;">{{ _('Hourly:') }}</span>
+                                <span style="font-weight: bold; color: #005430;">${screen.price_per_hour} {{ _('SAR/hr') }}</span>
                             </div>
                             <button onclick="quickBook(${screen.id})" style="width: 100%; padding: 10px; background: linear-gradient(135deg, #005430, #057f48); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s;">
-                                📅 Book This Screen
+                                📅 {{ _('Book This Screen') }}
                             </button>
                         </div>
                     </div>
@@ -539,7 +539,7 @@
         if (filteredScreens.length > 8) {
             const moreItem = document.createElement('div');
             moreItem.className = 'screen-item-mini';
-            moreItem.innerHTML = `<div style="text-align: center; color: #005430; font-weight: 600;">+ ${filteredScreens.length - 8} more screens</div>`;
+            moreItem.innerHTML = `<div style="text-align: center; color: #005430; font-weight: 600;">+ ${filteredScreens.length - 8} {{ _('more screens') }}</div>`;
             container.appendChild(moreItem);
         }
     }
@@ -560,11 +560,11 @@
 
     // Helper functions
     function viewScreenDetails(id) {
-        showNotification(`Opening details for screen #${id}...`, 'info');
+        showNotification(`{{ _("Opening details for screen #") }}${id}...`, 'info');
     }
 
     function quickBook(id) {
-        showNotification(`Redirecting to booking for screen #${id}...`, 'info');
+        showNotification(`{{ _("Redirecting to booking for screen #") }}${id}...`, 'info');
         setTimeout(() => {
             // window.location.href = `/book/${id}`;
         }, 1000);

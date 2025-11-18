@@ -3,7 +3,7 @@
 <!-- templates/admin/pending_approvals.html -->
 {% extends "base.html" %}
 
-{% block title %}Pending Approvals - Admin{% endblock %}
+{% block title %}{{ _('Pending Approvals - Admin') }}{% endblock %}
 
 {% block content %}
 <div class="bg-gray-50 min-h-screen">
@@ -15,21 +15,21 @@
                     <nav class="flex mb-4" aria-label="Breadcrumb">
                         <ol class="inline-flex items-center space-x-1 md:space-x-3">
                             <li class="inline-flex items-center">
-                                <a href="{{ url_for('admin_dashboard') }}" class="text-gray-700 hover:text-elaani-primary">Admin Dashboard</a>
+                                <a href="{{ url_for('admin_dashboard') }}" class="text-gray-700 hover:text-elaani-primary">{{ _('Admin Dashboard') }}</a>
                             </li>
                             <li>
                                 <div class="flex items-center">
                                     <i class="fas fa-chevron-right text-gray-400 mx-3"></i>
-                                    <span class="text-gray-500">Pending Approvals</span>
+                                    <span class="text-gray-500">{{ _('Pending Approvals') }}</span>
                                 </div>
                             </li>
                         </ol>
                     </nav>
-                    <h1 class="text-3xl font-bold text-gray-900">Screen Approvals</h1>
-                    <p class="text-gray-600">Review and approve new screen listings</p>
+                    <h1 class="text-3xl font-bold text-gray-900">{{ _('Screen Approvals') }}</h1>
+                    <p class="text-gray-600">{{ _('Review and approve new screen listings') }}</p>
                 </div>
                 <div class="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-lg">
-                    <span class="font-semibold">{{ screens|length }} screens</span> pending review
+                    <span class="font-semibold">{{ screens|length }} {{ _('screens') }}</span> {{ _('pending review') }}
                 </div>
             </div>
         </div>
@@ -41,26 +41,26 @@
             <div class="flex flex-col sm:flex-row gap-4 items-center justify-between">
                 <div class="flex flex-col sm:flex-row gap-4">
                     <select class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
-                        <option>All Submissions</option>
-                        <option>New Listings</option>
-                        <option>Updates</option>
-                        <option>Resubmissions</option>
+                        <option>{{ _('All Submissions') }}</option>
+                        <option>{{ _('New Listings') }}</option>
+                        <option>{{ _('Updates') }}</option>
+                        <option>{{ _('Resubmissions') }}</option>
                     </select>
                     <select class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
-                        <option>All Types</option>
-                        <option>LED Billboard</option>
-                        <option>Indoor LED</option>
-                        <option>Digital Display</option>
+                        <option>{{ _('All Types') }}</option>
+                        <option>{{ _('LED Billboard') }}</option>
+                        <option>{{ _('Indoor LED') }}</option>
+                        <option>{{ _('Digital Display') }}</option>
                     </select>
                     <select class="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
-                        <option>Submission Date</option>
-                        <option>Oldest First</option>
-                        <option>Newest First</option>
-                        <option>By Location</option>
+                        <option>{{ _('Submission Date') }}</option>
+                        <option>{{ _('Oldest First') }}</option>
+                        <option>{{ _('Newest First') }}</option>
+                        <option>{{ _('By Location') }}</option>
                     </select>
                 </div>
                 <div class="text-sm text-gray-600">
-                    Showing {{ screens|length }} of {{ screens|length }} submissions
+                    {{ _('Showing') }} {{ screens|length }} {{ _('of') }} {{ screens|length }} {{ _('submissions') }}
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm font-semibold">Pending Review</span>
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm font-semibold">{{ _('Pending Review') }}</span>
                         </div>
                     </div>
 
@@ -87,32 +87,32 @@
                     <div class="lg:col-span-2">
                         <div class="flex items-center justify-between mb-4">
                             <h3 class="text-xl font-bold text-gray-900">{{ screen.title }}</h3>
-                            <span class="text-sm text-gray-500">Submitted 2 hours ago</span>
+                            <span class="text-sm text-gray-500">{{ _('Submitted 2 hours ago') }}</span>
                         </div>
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
-                                <h4 class="font-semibold text-gray-700 mb-2">Basic Info</h4>
+                                <h4 class="font-semibold text-gray-700 mb-2">{{ _('Basic Info') }}</h4>
                                 <div class="space-y-1 text-sm">
-                                    <div><span class="text-gray-600">Type:</span> {{ screen.type }}</div>
-                                    <div><span class="text-gray-600">Size:</span> {{ screen.size }}</div>
-                                    <div><span class="text-gray-600">Location:</span> {{ screen.location }}</div>
-                                    <div><span class="text-gray-600">Owner:</span> {{ screen.owner }}</div>
+                                    <div><span class="text-gray-600">{{ _('Type:') }}</span> {{ screen.type }}</div>
+                                    <div><span class="text-gray-600">{{ _('Size:') }}</span> {{ screen.size }}</div>
+                                    <div><span class="text-gray-600">{{ _('Location:') }}</span> {{ screen.location }}</div>
+                                    <div><span class="text-gray-600">{{ _('Owner:') }}</span> {{ screen.owner }}</div>
                                 </div>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-700 mb-2">Pricing</h4>
+                                <h4 class="font-semibold text-gray-700 mb-2">{{ _('Pricing') }}</h4>
                                 <div class="space-y-1 text-sm">
-                                    <div><span class="text-gray-600">Hourly:</span> {{ screen.price_per_hour }} SAR</div>
-                                    <div><span class="text-gray-600">Daily:</span> {{ screen.price_per_day }} SAR</div>
-                                    <div><span class="text-gray-600">Weekly:</span> {{ (screen.price_per_day * 6)|int }} SAR</div>
-                                    <div><span class="text-gray-600">Est. Monthly:</span> {{ (screen.price_per_day * 25)|int }} SAR</div>
+                                    <div><span class="text-gray-600">{{ _('Hourly:') }}</span> {{ screen.price_per_hour }} {{ _('SAR') }}</div>
+                                    <div><span class="text-gray-600">{{ _('Daily:') }}</span> {{ screen.price_per_day }} {{ _('SAR') }}</div>
+                                    <div><span class="text-gray-600">{{ _('Weekly:') }}</span> {{ (screen.price_per_day * 6)|int }} {{ _('SAR') }}</div>
+                                    <div><span class="text-gray-600">{{ _('Est. Monthly:') }}</span> {{ (screen.price_per_day * 25)|int }} {{ _('SAR') }}</div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <h4 class="font-semibold text-gray-700 mb-2">Features</h4>
+                            <h4 class="font-semibold text-gray-700 mb-2">{{ _('Features') }}</h4>
                             <div class="flex flex-wrap gap-2">
                                 {% for feature in screen.features %}
                                 <span class="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">{{ feature }}</span>
@@ -121,9 +121,9 @@
                         </div>
 
                         <div>
-                            <h4 class="font-semibold text-gray-700 mb-2">Description</h4>
+                            <h4 class="font-semibold text-gray-700 mb-2">{{ _('Description') }}</h4>
                             <p class="text-sm text-gray-600">
-                                Premium digital billboard located in one of Riyadh's busiest commercial areas. High visibility location with excellent foot traffic and vehicle exposure.
+                                {{ _('Premium digital billboard located in one of Riyadh\'s busiest commercial areas. High visibility location with excellent foot traffic and vehicle exposure.') }}
                             </p>
                         </div>
                     </div>
@@ -131,48 +131,48 @@
                     <!-- Actions -->
                     <div class="lg:col-span-1">
                         <div class="bg-gray-50 rounded-lg p-4 h-full">
-                            <h4 class="font-semibold text-gray-900 mb-4">Review Actions</h4>
+                            <h4 class="font-semibold text-gray-900 mb-4">{{ _('Review Actions') }}</h4>
                             
                             <div class="space-y-3 mb-6">
                                 <button class="w-full bg-green-600 text-white py-2 px-4 rounded-md hover:bg-green-700 transition-colors">
-                                    <i class="fas fa-check mr-2"></i>Approve
+                                    <i class="fas fa-check mr-2"></i>{{ _('Approve') }}
                                 </button>
                                 <button class="w-full bg-yellow-600 text-white py-2 px-4 rounded-md hover:bg-yellow-700 transition-colors">
-                                    <i class="fas fa-edit mr-2"></i>Request Changes
+                                    <i class="fas fa-edit mr-2"></i>{{ _('Request Changes') }}
                                 </button>
                                 <button class="w-full bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors">
-                                    <i class="fas fa-times mr-2"></i>Reject
+                                    <i class="fas fa-times mr-2"></i>{{ _('Reject') }}
                                 </button>
                             </div>
 
                             <div class="border-t pt-4">
-                                <h5 class="font-semibold text-gray-700 mb-2">Quick Checks</h5>
+                                <h5 class="font-semibold text-gray-700 mb-2">{{ _('Quick Checks') }}</h5>
                                 <div class="space-y-2 text-sm">
                                     <label class="flex items-center">
                                         <input type="checkbox" class="mr-2 text-elaani-primary focus:ring-elaani-primary">
-                                        <span>Location verified</span>
+                                        <span>{{ _('Location verified') }}</span>
                                     </label>
                                     <label class="flex items-center">
                                         <input type="checkbox" class="mr-2 text-elaani-primary focus:ring-elaani-primary">
-                                        <span>Pricing reasonable</span>
+                                        <span>{{ _('Pricing reasonable') }}</span>
                                     </label>
                                     <label class="flex items-center">
                                         <input type="checkbox" class="mr-2 text-elaani-primary focus:ring-elaani-primary">
-                                        <span>Photos quality good</span>
+                                        <span>{{ _('Photos quality good') }}</span>
                                     </label>
                                     <label class="flex items-center">
                                         <input type="checkbox" class="mr-2 text-elaani-primary focus:ring-elaani-primary">
-                                        <span>Documentation complete</span>
+                                        <span>{{ _('Documentation complete') }}</span>
                                     </label>
                                 </div>
                             </div>
 
                             <div class="border-t pt-4 mt-4">
                                 <button class="w-full bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 transition-colors text-sm">
-                                    <i class="fas fa-map-marker-alt mr-2"></i>View on Map
+                                    <i class="fas fa-map-marker-alt mr-2"></i>{{ _('View on Map') }}
                                 </button>
                                 <button class="w-full bg-gray-200 text-gray-700 py-2 px-4 rounded-md hover:bg-gray-300 transition-colors text-sm mt-2">
-                                    <i class="fas fa-images mr-2"></i>View All Photos
+                                    <i class="fas fa-images mr-2"></i>{{ _('View All Photos') }}
                                 </button>
                             </div>
                         </div>
@@ -187,17 +187,17 @@
             <div class="flex items-center justify-between">
                 <div class="flex items-center">
                     <input type="checkbox" class="mr-3 text-elaani-primary focus:ring-elaani-primary">
-                    <span class="text-gray-700">Select all pending screens</span>
+                    <span class="text-gray-700">{{ _('Select all pending screens') }}</span>
                 </div>
                 <div class="flex gap-3">
                     <button class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors">
-                        Bulk Approve
+                        {{ _('Bulk Approve') }}
                     </button>
                     <button class="bg-yellow-600 text-white px-4 py-2 rounded-md hover:bg-yellow-700 transition-colors">
-                        Request Changes
+                        {{ _('Request Changes') }}
                     </button>
                     <button class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors">
-                        Bulk Reject
+                        {{ _('Bulk Reject') }}
                     </button>
                 </div>
             </div>

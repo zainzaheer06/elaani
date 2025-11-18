@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Vendor Dashboard - Elaani{% endblock %}</title>
+    <title>{% block title %}{{ _('Vendor Dashboard') }} - {{ _('Elaani') }}{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -60,92 +60,92 @@
                     <!-- Dashboard -->
                     <a href="{{ url_for('vendor_dashboard') }}" class="{% if request.endpoint == 'vendor_dashboard' %}bg-white bg-opacity-20 text-white{% else %}text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white{% endif %} group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                         <i class="fas fa-tachometer-alt mr-3 text-lg"></i>
-                        Dashboard
+                        {{ _('Dashboard') }}
                     </a>
 
                     <!-- Screen Management -->
                     <div class="mt-6">
-                        <h3 class="px-3 text-xs font-semibold text-green-200 uppercase tracking-wider">Screen Management</h3>
+                        <h3 class="px-3 text-xs font-semibold text-green-200 uppercase tracking-wider">{{ _('Screen Management') }}</h3>
                         <div class="mt-2 space-y-1">
                             <a href="{{ url_for('list_screen') }}" class="{% if request.endpoint == 'list_screen' %}bg-white bg-opacity-20 text-white{% else %}text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white{% endif %} group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-plus mr-3 text-lg"></i>
-                                Add New Screen
+                                {{ _('Add New Screen') }}
                             </a>
                             <a href="{{ url_for('manage_screens') }}" class="{% if request.endpoint == 'manage_screens' %}bg-white bg-opacity-20 text-white{% else %}text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white{% endif %} group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-tv mr-3 text-lg"></i>
-                                My Screens
+                                {{ _('My Screens') }}
                                 <span class="ml-auto bg-white text-elaani-primary text-xs px-2 py-1 rounded-full">{% block screen_count %}3{% endblock %}</span>
                             </a>
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-chart-bar mr-3 text-lg"></i>
-                                Performance Analytics
+                                {{ _('Performance Analytics') }}
                             </a>
                         </div>
                     </div>
 
                     <!-- Bookings & Revenue -->
                     <div class="mt-6">
-                        <h3 class="px-3 text-xs font-semibold text-green-200 uppercase tracking-wider">Bookings & Revenue</h3>
+                        <h3 class="px-3 text-xs font-semibold text-green-200 uppercase tracking-wider">{{ _('Bookings & Revenue') }}</h3>
                         <div class="mt-2 space-y-1">
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-calendar-check mr-3 text-lg"></i>
-                                Active Bookings
+                                {{ _('Active Bookings') }}
                                 <span class="ml-auto bg-blue-500 text-white text-xs px-2 py-1 rounded-full">8</span>
                             </a>
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-clock mr-3 text-lg"></i>
-                                Pending Requests
+                                {{ _('Pending Requests') }}
                                 <span class="ml-auto bg-yellow-500 text-white text-xs px-2 py-1 rounded-full">3</span>
                             </a>
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-history mr-3 text-lg"></i>
-                                Booking History
+                                {{ _('Booking History') }}
                             </a>
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-dollar-sign mr-3 text-lg"></i>
-                                Earnings & Payouts
+                                {{ _('Earnings & Payouts') }}
                             </a>
                         </div>
                     </div>
 
                     <!-- Customer Management -->
                     <div class="mt-6">
-                        <h3 class="px-3 text-xs font-semibold text-green-200 uppercase tracking-wider">Customer Management</h3>
+                        <h3 class="px-3 text-xs font-semibold text-green-200 uppercase tracking-wider">{{ _('Customer Management') }}</h3>
                         <div class="mt-2 space-y-1">
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-users mr-3 text-lg"></i>
-                                My Clients
+                                {{ _('My Clients') }}
                             </a>
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-star mr-3 text-lg"></i>
-                                Reviews & Ratings
+                                {{ _('Reviews & Ratings') }}
                             </a>
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-comments mr-3 text-lg"></i>
-                                Messages
+                                {{ _('Messages') }}
                             </a>
                         </div>
                     </div>
 
                     <!-- Account & Settings -->
                     <div class="mt-6">
-                        <h3 class="px-3 text-xs font-semibold text-green-200 uppercase tracking-wider">Account</h3>
+                        <h3 class="px-3 text-xs font-semibold text-green-200 uppercase tracking-wider">{{ _('Account') }}</h3>
                         <div class="mt-2 space-y-1">
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-user mr-3 text-lg"></i>
-                                Profile Settings
+                                {{ _('Profile Settings') }}
                             </a>
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-credit-card mr-3 text-lg"></i>
-                                Payment Methods
+                                {{ _('Payment Methods') }}
                             </a>
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-bell mr-3 text-lg"></i>
-                                Notifications
+                                {{ _('Notifications') }}
                             </a>
                             <a href="#" class="text-green-100 hover:bg-white hover:bg-opacity-20 hover:text-white group flex items-center px-3 py-2 text-sm font-medium rounded-md">
                                 <i class="fas fa-life-ring mr-3 text-lg"></i>
-                                Support
+                                {{ _('Support') }}
                             </a>
                         </div>
                     </div>
@@ -172,8 +172,8 @@
             <header class="bg-white shadow-sm border-b border-gray-200">
                 <div class="flex items-center justify-between px-6 py-4">
                     <div>
-                        <h1 class="text-2xl font-bold text-gray-900">{% block page_title %}Vendor Dashboard{% endblock %}</h1>
-                        <p class="text-gray-600">{% block page_subtitle %}Manage your digital screens and earnings{% endblock %}</p>
+                        <h1 class="text-2xl font-bold text-gray-900">{% block page_title %}{{ _('Vendor Dashboard') }}{% endblock %}</h1>
+                        <p class="text-gray-600">{% block page_subtitle %}{{ _('Manage your digital screens and earnings') }}{% endblock %}</p>
                     </div>
                     <div class="flex items-center space-x-4">
                         {% block header_actions %}
@@ -184,7 +184,7 @@
                             </button>
                         </div>
                         <a href="{{ url_for('list_screen') }}" class="bg-elaani-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-elaani-dark transition-colors">
-                            <i class="fas fa-plus mr-2"></i>Add Screen
+                            <i class="fas fa-plus mr-2"></i>{{ _('Add Screen') }}
                         </a>
                         {% endblock %}
                     </div>

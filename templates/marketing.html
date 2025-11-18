@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 
-{% block title %}Marketing - Elaani{% endblock %}
+{% block title %}{{ _('Marketing - Elaani') }}{% endblock %}
 
-{% block page_title %}Marketing & Customer Acquisition{% endblock %}
-{% block page_subtitle %}Manage campaigns, track leads, and grow your digital display rental business in Saudi Arabia{% endblock %}
+{% block page_title %}{{ _('Marketing & Customer Acquisition') }}{% endblock %}
+{% block page_subtitle %}{{ _('Manage campaigns, track leads, and grow your digital display rental business in Saudi Arabia') }}{% endblock %}
 
 {% block content %}
 <!-- Action Bar -->
@@ -13,35 +13,34 @@
             <button onclick="createCampaign()" 
                     class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-megaphone mr-2"></i>
-                Create Campaign
+                {{ _('Create Campaign') }}
             </button>
             <button onclick="manageLeads()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-user-plus mr-2"></i>
-                Manage Leads
+                {{ _('Manage Leads') }}
             </button>
             <button onclick="marketingAnalytics()" 
                     class="inline-flex items-center px-4 py-3 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-colors">
                 <i class="fas fa-chart-pie mr-2"></i>
-                Analytics
-            </button>
+                {{ _('Analytics') }}
         </div>
         
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <!-- Campaign Status Filter -->
             <select id="campaignFilter" 
                     class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                <option value="all">All Campaigns</option>
-                <option value="active">Active</option>
-                <option value="paused">Paused</option>
-                <option value="completed">Completed</option>
+                <option value="all">{{ _('All Campaigns') }}</option>
+                <option value="active">{{ _('Active') }}</option>
+                <option value="paused">{{ _('Paused') }}</option>
+                <option value="completed">{{ _('Completed') }}</option>
             </select>
             
             <!-- Social Media -->
             <button onclick="socialMediaDashboard()" 
                    class="inline-flex items-center px-4 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 transition-all duration-200">
                 <i class="fas fa-share-alt mr-2"></i>
-                Media
+                {{ _('Media') }}
             </button>
         </div>
     </div>
@@ -58,10 +57,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">24,500</div>
-                <div class="text-sm font-medium text-gray-600">Website Visitors</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Website Visitors') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
-                    +15.3% this month
+                    {{ _('+15.3% this month') }}
                 </div>
             </div>
         </div>
@@ -76,10 +75,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">387</div>
-                <div class="text-sm font-medium text-gray-600">New Leads</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('New Leads') }}</div>
                 <div class="text-xs text-blue-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
-                    +23 this week
+                    {{ _('+23 this week') }}
                 </div>
             </div>
         </div>
@@ -94,10 +93,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">12.5%</div>
-                <div class="text-sm font-medium text-gray-600">Conversion Rate</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Conversion Rate') }}</div>
                 <div class="text-xs text-purple-600 font-medium mt-1">
                     <i class="fas fa-arrow-up mr-1"></i>
-                    +2.1% improvement
+                    {{ _('+2.1% improvement') }}
                 </div>
             </div>
         </div>
@@ -112,10 +111,10 @@
             </div>
             <div class="ml-4">
                 <div class="text-2xl font-bold text-gray-900">185 ريال</div>
-                <div class="text-sm font-medium text-gray-600">Cost Per Lead</div>
+                <div class="text-sm font-medium text-gray-600">{{ _('Cost Per Lead') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
                     <i class="fas fa-arrow-down mr-1"></i>
-                    -8.5% decrease
+                    {{ _('-8.5% decrease') }}
                 </div>
             </div>
         </div>
@@ -129,12 +128,12 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Active Marketing Campaigns</h3>
-                    <p class="text-sm text-gray-600 mt-1">Track performance of ongoing marketing initiatives</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Active Marketing Campaigns') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Track performance of ongoing marketing initiatives') }}</p>
                 </div>
                 <button onclick="viewAllCampaigns()" 
                         class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
-                    View All
+                    {{ _('View All') }}
                 </button>
             </div>
         </div>
@@ -148,32 +147,32 @@
                                 <i class="fab fa-google text-white text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-900">Google Ads - LED Display Rental</h4>
-                                <p class="text-sm text-gray-600">Search & Display Campaign</p>
+                                <h4 class="font-semibold text-gray-900">{{ _('Google Ads - LED Display Rental') }}</h4>
+                                <p class="text-sm text-gray-600">{{ _('Search & Display Campaign') }}</p>
                             </div>
                         </div>
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                             <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
-                            Active
+                            {{ _('Active') }}
                         </span>
                     </div>
                     
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                         <div class="text-center">
                             <div class="font-semibold text-gray-900">45,230</div>
-                            <div class="text-xs text-gray-600">Impressions</div>
+                            <div class="text-xs text-gray-600">{{ _('Impressions') }}</div>
                         </div>
                         <div class="text-center">
                             <div class="font-semibold text-blue-600">1,245</div>
-                            <div class="text-xs text-gray-600">Clicks</div>
+                            <div class="text-xs text-gray-600">{{ _('Clicks') }}</div>
                         </div>
                         <div class="text-center">
                             <div class="font-semibold text-green-600">2.75%</div>
-                            <div class="text-xs text-gray-600">CTR</div>
+                            <div class="text-xs text-gray-600">{{ _('CTR') }}</div>
                         </div>
                         <div class="text-center">
                             <div class="font-semibold text-purple-600">8,500 ريال</div>
-                            <div class="text-xs text-gray-600">Spent</div>
+                            <div class="text-xs text-gray-600">{{ _('Spent') }}</div>
                         </div>
                     </div>
                     
@@ -181,12 +180,12 @@
                         <button onclick="editCampaign('google-ads')" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-edit mr-1"></i>
-                            Edit
+                            {{ _('Edit') }}
                         </button>
                         <button onclick="viewCampaignDetails('google-ads')" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-chart-line mr-1"></i>
-                            Analytics
+                            {{ _('Analytics') }}
                         </button>
                     </div>
                 </div>
@@ -199,32 +198,32 @@
                                 <i class="fab fa-facebook text-white text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-900">Facebook & Instagram - Event Promotion</h4>
-                                <p class="text-sm text-gray-600">Social Media Campaign</p>
+                                <h4 class="font-semibold text-gray-900">{{ _('Facebook & Instagram - Event Promotion') }}</h4>
+                                <p class="text-sm text-gray-600">{{ _('Social Media Campaign') }}</p>
                             </div>
                         </div>
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
                             <i class="w-2 h-2 mr-1 bg-green-400 rounded-full"></i>
-                            Active
+                            {{ _('Active') }}
                         </span>
                     </div>
                     
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                         <div class="text-center">
                             <div class="font-semibold text-gray-900">78,500</div>
-                            <div class="text-xs text-gray-600">Reach</div>
+                            <div class="text-xs text-gray-600">{{ _('Reach') }}</div>
                         </div>
                         <div class="text-center">
                             <div class="font-semibold text-blue-600">3,420</div>
-                            <div class="text-xs text-gray-600">Engagement</div>
+                            <div class="text-xs text-gray-600">{{ _('Engagement') }}</div>
                         </div>
                         <div class="text-center">
                             <div class="font-semibold text-green-600">4.35%</div>
-                            <div class="text-xs text-gray-600">Engagement Rate</div>
+                            <div class="text-xs text-gray-600">{{ _('Engagement Rate') }}</div>
                         </div>
                         <div class="text-center">
                             <div class="font-semibold text-purple-600">5,200 ريال</div>
-                            <div class="text-xs text-gray-600">Spent</div>
+                            <div class="text-xs text-gray-600">{{ _('Spent') }}</div>
                         </div>
                     </div>
                     
@@ -232,12 +231,12 @@
                         <button onclick="editCampaign('social-media')" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-edit mr-1"></i>
-                            Edit
+                            {{ _('Edit') }}
                         </button>
                         <button onclick="viewCampaignDetails('social-media')" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-chart-line mr-1"></i>
-                            Analytics
+                            {{ _('Analytics') }}
                         </button>
                     </div>
                 </div>
@@ -250,32 +249,32 @@
                                 <i class="fas fa-envelope text-white text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold text-gray-900">Email Newsletter - Monthly Offers</h4>
-                                <p class="text-sm text-gray-600">Email Marketing Campaign</p>
+                                <h4 class="font-semibold text-gray-900">{{ _('Email Newsletter - Monthly Offers') }}</h4>
+                                <p class="text-sm text-gray-600">{{ _('Email Marketing Campaign') }}</p>
                             </div>
                         </div>
                         <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                             <i class="w-2 h-2 mr-1 bg-yellow-400 rounded-full"></i>
-                            Scheduled
+                            {{ _('Scheduled') }}
                         </span>
                     </div>
                     
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
                         <div class="text-center">
                             <div class="font-semibold text-gray-900">2,340</div>
-                            <div class="text-xs text-gray-600">Recipients</div>
+                            <div class="text-xs text-gray-600">{{ _('Recipients') }}</div>
                         </div>
                         <div class="text-center">
                             <div class="font-semibold text-blue-600">856</div>
-                            <div class="text-xs text-gray-600">Opens</div>
+                            <div class="text-xs text-gray-600">{{ _('Opens') }}</div>
                         </div>
                         <div class="text-center">
                             <div class="font-semibold text-green-600">36.6%</div>
-                            <div class="text-xs text-gray-600">Open Rate</div>
+                            <div class="text-xs text-gray-600">{{ _('Open Rate') }}</div>
                         </div>
                         <div class="text-center">
                             <div class="font-semibold text-purple-600">850 ريال</div>
-                            <div class="text-xs text-gray-600">Cost</div>
+                            <div class="text-xs text-gray-600">{{ _('Cost') }}</div>
                         </div>
                     </div>
                     
@@ -283,12 +282,12 @@
                         <button onclick="editCampaign('email')" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-edit mr-1"></i>
-                            Edit
+                            {{ _('Edit') }}
                         </button>
                         <button onclick="sendNow('email')" 
                                 class="flex-1 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-paper-plane mr-1"></i>
-                            Send Now
+                            {{ _('Send Now') }}
                         </button>
                     </div>
                 </div>
@@ -301,11 +300,11 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Lead Pipeline</h3>
-                    <p class="text-sm text-gray-600 mt-1">Track and manage sales opportunities</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Lead Pipeline') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Track and manage sales opportunities') }}</p>
                 </div>
                 <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                    47 Active
+                    {{ _('47 Active') }}
                 </span>
             </div>
         </div>
@@ -314,7 +313,7 @@
                 <!-- Lead Stages -->
                 <div>
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-medium text-gray-700">New Leads (15)</span>
+                        <span class="text-sm font-medium text-gray-700">{{ _('New Leads (15)') }}</span>
                         <span class="text-sm font-bold text-blue-600">32%</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2">
@@ -324,7 +323,7 @@
                 
                 <div>
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-medium text-gray-700">Qualified (12)</span>
+                        <span class="text-sm font-medium text-gray-700">{{ _('Qualified (12)') }}</span>
                         <span class="text-sm font-bold text-green-600">26%</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2">
@@ -334,7 +333,7 @@
                 
                 <div>
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-medium text-gray-700">Proposal Sent (12)</span>
+                        <span class="text-sm font-medium text-gray-700">{{ _('Proposal Sent (12)') }}</span>
                         <span class="text-sm font-bold text-yellow-600">26%</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2">
@@ -344,7 +343,7 @@
                 
                 <div>
                     <div class="flex justify-between items-center mb-2">
-                        <span class="text-sm font-medium text-gray-700">Negotiation (8)</span>
+                        <span class="text-sm font-medium text-gray-700">{{ _('Negotiation (8)') }}</span>
                         <span class="text-sm font-bold text-purple-600">17%</span>
                     </div>
                     <div class="w-full bg-gray-200 rounded-full h-2">
@@ -354,41 +353,41 @@
                 
                 <!-- Recent Leads -->
                 <div class="pt-4 border-t border-gray-200">
-                    <h4 class="font-semibold text-gray-900 mb-3">Recent High-Value Leads</h4>
+                    <h4 class="font-semibold text-gray-900 mb-3">{{ _('Recent High-Value Leads') }}</h4>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between p-3 bg-green-50 border border-green-200 rounded-lg">
                             <div>
-                                <div class="font-medium text-green-800">King Saud University</div>
-                                <div class="text-sm text-green-600">Educational Event - Multiple LEDs</div>
-                                <div class="text-xs text-green-500">2 hours ago</div>
+                                <div class="font-medium text-green-800">{{ _('King Saud University') }}</div>
+                                <div class="text-sm text-green-600">{{ _('Educational Event - Multiple LEDs') }}</div>
+                                <div class="text-xs text-green-500">{{ _('2 hours ago') }}</div>
                             </div>
                             <div class="text-right">
                                 <div class="font-bold text-green-800">85,000 ريال</div>
-                                <div class="text-xs text-green-600">Potential Value</div>
+                                <div class="text-xs text-green-600">{{ _('Potential Value') }}</div>
                             </div>
                         </div>
                         
                         <div class="flex items-center justify-between p-3 bg-blue-50 border border-blue-200 rounded-lg">
                             <div>
-                                <div class="font-medium text-blue-800">Saudi Aramco</div>
-                                <div class="text-sm text-blue-600">Corporate Conference Setup</div>
-                                <div class="text-xs text-blue-500">5 hours ago</div>
+                                <div class="font-medium text-blue-800">{{ _('Saudi Aramco') }}</div>
+                                <div class="text-sm text-blue-600">{{ _('Corporate Conference Setup') }}</div>
+                                <div class="text-xs text-blue-500">{{ _('5 hours ago') }}</div>
                             </div>
                             <div class="text-right">
                                 <div class="font-bold text-blue-800">125,000 ريال</div>
-                                <div class="text-xs text-blue-600">Potential Value</div>
+                                <div class="text-xs text-blue-600">{{ _('Potential Value') }}</div>
                             </div>
                         </div>
                         
                         <div class="flex items-center justify-between p-3 bg-purple-50 border border-purple-200 rounded-lg">
                             <div>
-                                <div class="font-medium text-purple-800">Jeddah Wedding Hall</div>
-                                <div class="text-sm text-purple-600">Premium Wedding Package</div>
-                                <div class="text-xs text-purple-500">1 day ago</div>
+                                <div class="font-medium text-purple-800">{{ _('Jeddah Wedding Hall') }}</div>
+                                <div class="text-sm text-purple-600">{{ _('Premium Wedding Package') }}</div>
+                                <div class="text-xs text-purple-500">{{ _('1 day ago') }}</div>
                             </div>
                             <div class="text-right">
                                 <div class="font-bold text-purple-800">45,000 ريال</div>
-                                <div class="text-xs text-purple-600">Potential Value</div>
+                                <div class="text-xs text-purple-600">{{ _('Potential Value') }}</div>
                             </div>
                         </div>
                     </div>
@@ -400,12 +399,12 @@
                         <button onclick="followUpLeads()" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-phone mr-1"></i>
-                            Follow Up
+                            {{ _('Follow Up') }}
                         </button>
                         <button onclick="convertLead()" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-handshake mr-1"></i>
-                            Convert
+                            {{ _('Convert') }}
                         </button>
                     </div>
                 </div>
@@ -421,13 +420,13 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Marketing Channels</h3>
-                    <p class="text-sm text-gray-600 mt-1">Performance by acquisition channel</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Marketing Channels') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('Performance by acquisition channel') }}</p>
                 </div>
                 <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-elaani-primary">
-                    <option>This Month</option>
-                    <option>Last Month</option>
-                    <option>This Quarter</option>
+                    <option>{{ _('This Month') }}</option>
+                    <option>{{ _('Last Month') }}</option>
+                    <option>{{ _('This Quarter') }}</option>
                 </select>
             </div>
         </div>
@@ -439,13 +438,13 @@
                             <i class="fab fa-google text-red-600"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-gray-900">Google Ads</div>
-                            <div class="text-sm text-gray-600">Search & Display</div>
+                            <div class="font-medium text-gray-900">{{ _('Google Ads') }}</div>
+                            <div class="text-sm text-gray-600">{{ _('Search & Display') }}</div>
                         </div>
                     </div>
                     <div class="text-right">
-                        <div class="font-semibold text-gray-900">156 leads</div>
-                        <div class="text-xs text-green-600">+12.5% conversion</div>
+                        <div class="font-semibold text-gray-900">{{ _('156 leads') }}</div>
+                        <div class="text-xs text-green-600">{{ _('+12.5% conversion') }}</div>
                     </div>
                 </div>
                 
@@ -455,13 +454,13 @@
                             <i class="fab fa-facebook text-blue-600"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-gray-900">Social Media</div>
-                            <div class="text-sm text-gray-600">Facebook & Instagram</div>
+                            <div class="font-medium text-gray-900">{{ _('Social Media') }}</div>
+                            <div class="text-sm text-gray-600">{{ _('Facebook & Instagram') }}</div>
                         </div>
                     </div>
                     <div class="text-right">
-                        <div class="font-semibold text-gray-900">89 leads</div>
-                        <div class="text-xs text-blue-600">+8.3% conversion</div>
+                        <div class="font-semibold text-gray-900">{{ _('89 leads') }}</div>
+                        <div class="text-xs text-blue-600">{{ _('+8.3% conversion') }}</div>
                     </div>
                 </div>
                 
@@ -471,13 +470,13 @@
                             <i class="fas fa-envelope text-green-600"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-gray-900">Email Marketing</div>
-                            <div class="text-sm text-gray-600">Newsletters & Campaigns</div>
+                            <div class="font-medium text-gray-900">{{ _('Email Marketing') }}</div>
+                            <div class="text-sm text-gray-600">{{ _('Newsletters & Campaigns') }}</div>
                         </div>
                     </div>
                     <div class="text-right">
-                        <div class="font-semibold text-gray-900">67 leads</div>
-                        <div class="text-xs text-green-600">+15.2% conversion</div>
+                        <div class="font-semibold text-gray-900">{{ _('67 leads') }}</div>
+                        <div class="text-xs text-green-600">{{ _('+15.2% conversion') }}</div>
                     </div>
                 </div>
                 
@@ -487,19 +486,19 @@
                             <i class="fas fa-handshake text-purple-600"></i>
                         </div>
                         <div>
-                            <div class="font-medium text-gray-900">Referrals</div>
-                            <div class="text-sm text-gray-600">Word of mouth</div>
+                            <div class="font-medium text-gray-900">{{ _('Referrals') }}</div>
+                            <div class="text-sm text-gray-600">{{ _('Word of mouth') }}</div>
                         </div>
                     </div>
                     <div class="text-right">
-                        <div class="font-semibold text-gray-900">75 leads</div>
-                        <div class="text-xs text-purple-600">+25.8% conversion</div>
+                        <div class="font-semibold text-gray-900">{{ _('75 leads') }}</div>
+                        <div class="text-xs text-purple-600">{{ _('+25.8% conversion') }}</div>
                     </div>
                 </div>
                 
                 <div class="pt-4 border-t border-gray-200">
                     <div class="flex justify-between items-center">
-                        <span class="font-medium text-gray-900">Total Leads This Month</span>
+                        <span class="font-medium text-gray-900">{{ _('Total Leads This Month') }}</span>
                         <span class="text-xl font-bold text-elaani-primary">387</span>
                     </div>
                 </div>
@@ -512,13 +511,13 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <div>
-                    <h3 class="text-xl font-semibold text-gray-900">Content Strategy</h3>
-                    <p class="text-sm text-gray-600 mt-1">SEO performance and content marketing</p>
+                    <h3 class="text-xl font-semibold text-gray-900">{{ _('Content Strategy') }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">{{ _('SEO performance and content marketing') }}</p>
                 </div>
                 <button onclick="contentCalendar()" 
                         class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
                     <i class="fas fa-calendar mr-1"></i>
-                    Content Calendar
+                    {{ _('Content Calendar') }}
                 </button>
             </div>
         </div>
@@ -526,55 +525,55 @@
             <div class="space-y-6">
                 <!-- SEO Performance -->
                 <div>
-                    <h4 class="font-semibold text-gray-900 mb-4">SEO Performance</h4>
+                    <h4 class="font-semibold text-gray-900 mb-4">{{ _('SEO Performance') }}</h4>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="text-center p-3 bg-green-50 rounded-lg border border-green-200">
                             <div class="text-xl font-bold text-green-600">24,500</div>
-                            <div class="text-sm text-green-700">Organic Visitors</div>
-                            <div class="text-xs text-green-600">+18.5% growth</div>
+                            <div class="text-sm text-green-700">{{ _('Organic Visitors') }}</div>
+                            <div class="text-xs text-green-600">{{ _('+18.5% growth') }}</div>
                         </div>
                         <div class="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
                             <div class="text-xl font-bold text-blue-600">85</div>
-                            <div class="text-sm text-blue-700">Keywords Ranking</div>
-                            <div class="text-xs text-blue-600">Top 10 positions</div>
+                            <div class="text-sm text-blue-700">{{ _('Keywords Ranking') }}</div>
+                            <div class="text-xs text-blue-600">{{ _('Top 10 positions') }}</div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Top Performing Content -->
                 <div>
-                    <h4 class="font-semibold text-gray-900 mb-4">Top Performing Content</h4>
+                    <h4 class="font-semibold text-gray-900 mb-4">{{ _('Top Performing Content') }}</h4>
                     <div class="space-y-3">
                         <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                             <div>
-                                <div class="font-medium text-gray-900">LED Display Setup Guide</div>
-                                <div class="text-sm text-gray-600">Blog Post</div>
+                                <div class="font-medium text-gray-900">{{ _('LED Display Setup Guide') }}</div>
+                                <div class="text-sm text-gray-600">{{ _('Blog Post') }}</div>
                             </div>
                             <div class="text-right">
                                 <div class="font-semibold text-green-600">5,240</div>
-                                <div class="text-xs text-gray-500">Views</div>
+                                <div class="text-xs text-gray-500">{{ _('Views') }}</div>
                             </div>
                         </div>
                         
                         <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                             <div>
-                                <div class="font-medium text-gray-900">Wedding Display Packages</div>
-                                <div class="text-sm text-gray-600">Service Page</div>
+                                <div class="font-medium text-gray-900">{{ _('Wedding Display Packages') }}</div>
+                                <div class="text-sm text-gray-600">{{ _('Service Page') }}</div>
                             </div>
                             <div class="text-right">
                                 <div class="font-semibold text-blue-600">3,890</div>
-                                <div class="text-xs text-gray-500">Views</div>
+                                <div class="text-xs text-gray-500">{{ _('Views') }}</div>
                             </div>
                         </div>
                         
                         <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                             <div>
-                                <div class="font-medium text-gray-900">Corporate Event Solutions</div>
-                                <div class="text-sm text-gray-600">Landing Page</div>
+                                <div class="font-medium text-gray-900">{{ _('Corporate Event Solutions') }}</div>
+                                <div class="text-sm text-gray-600">{{ _('Landing Page') }}</div>
                             </div>
                             <div class="text-right">
                                 <div class="font-semibold text-purple-600">2,750</div>
-                                <div class="text-xs text-gray-500">Views</div>
+                                <div class="text-xs text-gray-500">{{ _('Views') }}</div>
                             </div>
                         </div>
                     </div>
@@ -582,27 +581,27 @@
                 
                 <!-- Social Media Stats -->
                 <div>
-                    <h4 class="font-semibold text-gray-900 mb-4">Social Media Growth</h4>
+                    <h4 class="font-semibold text-gray-900 mb-4">{{ _('Social Media Growth') }}</h4>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
                             <div class="text-lg font-bold text-blue-600">8.5K</div>
-                            <div class="text-sm text-blue-700">Facebook Followers</div>
-                            <div class="text-xs text-blue-600">+245 this month</div>
+                            <div class="text-sm text-blue-700">{{ _('Facebook Followers') }}</div>
+                            <div class="text-xs text-blue-600">{{ _('+245 this month') }}</div>
                         </div>
                         <div class="text-center p-3 bg-pink-50 rounded-lg border border-pink-200">
                             <div class="text-lg font-bold text-pink-600">6.2K</div>
-                            <div class="text-sm text-pink-700">Instagram Followers</div>
-                            <div class="text-xs text-pink-600">+189 this month</div>
+                            <div class="text-sm text-pink-700">{{ _('Instagram Followers') }}</div>
+                            <div class="text-xs text-pink-600">{{ _('+189 this month') }}</div>
                         </div>
                         <div class="text-center p-3 bg-blue-50 rounded-lg border border-blue-200">
                             <div class="text-lg font-bold text-blue-600">3.1K</div>
-                            <div class="text-sm text-blue-700">LinkedIn Connections</div>
-                            <div class="text-xs text-blue-600">+67 this month</div>
+                            <div class="text-sm text-blue-700">{{ _('LinkedIn Connections') }}</div>
+                            <div class="text-xs text-blue-600">{{ _('+67 this month') }}</div>
                         </div>
                         <div class="text-center p-3 bg-green-50 rounded-lg border border-green-200">
                             <div class="text-lg font-bold text-green-600">2.8K</div>
-                            <div class="text-sm text-green-700">YouTube Subscribers</div>
-                            <div class="text-xs text-green-600">+123 this month</div>
+                            <div class="text-sm text-green-700">{{ _('YouTube Subscribers') }}</div>
+                            <div class="text-xs text-green-600">{{ _('+123 this month') }}</div>
                         </div>
                     </div>
                 </div>
@@ -613,12 +612,12 @@
                         <button onclick="createContent()" 
                                 class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-3 rounded-lg text-sm transition-colors">
                             <i class="fas fa-plus mr-1"></i>
-                            Create Content
+                            {{ _('Create Content') }}
                         </button>
                         <button onclick="schedulePosts()" 
                                 class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-clock mr-1"></i>
-                            Schedule Posts
+                            {{ _('Schedule Posts') }}
                         </button>
                     </div>
                 </div>
@@ -632,69 +631,69 @@
 <script>
     // Marketing management functions
     function createCampaign() {
-        showNotification('Opening campaign creation wizard...', 'info');
+        showNotification('{{ _("Opening campaign creation wizard...") }}', 'info');
     }
     
     function manageLeads() {
-        showNotification('Loading lead management dashboard...', 'info');
+        showNotification('{{ _("Loading lead management dashboard...") }}', 'info');
     }
     
     function marketingAnalytics() {
-        showNotification('Opening detailed marketing analytics...', 'info');
+        showNotification('{{ _("Opening detailed marketing analytics...") }}', 'info');
     }
     
     function socialMediaDashboard() {
-        showNotification('Loading social media management dashboard...', 'info');
+        showNotification('{{ _("Loading social media management dashboard...") }}', 'info');
     }
     
     // Campaign management
     function viewAllCampaigns() {
-        showNotification('Loading all marketing campaigns...', 'info');
+        showNotification('{{ _("Loading all marketing campaigns...") }}', 'info');
     }
     
     function editCampaign(campaignId) {
-        showNotification(`Opening editor for ${campaignId} campaign...`, 'info');
+        showNotification(`{{ _("Opening editor for") }} ${campaignId} {{ _("campaign...") }}`, 'info');
     }
     
     function viewCampaignDetails(campaignId) {
-        showNotification(`Loading detailed analytics for ${campaignId}...`, 'info');
+        showNotification(`{{ _("Loading detailed analytics for") }} ${campaignId}...`, 'info');
     }
     
     function sendNow(campaignId) {
-        if (confirm('Are you sure you want to send this campaign now?')) {
-            showNotification(`Sending ${campaignId} campaign to all recipients...`, 'success');
+        if (confirm('{{ _("Are you sure you want to send this campaign now?") }}')) {
+            showNotification(`{{ _("Sending") }} ${campaignId} {{ _("campaign to all recipients...") }}`, 'success');
             setTimeout(() => {
-                showNotification('Campaign sent successfully!', 'success');
+                showNotification('{{ _("Campaign sent successfully!") }}', 'success');
             }, 2000);
         }
     }
     
     // Lead management
     function followUpLeads() {
-        showNotification('Opening lead follow-up tools...', 'info');
+        showNotification('{{ _("Opening lead follow-up tools...") }}', 'info');
     }
     
     function convertLead() {
-        showNotification('Converting leads to customers...', 'success');
+        showNotification('{{ _("Converting leads to customers...") }}', 'success');
     }
     
     // Content strategy
     function contentCalendar() {
-        showNotification('Opening content calendar...', 'info');
+        showNotification('{{ _("Opening content calendar...") }}', 'info');
     }
     
     function createContent() {
-        showNotification('Opening content creation tools...', 'info');
+        showNotification('{{ _("Opening content creation tools...") }}', 'info');
     }
     
     function schedulePosts() {
-        showNotification('Opening social media scheduler...', 'info');
+        showNotification('{{ _("Opening social media scheduler...") }}', 'info');
     }
     
     // Campaign filter
     document.getElementById('campaignFilter').addEventListener('change', function() {
         const filter = this.value;
-        showNotification(`Filtering campaigns: ${filter}`, 'info');
+        showNotification(`{{ _("Filtering campaigns:") }} ${filter}`, 'info');
     });
     
     // Auto-refresh marketing data
