@@ -1558,3 +1558,740 @@ msgstr "شاحنة LED متنقلة"
 msgid "Premium Location"
 msgstr "موقع مميز"
 
+# ========================================
+# FAVORITES PAGE - Complete Translations
+# ========================================
+
+msgid "Click on any display to view details or book instantly"
+msgstr "انقر على أي شاشة لعرض التفاصيل أو الحجز فوراً"
+
+msgid "Sort by: Recently Added"
+msgstr "ترتيب حسب: المضافة مؤخراً"
+
+msgid "Rating: Highest"
+msgstr "التقييم: الأعلى"
+
+msgid "Type"
+msgstr "النوع"
+
+msgid "Outdoor"
+msgstr "خارجي"
+
+msgid "Indoor"
+msgstr "داخلي"
+
+msgid "Premium"
+msgstr "مميز"
+
+msgid "Rating"
+msgstr "التقييم"
+
+msgid "Currently Rented"
+msgstr "مؤجر حالياً"
+
+msgid "Olaya Street Indoor Display"
+msgstr "شاشة شارع العليا الداخلية"
+
+msgid "Mall Indoor Display Premium"
+msgstr "شاشة المول الداخلية المميزة"
+
+msgid "Riyadh Gallery"
+msgstr "الرياض غاليري"
+
+msgid "Al Nakheel District Screen"
+msgstr "شاشة منطقة النخيل"
+
+msgid "Business Park Tower LED"
+msgstr "شاشة LED برج الأعمال"
+
+msgid "Browse more displays"
+msgstr "تصفح المزيد من الشاشات"
+
+msgid "Discover new screens to add"
+msgstr "اكتشف شاشات جديدة للإضافة"
+
+# ========================================
+# PAYMENTS PAGE - Complete Translations
+# ========================================
+
+msgid "Payments & Invoices"
+msgstr "المدفوعات والفواتير"
+
+msgid "Manage your payments, invoices, and billing information"
+msgstr "إدارة المدفوعات والفواتير ومعلومات الفوترة"
+
+msgid "invoices"
+msgstr "فاتورة"
+
+msgid "invoices due"
+msgstr "فواتير مستحقة"
+
+msgid "Invoices"
+msgstr "الفواتير"
+
+msgid "Billing Address"
+msgstr "عنوان الفاتورة"
+
+msgid "Invoice #INV-001"
+msgstr "فاتورة #INV-001"
+
+msgid "Tech Conference - King Fahd Road LED"
+msgstr "مؤتمر التكنولوجيا - شاشة LED طريق الملك فهد"
+
+msgid "Due: Oct 15, 2025"
+msgstr "الاستحقاق: 15 أكتوبر 2025"
+
+msgid "Due: Oct 10, 2025"
+msgstr "الاستحقاق: 10 أكتوبر 2025"
+
+msgid "Pay Now"
+msgstr "ادفع الآن"
+
+msgid "Wedding Event - Riyadh Gallery Mall"
+msgstr "حفل زفاف - مول الرياض غاليري"
+
+msgid "Overdue"
+msgstr "متأخر"
+
+msgid "Corporate Event - Downtown Business LED"
+msgstr "حدث شركة - شاشة LED أعمال وسط المدينة"
+
+msgid "Paid: Sep 20, 2025"
+msgstr "مدفوع: 20 سبتمبر 2025"
+
+msgid "Paid: Sep 10, 2025"
+msgstr "مدفوع: 10 سبتمبر 2025"
+
+msgid "Download"
+msgstr "تحميل"
+
+msgid "Olaya Street Premium Display"
+msgstr "شاشة شارع العليا المميزة"
+
+msgid "Sep 20, 2025"
+msgstr "20 سبتمبر 2025"
+
+msgid "Sep 10, 2025"
+msgstr "10 سبتمبر 2025"
+
+msgid "Aug 28, 2025"
+msgstr "28 أغسطس 2025"
+
+msgid "Corporate Event - Downtown"
+msgstr "حدث شركة - وسط المدينة"
+
+msgid "Credit Card"
+msgstr "بطاقة ائتمان"
+
+msgid "Success"
+msgstr "نجح"
+
+msgid "Bank Transfer"
+msgstr "تحويل بنكي"
+
+msgid "Al Nakheel Mall Display"
+msgstr "شاشة مول النخيل"
+
+msgid "Default"
+msgstr "افتراضي"
+
+msgid "MasterCard • 8765"
+msgstr "ماستر كارد • 8765"
+
+msgid "Expires 03/27"
+msgstr "ينتهي 03/27"
+
+msgid "Saudi National Bank"
+msgstr "البنك الأهلي السعودي"
+
+msgid "Account: ••••••••4521"
+msgstr "الحساب: ••••••••4521"
+
+msgid "Current Billing Address"
+msgstr "عنوان الفاتورة الحالي"
+
+msgid "Edit Address"
+msgstr "تعديل العنوان"
+
+msgid "Edit Billing Address"
+msgstr "تعديل عنوان الفاتورة"
+
+msgid "Street Address"
+msgstr "عنوان الشارع"
+
+msgid "P.O. Box or Street"
+msgstr "صندوق بريد أو شارع"
+
+msgid "City"
+msgstr "المدينة"
+
+msgid "Postal Code"
+msgstr "الرمز البريدي"
+
+# ========================================
+# EVENT PLANNER PAGE - Complete Translations
+# ========================================
+
+msgid "AI-Powered Event Planner"
+msgstr "مخطط الفعاليات المدعوم بالذكاء الاصطناعي"
+
+msgid "Advanced intelligence for billboard campaign success"
+msgstr "ذكاء متقدم لنجاح حملة اللوحات الإعلانية"
+
+msgid "Smart Analysis"
+msgstr "تحليل ذكي"
+
+msgid "AI analyzes your requirements"
+msgstr "يحلل الذكاء الاصطناعي متطلباتك"
+
+msgid "Location Matching"
+msgstr "مطابقة الموقع"
+
+msgid "Perfect billboard placement"
+msgstr "وضع مثالي للوحة الإعلانية"
+
+msgid "ROI Optimization"
+msgstr "تحسين العائد على الاستثمار"
+
+msgid "Maximize your investment"
+msgstr "زيادة استثمارك إلى أقصى حد"
+
+msgid "Real-time Results"
+msgstr "نتائج في الوقت الفعلي"
+
+msgid "Instant recommendations"
+msgstr "توصيات فورية"
+
+msgid "AI is analyzing your event..."
+msgstr "الذكاء الاصطناعي يحلل حدثك..."
+
+msgid "Processing location data, traffic patterns, and billboard availability"
+msgstr "معالجة بيانات الموقع وأنماط الحركة وتوافر اللوحات الإعلانية"
+
+msgid "Initializing AI engine..."
+msgstr "تهيئة محرك الذكاء الاصطناعي..."
+
+msgid "Campaign Name"
+msgstr "اسم الحملة"
+
+msgid "e.g., Summer Sale 2025, Brand Launch Campaign"
+msgstr "مثال: تخفيضات الصيف 2025، حملة إطلاق العلامة التجارية"
+
+msgid "Campaign Type"
+msgstr "نوع الحملة"
+
+msgid "Select campaign type..."
+msgstr "اختر نوع الحملة..."
+
+msgid "Brand Awareness"
+msgstr "الوعي بالعلامة التجارية"
+
+msgid "Product Launch"
+msgstr "إطلاق المنتج"
+
+msgid "Retail Promotion"
+msgstr "ترويج التجزئة"
+
+msgid "Event Marketing"
+msgstr "تسويق الفعاليات"
+
+msgid "Seasonal Campaign"
+msgstr "حملة موسمية"
+
+msgid "Corporate Branding"
+msgstr "العلامة التجارية للشركات"
+
+msgid "Political Campaign"
+msgstr "حملة سياسية"
+
+msgid "Number of days"
+msgstr "عدد الأيام"
+
+msgid "Target Location"
+msgstr "الموقع المستهدف"
+
+msgid "e.g., Riyadh Downtown, King Fahd Road"
+msgstr "مثال: وسط الرياض، طريق الملك فهد"
+
+msgid "AI will suggest billboards in high-traffic areas"
+msgstr "سيقترح الذكاء الاصطناعي لوحات إعلانية في مناطق ذات حركة مرور عالية"
+
+msgid "Target Audience Reach"
+msgstr "الوصول إلى الجمهور المستهدف"
+
+msgid "Select target reach..."
+msgstr "اختر الوصول المستهدف..."
+
+msgid "10K - 50K daily views"
+msgstr "10 آلاف - 50 ألف مشاهدة يومية"
+
+msgid "50K - 100K daily views"
+msgstr "50 ألف - 100 ألف مشاهدة يومية"
+
+msgid "100K - 500K daily views"
+msgstr "100 ألف - 500 ألف مشاهدة يومية"
+
+msgid "500K+ daily views"
+msgstr "500 ألف+ مشاهدة يومية"
+
+msgid "Billboard Requirements"
+msgstr "متطلبات اللوحة الإعلانية"
+
+msgid "Billboard Type"
+msgstr "نوع اللوحة الإعلانية"
+
+msgid "Premium Locations"
+msgstr "مواقع مميزة"
+
+msgid "Billboard Size Preference"
+msgstr "تفضيل حجم اللوحة الإعلانية"
+
+msgid "AI will recommend best size"
+msgstr "سيوصي الذكاء الاصطناعي بأفضل حجم"
+
+msgid "Small - Local targeting"
+msgstr "صغير - استهداف محلي"
+
+msgid "Medium - Standard visibility"
+msgstr "متوسط - رؤية قياسية"
+
+msgid "Large - High visibility"
+msgstr "كبير - رؤية عالية"
+
+msgid "Extra Large - Maximum impact"
+msgstr "كبير جداً - تأثير أقصى"
+
+msgid "Traffic Priority"
+msgstr "أولوية الحركة"
+
+msgid "High Traffic"
+msgstr "حركة مرور عالية"
+
+msgid "Medium Traffic"
+msgstr "حركة مرور متوسطة"
+
+msgid "Cost-Effective"
+msgstr "فعال من حيث التكلفة"
+
+msgid "Number of Billboards Needed"
+msgstr "عدد اللوحات الإعلانية المطلوبة"
+
+msgid "How many billboards?"
+msgstr "كم عدد اللوحات الإعلانية؟"
+
+msgid "AI will optimize billboard quantity for your budget and reach goals"
+msgstr "سيقوم الذكاء الاصطناعي بتحسين كمية اللوحات الإعلانية وفقاً لميزانيتك وأهداف الوصول"
+
+msgid "Preferences"
+msgstr "التفضيلات"
+
+msgid "Total Budget"
+msgstr "الميزانية الإجمالية"
+
+msgid "0"
+msgstr "0"
+
+msgid "Special Requirements"
+msgstr "المتطلبات الخاصة"
+
+msgid "Any special setup, installation, or technical requirements..."
+msgstr "أي متطلبات خاصة للإعداد أو التركيب أو المتطلبات الفنية..."
+
+msgid "I need technical support and installation"
+msgstr "أحتاج إلى دعم فني وتركيب"
+
+msgid "I need content creation services"
+msgstr "أحتاج إلى خدمات إنشاء المحتوى"
+
+msgid "Subscribe to event notifications"
+msgstr "الاشتراك في إشعارات الفعاليات"
+
+msgid "Let AI Find Perfect Billboards"
+msgstr "دع الذكاء الاصطناعي يجد اللوحات الإعلانية المثالية"
+
+msgid "Reset"
+msgstr "إعادة تعيين"
+
+msgid "Planning Tips"
+msgstr "نصائح التخطيط"
+
+msgid "Plan at least 2-3 weeks in advance for best availability"
+msgstr "خطط قبل 2-3 أسابيع على الأقل للحصول على أفضل توفر"
+
+msgid "Consider your venue size and audience viewing distance"
+msgstr "ضع في اعتبارك حجم المكان ومسافة المشاهدة للجمهور"
+
+msgid "Higher resolution for close viewing, P6 for larger distances"
+msgstr "دقة أعلى للمشاهدة القريبة، P6 للمسافات الأكبر"
+
+msgid "Include setup/installation time in your planning"
+msgstr "قم بتضمين وقت الإعداد/التركيب في خطتك"
+
+msgid "Popular Events"
+msgstr "الفعاليات الشائعة"
+
+msgid "Wedding Reception"
+msgstr "حفل استقبال الزفاف"
+
+msgid "Typical: 1-2 screens, 4-8 hours"
+msgstr "عادةً: 1-2 شاشة، 4-8 ساعات"
+
+msgid "Typical: 2-4 screens, 1-2 days"
+msgstr "عادةً: 2-4 شاشات، 1-2 يوم"
+
+msgid "Corporate Conference"
+msgstr "مؤتمر الشركات"
+
+msgid "Typical: 3-6 screens, 2-3 days"
+msgstr "عادةً: 3-6 شاشات، 2-3 أيام"
+
+msgid "Need Expert Help?"
+msgstr "هل تحتاج إلى مساعدة خبير؟"
+
+msgid "Talk to our specialists"
+msgstr "تحدث مع المتخصصين لدينا"
+
+# ========================================
+# BOOKINGS PAGE - Complete Translations
+# ========================================
+
+msgid "Booking ID: #BK003"
+msgstr "معرف الحجز: #BK003"
+
+msgid "Tax"
+msgstr "الضريبة"
+
+# ========================================
+# BROWSER DISPLAYS PAGE - Complete Translations
+# ========================================
+
+msgid "Discover the perfect display for your event"
+msgstr "اكتشف الشاشة المثالية لحدثك"
+
+msgid "Search displays, locations..."
+msgstr "البحث عن الشاشات، المواقع..."
+
+msgid "Recommended"
+msgstr "موصى به"
+
+msgid "Filter Results"
+msgstr "تصفية النتائج"
+
+msgid "displays"
+msgstr "شاشات"
+
+msgid "Showing"
+msgstr "عرض"
+
+msgid "Apply Filters"
+msgstr "تطبيق الفلاتر"
+
+msgid "Downtown"
+msgstr "وسط المدينة"
+
+msgid "Al Nakheel"
+msgstr "النخيل"
+
+msgid "LED Screen"
+msgstr "شاشة LED"
+
+msgid "LCD Display"
+msgstr "شاشة LCD"
+
+msgid "Outdoor LED"
+msgstr "LED خارجي"
+
+msgid "Mobile Truck"
+msgstr "شاحنة متنقلة"
+
+msgid "Up to 50\""
+msgstr "حتى 50 بوصة"
+
+msgid "50\" - 65\""
+msgstr "50 - 65 بوصة"
+
+msgid "65\" - 85\""
+msgstr "65 - 85 بوصة"
+
+msgid "85\"+"
+msgstr "85 بوصة فأكثر"
+
+msgid "4.5 & up"
+msgstr "4.5 فأعلى"
+
+msgid "4.0 & up"
+msgstr "4.0 فأعلى"
+
+msgid "3.5 & up"
+msgstr "3.5 فأعلى"
+
+msgid "Any"
+msgstr "أي"
+
+msgid "Available Now"
+msgstr "متاح الآن"
+
+msgid "Available This Month"
+msgstr "متاح هذا الشهر"
+
+msgid "All"
+msgstr "الكل"
+
+msgid "4K"
+msgstr "4K"
+
+msgid "Full HD"
+msgstr "Full HD"
+
+msgid "85\" LED"
+msgstr "85 بوصة LED"
+
+msgid "65\" LED"
+msgstr "65 بوصة LED"
+
+msgid "55\" LED"
+msgstr "55 بوصة LED"
+
+msgid "50\" LED"
+msgstr "50 بوصة LED"
+
+msgid "75\" LED"
+msgstr "75 بوصة LED"
+
+# ========================================
+# ANALYTICS PAGE - Complete Translations
+# ========================================
+
+msgid "Analytics"
+msgstr "التحليلات"
+
+msgid "Business Analytics & Insights"
+msgstr "تحليلات الأعمال والرؤى"
+
+msgid "Track performance, analyze trends, and make data-driven decisions for your Saudi Arabia operations"
+msgstr "تتبع الأداء وتحليل الاتجاهات واتخاذ قرارات قائمة على البيانات لعملياتك في المملكة العربية السعودية"
+
+msgid "Generate Report"
+msgstr "إنشاء تقرير"
+
+msgid "Export Data"
+msgstr "تصدير البيانات"
+
+msgid "Schedule Reports"
+msgstr "جدولة التقارير"
+
+msgid "This Quarter"
+msgstr "هذا الربع"
+
+msgid "This Year"
+msgstr "هذا العام"
+
+msgid "Custom Range"
+msgstr "نطاق مخصص"
+
+msgid "Total Revenue (YTD)"
+msgstr "إجمالي الإيرادات (من بداية العام)"
+
+msgid "+24.5% from last year"
+msgstr "+24.5٪ من العام الماضي"
+
+msgid "+15 new this month"
+msgstr "+15 جديد هذا الشهر"
+
+msgid "+18.2% booking rate"
+msgstr "+18.2٪ معدل الحجز"
+
+msgid "+0.3 from last quarter"
+msgstr "+0.3 من الربع الماضي"
+
+msgid "Monthly revenue performance over time"
+msgstr "أداء الإيرادات الشهرية بمرور الوقت"
+
+msgid "Revenue Trend Analysis"
+msgstr "تحليل اتجاهات الإيرادات"
+
+msgid "Interactive chart showing monthly growth patterns"
+msgstr "رسم بياني تفاعلي يوضح أنماط النمو الشهرية"
+
+msgid "Customer Analytics"
+msgstr "تحليلات العملاء"
+
+msgid "Customer segments and behavior analysis"
+msgstr "تحليل شرائح العملاء والسلوك"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "Customer Segments"
+msgstr "شرائح العملاء"
+
+msgid "Educational (45%)"
+msgstr "تعليمي (45٪)"
+
+msgid "Corporate (30%)"
+msgstr "شركات (30٪)"
+
+msgid "Event Planning (20%)"
+msgstr "تخطيط الفعاليات (20٪)"
+
+msgid "Government (5%)"
+msgstr "حكومي (5٪)"
+
+msgid "Geographic Distribution"
+msgstr "التوزيع الجغرافي"
+
+msgid "Equipment Performance Analytics"
+msgstr "تحليلات أداء المعدات"
+
+msgid "Utilization rates and revenue per equipment type"
+msgstr "معدلات الاستخدام والإيرادات لكل نوع معدات"
+
+msgid "65\" & 85\" Units"
+msgstr "وحدات 65 و 85 بوصة"
+
+msgid "Utilization Rate"
+msgstr "معدل الاستخدام"
+
+msgid "Large Format"
+msgstr "تنسيق كبير"
+
+msgid "LCD Video Walls"
+msgstr "جدران فيديو LCD"
+
+msgid "Multi-Panel Setup"
+msgstr "إعداد متعدد اللوحات"
+
+msgid "Weather Resistant"
+msgstr "مقاوم للطقس"
+
+msgid "Seasonal Trends"
+msgstr "الاتجاهات الموسمية"
+
+msgid "Demand patterns and peak seasons"
+msgstr "أنماط الطلب والمواسم ذروة"
+
+msgid "Peak Season"
+msgstr "موسم الذروة"
+
+msgid "Wedding Season (Jun - Sep)"
+msgstr "موسم الزفاف (يونيو - سبتمبر)"
+
+msgid "School Events"
+msgstr "فعاليات المدارس"
+
+msgid "Academic Year (Sep - May)"
+msgstr "العام الأكاديمي (سبتمبر - مايو)"
+
+msgid "Business Quarter (Q1, Q4)"
+msgstr "ربع الأعمال (الربع الأول، الربع الرابع)"
+
+msgid "Ramadan Events"
+msgstr "فعاليات رمضان"
+
+msgid "Holy Month Period"
+msgstr "فترة الشهر الفضيل"
+
+msgid "AI-powered business forecasts"
+msgstr "توقعات الأعمال المدعومة بالذكاء الاصطناعي"
+
+msgid "AI Powered"
+msgstr "مدعوم بالذكاء الاصطناعي"
+
+msgid "Next Quarter Forecast"
+msgstr "توقعات الربع القادم"
+
+msgid "Predicted Revenue (ريال)"
+msgstr "الإيرادات المتوقعة (ريال)"
+
+msgid "+27% growth"
+msgstr "+27٪ نمو"
+
+msgid "Expected Bookings"
+msgstr "الحجوزات المتوقعة"
+
+msgid "+15% increase"
+msgstr "+15٪ زيادة"
+
+msgid "Equipment Demand Predictions"
+msgstr "تنبؤات الطلب على المعدات"
+
+msgid "High Demand"
+msgstr "طلب مرتفع"
+
+msgid "Medium Demand"
+msgstr "طلب متوسط"
+
+msgid "Video Walls"
+msgstr "جدران الفيديو"
+
+msgid "Stable Demand"
+msgstr "طلب مستقر"
+
+msgid "AI Recommendations"
+msgstr "توصيات الذكاء الاصطناعي"
+
+msgid "Consider adding 2 more LED displays for peak season"
+msgstr "فكر في إضافة شاشتي LED إضافيتين لموسم الذروة"
+
+msgid "Focus marketing on corporate clients in Q4"
+msgstr "ركز التسويق على عملاء الشركات في الربع الرابع"
+
+msgid "Schedule maintenance for video walls in low season"
+msgstr "جدولة الصيانة لجدران الفيديو في الموسم المنخفض"
+
+# ========================================
+# BASE CUSTOMER TEMPLATE - Complete Translations
+# ========================================
+
+msgid "Find The Perfect Display"
+msgstr "ابحث عن الشاشة المثالية"
+
+msgid "Search displays..."
+msgstr "البحث عن الشاشات..."
+
+msgid "An error occurred. Please try again."
+msgstr "حدث خطأ. يرجى المحاولة مرة أخرى."
+
+# ========================================
+# BASE PUBLIC TEMPLATE - Complete Translations
+# ========================================
+
+msgid "Elaani - Digital Screen Marketplace"
+msgstr "إيلاني - سوق الشاشات الرقمية"
+
+msgid "How it Works"
+msgstr "كيف يعمل"
+
+msgid "Pricing"
+msgstr "التسعير"
+
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+msgid "Get Started"
+msgstr "ابدأ الآن"
+
+msgid "The premier digital screen advertising marketplace in Riyadh, KSA."
+msgstr "السوق الرائد للإعلانات على الشاشات الرقمية في الرياض، المملكة العربية السعودية."
+
+msgid "For Advertisers"
+msgstr "للمعلنين"
+
+msgid "For Screen Owners"
+msgstr "لأصحاب الشاشات"
+
+msgid "List Your Screen"
+msgstr "أدرج شاشتك"
+
+msgid "Campaign Tools"
+msgstr "أدوات الحملة"
+
+msgid "Terms of Service"
+msgstr "شروط الخدمة"
+
+msgid "&copy; 2025 Elaani. All rights reserved. Made in Riyadh, KSA 🇸🇦"
+msgstr "&copy; 2025 إيلاني. جميع الحقوق محفوظة. صنع في الرياض، المملكة العربية السعودية 🇸🇦"
+
+msgid "Logout"
+msgstr "تسجيل الخروج"
+

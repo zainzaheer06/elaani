@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Elaani - Digital Screen Marketplace{% endblock %}</title>
+    <title>{% block title %}{{ _('Elaani - Digital Screen Marketplace') }}{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -33,16 +33,16 @@
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="{{ url_for('browse_screens') }}" class="text-gray-700 hover:text-elaani-primary transition-colors">Browse Screens</a>
-                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">How it Works</a>
-                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">Pricing</a>
-                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">Support</a>
+                    <a href="{{ url_for('browse_screens') }}" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Browse Screens') }}</a>
+                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('How it Works') }}</a>
+                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Pricing') }}</a>
+                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Support') }}</a>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <a href="{{ url_for('login') }}" class="text-elaani-primary hover:text-elaani-dark transition-colors">Login</a>
+                    <a href="{{ url_for('login') }}" class="text-elaani-primary hover:text-elaani-dark transition-colors">{{ _('Login') }}</a>
                     <a href="{{ url_for('register') }}" class="bg-elaani-primary hover:bg-elaani-dark text-white px-4 py-2 rounded-lg transition-colors">
-                        Get Started
+                        {{ _('Get Started') }}
                     </a>
                 </div>
 
@@ -58,10 +58,10 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="{{ url_for('browse_screens') }}" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">Browse Screens</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">How it Works</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">Pricing</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">Support</a>
+                <a href="{{ url_for('browse_screens') }}" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Browse Screens') }}</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('How it Works') }}</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Pricing') }}</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Support') }}</a>
             </div>
         </div>
     </nav>
@@ -95,35 +95,35 @@
                     <div class="bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white px-4 py-2 rounded-lg font-bold text-xl mb-4 inline-block">
                         Elaani
                     </div>
-                    <p class="text-gray-400">The premier digital screen advertising marketplace in Riyadh, KSA.</p>
+                    <p class="text-gray-400">{{ _('The premier digital screen advertising marketplace in Riyadh, KSA.') }}</p>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">For Advertisers</h3>
+                    <h3 class="text-lg font-semibold mb-4">{{ _('For Advertisers') }}</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Browse Screens</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Pricing</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Campaign Tools</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">{{ _('Browse Screens') }}</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">{{ _('Pricing') }}</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">{{ _('Campaign Tools') }}</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">For Screen Owners</h3>
+                    <h3 class="text-lg font-semibold mb-4">{{ _('For Screen Owners') }}</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">List Your Screen</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Earnings</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">{{ _('List Your Screen') }}</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">{{ _('Earnings') }}</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">{{ _('Support') }}</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <h3 class="text-lg font-semibold mb-4">{{ _('Support') }}</h3>
                     <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Help Center</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">{{ _('Help Center') }}</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">{{ _('Contact Us') }}</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">{{ _('Terms of Service') }}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Elaani. All rights reserved. Made in Riyadh, KSA 🇸🇦</p>
+                <p>{{ _('&copy; 2025 Elaani. All rights reserved. Made in Riyadh, KSA 🇸🇦') }}</p>
             </div>
         </div>
     </footer>

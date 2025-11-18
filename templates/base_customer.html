@@ -61,7 +61,7 @@
                             </div>
                             <div class="text-left">
                                 <h1 class="text-2xl font-bold text-white tracking-wider">ELAANI</h1>
-                                <p class="text-xs text-white/80 tracking-wide">Find The Perfect Display</p>
+                                <p class="text-xs text-white/80 tracking-wide">{{ _('Find The Perfect Display') }}</p>
                             </div>
                         </div>
                     </div>
@@ -177,8 +177,8 @@
                                 <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                                     <i class="fas fa-search text-gray-400"></i>
                                 </div>
-                                <input type="text" 
-                                       placeholder="Search displays..." 
+                                <input type="text"
+                                       placeholder="{{ _('Search displays...') }}"
                                        class="block w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-elaani-primary focus:border-transparent"
                                        id="globalSearch">
                             </div>
@@ -205,13 +205,13 @@
                                         <p class="text-xs text-gray-500">{{ current_user.email }}</p>
                                     </div>
                                     <a href="{{ url_for('customer_profile') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-                                        <i class="fas fa-user-circle mr-2"></i>My Profile
+                                        <i class="fas fa-user-circle mr-2"></i>{{ _('My Profile') }}
                                     </a>
                                     <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-                                        <i class="fas fa-cog mr-2"></i>Settings
+                                        <i class="fas fa-cog mr-2"></i>{{ _('Settings') }}
                                     </a>
                                     <a href="#" class="block px-4 py-2 text-sm text-red-600 hover:bg-red-50">
-                                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                                        <i class="fas fa-sign-out-alt mr-2"></i>{{ _('Logout') }}
                                     </a>
                                 </div>
                             </div>
@@ -352,7 +352,7 @@
                 return await response.json();
             } catch (error) {
                 console.error('API call failed:', error);
-                showNotification('An error occurred. Please try again.', 'error');
+                showNotification("{{ _('An error occurred. Please try again.') }}", 'error');
                 throw error;
             }
         }

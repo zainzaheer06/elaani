@@ -357,7 +357,7 @@
                 return await response.json();
             } catch (error) {
                 console.error('API call failed:', error);
-                showNotification('An error occurred. Please try again.', 'error');
+                showNotification("{{ _('An error occurred. Please try again.') }}", 'error');
                 throw error;
             }
         }
