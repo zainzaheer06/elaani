@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session
-from flask_babel import Babel, gettext
+from flask_babel import Babel, gettext, lazy_gettext
 from datetime import datetime
 import os
 
@@ -24,51 +24,53 @@ def inject_template_globals():
     """Make translation function available in all templates"""
     return dict(_=gettext)
 
-# Mock data for prototype
-mock_screens = [
-    {
-        'id': 1,
-        'title': 'King Fahd Road LED Billboard',
-        'location': 'King Fahd Road, Riyadh',
-        'type': 'LED Billboard',
-        'size': '6m x 3m',
-        'price_per_hour': 250,
-        'price_per_day': 5000,
-        'owner': 'Digital Media Co.',
-        'rating': 4.8,
-        'image': '/static/images/screen1.jpg',
-        'available': True,
-        'features': ['4K Resolution', 'Weather Resistant', 'High Traffic Area']
-    },
-    {
-        'id': 2,
-        'title': 'Riyadh Mall Indoor Screen',
-        'location': 'Al Nakheel Mall, Riyadh',
-        'type': 'Indoor LED',
-        'size': '3m x 2m',
-        'price_per_hour': 180,
-        'price_per_day': 3600,
-        'owner': 'Mall Advertising LLC',
-        'rating': 4.6,
-        'image': '/static/images/screen2.jpg',
-        'available': True,
-        'features': ['HD Display', 'Shopping Center Location', 'Family Audience']
-    },
-    {
-        'id': 3,
-        'title': 'Olaya Street Digital Display',
-        'location': 'Olaya Street, Business District',
-        'type': 'Digital Display',
-        'size': '4m x 2.5m',
-        'price_per_hour': 200,
-        'price_per_day': 4200,
-        'owner': 'Urban Screens KSA',
-        'rating': 4.9,
-        'image': '/static/images/screen3.jpg',
-        'available': False,
-        'features': ['Ultra HD', 'Business District', 'Premium Location']
-    }
-]
+# Function to get mock screens with proper translations
+def get_mock_screens():
+    """Return mock screens with translated content"""
+    return [
+        {
+            'id': 1,
+            'title': gettext('King Fahd Road LED Billboard'),
+            'location': gettext('King Fahd Road, Riyadh'),
+            'type': gettext('LED Billboard'),
+            'size': '6m x 3m',
+            'price_per_hour': 250,
+            'price_per_day': 5000,
+            'owner': gettext('Digital Media Co.'),
+            'rating': 4.8,
+            'image': '/static/images/screen1.jpg',
+            'available': True,
+            'features': [gettext('4K Resolution'), gettext('Weather Resistant'), gettext('High Traffic Area')]
+        },
+        {
+            'id': 2,
+            'title': gettext('Riyadh Mall Indoor Screen'),
+            'location': gettext('Al Nakheel Mall, Riyadh'),
+            'type': gettext('Indoor LED'),
+            'size': '3m x 2m',
+            'price_per_hour': 180,
+            'price_per_day': 3600,
+            'owner': gettext('Mall Advertising LLC'),
+            'rating': 4.6,
+            'image': '/static/images/screen2.jpg',
+            'available': True,
+            'features': [gettext('HD Display'), gettext('Shopping Center Location'), gettext('Family Audience')]
+        },
+        {
+            'id': 3,
+            'title': gettext('Olaya Street Digital Display'),
+            'location': gettext('Olaya Street, Business District'),
+            'type': gettext('Digital Display'),
+            'size': '4m x 2.5m',
+            'price_per_hour': 200,
+            'price_per_day': 4200,
+            'owner': gettext('Urban Screens KSA'),
+            'rating': 4.9,
+            'image': '/static/images/screen3.jpg',
+            'available': False,
+            'features': [gettext('Ultra HD'), gettext('Business District'), gettext('Premium Location')]
+        }
+    ]
 
 mock_bookings = [
     {
@@ -94,7 +96,7 @@ mock_bookings = [
 # Routes
 @app.route('/')
 def index():
-    featured_screens = mock_screens[:2]
+    featured_screens = get_mock_screens()[:2]
     return render_template('index.html', screens=featured_screens)
 
 @app.route('/login')
@@ -116,11 +118,11 @@ def advertiser_dashboard():
 
 @app.route('/advertiser/browse')
 def browse_screens():
-    return render_template('advertiser/browse_screens.html', screens=mock_screens)
+    return render_template('advertiser/browse_screens.html', screens=get_mock_screens())
 
 @app.route('/advertiser/screen/<int:screen_id>')
 def screen_details(screen_id):
-    screen = next((s for s in mock_screens if s['id'] == screen_id), None)
+    screen = next((s for s in get_mock_screens() if s['id'] == screen_id), None)
     if not screen:
         flash('Screen not found', 'error')
         return redirect(url_for('browse_screens'))
@@ -128,7 +130,7 @@ def screen_details(screen_id):
 
 @app.route('/advertiser/book/<int:screen_id>')
 def book_screen(screen_id):
-    screen = next((s for s in mock_screens if s['id'] == screen_id), None)
+    screen = next((s for s in get_mock_screens() if s['id'] == screen_id), None)
     if not screen:
         flash('Screen not found', 'error')
         return redirect(url_for('browse_screens'))
@@ -137,7 +139,7 @@ def book_screen(screen_id):
 # Vendor Routes
 @app.route('/vendor/dashboard')
 def vendor_dashboard():
-    return render_template('vendor/dashboard.html', screens=mock_screens[:2])
+    return render_template('vendor/dashboard.html', screens=get_mock_screens()[:2])
 
 @app.route('/vendor/list-screen')
 def list_screen():
@@ -145,7 +147,7 @@ def list_screen():
 
 @app.route('/vendor/manage-screens')
 def manage_screens():
-    return render_template('vendor/manage_screens.html', screens=mock_screens)
+    return render_template('vendor/manage_screens.html', screens=get_mock_screens())
 
 @app.route('/vendor/support')
 def vendor_support():
@@ -158,6 +160,7 @@ def vendor_settings():
 # Admin Routes
 @app.route('/admin/dashboard')
 def admin_dashboard():
+    mock_screens = get_mock_screens()
     stats = {
         'total_screens': len(mock_screens),
         'active_bookings': len([b for b in mock_bookings if b['status'] == 'confirmed']),
@@ -168,12 +171,12 @@ def admin_dashboard():
 
 @app.route('/admin/pending-approvals')
 def pending_approvals():
-    return render_template('admin/pending_approvals.html', screens=mock_screens)
+    return render_template('admin/pending_approvals.html', screens=get_mock_screens())
 
 # API Routes for AJAX
 @app.route('/api/screens')
 def api_screens():
-    return jsonify(mock_screens)
+    return jsonify(get_mock_screens())
 
 @app.route('/api/book', methods=['POST'])
 def api_book():

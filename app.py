@@ -472,6 +472,4 @@ def test_en():
     """
 
 if __name__ == '__main__':
-    # Use environment variable for port (Render provides this)
-    port = int(os.environ.get('PORT', 5900))
-    app.run(host='0.0.0.0', port=port, debug=False)
+    app.run(debug=True, port=5900)

@@ -104,7 +104,7 @@
                     
                     <div class="flex flex-wrap gap-1 mb-4">
                         {% for feature in screen.features[:2] %}
-                        <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">{{ feature }}</span>
+                        <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">{{ _(feature) }}</span>
                         {% endfor %}
                         {% if screen.features|length > 2 %}
                         <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded text-xs">+{{ screen.features|length - 2 }} {{ _('more') }}</span>

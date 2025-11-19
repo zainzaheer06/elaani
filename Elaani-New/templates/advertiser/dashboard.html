@@ -9,13 +9,13 @@
     <!-- Header -->
     <div class="bg-white shadow">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div class="flex items-center justify-between">
-                <div>
+            <div class="flex items-center justify-between {{ 'flex-row-reverse' if session.get('lang', 'ar') == 'ar' else '' }}">
+                <div class="{{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }}">
                     <h1 class="text-3xl font-bold text-gray-900">{{ _('Advertiser Dashboard') }}</h1>
                     <p class="text-gray-600">{{ _('Manage your campaigns and bookings') }}</p>
                 </div>
-                <a href="{{ url_for('browse_screens') }}" class="bg-elaani-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-elaani-dark transition-colors">
-                    <i class="fas fa-plus mr-2"></i>{{ _('New Campaign') }}
+                <a href="{{ url_for('browse_screens') }}" class="bg-elaani-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-elaani-dark transition-colors flex items-center">
+                    <i class="fas fa-plus {{ 'ml-2' if session.get('lang', 'ar') == 'ar' else 'mr-2' }}"></i>{{ _('New Campaign') }}
                 </a>
             </div>
         </div>
@@ -25,11 +25,11 @@
         <!-- Stats Cards -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <div class="bg-white rounded-lg shadow p-6">
-                <div class="flex items-center">
+                <div class="flex items-center {{ 'flex-row-reverse' if session.get('lang', 'ar') == 'ar' else '' }}">
                     <div class="bg-blue-100 rounded-lg p-3">
                         <i class="fas fa-eye text-blue-600 text-xl"></i>
                     </div>
-                    <div class="ml-4">
+                    <div class="{{ 'mr-4' if session.get('lang', 'ar') == 'ar' else 'ml-4' }}">
                         <p class="text-sm text-gray-600">{{ _('Total Impressions') }}</p>
                         <p class="text-2xl font-bold text-gray-900">2.4M</p>
                     </div>
@@ -37,11 +37,11 @@
             </div>
             
             <div class="bg-white rounded-lg shadow p-6">
-                <div class="flex items-center">
+                <div class="flex items-center {{ 'flex-row-reverse' if session.get('lang', 'ar') == 'ar' else '' }}">
                     <div class="bg-green-100 rounded-lg p-3">
                         <i class="fas fa-play text-green-600 text-xl"></i>
                     </div>
-                    <div class="ml-4">
+                    <div class="{{ 'mr-4' if session.get('lang', 'ar') == 'ar' else 'ml-4' }}">
                         <p class="text-sm text-gray-600">{{ _('Active Campaigns') }}</p>
                         <p class="text-2xl font-bold text-gray-900">3</p>
                     </div>
@@ -49,11 +49,11 @@
             </div>
             
             <div class="bg-white rounded-lg shadow p-6">
-                <div class="flex items-center">
+                <div class="flex items-center {{ 'flex-row-reverse' if session.get('lang', 'ar') == 'ar' else '' }}">
                     <div class="bg-yellow-100 rounded-lg p-3">
                         <i class="fas fa-calendar text-yellow-600 text-xl"></i>
                     </div>
-                    <div class="ml-4">
+                    <div class="{{ 'mr-4' if session.get('lang', 'ar') == 'ar' else 'ml-4' }}">
                         <p class="text-sm text-gray-600">{{ _('This Month') }}</p>
                         <p class="text-2xl font-bold text-gray-900">25,800 {{ _('SAR') }}</p>
                     </div>
@@ -61,11 +61,11 @@
             </div>
             
             <div class="bg-white rounded-lg shadow p-6">
-                <div class="flex items-center">
+                <div class="flex items-center {{ 'flex-row-reverse' if session.get('lang', 'ar') == 'ar' else '' }}">
                     <div class="bg-purple-100 rounded-lg p-3">
                         <i class="fas fa-tv text-purple-600 text-xl"></i>
                     </div>
-                    <div class="ml-4">
+                    <div class="{{ 'mr-4' if session.get('lang', 'ar') == 'ar' else 'ml-4' }}">
                         <p class="text-sm text-gray-600">{{ _('Screens Used') }}</p>
                         <p class="text-2xl font-bold text-gray-900">12</p>
                     </div>
@@ -79,33 +79,33 @@
                 <h2 class="text-xl font-semibold text-gray-900">{{ _('Recent Bookings') }}</h2>
             </div>
             <div class="overflow-x-auto">
-                <table class="min-w-full divide-y divide-gray-200">
+                <table class="min-w-full divide-y divide-gray-200" dir="{{ 'rtl' if session.get('lang', 'ar') == 'ar' else 'ltr' }}">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Campaign') }}</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Screen') }}</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Duration') }}</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Cost') }}</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Status') }}</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Actions') }}</th>
+                            <th class="px-6 py-3 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Campaign') }}</th>
+                            <th class="px-6 py-3 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Screen') }}</th>
+                            <th class="px-6 py-3 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Duration') }}</th>
+                            <th class="px-6 py-3 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Cost') }}</th>
+                            <th class="px-6 py-3 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Status') }}</th>
+                            <th class="px-6 py-3 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }} text-xs font-medium text-gray-500 uppercase tracking-wider">{{ _('Actions') }}</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         {% for booking in bookings %}
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm font-medium text-gray-900">{{ booking.campaign_name }}</div>
+                                <div class="text-sm font-medium text-gray-900 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }}">{{ booking.campaign_name }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ booking.screen_title }}</div>
+                                <div class="text-sm text-gray-900 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }}">{{ booking.screen_title }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm text-gray-900">{{ booking.start_date }} - {{ booking.end_date }}</div>
+                                <div class="text-sm text-gray-900 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }}">{{ booking.start_date }} - {{ booking.end_date }}</div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm font-medium text-gray-900">{{ booking.total_cost }} {{ _('SAR') }}</div>
+                                <div class="text-sm font-medium text-gray-900 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }}">{{ booking.total_cost }} {{ _('SAR') }}</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                            <td class="px-6 py-4 whitespace-nowrap {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }}">
                                 {% if booking.status == 'confirmed' %}
                                 <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
                                     {{ _('Confirmed') }}
@@ -116,9 +116,9 @@
                                 </span>
                                 {% endif %}
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 {{ 'text-right' if session.get('lang', 'ar') == 'ar' else 'text-left' }}">
                                 <button class="text-elaani-primary hover:text-elaani-dark">{{ _('View') }}</button>
-                                <button class="ml-3 text-gray-400 hover:text-gray-600">{{ _('Edit') }}</button>
+                                <button class="{{ 'mr-3' if session.get('lang', 'ar') == 'ar' else 'ml-3' }} text-gray-400 hover:text-gray-600">{{ _('Edit') }}</button>
                             </td>
                         </tr>
                         {% endfor %}

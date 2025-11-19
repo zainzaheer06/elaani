@@ -1,7 +1,7 @@
 <!-- templates/advertiser/screen_details.html -->
 {% extends "base_public.html" %}
 
-{% block title %}{{ screen.title }} - {{ _('Screen Details') }}{% endblock %}
+{% block title %}{{ screen.title }} - تفاصيل الشاشة{% endblock %}
 
 {% block content %}
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
@@ -9,14 +9,28 @@
 <style>
     #map { height: 400px; width: 100%; border-radius: 0.5rem; }
     .leaflet-popup-content { font-family: inherit; }
+    
+    /* RTL Fixes */
+    [dir="rtl"] .space-x-1 > * + * { margin-left: 0; margin-right: 0.25rem; }
+    [dir="rtl"] .space-x-3 > * + * { margin-left: 0; margin-right: 0.75rem; }
+    [dir="rtl"] .mr-1 { margin-right: 0; margin-left: 0.25rem; }
+    [dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+    [dir="rtl"] .mr-3 { margin-right: 0; margin-left: 0.75rem; }
+    [dir="rtl"] .mr-4 { margin-right: 0; margin-left: 1rem; }
+    [dir="rtl"] .ml-1 { margin-left: 0; margin-right: 0.25rem; }
+    [dir="rtl"] .ml-2 { margin-left: 0; margin-right: 0.5rem; }
+    [dir="rtl"] .ml-3 { margin-left: 0; margin-right: 0.75rem; }
+    [dir="rtl"] .text-left { text-align: right; }
+    [dir="rtl"] .text-right { text-align: left; }
+    [dir="rtl"] .fa-chevron-right:before { content: "\f053"; }
 </style>
 <div class="bg-gray-50 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Breadcrumb -->
-        <nav class="flex mb-8" aria-label="Breadcrumb">
+        <nav class="flex mb-8" aria-label="التنقل">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
-                    <a href="{{ url_for('browse_screens') }}" class="text-gray-700 hover:text-elaani-primary">{{ _('Browse Screens') }}</a>
+                    <a href="{{ url_for('browse_screens') }}" class="text-gray-700 hover:text-elaani-primary">تصفح الشاشات</a>
                 </li>
                 <li>
                     <div class="flex items-center">
@@ -32,15 +46,15 @@
             <div class="lg:col-span-2">
                 <!-- Main Image -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-6">
-                    <img src="{{ url_for('static', filename='/b1.jpg') }}" alt="{{ _('Screen Billboard') }}" class="w-full h-96 object-cover">
+                    <img src="{{ url_for('static', filename='/b1.jpg') }}" alt="لوحة إعلانية للشاشة" class="w-full h-96 object-cover">
                     <div class="p-4 bg-gray-50 border-t">
                         <div class="grid grid-cols-2 gap-4">
                             <div>
-                                <p class="text-sm text-gray-600">{{ _('Screen Size') }}</p>
+                                <p class="text-sm text-gray-600">حجم الشاشة</p>
                                 <p class="text-lg font-bold text-gray-900">{{ screen.size }}</p>
                             </div>
                             <div>
-                                <p class="text-sm text-gray-600">{{ _('Screen Type') }}</p>
+                                <p class="text-sm text-gray-600">نوع الشاشة</p>
                                 <p class="text-lg font-bold text-gray-900">{{ screen.type }}</p>
                             </div>
                         </div>
@@ -51,45 +65,67 @@
                 <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
                     <h1 class="text-3xl font-bold text-gray-900 mb-4">{{ screen.title }}</h1>
                     
-                    <div class="flex items-center mb-4">
-                        <div class="flex items-center text-yellow-500 mr-4">
+                    <div class="flex items-center mb-4 gap-4">
+                        <div class="flex items-center text-yellow-500">
                             <i class="fas fa-star"></i>
                             <span class="ml-1 text-gray-700 font-semibold">{{ screen.rating }}</span>
-                            <span class="ml-1 text-gray-500">(127 {{ _('reviews') }})</span>
+                            <span class="ml-1 text-gray-500">(127 تقييم)</span>
                         </div>
-                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-semibold">{{ _('Available') }}</span>
+                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-semibold">متاح</span>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <h3 class="font-semibold text-gray-900 mb-3">{{ _('Description') }}</h3>
-                            <p class="text-gray-600">
-                                {{ _('Premium digital billboard located in one of Riyadh\'s busiest commercial areas. This high-resolution LED screen offers excellent visibility for both day and night advertising campaigns. Perfect for reaching business professionals and shoppers in the heart of the city.') }}
+                            <h3 class="font-semibold text-gray-900 mb-3">الوصف</h3>
+                            <p class="text-gray-600 text-base leading-relaxed">
+                                لوحة إعلانية رقمية متميزة تقع في واحدة من أكثر المناطق التجارية ازدحاماً في الرياض. توفر هذه الشاشة LED عالية الدقة رؤية ممتازة لحملات الإعلان النهارية والليلية. مثالية للوصول إلى رجال الأعمال والمتسوقين في قلب المدينة.
                             </p>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-gray-900 mb-3">{{ _('Specifications') }}</h3>
-                            <ul class="space-y-2 text-sm text-gray-600">
-                                <li><span class="font-medium text-gray-900">{{ _('Size:') }}</span> {{ screen.size }}</li>
-                                <li><span class="font-medium text-gray-900">{{ _('Type:') }}</span> {{ screen.type }}</li>
-                                <li><span class="font-medium text-gray-900">{{ _('Direction:') }}</span> <span class="inline-flex items-center">
-                                    <i class="fas fa-compass text-elaani-primary mr-1"></i>{{ screen.direction or _('North') }}
-                                </span></li>
-                                <li><span class="font-medium text-gray-900">{{ _('Resolution:') }}</span> 1920x1080 ({{ _('Full HD') }})</li>
-                                <li><span class="font-medium text-gray-900">{{ _('Brightness:') }}</span> 5000+ {{ _('nits') }}</li>
-                                <li><span class="font-medium text-gray-900">{{ _('Refresh Rate:') }}</span> 60Hz</li>
-                                <li><span class="font-medium text-gray-900">{{ _('Uptime:') }}</span> 99.9%</li>
+                            <h3 class="font-semibold text-gray-900 mb-3">المواصفات</h3>
+                            <ul class="space-y-3 text-base text-gray-600">
+                                <li class="flex items-start gap-2">
+                                    <span class="font-medium text-gray-900 min-w-[100px]">الحجم:</span>
+                                    <span>{{ screen.size }}</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="font-medium text-gray-900 min-w-[100px]">النوع:</span>
+                                    <span>{{ screen.type }}</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="font-medium text-gray-900 min-w-[100px]">الاتجاه:</span>
+                                    <span class="inline-flex items-center gap-2">
+                                        <i class="fas fa-compass text-elaani-primary"></i>
+                                        <span>شمال</span>
+                                    </span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="font-medium text-gray-900 min-w-[100px]">الدقة:</span>
+                                    <span>1920x1080 (عالي الدقة الكامل)</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="font-medium text-gray-900 min-w-[100px]">السطوع:</span>
+                                    <span>5000+ شمعة</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="font-medium text-gray-900 min-w-[100px]">معدل التحديث:</span>
+                                    <span>60 هرتز</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="font-medium text-gray-900 min-w-[100px]">وقت التشغيل:</span>
+                                    <span>99.9%</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
                 <!-- Map -->
                 <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="font-semibold text-gray-900 mb-4">{{ _('Location') }}</h3>
+                    <h3 class="font-semibold text-gray-900 mb-4">الموقع</h3>
                     <div id="map" class="rounded-lg"></div>
-                    <p class="text-sm text-gray-600 mt-3">
-                        <i class="fas fa-map-marker-alt text-elaani-primary mr-2"></i>
-                        {{ screen.location }}
+                    <p class="text-sm text-gray-600 mt-3 flex items-center gap-2">
+                        <i class="fas fa-map-marker-alt text-elaani-primary"></i>
+                        <span>{{ screen.location }}</span>
                     </p>
                 </div>
             </div>
@@ -98,60 +134,60 @@
             <div class="lg:col-span-1">
                 <div class="bg-white rounded-lg shadow-lg p-6 sticky top-8">
                     <div class="text-center mb-6">
-                        <div class="text-3xl font-bold text-elaani-primary">{{ screen.price_per_hour }} {{ _('SAR') }}</div>
-                        <div class="text-gray-600">{{ _('per hour') }}</div>
-                        <div class="text-sm text-gray-500 mt-1">{{ screen.price_per_day }} {{ _('SAR') }} {{ _('per day') }}</div>
+                        <div class="text-3xl font-bold text-elaani-primary">{{ screen.price_per_hour }} ريال</div>
+                        <div class="text-gray-600">في الساعة</div>
+                        <div class="text-sm text-gray-500 mt-1">{{ screen.price_per_day }} ريال في اليوم</div>
                     </div>
 
                     <form class="space-y-4">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Campaign Duration') }}</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">مدة الحملة</label>
                             <select class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
-                                <option>1 {{ _('Hour') }}</option>
-                                <option>4 {{ _('Hours') }}</option>
-                                <option>8 {{ _('Hours') }}</option>
-                                <option>1 {{ _('Day') }}</option>
-                                <option>3 {{ _('Days') }}</option>
-                                <option>1 {{ _('Week') }}</option>
-                                <option>{{ _('Custom') }}</option>
+                                <option>1 ساعة</option>
+                                <option>4 ساعات</option>
+                                <option>8 ساعات</option>
+                                <option>1 يوم</option>
+                                <option>3 أيام</option>
+                                <option>1 أسبوع</option>
+                                <option>مخصص</option>
                             </select>
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Start Date') }}</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">تاريخ البدء</label>
                             <input type="date" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Start Time') }}</label>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">وقت البدء</label>
                             <input type="time" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                         </div>
 
                         <div class="border-t pt-4">
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-600">{{ _('Subtotal:') }}</span>
-                                <span class="font-semibold">{{ screen.price_per_hour }} {{ _('SAR') }}</span>
+                                <span class="text-gray-600">المجموع الفرعي:</span>
+                                <span class="font-semibold">{{ screen.price_per_hour }} ريال</span>
                             </div>
                             <div class="flex justify-between mb-2">
-                                <span class="text-gray-600">{{ _('Platform fee:') }}</span>
-                                <span class="font-semibold">25 {{ _('SAR') }}</span>
+                                <span class="text-gray-600">رسوم المنصة:</span>
+                                <span class="font-semibold">25 ريال</span>
                             </div>
                             <div class="flex justify-between text-lg font-bold border-t pt-2">
-                                <span>{{ _('Total:') }}</span>
-                                <span class="text-elaani-primary">{{ screen.price_per_hour + 25 }} {{ _('SAR') }}</span>
+                                <span>الإجمالي:</span>
+                                <span class="text-elaani-primary">{{ screen.price_per_hour + 25 }} ريال</span>
                             </div>
                         </div>
 
                         <a href="{{ url_for('book_screen', screen_id=screen.id) }}" class="block w-full bg-elaani-primary text-white text-center py-3 rounded-lg font-semibold hover:bg-elaani-dark transition-colors">
-                            {{ _('Book This Screen') }}
+                            احجز هذه الشاشة
                         </a>
                     </form>
 
                     <div class="mt-6 text-center">
-                        <p class="text-sm text-gray-600 mb-2">{{ _('Owned by') }}</p>
+                        <p class="text-sm text-gray-600 mb-2">مملوكة من قبل</p>
                         <p class="font-semibold text-gray-900">{{ screen.owner }}</p>
-                        <div class="flex items-center justify-center mt-2">
-                            <div class="flex text-yellow-500 mr-2">
+                        <div class="flex items-center justify-center mt-2 gap-2">
+                            <div class="flex text-yellow-500">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -168,6 +204,15 @@
 </div>
 
 <script>
+    // Translation strings for JavaScript
+    const translations = {
+        screenTitle: "{{ screen.title }}",
+        screenLocation: "{{ screen.location }}",
+        pricePerHour: "{{ screen.price_per_hour }}",
+        sarHour: "ريال/ساعة",
+        mapAttribution: "© المساهمون في OpenStreetMap"
+    };
+
     // Wait for Leaflet to load
     function initMap() {
         if (typeof L === 'undefined') {
@@ -180,7 +225,7 @@
 
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors',
+            attribution: translations.mapAttribution,
             maxZoom: 19
         }).addTo(map);
 
@@ -197,9 +242,9 @@
         // Add popup to marker
         screenMarker.bindPopup(`
             <div style="text-align: center;">
-                <p style="font-weight: bold; margin: 5px 0;">{{ screen.title }}</p>
-                <p style="font-size: 12px; color: #666; margin: 5px 0;">{{ screen.location }}</p>
-                <p style="font-size: 12px; font-weight: bold; color: #00A3E0; margin: 8px 0;">{{ screen.price_per_hour }} SAR/hour</p>
+                <p style="font-weight: bold; margin: 5px 0;">${translations.screenTitle}</p>
+                <p style="font-size: 12px; color: #666; margin: 5px 0;">${translations.screenLocation}</p>
+                <p style="font-size: 12px; font-weight: bold; color: #00A3E0; margin: 8px 0;">${translations.pricePerHour} ${translations.sarHour}</p>
             </div>
         `);
 

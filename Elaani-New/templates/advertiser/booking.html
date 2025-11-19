@@ -9,42 +9,42 @@
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Header -->
         <div class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2">{{ _('Complete Your Booking') }}</h1>
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">أكمل حجزك</h1>
             <p class="text-gray-600">{{ screen.title }}</p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
             <!-- Booking Form -->
-            <div class="lg:col-span-2">
+            <div class="lg:col-span-3">
                 <form class="space-y-6">
                     <!-- Campaign Details -->
                     <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">{{ _('Campaign Details') }}</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">تفاصيل الحملة</h2>
                         
                         <div class="space-y-4">
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Campaign Name') }}</label>
-                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="{{ _('Enter campaign name') }}">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">اسم الحملة</label>
+                                <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="أدخل اسم الحملة">
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Start Date') }}</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">تاريخ البدء</label>
                                     <input type="date" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('End Date') }}</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">تاريخ الانتهاء</label>
                                     <input type="date" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Start Time') }}</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">وقت البدء</label>
                                     <input type="time" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('End Time') }}</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">وقت الانتهاء</label>
                                     <input type="time" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                                 </div>
                             </div>
@@ -53,17 +53,17 @@
 
                     <!-- Creative Upload -->
                     <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">{{ _('Your Creative') }}</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">تصميمك الإبداعي</h2>
                         
                         <!-- Toggle Buttons -->
-                        <div class="flex space-x-4 mb-6">
+                        <div class="flex space-x-reverse space-x-4 mb-6">
                             <label class="flex items-center cursor-pointer">
                                 <input type="radio" name="creative_option" value="upload" checked class="creative-toggle" data-target="upload-section">
-                                <span class="ml-2 text-gray-900">{{ _('Upload Creative') }}</span>
+                                <span class="mr-2 text-gray-900">رفع التصميم</span>
                             </label>
                             <label class="flex items-center cursor-pointer">
                                 <input type="radio" name="creative_option" value="request" class="creative-toggle" data-target="request-section">
-                                <span class="ml-2 text-gray-900">{{ _('Request Creative') }}</span>
+                                <span class="mr-2 text-gray-900">طلب تصميم</span>
                             </label>
                         </div>
 
@@ -71,12 +71,12 @@
                         <div id="upload-section" class="creative-section">
                             <div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
                                 <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
-                                <h3 class="text-lg font-medium text-gray-900 mb-2">{{ _('Upload your ad creative') }}</h3>
-                                <p class="text-gray-600 mb-4">{{ _('Drag and drop your files here, or click to browse') }}</p>
+                                <h3 class="text-lg font-medium text-gray-900 mb-2">ارفع تصميمك الإعلاني</h3>
+                                <p class="text-gray-600 mb-4">اسحب وأفلت ملفاتك هنا، أو انقر للتصفح</p>
                                 <button type="button" class="bg-elaani-primary text-white px-6 py-2 rounded-md hover:bg-elaani-dark transition-colors">
-                                    {{ _('Choose Files') }}
+                                    اختر الملفات
                                 </button>
-                                <p class="text-sm text-gray-500 mt-2">{{ _('Supported formats:') }} {{ _('JPG, PNG, MP4, MOV') }} ({{ _('Max') }} 50{{ _('MB') }})</p>
+                                <p class="text-sm text-gray-500 mt-2">الصيغ المدعومة: JPG, PNG, MP4, MOV (الحد الأقصى 50MB)</p>
                             </div>
                         </div>
 
@@ -107,7 +107,7 @@
 
                                 <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
                                     <p class="text-sm text-blue-900">
-                                        <i class="fas fa-info-circle mr-2"></i>
+                                        <i class="fas fa-info-circle {{ 'ml-2' if session.get('lang', 'ar') == 'ar' else 'mr-2' }}"></i>
                                         <strong>{{ _('Creative Design Fee:') }}</strong> 500 {{ _('SAR') }} ({{ _('included in your total') }})
                                     </p>
                                     <p class="text-sm text-blue-800 mt-2">{{ _('Our design team will create professional, high-quality creative tailored to your campaign.') }}</p>
@@ -118,27 +118,27 @@
 
                     <!-- Billing Information -->
                     <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">{{ _('Billing Information') }}</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">معلومات الفواتير</h2>
                         
                         <div class="space-y-4">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('First Name') }}</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">الاسم الأول</label>
                                     <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Last Name') }}</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">اسم العائلة</label>
                                     <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                                 </div>
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Email Address') }}</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">عنوان البريد الإلكتروني</label>
                                 <input type="email" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                             </div>
 
                             <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Company Name (Optional)') }}</label>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">اسم الشركة (اختياري)</label>
                                 <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary">
                             </div>
                         </div>
@@ -146,39 +146,39 @@
 
                     <!-- Payment Method -->
                     <div class="bg-white rounded-lg shadow p-6">
-                        <h2 class="text-xl font-semibold text-gray-900 mb-4">{{ _('Payment Method') }}</h2>
+                        <h2 class="text-xl font-semibold text-gray-900 mb-4">طريقة الدفع</h2>
                         
                         <div class="space-y-4">
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-reverse space-x-3">
                                 <input type="radio" name="payment" value="card" class="text-elaani-primary focus:ring-elaani-primary" checked>
-                                <label class="text-gray-900">{{ _('Credit/Debit Card') }}</label>
-                                <div class="flex space-x-2 ml-auto">
+                                <label class="text-gray-900">بطاقة ائتمان/خصم</label>
+                                <div class="flex space-x-reverse space-x-2 mr-auto">
                                     <i class="fab fa-cc-visa text-2xl text-blue-600"></i>
                                     <i class="fab fa-cc-mastercard text-2xl text-red-600"></i>
                                     <i class="fab fa-cc-amex text-2xl text-blue-500"></i>
                                 </div>
                             </div>
                             
-                            <div class="pl-6 space-y-3">
+                            <div class="pr-6 space-y-3">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Card Number') }}</label>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">رقم البطاقة</label>
                                     <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="1234 5678 9012 3456" maxlength="19">
                                 </div>
                                 <div class="grid grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('Expiry Date') }}</label>
-                                        <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="{{ _('MM/YY') }}" maxlength="5">
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">تاريخ الانتهاء</label>
+                                        <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="شهر/سنة" maxlength="5">
                                     </div>
                                     <div>
-                                        <label class="block text-sm font-medium text-gray-700 mb-2">{{ _('CVV') }}</label>
+                                        <label class="block text-sm font-medium text-gray-700 mb-2">رمز الأمان</label>
                                         <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-elaani-primary focus:border-elaani-primary" placeholder="123" maxlength="4">
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="flex items-center space-x-3">
+                            <div class="flex items-center space-x-reverse space-x-3">
                                 <input type="radio" name="payment" value="bank" class="text-elaani-primary focus:ring-elaani-primary">
-                                <label class="text-gray-900">{{ _('Bank Transfer') }}</label>
+                                <label class="text-gray-900">تحويل بنكي</label>
                             </div>
                         </div>
                     </div>
@@ -186,64 +186,69 @@
             </div>
 
             <!-- Order Summary -->
-            <div class="lg:col-span-1">
-                <div class="bg-white rounded-lg shadow p-6 sticky top-8">
-                    <h2 class="text-xl font-semibold text-gray-900 mb-4">{{ _('Order Summary') }}</h2>
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-lg shadow-lg p-8 sticky top-8" dir="rtl">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-8 text-right">ملخص الطلب</h2>
                     
-                    <div class="space-y-3 mb-6">
-                        <div class="flex items-start">
-                            <div class="w-16 h-16 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-lg flex items-center justify-center mr-3">
+                    <!-- Screen Info Card -->
+                    <div class="bg-gray-50 rounded-xl p-5 mb-8">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-lg flex items-center justify-center flex-shrink-0">
                                 <i class="fas fa-tv text-white text-xl"></i>
                             </div>
-                            <div>
-                                <h3 class="font-semibold text-gray-900">{{ screen.title }}</h3>
-                                <p class="text-sm text-gray-600">{{ screen.location }}</p>
-                                <p class="text-sm text-gray-500">{{ screen.size }} • {{ screen.type }}</p>
+                            <div class="text-right flex-1 min-w-0">
+                                <h3 class="font-bold text-gray-900 text-base mb-1">{{ screen.title }}</h3>
+                                <p class="text-sm text-gray-600 mb-1">{{ screen.location }}</p>
+                                <p class="text-xs text-gray-500">{{ screen.size }} • {{ screen.type }}</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="space-y-2 mb-4">
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">{{ _('Duration:') }}</span>
-                            <span class="font-semibold">3 {{ _('days') }}</span>
+                    <!-- Price Breakdown -->
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                            <span class="text-gray-600 text-base">المدة:</span>
+                            <span class="font-bold text-gray-900 text-base">3 أيام</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">{{ _('Rate:') }}</span>
-                            <span class="font-semibold">{{ screen.price_per_day }} {{ _('SAR/day') }}</span>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                            <span class="text-gray-600 text-base">السعر:</span>
+                            <span class="font-bold text-gray-900 text-base">{{ screen.price_per_day }} ريال/يوم</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">{{ _('Subtotal:') }}</span>
-                            <span class="font-semibold">{{ screen.price_per_day * 3 }} {{ _('SAR') }}</span>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                            <span class="text-gray-600 text-base">المجموع الفرعي:</span>
+                            <span class="font-bold text-gray-900 text-base">{{ screen.price_per_day * 3 }} ريال</span>
                         </div>
-                        <div class="flex justify-between creative-fee-row hidden">
-                            <span class="text-gray-600">{{ _('Creative Design Fee:') }}</span>
-                            <span class="font-semibold">500 {{ _('SAR') }}</span>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100 creative-fee-row hidden">
+                            <span class="text-gray-600 text-base">رسوم التصميم الإبداعي:</span>
+                            <span class="font-bold text-gray-900 text-base">500 ريال</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">{{ _('Platform fee:') }}</span>
-                            <span class="font-semibold">150 {{ _('SAR') }}</span>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                            <span class="text-gray-600 text-base">رسوم المنصة:</span>
+                            <span class="font-bold text-gray-900 text-base">150 ريال</span>
                         </div>
-                        <div class="flex justify-between">
-                            <span class="text-gray-600">{{ _('VAT (15%):') }}</span>
-                            <span class="font-semibold vat-amount">{{ ((screen.price_per_day * 3 + 150) * 0.15)|round|int }} {{ _('SAR') }}</span>
-                        </div>
-                    </div>
-
-                    <div class="border-t pt-4 mb-6">
-                        <div class="flex justify-between text-lg font-bold">
-                            <span>{{ _('Total:') }}</span>
-                            <span class="text-elaani-primary total-amount">{{ ((screen.price_per_day * 3 + 150) * 1.15)|round|int }} {{ _('SAR') }}</span>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-100">
+                            <span class="text-gray-600 text-base">ضريبة القيمة المضافة (15%):</span>
+                            <span class="font-bold text-gray-900 text-base vat-amount">{{ ((screen.price_per_day * 3 + 150) * 0.15)|round|int }} ريال</span>
                         </div>
                     </div>
 
-                    <button type="submit" class="w-full bg-elaani-primary text-white py-3 rounded-lg font-semibold hover:bg-elaani-dark transition-colors">
-                        {{ _('Complete Booking') }}
+                    <!-- Total -->
+                    <div class="bg-gradient-to-r from-elaani-primary/5 to-elaani-secondary/5 rounded-xl p-5 mb-8">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-gray-900">الإجمالي:</span>
+                            <span class="text-2xl font-bold text-elaani-primary total-amount">{{ ((screen.price_per_day * 3 + 150) * 1.15)|round|int }} ريال</span>
+                        </div>
+                    </div>
+
+                    <!-- Complete Button -->
+                    <button type="submit" class="w-full bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white py-5 rounded-xl font-bold hover:shadow-lg transition-all text-xl">
+                        إتمام الحجز
                     </button>
 
-                    <div class="mt-4 text-center">
-                        <p class="text-xs text-gray-500">
-                            {{ _('By completing this booking, you agree to our') }} <a href="#" class="text-elaani-primary hover:underline">{{ _('Terms of Service') }}</a> {{ _('and') }} <a href="#" class="text-elaani-primary hover:underline">{{ _('Privacy Policy') }}</a>.
+                    <!-- Terms -->
+                    <div class="mt-6 text-center">
+                        <p class="text-sm text-gray-500 leading-loose">
+                            بإتمام هذا الحجز، فإنك توافق على <a href="#" class="text-elaani-primary hover:underline font-semibold">شروط الخدمة</a> و <a href="#" class="text-elaani-primary hover:underline font-semibold">سياسة الخصوصية</a>.
                         </p>
                     </div>
                 </div>
@@ -286,8 +291,8 @@
         const vat = Math.round(subtotal * 0.15);
         const total = subtotal + vat;
         
-        document.querySelector('.vat-amount').textContent = vat + ' SAR';
-        document.querySelector('.total-amount').textContent = total + ' SAR';
+        document.querySelector('.vat-amount').textContent = vat + ' ريال';
+        document.querySelector('.total-amount').textContent = total + ' ريال';
     }
 </script>
 {% endblock %}

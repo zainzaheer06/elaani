@@ -953,3 +953,617 @@ msgstr "علي"
 
 msgid "Advertiser"
 msgstr "معلن"
+
+# Choose Role Page Translations
+msgid "Choose Your Role"
+msgstr "اختر دورك"
+
+msgid "Select how you want to use Elaani marketplace"
+msgstr "اختر كيف تريد استخدام سوق إعلاني"
+
+msgid "I'm an Advertiser"
+msgstr "أنا معلن"
+
+msgid "I want to promote my business by booking digital screens for advertising campaigns."
+msgstr "أريد الترويج لأعمالي من خلال حجز الشاشات الرقمية للحملات الإعلانية."
+
+msgid "Browse available screens"
+msgstr "تصفح الشاشات المتاحة"
+
+msgid "Book advertising slots"
+msgstr "احجز مساحات إعلانية"
+
+msgid "Track campaign performance"
+msgstr "تتبع أداء الحملة"
+
+msgid "Manage multiple campaigns"
+msgstr "إدارة حملات متعددة"
+
+msgid "I Own Digital Screens"
+msgstr "أنا أملك شاشات رقمية"
+
+msgid "I have digital screens and want to rent them out to advertisers to generate revenue."
+msgstr "لدي شاشات رقمية وأريد تأجيرها للمعلنين لتحقيق الإيرادات."
+
+msgid "List your screens"
+msgstr "أضف شاشاتك"
+
+msgid "Set your own pricing"
+msgstr "حدد أسعارك الخاصة"
+
+msgid "Manage availability"
+msgstr "إدارة التوفر"
+
+msgid "Track earnings"
+msgstr "تتبع الأرباح"
+
+msgid "List Your Screens"
+msgstr "أضف شاشاتك"
+
+msgid "Not sure which option is right for you?"
+msgstr "غير متأكد من الخيار المناسب لك؟"
+
+msgid "Learn more about our platform"
+msgstr "تعرف على المزيد حول منصتنا"
+
+# Browse Screens Page Translations
+msgid "Browse Digital Screens"
+msgstr "تصفح الشاشات الرقمية"
+
+msgid "Find the perfect screens for your advertising campaign"
+msgstr "اعثر على الشاشات المثالية لحملتك الإعلانية"
+
+msgid "All Riyadh"
+msgstr "جميع أنحاء الرياض"
+
+msgid "Tahlia Street"
+msgstr "شارع التحلية"
+
+msgid "King Abdullah Road"
+msgstr "طريق الملك عبدالله"
+
+msgid "Screen Type"
+msgstr "نوع الشاشة"
+
+msgid "All Types"
+msgstr "جميع الأنواع"
+
+msgid "Mall Screen"
+msgstr "شاشة المول"
+
+msgid "Price Range"
+msgstr "نطاق السعر"
+
+msgid "Any Price"
+msgstr "أي سعر"
+
+msgid "Under 200 SAR/hour"
+msgstr "أقل من 200 ريال/ساعة"
+
+msgid "200-300 SAR/hour"
+msgstr "200-300 ريال/ساعة"
+
+msgid "300+ SAR/hour"
+msgstr "300+ ريال/ساعة"
+
+msgid "Availability"
+msgstr "التوفر"
+
+msgid "Apply Filters"
+msgstr "تطبيق الفلاتر"
+
+msgid "screens found"
+msgstr "شاشة متاحة"
+
+msgid "Map View"
+msgstr "عرض الخريطة"
+
+msgid "Unavailable"
+msgstr "غير متاح"
+
+msgid "hour"
+msgstr "ساعة"
+
+msgid "more"
+msgstr "المزيد"
+
+# Screen Data Translations
+msgid "King Fahd Road LED Billboard"
+msgstr "لوحة إعلانية LED طريق الملك فهد"
+
+msgid "Digital Media Co."
+msgstr "شركة الإعلام الرقمي"
+
+msgid "4K Resolution"
+msgstr "دقة 4K"
+
+msgid "Weather Resistant"
+msgstr "مقاوم للطقس"
+
+msgid "High Traffic Area"
+msgstr "منطقة ذات حركة مرور عالية"
+
+msgid "Riyadh Mall Indoor Screen"
+msgstr "شاشة داخلية في مول الرياض"
+
+msgid "Al Nakheel Mall, Riyadh"
+msgstr "النخيل مول، الرياض"
+
+msgid "Mall Advertising LLC"
+msgstr "شركة إعلانات المولات"
+
+msgid "HD Display"
+msgstr "شاشة عالية الدقة"
+
+msgid "Shopping Center Location"
+msgstr "موقع في مركز تسوق"
+
+msgid "Family Audience"
+msgstr "جمهور عائلي"
+
+msgid "Olaya Street Digital Display"
+msgstr "شاشة رقمية شارع العليا"
+
+msgid "Olaya Street, Business District"
+msgstr "شارع العليا، الحي التجاري"
+
+msgid "Urban Screens KSA"
+msgstr "شاشات المدن السعودية"
+
+msgid "Ultra HD"
+msgstr "دقة فائقة الوضوح"
+
+msgid "Business District"
+msgstr "الحي التجاري"
+
+msgid "Premium Location"
+msgstr "موقع مميز"
+
+msgid "Digital Display"
+msgstr "شاشة عرض رقمية"
+
+# Advertiser Dashboard Page Translations
+msgid "Advertiser Dashboard - Elaani"
+msgstr "لوحة تحكم المعلن - إعلاني"
+
+msgid "Advertiser Dashboard"
+msgstr "لوحة تحكم المعلن"
+
+msgid "Manage your campaigns and bookings"
+msgstr "إدارة حملاتك وحجوزاتك"
+
+msgid "New Campaign"
+msgstr "حملة جديدة"
+
+msgid "Total Impressions"
+msgstr "إجمالي المشاهدات"
+
+msgid "Active Campaigns"
+msgstr "الحملات النشطة"
+
+msgid "This Month"
+msgstr "هذا الشهر"
+
+msgid "Screens Used"
+msgstr "الشاشات المستخدمة"
+
+msgid "Recent Bookings"
+msgstr "الحجوزات الأخيرة"
+
+msgid "Campaign"
+msgstr "الحملة"
+
+msgid "Screen"
+msgstr "الشاشة"
+
+msgid "Cost"
+msgstr "التكلفة"
+
+msgid "Edit"
+msgstr "تعديل"
+
+# Booking Page Translations
+msgid "Book"
+msgstr "حجز"
+
+msgid "Complete Your Booking"
+msgstr "أكمل حجزك"
+
+msgid "Campaign Details"
+msgstr "تفاصيل الحملة"
+
+msgid "Campaign Name"
+msgstr "اسم الحملة"
+
+msgid "Enter campaign name"
+msgstr "أدخل اسم الحملة"
+
+msgid "Start Time"
+msgstr "وقت البدء"
+
+msgid "End Time"
+msgstr "وقت الانتهاء"
+
+msgid "Your Creative"
+msgstr "تصميمك الإبداعي"
+
+msgid "Upload Creative"
+msgstr "رفع التصميم"
+
+msgid "Request Creative"
+msgstr "طلب تصميم"
+
+msgid "Upload your ad creative"
+msgstr "ارفع تصميمك الإعلاني"
+
+msgid "Drag and drop your files here, or click to browse"
+msgstr "اسحب وأفلت ملفاتك هنا، أو انقر للتصفح"
+
+msgid "Choose Files"
+msgstr "اختر الملفات"
+
+msgid "Supported formats:"
+msgstr "الصيغ المدعومة:"
+
+msgid "JPG, PNG, MP4, MOV"
+msgstr "JPG, PNG, MP4, MOV"
+
+msgid "Max"
+msgstr "الحد الأقصى"
+
+msgid "MB"
+msgstr "ميجابايت"
+
+msgid "Creative Type"
+msgstr "نوع التصميم"
+
+msgid "Select a creative type"
+msgstr "اختر نوع التصميم"
+
+msgid "Static Image"
+msgstr "صورة ثابتة"
+
+msgid "Video (15-30 seconds)"
+msgstr "فيديو (15-30 ثانية)"
+
+msgid "Looping Animation"
+msgstr "رسوم متحركة متكررة"
+
+msgid "Interactive Display"
+msgstr "عرض تفاعلي"
+
+msgid "Dynamic Content"
+msgstr "محتوى ديناميكي"
+
+msgid "Campaign Message / Brief"
+msgstr "رسالة الحملة / الملخص"
+
+msgid "Describe your campaign, target audience, key message, brand colors, etc."
+msgstr "صف حملتك، الجمهور المستهدف، الرسالة الرئيسية، ألوان العلامة التجارية، إلخ."
+
+msgid "Brand/Logo (Optional)"
+msgstr "العلامة التجارية/الشعار (اختياري)"
+
+msgid "Creative Design Fee:"
+msgstr "رسوم التصميم الإبداعي:"
+
+msgid "included in your total"
+msgstr "مشمول في المجموع"
+
+msgid "Our design team will create professional, high-quality creative tailored to your campaign."
+msgstr "سيقوم فريق التصميم لدينا بإنشاء تصميم احترافي عالي الجودة مخصص لحملتك."
+
+msgid "Billing Information"
+msgstr "معلومات الفواتير"
+
+msgid "First Name"
+msgstr "الاسم الأول"
+
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+msgid "Email Address"
+msgstr "عنوان البريد الإلكتروني"
+
+msgid "Company Name (Optional)"
+msgstr "اسم الشركة (اختياري)"
+
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+msgid "Credit/Debit Card"
+msgstr "بطاقة ائتمان/خصم"
+
+msgid "Card Number"
+msgstr "رقم البطاقة"
+
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "MM/YY"
+msgstr "شهر/سنة"
+
+msgid "CVV"
+msgstr "رمز الأمان"
+
+msgid "Bank Transfer"
+msgstr "تحويل بنكي"
+
+msgid "Order Summary"
+msgstr "ملخص الطلب"
+
+msgid "Duration:"
+msgstr "المدة:"
+
+msgid "days"
+msgstr "أيام"
+
+msgid "Rate:"
+msgstr "السعر:"
+
+msgid "SAR/day"
+msgstr "ريال/يوم"
+
+msgid "Subtotal:"
+msgstr "المجموع الفرعي:"
+
+msgid "Platform fee:"
+msgstr "رسوم المنصة:"
+
+msgid "VAT (15%):"
+msgstr "ضريبة القيمة المضافة (15%):"
+
+msgid "Total:"
+msgstr "الإجمالي:"
+
+msgid "Complete Booking"
+msgstr "إتمام الحجز"
+
+msgid "By completing this booking, you agree to our"
+msgstr "بإتمام هذا الحجز، فإنك توافق على"
+
+msgid "and"
+msgstr "و"
+
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+msgid "Complete Your Booking"
+msgstr "أكمل حجزك"
+
+msgid "Campaign Details"
+msgstr "تفاصيل الحملة"
+
+msgid "Start Time"
+msgstr "وقت البدء"
+
+msgid "End Time"
+msgstr "وقت الانتهاء"
+
+msgid "Your Creative"
+msgstr "تصميمك الإبداعي"
+
+msgid "Upload Creative"
+msgstr "رفع التصميم"
+
+msgid "Request Creative"
+msgstr "طلب تصميم"
+
+msgid "Upload your ad creative"
+msgstr "ارفع تصميمك الإعلاني"
+
+msgid "Drag and drop your files here, or click to browse"
+msgstr "اسحب وأفلت ملفاتك هنا، أو انقر للتصفح"
+
+msgid "Choose Files"
+msgstr "اختر الملفات"
+
+msgid "Billing Information"
+msgstr "معلومات الفواتير"
+
+msgid "First Name"
+msgstr "الاسم الأول"
+
+msgid "Last Name"
+msgstr "اسم العائلة"
+
+msgid "Payment Method"
+msgstr "طريقة الدفع"
+
+msgid "Credit/Debit Card"
+msgstr "بطاقة ائتمان/خصم"
+
+msgid "Card Number"
+msgstr "رقم البطاقة"
+
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+msgid "Bank Transfer"
+msgstr "تحويل بنكي"
+
+msgid "Order Summary"
+msgstr "ملخص الطلب"
+
+msgid "Rate:"
+msgstr "السعر:"
+
+msgid "Subtotal:"
+msgstr "المجموع الفرعي:"
+
+msgid "Platform fee:"
+msgstr "رسوم المنصة:"
+
+# Screen Details Page Translations
+msgid "Screen Details"
+msgstr "تفاصيل الشاشة"
+
+msgid "Breadcrumb"
+msgstr "التنقل"
+
+msgid "Screen Billboard"
+msgstr "لوحة إعلانية للشاشة"
+
+msgid "Screen Size"
+msgstr "حجم الشاشة"
+
+msgid "reviews"
+msgstr "تقييم"
+
+msgid "Description"
+msgstr "الوصف"
+
+msgid "Premium digital billboard located in one of Riyadh's busiest commercial areas. This high-resolution LED screen offers excellent visibility for both day and night advertising campaigns. Perfect for reaching business professionals and shoppers in the heart of the city."
+msgstr "لوحة إعلانية رقمية متميزة تقع في واحدة من أكثر المناطق التجارية ازدحاماً في الرياض. توفر هذه الشاشة LED عالية الدقة رؤية ممتازة لحملات الإعلان النهارية والليلية. مثالية للوصول إلى رجال الأعمال والمتسوقين في قلب المدينة."
+
+msgid "Specifications"
+msgstr "المواصفات"
+
+msgid "Full HD"
+msgstr "عالي الدقة الكامل"
+
+msgid "nits"
+msgstr "شمعة"
+
+msgid "Refresh Rate:"
+msgstr "معدل التحديث:"
+
+msgid "per hour"
+msgstr "في الساعة"
+
+msgid "Campaign Duration"
+msgstr "مدة الحملة"
+
+msgid "Hour"
+msgstr "ساعة"
+
+msgid "Hours"
+msgstr "ساعات"
+
+msgid "Week"
+msgstr "أسبوع"
+
+msgid "Custom"
+msgstr "مخصص"
+
+msgid "Book This Screen"
+msgstr "احجز هذه الشاشة"
+
+msgid "Owned by"
+msgstr "مملوكة من قبل"
+
+msgid "© OpenStreetMap contributors"
+msgstr "© المساهمون في OpenStreetMap"
+
+# Additional missing translations for screen details page
+msgid "Leaflet"
+msgstr "Leaflet"
+
+msgid "60Hz"
+msgstr "60 هرتز"
+
+msgid "99.9%"
+msgstr "٩٩.٩٪"
+
+msgid "1920x1080"
+msgstr "١٩٢٠×١٠٨٠"
+
+msgid "5000+"
+msgstr "٥٠٠٠+"
+
+msgid "3m x 2m"
+msgstr "٣م × ٢م"
+
+msgid "6m x 3m"
+msgstr "٦م × ٣م"
+
+msgid "4m x 2.5m"
+msgstr "٤م × ٢.٥م"
+
+msgid "127"
+msgstr "١٢٧"
+
+msgid "4.6"
+msgstr "٤.٦"
+
+msgid "4.8"
+msgstr "٤.٨"
+
+msgid "4.9"
+msgstr "٤.٩"
+
+msgid "180"
+msgstr "١٨٠"
+
+msgid "250"
+msgstr "٢٥٠"
+
+msgid "200"
+msgstr "٢٠٠"
+
+msgid "3600"
+msgstr "٣٦٠٠"
+
+msgid "5000"
+msgstr "٥٠٠٠"
+
+msgid "4200"
+msgstr "٤٢٠٠"
+
+msgid "25"
+msgstr "٢٥"
+
+msgid "205"
+msgstr "٢٠٥"
+
+msgid "1"
+msgstr "١"
+
+msgid "3"
+msgstr "٣"
+
+msgid "4"
+msgstr "٤"
+
+msgid "8"
+msgstr "٨"
+
+# Register Page Translations
+msgid "Register"
+msgstr "التسجيل"
+
+msgid "Create your account"
+msgstr "إنشاء حسابك"
+
+msgid "sign in to existing account"
+msgstr "تسجيل الدخول إلى حساب موجود"
+
+msgid "Full Name"
+msgstr "الاسم الكامل"
+
+msgid "Enter your full name"
+msgstr "أدخل اسمك الكامل"
+
+msgid "Enter your email"
+msgstr "أدخل بريدك الإلكتروني"
+
+msgid "Phone Number"
+msgstr "رقم الهاتف"
+
+msgid "Create a password"
+msgstr "إنشاء كلمة مرور"
+
+msgid "Confirm Password"
+msgstr "تأكيد كلمة المرور"
+
+msgid "Confirm your password"
+msgstr "أكد كلمة المرور"
+
+msgid "I agree to the"
+msgstr "أوافق على"
+
+msgid "Create Account"
+msgstr "إنشاء حساب"
