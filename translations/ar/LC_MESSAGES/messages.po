@@ -7023,3 +7023,6 @@ msgstr "علي"
 
 msgid "Advertiser"
 msgstr "معلن"
+
+msgid "All time"
+msgstr "طوال الوقت"

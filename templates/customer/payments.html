@@ -9,11 +9,11 @@
 <!-- Payment Summary -->
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-        <div class="flex items-center">
+        <div class="flex items-center gap-4">
             <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
                 <i class="fas fa-check-circle text-green-600 text-xl"></i>
             </div>
-            <div class="ml-4">
+            <div>
                 <p class="text-sm text-gray-600">{{ _('Paid') }}</p>
                 <p class="text-2xl font-bold text-gray-900">65,500 SAR</p>
                 <p class="text-xs text-gray-600 mt-1">8 {{ _('invoices') }}</p>
@@ -22,11 +22,11 @@
     </div>
 
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-        <div class="flex items-center">
+        <div class="flex items-center gap-4">
             <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
                 <i class="fas fa-clock text-yellow-600 text-xl"></i>
             </div>
-            <div class="ml-4">
+            <div>
                 <p class="text-sm text-gray-600">{{ _('Pending') }}</p>
                 <p class="text-2xl font-bold text-gray-900">9,750 SAR</p>
                 <p class="text-xs text-gray-600 mt-1">2 {{ _('invoices due') }}</p>
@@ -35,14 +35,14 @@
     </div>
 
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
-        <div class="flex items-center">
+        <div class="flex items-center gap-4">
             <div class="w-12 h-12 bg-elaani-light rounded-xl flex items-center justify-center">
                 <i class="fas fa-credit-card text-elaani-primary text-xl"></i>
             </div>
-            <div class="ml-4">
+            <div>
                 <p class="text-sm text-gray-600">{{ _('Total Spent') }}</p>
                 <p class="text-2xl font-bold text-gray-900">75,250 SAR</p>
-                <p class="text-xs text-gray-600 mt-1">{{ _('All time') }}</p>
+                <p class="text-xs text-gray-600 mt-1">{% if session.get('lang', 'ar') == 'ar' %}طوال الوقت{% else %}All time{% endif %}</p>
             </div>
         </div>
     </div>
@@ -53,16 +53,16 @@
     <div class="border-b border-gray-200">
         <div class="flex">
             <button onclick="switchTab('invoices')" class="payment-tab active px-6 py-4 text-sm font-medium text-elaani-primary border-b-2 border-elaani-primary">
-                <i class="fas fa-file-invoice mr-2"></i>{{ _('Invoices') }}
+                <i class="fas fa-file-invoice {% if session.get('lang', 'ar') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Invoices') }}
             </button>
             <button onclick="switchTab('payments')" class="payment-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                <i class="fas fa-history mr-2"></i>{{ _('Payment History') }}
+                <i class="fas fa-history {% if session.get('lang', 'ar') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Payment History') }}
             </button>
             <button onclick="switchTab('methods')" class="payment-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                <i class="fas fa-wallet mr-2"></i>{{ _('Payment Methods') }}
+                <i class="fas fa-wallet {% if session.get('lang', 'ar') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Payment Methods') }}
             </button>
             <button onclick="switchTab('billing')" class="payment-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
-                <i class="fas fa-user-circle mr-2"></i>{{ _('Billing Address') }}
+                <i class="fas fa-user-circle {% if session.get('lang', 'ar') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Billing Address') }}
             </button>
         </div>
     </div>
@@ -71,90 +71,74 @@
     <div id="invoices-content" class="p-6">
         <div class="space-y-4">
             <!-- Invoice 1 - Unpaid -->
-            <div class="flex items-start p-4 bg-yellow-50 border border-yellow-200 rounded-xl hover:shadow-md transition-all">
-                <div class="flex-1">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <h4 class="font-semibold text-gray-900">{{ _('Invoice #INV-001') }}</h4>
-                            <p class="text-sm text-gray-600 mt-1">{{ _('Tech Conference - King Fahd Road LED') }}</p>
-                            <div class="flex items-center space-x-4 mt-2">
-                                <span class="text-xs text-gray-600">{{ _('Due: Oct 15, 2025') }}</span>
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                    <i class="fas fa-exclamation-circle mr-1"></i>{{ _('Pending') }}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-2xl font-bold text-gray-900">5,000 SAR</div>
-                            <button class="mt-2 text-blue-600 hover:text-blue-700 font-medium text-sm">{{ _('Pay Now') }}</button>
-                        </div>
+            <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-xl hover:shadow-md transition-all">
+                <div class="flex items-start justify-between mb-2">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                        <i class="fas fa-exclamation-circle"></i>{{ _('Pending') }}
+                    </span>
+                    <div class="{% if session.get('lang', 'ar') == 'ar' %}text-left{% else %}text-right{% endif %}">
+                        <div class="text-2xl font-bold text-gray-900">5,000 SAR</div>
                     </div>
+                </div>
+                <h4 class="font-semibold text-gray-900">{{ _('Invoice #INV-001') }}</h4>
+                <p class="text-sm text-gray-600 mt-1">{{ _('Tech Conference - King Fahd Road LED') }}</p>
+                <div class="flex items-center justify-between mt-3">
+                    <span class="text-xs text-gray-600">{{ _('Due: Oct 15, 2025') }}</span>
+                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm">{{ _('Pay Now') }}</button>
                 </div>
             </div>
 
             <!-- Invoice 2 - Unpaid -->
-            <div class="flex items-start p-4 bg-yellow-50 border border-yellow-200 rounded-xl hover:shadow-md transition-all">
-                <div class="flex-1">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Invoice #INV-002</h4>
-                            <p class="text-sm text-gray-600 mt-1">{{ _('Wedding Event - Riyadh Gallery Mall') }}</p>
-                            <div class="flex items-center space-x-4 mt-2">
-                                <span class="text-xs text-gray-600">{{ _('Due: Oct 10, 2025') }}</span>
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                    <i class="fas fa-times-circle mr-1"></i>{{ _('Overdue') }}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-2xl font-bold text-red-600">4,750 SAR</div>
-                            <button class="mt-2 text-red-600 hover:text-red-700 font-medium text-sm">Pay Now</button>
-                        </div>
+            <div class="p-4 bg-yellow-50 border border-yellow-200 rounded-xl hover:shadow-md transition-all">
+                <div class="flex items-start justify-between mb-2">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                        <i class="fas fa-times-circle"></i>{{ _('Overdue') }}
+                    </span>
+                    <div class="{% if session.get('lang', 'ar') == 'ar' %}text-left{% else %}text-right{% endif %}">
+                        <div class="text-2xl font-bold text-red-600">4,750 SAR</div>
                     </div>
+                </div>
+                <h4 class="font-semibold text-gray-900">Invoice #INV-002</h4>
+                <p class="text-sm text-gray-600 mt-1">{{ _('Wedding Event - Riyadh Gallery Mall') }}</p>
+                <div class="flex items-center justify-between mt-3">
+                    <span class="text-xs text-gray-600">{{ _('Due: Oct 10, 2025') }}</span>
+                    <button class="text-red-600 hover:text-red-700 font-medium text-sm">{{ _('Pay Now') }}</button>
                 </div>
             </div>
 
             <!-- Invoice 3 - Paid -->
-            <div class="flex items-start p-4 bg-green-50 border border-green-200 rounded-xl hover:shadow-md transition-all opacity-75">
-                <div class="flex-1">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Invoice #INV-003</h4>
-                            <p class="text-sm text-gray-600 mt-1">{{ _('Corporate Event - Downtown Business LED') }}</p>
-                            <div class="flex items-center space-x-4 mt-2">
-                                <span class="text-xs text-gray-600">{{ _('Paid: Sep 20, 2025') }}</span>
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    <i class="fas fa-check-circle mr-1"></i>{{ _('Paid') }}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-2xl font-bold text-gray-900">8,400 SAR</div>
-                            <button class="mt-2 text-blue-600 hover:text-blue-700 font-medium text-sm">{{ _('Download') }}</button>
-                        </div>
+            <div class="p-4 bg-green-50 border border-green-200 rounded-xl hover:shadow-md transition-all opacity-75">
+                <div class="flex items-start justify-between mb-2">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        <i class="fas fa-check-circle"></i>{{ _('Paid') }}
+                    </span>
+                    <div class="{% if session.get('lang', 'ar') == 'ar' %}text-left{% else %}text-right{% endif %}">
+                        <div class="text-2xl font-bold text-gray-900">8,400 SAR</div>
                     </div>
+                </div>
+                <h4 class="font-semibold text-gray-900">Invoice #INV-003</h4>
+                <p class="text-sm text-gray-600 mt-1">{{ _('Corporate Event - Downtown Business LED') }}</p>
+                <div class="flex items-center justify-between mt-3">
+                    <span class="text-xs text-gray-600">{{ _('Paid: Sep 20, 2025') }}</span>
+                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm">{{ _('Download') }}</button>
                 </div>
             </div>
 
             <!-- Invoice 4 - Paid -->
-            <div class="flex items-start p-4 bg-green-50 border border-green-200 rounded-xl hover:shadow-md transition-all opacity-75">
-                <div class="flex-1">
-                    <div class="flex items-start justify-between">
-                        <div>
-                            <h4 class="font-semibold text-gray-900">Invoice #INV-004</h4>
-                            <p class="text-sm text-gray-600 mt-1">{{ _('Olaya Street Premium Display') }}</p>
-                            <div class="flex items-center space-x-4 mt-2">
-                                <span class="text-xs text-gray-600">{{ _('Paid: Sep 10, 2025') }}</span>
-                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    <i class="fas fa-check-circle mr-1"></i>{{ _('Paid') }}
-                                </span>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-2xl font-bold text-gray-900">7,500 SAR</div>
-                            <button class="mt-2 text-blue-600 hover:text-blue-700 font-medium text-sm">{{ _('Download') }}</button>
-                        </div>
+            <div class="p-4 bg-green-50 border border-green-200 rounded-xl hover:shadow-md transition-all opacity-75">
+                <div class="flex items-start justify-between mb-2">
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        <i class="fas fa-check-circle"></i>{{ _('Paid') }}
+                    </span>
+                    <div class="{% if session.get('lang', 'ar') == 'ar' %}text-left{% else %}text-right{% endif %}">
+                        <div class="text-2xl font-bold text-gray-900">7,500 SAR</div>
                     </div>
+                </div>
+                <h4 class="font-semibold text-gray-900">Invoice #INV-004</h4>
+                <p class="text-sm text-gray-600 mt-1">{{ _('Olaya Street Premium Display') }}</p>
+                <div class="flex items-center justify-between mt-3">
+                    <span class="text-xs text-gray-600">{{ _('Paid: Sep 10, 2025') }}</span>
+                    <button class="text-blue-600 hover:text-blue-700 font-medium text-sm">{{ _('Download') }}</button>
                 </div>
             </div>
         </div>
@@ -162,44 +146,46 @@
 
     <!-- Payment History Tab -->
     <div id="payments-content" class="p-6 hidden">
-        <table class="min-w-full divide-y divide-gray-200">
-            <thead class="bg-gray-50">
-                <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Date') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Invoice') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Description') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Amount') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Method') }}</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Status') }}</th>
-                </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-                <tr>
-                    <td class="px-6 py-4 text-sm text-gray-900">{{ _('Sep 20, 2025') }}</td>
-                    <td class="px-6 py-4 text-sm font-medium text-gray-900">#INV-003</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">{{ _('Corporate Event - Downtown') }}</td>
-                    <td class="px-6 py-4 text-sm font-bold text-elaani-primary">8,400 SAR</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">{{ _('Credit Card') }}</td>
-                    <td class="px-6 py-4"><span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ _('Success') }}</span></td>
-                </tr>
-                <tr>
-                    <td class="px-6 py-4 text-sm text-gray-900">{{ _('Sep 10, 2025') }}</td>
-                    <td class="px-6 py-4 text-sm font-medium text-gray-900">#INV-004</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">{{ _('Olaya Street Display') }}</td>
-                    <td class="px-6 py-4 text-sm font-bold text-elaani-primary">7,500 SAR</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">{{ _('Bank Transfer') }}</td>
-                    <td class="px-6 py-4"><span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ _('Success') }}</span></td>
-                </tr>
-                <tr>
-                    <td class="px-6 py-4 text-sm text-gray-900">{{ _('Aug 28, 2025') }}</td>
-                    <td class="px-6 py-4 text-sm font-medium text-gray-900">#INV-005</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">{{ _('Al Nakheel Mall Display') }}</td>
-                    <td class="px-6 py-4 text-sm font-bold text-elaani-primary">6,800 SAR</td>
-                    <td class="px-6 py-4 text-sm text-gray-600">{{ _('Credit Card') }}</td>
-                    <td class="px-6 py-4"><span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ _('Success') }}</span></td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="overflow-x-auto">
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead class="bg-gray-50">
+                    <tr>
+                        <th class="px-6 py-3 {% if session.get('lang', 'ar') == 'ar' %}text-right{% else %}text-left{% endif %} text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Date') }}</th>
+                        <th class="px-6 py-3 {% if session.get('lang', 'ar') == 'ar' %}text-right{% else %}text-left{% endif %} text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Invoice') }}</th>
+                        <th class="px-6 py-3 {% if session.get('lang', 'ar') == 'ar' %}text-right{% else %}text-left{% endif %} text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Description') }}</th>
+                        <th class="px-6 py-3 {% if session.get('lang', 'ar') == 'ar' %}text-right{% else %}text-left{% endif %} text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Amount') }}</th>
+                        <th class="px-6 py-3 {% if session.get('lang', 'ar') == 'ar' %}text-right{% else %}text-left{% endif %} text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Method') }}</th>
+                        <th class="px-6 py-3 {% if session.get('lang', 'ar') == 'ar' %}text-right{% else %}text-left{% endif %} text-xs font-medium text-gray-900 uppercase tracking-wider">{{ _('Status') }}</th>
+                    </tr>
+                </thead>
+                <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ _('Sep 20, 2025') }}</td>
+                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">#INV-003</td>
+                        <td class="px-6 py-4 text-sm text-gray-600">{{ _('Corporate Event - Downtown') }}</td>
+                        <td class="px-6 py-4 text-sm font-bold text-elaani-primary whitespace-nowrap">8,400 SAR</td>
+                        <td class="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">{{ _('Credit Card') }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap"><span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ _('Success') }}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ _('Sep 10, 2025') }}</td>
+                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">#INV-004</td>
+                        <td class="px-6 py-4 text-sm text-gray-600">{{ _('Olaya Street Display') }}</td>
+                        <td class="px-6 py-4 text-sm font-bold text-elaani-primary whitespace-nowrap">7,500 SAR</td>
+                        <td class="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">{{ _('Bank Transfer') }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap"><span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ _('Success') }}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ _('Aug 28, 2025') }}</td>
+                        <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">#INV-005</td>
+                        <td class="px-6 py-4 text-sm text-gray-600">{{ _('Al Nakheel Mall Display') }}</td>
+                        <td class="px-6 py-4 text-sm font-bold text-elaani-primary whitespace-nowrap">6,800 SAR</td>
+                        <td class="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">{{ _('Credit Card') }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap"><span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ _('Success') }}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <!-- Payment Methods Tab -->
@@ -208,17 +194,17 @@
             <!-- Default Credit Card -->
             <div class="flex items-start p-4 bg-elaani-light border-2 border-elaani-primary rounded-xl">
                 <div class="flex-1">
-                    <div class="flex items-center">
-                        <i class="fas fa-credit-card text-elaani-primary text-2xl mr-4"></i>
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-credit-card text-elaani-primary text-2xl"></i>
                         <div>
                             <h4 class="font-semibold text-gray-900">Visa • 4242</h4>
                             <p class="text-sm text-gray-600">Expires 12/26</p>
                         </div>
                     </div>
                 </div>
-                <div class="flex items-center space-x-3">
-                    <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                        <i class="fas fa-check-circle mr-1"></i>{{ _('Default') }}
+                <div class="flex items-center gap-3">
+                    <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        <i class="fas fa-check-circle"></i>{{ _('Default') }}
                     </span>
                     <button class="text-gray-400 hover:text-gray-600">
                         <i class="fas fa-ellipsis-v"></i>
@@ -229,8 +215,8 @@
             <!-- Other Credit Card -->
             <div class="flex items-start p-4 bg-gray-50 border border-gray-200 rounded-xl hover:shadow-md transition-all">
                 <div class="flex-1">
-                    <div class="flex items-center">
-                        <i class="fas fa-credit-card text-gray-400 text-2xl mr-4"></i>
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-credit-card text-gray-400 text-2xl"></i>
                         <div>
                             <h4 class="font-semibold text-gray-900">{{ _('MasterCard • 8765') }}</h4>
                             <p class="text-sm text-gray-600">{{ _('Expires 03/27') }}</p>
@@ -245,8 +231,8 @@
             <!-- Bank Account -->
             <div class="flex items-start p-4 bg-gray-50 border border-gray-200 rounded-xl hover:shadow-md transition-all">
                 <div class="flex-1">
-                    <div class="flex items-center">
-                        <i class="fas fa-university text-gray-400 text-2xl mr-4"></i>
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-university text-gray-400 text-2xl"></i>
                         <div>
                             <h4 class="font-semibold text-gray-900">{{ _('Saudi National Bank') }}</h4>
                             <p class="text-sm text-gray-600">{{ _('Account: ••••••••4521') }}</p>
@@ -259,7 +245,7 @@
             </div>
 
             <button class="w-full mt-4 px-6 py-3 border border-dashed border-elaani-primary text-elaani-primary font-medium rounded-lg hover:bg-elaani-light transition-all">
-                <i class="fas fa-plus mr-2"></i>{{ _('Add Payment Method') }}
+                <i class="fas fa-plus {% if session.get('lang', 'ar') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Add Payment Method') }}
             </button>
         </div>
     </div>
@@ -280,7 +266,7 @@
             </div>
 
             <button onclick="openModal('editBillingModal')" class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
-                <i class="fas fa-edit mr-2"></i>{{ _('Edit Address') }}
+                <i class="fas fa-edit {% if session.get('lang', 'ar') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Edit Address') }}
             </button>
         </div>
     </div>

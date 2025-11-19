@@ -173,27 +173,27 @@
                             <p class="text-sm text-gray-600 mt-1">{% block page_subtitle %}Find and book the perfect display for your event{% endblock %}</p>
                         </div>
                         
-                        <div class="flex items-center space-x-4">
+                        <div class="flex items-center {{ 'space-x-reverse space-x-6' if session.get('lang') == 'ar' else 'space-x-6' }}">
                             <!-- Search -->
-                            <div class="relative hidden sm:block">
-                                <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <div class="relative hidden sm:block {% if session.get('lang') == 'ar' %}ml-8{% else %}mr-8{% endif %}">
+                                <div class="absolute inset-y-0 {% if session.get('lang') == 'ar' %}right-0 pr-3{% else %}left-0 pl-3{% endif %} flex items-center pointer-events-none">
                                     <i class="fas fa-search text-gray-400"></i>
                                 </div>
                                 <input type="text"
                                        placeholder="{{ _('Search displays...') }}"
-                                       class="block w-64 pl-10 pr-3 py-2 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-elaani-primary focus:border-transparent"
+                                       class="block w-64 {% if session.get('lang') == 'ar' %}pr-10 pl-3{% else %}pl-10 pr-3{% endif %} py-2 border border-gray-300 rounded-xl leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-2 focus:ring-elaani-primary focus:border-transparent"
                                        id="globalSearch">
                             </div>
                             
                             <!-- Notifications -->
                             <button class="p-2 text-gray-400 hover:text-gray-500 hover:bg-gray-100 rounded-xl transition-colors duration-200 relative">
                                 <i class="fas fa-bell text-lg"></i>
-                                <span class="absolute -mt-2 -mr-1 px-1.5 py-0.5 text-xs bg-red-500 text-white rounded-full">2</span>
+                                <span class="absolute top-0 {% if session.get('lang') == 'ar' %}left-0{% else %}right-0{% endif %} px-1.5 py-0.5 text-xs bg-red-500 text-white rounded-full">2</span>
                             </button>
                             
                             <!-- User Profile -->
                             <div class="relative">
-                                <button class="flex items-center space-x-2 text-gray-700 hover:text-elaani-primary transition-colors" id="user-menu-button">
+                                <button class="flex items-center {{ 'space-x-reverse space-x-3' if session.get('lang') == 'ar' else 'space-x-3' }} text-gray-700 hover:text-elaani-primary transition-colors" id="user-menu-button">
                                     <div class="w-10 h-10 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-full flex items-center justify-center">
                                         <i class="fas fa-user text-white text-sm"></i>
                                     </div>
