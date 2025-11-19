@@ -186,6 +186,10 @@ clients_data = [
 ]
 
 
+@app.route('/')
+def home():
+    return redirect(url_for('dashboard'))
+
 @app.route('/index')
 def index():
     return render_template('index.html')
