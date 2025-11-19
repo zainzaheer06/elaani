@@ -291,6 +291,9 @@
 {% block extra_js %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
+    // Check if Arabic
+    const isArabic = '{{ session.get("lang", "ar") }}' === 'ar';
+    
     // Sample screen data with translations
     const screensData = [
         {
@@ -451,46 +454,49 @@
             }).addTo(map);
 
             // Enhanced popup
+            const popupDir = isArabic ? 'rtl' : 'ltr';
+            const popupAlign = isArabic ? 'right' : 'left';
+            
             marker.bindPopup(`
-                <div style="min-width: 300px;">
+                <div style="min-width: 300px; direction: ${popupDir}; text-align: ${popupAlign};">
                     <div style="background: linear-gradient(135deg, #005430, #057f48); color: white; padding: 16px; border-radius: 8px 8px 0 0; margin: -8px -8px 0 -8px;">
-                        <h4 style="margin: 0; font-weight: bold; font-size: 16px; display: flex; align-items: center;">
-                            <i class="fas fa-tv" style="margin-right: 8px;"></i>${screen.title}
+                        <h4 style="margin: 0; font-weight: bold; font-size: 16px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-tv"></i>${screen.title}
                         </h4>
-                        <p style="margin: 6px 0 0 0; font-size: 13px; opacity: 0.9;">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 6px;"></i>${screen.location}
+                        <p style="margin: 6px 0 0 0; font-size: 13px; opacity: 0.9; display: flex; align-items: center; gap: 6px;">
+                            <i class="fas fa-map-marker-alt"></i>${screen.location}
                         </p>
                     </div>
                     <div style="padding: 16px;">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; font-size: 13px;">
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Size') }}</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600;">${isArabic ? 'الحجم' : 'Size'}</p>
                                 <p style="font-weight: bold; color: #333; margin: 0;">${screen.size}</p>
                             </div>
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Type') }}</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600;">${isArabic ? 'النوع' : 'Type'}</p>
                                 <p style="font-weight: bold; color: #333; margin: 0;">${screen.type}</p>
                             </div>
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Direction') }}</p>
-                                <p style="font-weight: bold; color: #333; margin: 0;"><i class="fas fa-compass" style="margin-right: 4px; color: #005430;"></i>${screen.direction}</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600;">${isArabic ? 'الاتجاه' : 'Direction'}</p>
+                                <p style="font-weight: bold; color: #333; margin: 0; display: flex; align-items: center; gap: 4px;"><i class="fas fa-compass" style="color: #005430;"></i>${screen.direction}</p>
                             </div>
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Rating') }}</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600;">${isArabic ? 'التقييم' : 'Rating'}</p>
                                 <p style="font-weight: bold; color: #f59e0b; margin: 0;">⭐ ${screen.rating}</p>
                             </div>
                         </div>
                         <div style="border-top: 1px solid #e5e7eb; padding-top: 12px; margin-top: 12px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px;">
-                                <span style="color: #666;">{{ _('Price') }}:</span>
-                                <span style="font-weight: bold; color: #005430;">${screen.price_per_day.toLocaleString()} {{ _('SAR/day') }}</span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px;">
+                                <span style="color: #666;">${isArabic ? 'السعر:' : 'Price:'}</span>
+                                <span style="font-weight: bold; color: #005430;">${screen.price_per_day.toLocaleString()} ${isArabic ? 'ريال/يوم' : 'SAR/day'}</span>
                             </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px;">
-                                <span style="color: #666;">{{ _('Hourly') }}:</span>
-                                <span style="font-weight: bold; color: #005430;">${screen.price_per_hour} {{ _('SAR/hr') }}</span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 13px;">
+                                <span style="color: #666;">${isArabic ? 'بالساعة:' : 'Hourly:'}</span>
+                                <span style="font-weight: bold; color: #005430;">${screen.price_per_hour} ${isArabic ? 'ريال/ساعة' : 'SAR/hr'}</span>
                             </div>
                             <button onclick="quickBook(${screen.id})" style="width: 100%; padding: 10px; background: linear-gradient(135deg, #005430, #057f48); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s;">
-                                {{ _('📅 Book This Screen') }}
+                                📅 ${isArabic ? 'احجز هذه الشاشة' : 'Book This Screen'}
                             </button>
                         </div>
                     </div>
@@ -508,30 +514,31 @@
 
         const displayScreens = filteredScreens.slice(0, 8); // Show only first 8
 
-        const statusLabels = {
-            'available': '{{ _("Available") }}',
-            'rented': '{{ _("Rented") }}',
-            'maintenance': '{{ _("Maintenance") }}'
-        };
-
         displayScreens.forEach(screen => {
             const statusColor = {
                 available: '#10b981',
                 rented: '#f59e0b',
                 maintenance: '#ef4444'
             };
+            
+            const statusText = {
+                available: isArabic ? 'متاح' : 'AVAILABLE',
+                rented: isArabic ? 'مؤجر' : 'RENTED',
+                maintenance: isArabic ? 'صيانة' : 'MAINTENANCE'
+            };
 
             const item = document.createElement('div');
             item.className = 'screen-item-mini';
+            item.style.direction = isArabic ? 'rtl' : 'ltr';
             item.innerHTML = `
                 <div class="screen-item-mini-title">${screen.title}</div>
-                <div class="screen-item-mini-info"><i class="fas fa-map-marker-alt mr-1" style="color: #005430;"></i>${screen.location.substring(0, 35)}${screen.location.length > 35 ? '...' : ''}</div>
+                <div class="screen-item-mini-info"><i class="fas fa-map-marker-alt" style="color: #005430; ${isArabic ? 'margin-left: 4px;' : 'margin-right: 4px;'}"></i>${screen.location.substring(0, 35)}${screen.location.length > 35 ? '...' : ''}</div>
                 <div class="screen-item-mini-info">
                     <span style="background: ${statusColor[screen.status]}; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-size: 10px;">
-                        ${statusLabels[screen.status]}
+                        ${statusText[screen.status]}
                     </span>
                 </div>
-                <div class="screen-item-mini-price">${screen.price_per_day.toLocaleString()} {{ _('SAR/day') }}</div>
+                <div class="screen-item-mini-price">${screen.price_per_day.toLocaleString()} ${isArabic ? 'ريال/يوم' : 'SAR/day'}</div>
             `;
             item.addEventListener('click', () => {
                 map.setView([screen.lat, screen.lng], 14);

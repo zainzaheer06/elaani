@@ -291,14 +291,17 @@
 {% block extra_js %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
+    // Check if Arabic
+    const isArabic = '{{ session.get("lang", "ar") }}' === 'ar';
+    
     // Sample screen data
     const screensData = [
         {
             id: 1,
-            title: "King Fahd Road LED",
-            location: "King Fahd Road, Riyadh",
+            title: "{{ _('King Fahd Road LED') }}",
+            location: "{{ _('King Fahd Road, Riyadh') }}",
             status: "available",
-            type: "LED Billboard",
+            type: "{{ _('LED Billboard') }}",
             size: "15x8m",
             price_per_day: 5000,
             price_per_hour: 500,
@@ -306,14 +309,14 @@
             reviews: 127,
             lat: 24.7136,
             lng: 46.6753,
-            direction: "North"
+            direction: "{{ _('North') }}"
         },
         {
             id: 2,
-            title: "Olaya Street Display",
-            location: "Olaya Street, Riyadh",
+            title: "{{ _('Olaya Street Display') }}",
+            location: "{{ _('Olaya Street, Riyadh') }}",
             status: "rented",
-            type: "LED Screen",
+            type: "{{ _('LED Screen') }}",
             size: "12x6m",
             price_per_day: 3500,
             price_per_hour: 350,
@@ -321,14 +324,14 @@
             reviews: 98,
             lat: 24.7280,
             lng: 46.6850,
-            direction: "East"
+            direction: "{{ _('East') }}"
         },
         {
             id: 3,
-            title: "Mall Indoor Screen",
-            location: "Riyadh Gallery Mall",
+            title: "{{ _('Mall Indoor Screen') }}",
+            location: "{{ _('Riyadh Gallery Mall') }}",
             status: "available",
-            type: "Indoor LED",
+            type: "{{ _('Indoor LED') }}",
             size: "10x5m",
             price_per_day: 4200,
             price_per_hour: 420,
@@ -336,14 +339,14 @@
             reviews: 156,
             lat: 24.7400,
             lng: 46.6600,
-            direction: "West"
+            direction: "{{ _('West') }}"
         },
         {
             id: 4,
-            title: "Downtown Business Center",
-            location: "Downtown Riyadh",
+            title: "{{ _('Downtown Business Center') }}",
+            location: "{{ _('Downtown Riyadh') }}",
             status: "maintenance",
-            type: "LED Display",
+            type: "{{ _('LED Display') }}",
             size: "14x7m",
             price_per_day: 4800,
             price_per_hour: 480,
@@ -351,14 +354,14 @@
             reviews: 143,
             lat: 24.7500,
             lng: 46.7000,
-            direction: "South"
+            direction: "{{ _('South') }}"
         },
         {
             id: 5,
-            title: "Al Nakheel Mall Screen",
-            location: "Al Nakheel District",
+            title: "{{ _('Al Nakheel Mall Screen') }}",
+            location: "{{ _('Al Nakheel District') }}",
             status: "available",
-            type: "LED Screen",
+            type: "{{ _('LED Screen') }}",
             size: "11x6m",
             price_per_day: 3800,
             price_per_hour: 380,
@@ -366,14 +369,14 @@
             reviews: 87,
             lat: 24.7000,
             lng: 46.6500,
-            direction: "North-East"
+            direction: "{{ _('North-East') }}"
         },
         {
             id: 6,
-            title: "Business Park Tower",
-            location: "Financial District",
+            title: "{{ _('Business Park Tower') }}",
+            location: "{{ _('Financial District') }}",
             status: "available",
-            type: "Digital Billboard",
+            type: "{{ _('Digital Billboard') }}",
             size: "13x7m",
             price_per_day: 5500,
             price_per_hour: 550,
@@ -381,7 +384,7 @@
             reviews: 112,
             lat: 24.7200,
             lng: 46.7100,
-            direction: "North"
+            direction: "{{ _('North') }}"
         }
     ];
 
@@ -451,46 +454,49 @@
             }).addTo(map);
 
             // Enhanced popup
+            const popupDir = isArabic ? 'rtl' : 'ltr';
+            const popupAlign = isArabic ? 'right' : 'left';
+            
             marker.bindPopup(`
-                <div style="min-width: 300px;">
+                <div style="min-width: 300px; direction: ${popupDir}; text-align: ${popupAlign};">
                     <div style="background: linear-gradient(135deg, #005430, #057f48); color: white; padding: 16px; border-radius: 8px 8px 0 0; margin: -8px -8px 0 -8px;">
-                        <h4 style="margin: 0; font-weight: bold; font-size: 16px; display: flex; align-items: center;">
-                            <i class="fas fa-tv" style="margin-right: 8px;"></i>${screen.title}
+                        <h4 style="margin: 0; font-weight: bold; font-size: 16px; display: flex; align-items: center; gap: 8px;">
+                            <i class="fas fa-tv"></i>${screen.title}
                         </h4>
-                        <p style="margin: 6px 0 0 0; font-size: 13px; opacity: 0.9;">
-                            <i class="fas fa-map-marker-alt" style="margin-right: 6px;"></i>${screen.location}
+                        <p style="margin: 6px 0 0 0; font-size: 13px; opacity: 0.9; display: flex; align-items: center; gap: 6px;">
+                            <i class="fas fa-map-marker-alt"></i>${screen.location}
                         </p>
                     </div>
                     <div style="padding: 16px;">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; font-size: 13px;">
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Size') }}</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600;">${isArabic ? 'الحجم' : 'Size'}</p>
                                 <p style="font-weight: bold; color: #333; margin: 0;">${screen.size}</p>
                             </div>
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Type') }}</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600;">${isArabic ? 'النوع' : 'Type'}</p>
                                 <p style="font-weight: bold; color: #333; margin: 0;">${screen.type}</p>
                             </div>
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Direction') }}</p>
-                                <p style="font-weight: bold; color: #333; margin: 0;"><i class="fas fa-compass" style="margin-right: 4px; color: #005430;"></i>${screen.direction}</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600;">${isArabic ? 'الاتجاه' : 'Direction'}</p>
+                                <p style="font-weight: bold; color: #333; margin: 0; display: flex; align-items: center; gap: 4px;"><i class="fas fa-compass" style="color: #005430;"></i>${screen.direction}</p>
                             </div>
                             <div>
-                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase;">{{ _('Rating') }}</p>
+                                <p style="color: #666; margin: 0 0 4px 0; font-size: 11px; font-weight: 600;">${isArabic ? 'التقييم' : 'Rating'}</p>
                                 <p style="font-weight: bold; color: #f59e0b; margin: 0;">⭐ ${screen.rating}</p>
                             </div>
                         </div>
                         <div style="border-top: 1px solid #e5e7eb; padding-top: 12px; margin-top: 12px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 13px;">
-                                <span style="color: #666;">{{ _('Price:') }}</span>
-                                <span style="font-weight: bold; color: #005430;">${screen.price_per_day.toLocaleString()} {{ _('SAR/day') }}</span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 13px;">
+                                <span style="color: #666;">${isArabic ? 'السعر:' : 'Price:'}</span>
+                                <span style="font-weight: bold; color: #005430;">${screen.price_per_day.toLocaleString()} ${isArabic ? 'ريال/يوم' : 'SAR/day'}</span>
                             </div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 13px;">
-                                <span style="color: #666;">{{ _('Hourly:') }}</span>
-                                <span style="font-weight: bold; color: #005430;">${screen.price_per_hour} {{ _('SAR/hr') }}</span>
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 13px;">
+                                <span style="color: #666;">${isArabic ? 'بالساعة:' : 'Hourly:'}</span>
+                                <span style="font-weight: bold; color: #005430;">${screen.price_per_hour} ${isArabic ? 'ريال/ساعة' : 'SAR/hr'}</span>
                             </div>
                             <button onclick="quickBook(${screen.id})" style="width: 100%; padding: 10px; background: linear-gradient(135deg, #005430, #057f48); color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 13px; transition: all 0.3s;">
-                                📅 {{ _('Book This Screen') }}
+                                📅 ${isArabic ? 'احجز هذه الشاشة' : 'Book This Screen'}
                             </button>
                         </div>
                     </div>
@@ -514,18 +520,25 @@
                 rented: '#f59e0b',
                 maintenance: '#ef4444'
             };
+            
+            const statusText = {
+                available: isArabic ? 'متاح' : 'AVAILABLE',
+                rented: isArabic ? 'مؤجر' : 'RENTED',
+                maintenance: isArabic ? 'صيانة' : 'MAINTENANCE'
+            };
 
             const item = document.createElement('div');
             item.className = 'screen-item-mini';
+            item.style.direction = isArabic ? 'rtl' : 'ltr';
             item.innerHTML = `
                 <div class="screen-item-mini-title">${screen.title}</div>
-                <div class="screen-item-mini-info"><i class="fas fa-map-marker-alt mr-1" style="color: #005430;"></i>${screen.location.substring(0, 35)}${screen.location.length > 35 ? '...' : ''}</div>
+                <div class="screen-item-mini-info"><i class="fas fa-map-marker-alt" style="color: #005430; ${isArabic ? 'margin-left: 4px;' : 'margin-right: 4px;'}"></i>${screen.location.substring(0, 35)}${screen.location.length > 35 ? '...' : ''}</div>
                 <div class="screen-item-mini-info">
                     <span style="background: ${statusColor[screen.status]}; color: white; padding: 2px 6px; border-radius: 4px; font-weight: 600; font-size: 10px;">
-                        ${screen.status.toUpperCase()}
+                        ${statusText[screen.status]}
                     </span>
                 </div>
-                <div class="screen-item-mini-price">${screen.price_per_day.toLocaleString()} SAR/day</div>
+                <div class="screen-item-mini-price">${screen.price_per_day.toLocaleString()} ${isArabic ? 'ريال/يوم' : 'SAR/day'}</div>
             `;
             item.addEventListener('click', () => {
                 map.setView([screen.lat, screen.lng], 14);
