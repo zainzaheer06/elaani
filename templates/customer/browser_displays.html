@@ -1,6 +1,6 @@
-{% extends "base_customer.html" %}
+﻿{% extends "base_customer.html" %}
 
-{% block title %}{{ _('Browse Displays') }} - Elaani Customer{% endblock %}
+{% block title %}{{ _('Browse Displays') }} - PureSignage Customer{% endblock %}
 
 {% block page_title %}{{ _('Browse Displays') }}{% endblock %}
 {% block page_subtitle %}{{ _('Discover the perfect display for your event') }}{% endblock %}
@@ -17,12 +17,12 @@
             <input type="text" 
                    id="searchDisplay"
                    placeholder="{{ _('Search displays, locations...') }}" 
-                   class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                   class="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
         </div>
 
         <!-- View Toggle -->
         <div class="flex items-center space-x-2 border border-gray-300 rounded-lg p-1 bg-gray-50">
-            <button onclick="switchView('grid')" class="view-toggle-btn active px-4 py-2 bg-white text-elaani-primary rounded transition-all" data-view="grid">
+            <button onclick="switchView('grid')" class="view-toggle-btn active px-4 py-2 bg-white text-puresignage-primary rounded transition-all" data-view="grid">
                 <i class="fas fa-th"></i>
             </button>
             <button onclick="switchView('list')" class="view-toggle-btn px-4 py-2 text-gray-600 rounded transition-all" data-view="list">
@@ -34,7 +34,7 @@
         </div>
 
         <!-- Sort -->
-        <select id="sortBy" class="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent text-sm">
+        <select id="sortBy" class="px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent text-sm">
             <option value="recommended">{{ _('Recommended') }}</option>
             <option value="price-low">{{ _('Price: Low to High') }}</option>
             <option value="price-high">{{ _('Price: High to Low') }}</option>
@@ -51,7 +51,7 @@
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-32">
             <div class="flex items-center justify-between mb-6">
                 <h3 class="text-lg font-semibold text-gray-900">{{ _('Filter Results') }}</h3>
-                <button onclick="resetFilters()" class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium">
+                <button onclick="resetFilters()" class="text-puresignage-primary hover:text-puresignage-secondary text-sm font-medium">
                     {{ _('Reset') }}
                 </button>
             </div>
@@ -134,10 +134,10 @@
                 <div>
                     <h4 class="font-semibold text-gray-900 mb-3">{{ _('Price Range') }}</h4>
                     <div class="space-y-3">
-                        <input type="range" min="0" max="10000" value="5000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-elaani-primary">
+                        <input type="range" min="0" max="700000" step="10000" value="350000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-puresignage-primary">
                         <div class="flex justify-between text-sm text-gray-600">
                             <span>0 SAR</span>
-                            <span id="priceValue">5,000 SAR</span>
+                            <span id="priceValue">350,000 SAR</span>
                         </div>
                     </div>
                 </div>
@@ -193,7 +193,7 @@
                 </div>
             </div>
 
-            <button class="w-full mt-6 px-4 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+            <button class="w-full mt-6 px-4 py-2 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium rounded-lg hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                 {{ _('Apply Filters') }}
             </button>
         </div>
@@ -203,271 +203,62 @@
     <div class="lg:col-span-3">
         <!-- Results Header -->
         <div class="mb-6 flex items-center justify-between">
-            <p class="text-sm text-gray-600">{{ _('Showing') }} <span class="font-semibold text-gray-900">21</span> {{ _('displays') }}</p>
+            <p class="text-sm text-gray-600">{{ _('Showing') }} <span class="font-semibold text-gray-900">{{ screens|length }}</span> {{ _('displays') }}</p>
         </div>
 
+        <!-- Results Header (overwritten by JS) -->
         <!-- Grid View -->
         <div id="grid-view" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Display Card 1 -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
-                <div class="relative h-40 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center overflow-hidden">
-                    <i class="fas fa-tv text-gray-500 text-5xl group-hover:scale-110 transition-transform"></i>
-                    <button class="absolute top-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition-all">
-                        <i class="fas fa-heart text-red-500 hover:text-white"></i>
-                    </button>
-                    <span class="absolute top-3 left-3 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">{{ _('Available') }}</span>
+            {% for screen in screens %}
+            <a href="{{ url_for('customer_screen_detail', screen_id=screen.id) }}"
+               class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100 block">
+                <div class="relative h-44 bg-gray-100 overflow-hidden">
+                    {% if screen.image %}
+                    <img src="{{ url_for('static', filename='images/' + screen.image) }}"
+                         alt="{{ screen.address }}"
+                         class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-300 to-gray-400" style="display:none;">
+                        <i class="fas fa-tv text-gray-500 text-5xl"></i>
+                    </div>
+                    {% else %}
+                    <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-300 to-gray-400">
+                        <i class="fas fa-tv text-gray-500 text-5xl"></i>
+                    </div>
+                    {% endif %}
+                    <span class="absolute top-3 {% if session.get('lang') == 'ar' %}right-3{% else %}left-3{% endif %} px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">{{ _('Available') }}</span>
                 </div>
                 <div class="p-5">
-                    <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('King Fahd Road LED Screen') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('King Fahd Road') }}</p>
-                    
+                    <h3 class="font-bold text-gray-900 group-hover:text-puresignage-primary transition-all line-clamp-2">{{ screen.address }}</h3>
+                    <p class="text-sm text-gray-600 mt-1">
+                        <i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-puresignage-primary"></i>{{ screen.district }}
+                    </p>
                     <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
                         <div>
                             <p class="text-gray-600">{{ _('Size') }}</p>
-                            <p class="font-bold text-gray-900">85" LED</p>
+                            <p class="font-bold text-gray-900">{{ screen.size }}</p>
                         </div>
                         <div>
-                            <p class="text-gray-600">{{ _('Type') }}</p>
-                            <p class="font-bold text-gray-900">{{ _('4K') }}</p>
+                            <p class="text-gray-600">{{ _('Sides') }}</p>
+                            <p class="font-bold text-gray-900">{{ screen.sides }}</p>
                         </div>
                     </div>
-
                     <div class="flex items-center justify-between mb-4">
                         <div>
-                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">5,000 SAR</p>
+                            <p class="text-xs text-gray-600">{{ _('Promotion Rate') }}</p>
+                            <p class="text-lg font-bold text-puresignage-primary">{{ screen.promotion_rate|format_egp }}</p>
                         </div>
                         <div class="text-right">
-                            <p class="text-xs text-gray-600">{{ _('Rating') }}</p>
-                            <p class="font-bold text-yellow-500">⭐ 4.8</p>
+                            <p class="text-xs text-gray-600">{{ _('Total / month') }}</p>
+                            <p class="font-bold text-gray-700">{{ screen.total|format_egp }}</p>
                         </div>
                     </div>
-
-                    <button class="w-full px-3 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all text-sm">
-                        <i class="fas fa-calendar-check mr-1"></i>{{ _('Book Now') }}
-                    </button>
-                </div>
-            </div>
-
-            <!-- Display Card 2 -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
-                <div class="relative h-40 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center overflow-hidden">
-                    <i class="fas fa-tv text-gray-500 text-5xl group-hover:scale-110 transition-transform"></i>
-                    <button class="absolute top-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition-all">
-                        <i class="fas fa-heart text-red-500 hover:text-white"></i>
-                    </button>
-                    <span class="absolute top-3 left-3 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">{{ _('Available') }}</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Olaya Street Indoor Display') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Olaya Street') }}</p>
-                    
-                    <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
-                        <div>
-                            <p class="text-gray-600">{{ _('Size') }}</p>
-                            <p class="font-bold text-gray-900">65" LED</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-600">{{ _('Type') }}</p>
-                            <p class="font-bold text-gray-900">{{ _('Full HD') }}</p>
-                        </div>
+                    <div class="w-full px-3 py-2 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium rounded-lg text-sm text-center">
+                        <i class="fas fa-eye mr-1"></i>{{ _('View Details') }}
                     </div>
-
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">3,500 SAR</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-xs text-gray-600">{{ _('Rating') }}</p>
-                            <p class="font-bold text-yellow-500">⭐ 4.6</p>
-                        </div>
-                    </div>
-
-                    <button class="w-full px-3 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all text-sm">
-                        <i class="fas fa-calendar-check mr-1"></i>{{ _('Book Now') }}
-                    </button>
                 </div>
-            </div>
-
-            <!-- Display Card 3 -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
-                <div class="relative h-40 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center overflow-hidden">
-                    <i class="fas fa-tv text-gray-500 text-5xl group-hover:scale-110 transition-transform"></i>
-                    <button class="absolute top-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition-all">
-                        <i class="fas fa-heart text-red-500 hover:text-white"></i>
-                    </button>
-                    <span class="absolute top-3 left-3 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">{{ _('Available') }}</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Downtown Business LED Display') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Downtown Riyadh') }}</p>
-                    
-                    <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
-                        <div>
-                            <p class="text-gray-600">{{ _('Size') }}</p>
-                            <p class="font-bold text-gray-900">75" LED</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-600">{{ _('Type') }}</p>
-                            <p class="font-bold text-gray-900">{{ _('4K') }}</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">4,800 SAR</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-xs text-gray-600">{{ _('Rating') }}</p>
-                            <p class="font-bold text-yellow-500">⭐ 4.7</p>
-                        </div>
-                    </div>
-
-                    <button class="w-full px-3 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all text-sm">
-                        <i class="fas fa-calendar-check mr-1"></i>{{ _('Book Now') }}
-                    </button>
-                </div>
-            </div>
-
-            <!-- Display Card 4 -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
-                <div class="relative h-40 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center overflow-hidden">
-                    <i class="fas fa-tv text-gray-500 text-5xl group-hover:scale-110 transition-transform"></i>
-                    <button class="absolute top-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition-all">
-                        <i class="fas fa-heart text-red-500 hover:text-white"></i>
-                    </button>
-                    <span class="absolute top-3 left-3 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">{{ _('Available') }}</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Mall Indoor Display Premium') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Riyadh Gallery') }}</p>
-                    
-                    <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
-                        <div>
-                            <p class="text-gray-600">{{ _('Size') }}</p>
-                            <p class="font-bold text-gray-900">55" LCD</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-600">{{ _('Type') }}</p>
-                            <p class="font-bold text-gray-900">{{ _('Full HD') }}</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">4,200 SAR</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-xs text-gray-600">{{ _('Rating') }}</p>
-                            <p class="font-bold text-yellow-500">⭐ 4.9</p>
-                        </div>
-                    </div>
-
-                    <button class="w-full px-3 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all text-sm">
-                        <i class="fas fa-calendar-check mr-1"></i>{{ _('Book Now') }}
-                    </button>
-                </div>
-            </div>
-
-            <!-- Display Card 5 -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
-                <div class="relative h-40 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center overflow-hidden">
-                    <i class="fas fa-tv text-gray-500 text-5xl group-hover:scale-110 transition-transform"></i>
-                    <button class="absolute top-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition-all">
-                        <i class="fas fa-heart text-red-500 hover:text-white"></i>
-                    </button>
-                    <span class="absolute top-3 left-3 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">{{ _('Available') }}</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Al Nakheel District Screen') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Al Nakheel District') }}</p>
-                    
-                    <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
-                        <div>
-                            <p class="text-gray-600">{{ _('Size') }}</p>
-                            <p class="font-bold text-gray-900">50" LED</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-600">{{ _('Type') }}</p>
-                            <p class="font-bold text-gray-900">{{ _('Indoor') }}</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">3,800 SAR</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-xs text-gray-600">{{ _('Rating') }}</p>
-                            <p class="font-bold text-yellow-500">⭐ 4.5</p>
-                        </div>
-                    </div>
-
-                    <button class="w-full px-3 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all text-sm">
-                        <i class="fas fa-calendar-check mr-1"></i>{{ _('Book Now') }}
-                    </button>
-                </div>
-            </div>
-
-            <!-- Display Card 6 -->
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group border border-gray-100">
-                <div class="relative h-40 bg-gradient-to-br from-gray-300 to-gray-400 flex items-center justify-center overflow-hidden">
-                    <i class="fas fa-tv text-gray-500 text-5xl group-hover:scale-110 transition-transform"></i>
-                    <button class="absolute top-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg hover:bg-red-500 hover:text-white transition-all">
-                        <i class="fas fa-heart text-red-500 hover:text-white"></i>
-                    </button>
-                    <span class="absolute top-3 left-3 px-3 py-1 bg-green-500 text-white text-xs font-bold rounded-full">{{ _('Available') }}</span>
-                </div>
-                <div class="p-5">
-                    <h3 class="font-bold text-gray-900 group-hover:text-elaani-primary transition-all line-clamp-2">{{ _('Business Park Tower LED') }}</h3>
-                    <p class="text-sm text-gray-600 mt-1"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Financial District') }}</p>
-                    
-                    <div class="grid grid-cols-2 gap-2 my-3 text-xs border-t border-gray-100 pt-3">
-                        <div>
-                            <p class="text-gray-600">{{ _('Size') }}</p>
-                            <p class="font-bold text-gray-900">85" LED</p>
-                        </div>
-                        <div>
-                            <p class="text-gray-600">{{ _('Type') }}</p>
-                            <p class="font-bold text-gray-900">{{ _('Premium') }}</p>
-                        </div>
-                    </div>
-
-                    <div class="flex items-center justify-between mb-4">
-                        <div>
-                            <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">5,500 SAR</p>
-                        </div>
-                        <div class="text-right">
-                            <p class="text-xs text-gray-600">{{ _('Rating') }}</p>
-                            <p class="font-bold text-yellow-500">⭐ 4.8</p>
-                        </div>
-                    </div>
-
-                    <button class="w-full px-3 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all text-sm">
-                        <i class="fas fa-calendar-check mr-1"></i>{{ _('Book Now') }}
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pagination -->
-        <div class="flex items-center justify-center mt-12 space-x-2">
-            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <button class="px-4 py-2 bg-elaani-primary text-white rounded-lg">1</button>
-            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all">2</button>
-            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all">3</button>
-            <span class="text-gray-500">...</span>
-            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all">12</button>
-            <button class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-all">
-                <i class="fas fa-chevron-right"></i>
-            </button>
+            </a>
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -479,10 +270,10 @@
     function switchView(view) {
         // Update active button
         document.querySelectorAll('.view-toggle-btn').forEach(btn => {
-            btn.classList.remove('active', 'bg-white', 'text-elaani-primary');
+            btn.classList.remove('active', 'bg-white', 'text-puresignage-primary');
             btn.classList.add('text-gray-600');
         });
-        event.target.closest('.view-toggle-btn').classList.add('active', 'bg-white', 'text-elaani-primary');
+        event.target.closest('.view-toggle-btn').classList.add('active', 'bg-white', 'text-puresignage-primary');
         event.target.closest('.view-toggle-btn').classList.remove('text-gray-600');
         
         console.log('Switch to', view, 'view');
@@ -497,8 +288,8 @@
         const priceRange = document.querySelector('input[type="range"]');
         if (priceRange) {
             priceRange.addEventListener('input', function() {
-                document.getElementById('priceValue').textContent = 
-                    (this.value / 1000).toFixed(1) + 'K SAR';
+                document.getElementById('priceValue').textContent =
+                    Number(this.value).toLocaleString() + ' SAR';
             });
         }
     });

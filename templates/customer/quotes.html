@@ -1,6 +1,6 @@
-{% extends "base_customer.html" %}
+﻿{% extends "base_customer.html" %}
 
-{% block title %}{{ _('Quotes & Requests') }} - Elaani Customer{% endblock %}
+{% block title %}{{ _('Quotes & Requests') }} - PureSignage Customer{% endblock %}
 
 {% block page_title %}{{ _('Quotes & Requests') }}{% endblock %}
 {% block page_subtitle %}{{ _('Manage your quote requests and get custom pricing') }}{% endblock %}
@@ -15,7 +15,7 @@
         </div>
         
         <button onclick="openModal('requestQuoteModal')" 
-                class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200 shadow-lg hover:shadow-xl">
             <i class="fas fa-plus {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
             {{ _('Request Quote') }}
         </button>
@@ -77,7 +77,7 @@
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
     <div class="border-b border-gray-200">
         <div class="flex">
-            <button onclick="filterQuotes('all')" class="quote-tab active px-6 py-4 text-sm font-medium text-elaani-primary border-b-2 border-elaani-primary">
+            <button onclick="filterQuotes('all')" class="quote-tab active px-6 py-4 text-sm font-medium text-puresignage-primary border-b-2 border-puresignage-primary">
                 {{ _('All Quotes') }} ({% if session.get('lang') == 'ar' %}٥{% else %}5{% endif %})
             </button>
             <button onclick="filterQuotes('pending')" class="quote-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
@@ -211,12 +211,12 @@
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Quoted Price') }}</span>
-                            <p class="font-bold text-elaani-primary">{% if session.get('lang') == 'ar' %}٦,٢٥٠ ريال{% else %}6,250 SAR{% endif %}</p>
+                            <p class="font-bold text-puresignage-primary">{% if session.get('lang') == 'ar' %}٦,٢٥٠ ريال{% else %}6,250 SAR{% endif %}</p>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
-                    <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                    <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                         <i class="fas fa-check mr-2"></i>{{ _('Accept Quote') }}
                     </button>
                     <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
@@ -255,12 +255,12 @@
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Quoted Price') }}</span>
-                            <p class="font-bold text-elaani-primary">{% if session.get('lang') == 'ar' %}٧,٥٠٠ ريال{% else %}7,500 SAR{% endif %}</p>
+                            <p class="font-bold text-puresignage-primary">{% if session.get('lang') == 'ar' %}٧,٥٠٠ ريال{% else %}7,500 SAR{% endif %}</p>
                         </div>
                     </div>
                 </div>
                 <div class="mt-4 lg:mt-0 lg:ml-6 flex flex-col space-y-2 min-w-48">
-                    <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                    <button class="px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                         <i class="fas fa-check mr-2"></i>{{ _('Accept Quote') }}
                     </button>
                     <button class="px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
@@ -299,7 +299,7 @@
                         </div>
                         <div>
                             <span class="text-gray-600">{{ _('Final Price') }}</span>
-                            <p class="font-bold text-elaani-primary">{% if session.get('lang') == 'ar' %}١٣,٧٥٠ ريال{% else %}13,750 SAR{% endif %}</p>
+                            <p class="font-bold text-puresignage-primary">{% if session.get('lang') == 'ar' %}١٣,٧٥٠ ريال{% else %}13,750 SAR{% endif %}</p>
                         </div>
                     </div>
                 </div>
@@ -331,7 +331,7 @@
                 <form class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Display Type') }}</label>
-                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                             <option>{{ _('Select display type...') }}</option>
                             <option>{{ _('LED Screen') }}</option>
                             <option>{{ _('LCD Display') }}</option>
@@ -342,35 +342,35 @@
 
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Location/Area') }}</label>
-                        <input type="text" placeholder="e.g., King Fahd Road, Olaya Street" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="text" placeholder="e.g., King Fahd Road, Olaya Street" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Start Date') }}</label>
-                            <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('End Date') }}</label>
-                            <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Budget Range') }} (SAR)</label>
                         <div class="grid grid-cols-2 gap-4">
-                            <input type="number" placeholder="{{ _('Min') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                            <input type="number" placeholder="{{ _('Max') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="number" placeholder="{{ _('Min') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
+                            <input type="number" placeholder="{{ _('Max') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Additional Details') }}</label>
-                        <textarea rows="3" placeholder="{{ _('Tell us more about your event or requirements...') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                        <textarea rows="3" placeholder="{{ _('Tell us more about your event or requirements...') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent"></textarea>
                     </div>
 
                     <div class="flex gap-4 pt-4">
-                        <button type="submit" class="flex-1 px-4 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        <button type="submit" class="flex-1 px-4 py-2 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium rounded-lg hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                             {{ _('Submit Request') }}
                         </button>
                         <button type="button" onclick="closeModal('requestQuoteModal')" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
@@ -390,11 +390,11 @@
     function filterQuotes(status) {
         // Update tab styling
         document.querySelectorAll('.quote-tab').forEach(tab => {
-            tab.classList.remove('active', 'text-elaani-primary', 'border-elaani-primary');
+            tab.classList.remove('active', 'text-puresignage-primary', 'border-puresignage-primary');
             tab.classList.add('text-gray-600', 'border-transparent');
         });
 
-        event.target.classList.add('active', 'text-elaani-primary', 'border-elaani-primary');
+        event.target.classList.add('active', 'text-puresignage-primary', 'border-puresignage-primary');
         event.target.classList.remove('text-gray-600', 'border-transparent');
 
         // Filter quote cards

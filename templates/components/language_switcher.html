@@ -1,13 +1,13 @@
-<!-- Language Switcher Component -->
+﻿<!-- Language Switcher Component -->
 <div class="language-switcher inline-flex rounded-lg border border-gray-300 bg-white overflow-hidden shadow-sm">
     <a href="{{ url_for('set_language', lang='ar') }}"
        class="px-4 py-2 text-sm font-medium transition-colors
-              {% if get_locale() == 'ar' %}bg-elaani-primary text-white{% else %}text-gray-700 hover:bg-gray-50{% endif %}">
+              {% if get_locale() == 'ar' %}bg-puresignage-primary text-white{% else %}text-gray-700 hover:bg-gray-50{% endif %}">
         ع
     </a>
     <a href="{{ url_for('set_language', lang='en') }}"
        class="px-4 py-2 text-sm font-medium transition-colors border-s border-gray-300
-              {% if get_locale() == 'en' %}bg-elaani-primary text-white{% else %}text-gray-700 hover:bg-gray-50{% endif %}">
+              {% if get_locale() == 'en' %}bg-puresignage-primary text-white{% else %}text-gray-700 hover:bg-gray-50{% endif %}">
         EN
     </a>
 </div>

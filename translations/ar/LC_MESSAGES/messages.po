@@ -1,4 +1,4 @@
-# Arabic translations for Elaani
+# Arabic translations for PureSignage
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
@@ -39,7 +39,7 @@ msgid "Language"
 msgstr "اللغة"
 
 # Dashboard Page Titles
-msgid "Billboard Dashboard - Elaani"
+msgid "Billboard Dashboard - PureSignage"
 msgstr "لوحة تحكم الإعلانات - إيلاني"
 
 msgid "Billboard Rental Dashboard"
@@ -199,7 +199,7 @@ msgid "Chart visualization coming soon"
 msgstr "تصور المخطط قريباً"
 
 # Customer Dashboard
-msgid "Dashboard - Elaani Customer"
+msgid "Dashboard - PureSignage Customer"
 msgstr "لوحة التحكم - عميل إيلاني"
 
 msgid "Welcome back"
@@ -941,7 +941,7 @@ msgstr "إليك ما يحدث في أعمال العرض الرقمي الخا�
 msgid "Search..."
 msgstr "بحث..."
 
-msgid "Billboard Dashboard - Elaani"
+msgid "Billboard Dashboard - PureSignage"
 msgstr "لوحة تحكم اللوحات الإعلانية - إعلاني"
 
 msgid "Billboard Rental Dashboard"
@@ -2291,7 +2291,7 @@ msgstr "حدث خطأ. يرجى المحاولة مرة أخرى."
 # BASE PUBLIC TEMPLATE - Complete Translations
 # ========================================
 
-msgid "Elaani - Digital Screen Marketplace"
+msgid "PureSignage - Digital Screen Marketplace"
 msgstr "إيلاني - سوق الشاشات الرقمية"
 
 msgid "How it Works"
@@ -2324,7 +2324,7 @@ msgstr "أدوات الحملة"
 msgid "Terms of Service"
 msgstr "شروط الخدمة"
 
-msgid "&copy; 2025 Elaani. All rights reserved. Made in Riyadh, KSA 🇸🇦"
+msgid "&copy; 2025 PureSignage. All rights reserved. Made in Riyadh, KSA 🇸🇦"
 msgstr "&copy; 2025 إيلاني. جميع الحقوق محفوظة. صنع في الرياض، المملكة العربية السعودية 🇸🇦"
 
 msgid "Logout"
@@ -2332,7 +2332,7 @@ msgstr "تسجيل الخروج"
 
 
 # Bookings & Rentals Page
-msgid "Bookings & Rentals - Elaani"
+msgid "Bookings & Rentals - PureSignage"
 msgstr "الحجوزات والإيجارات - إيلاني"
 
 msgid "Bookings & Rentals Management"
@@ -2528,7 +2528,7 @@ msgid "Create Booking"
 msgstr "إنشاء حجز"
 
 # Clients & CRM Page
-msgid "Clients & CRM - Elaani"
+msgid "Clients & CRM - PureSignage"
 msgstr "العملاء وإدارة العلاقات - إيلاني"
 
 msgid "Clients & CRM Management"
@@ -2770,7 +2770,7 @@ msgid "Chart visualization coming soon"
 msgstr "تصور المخطط قريباً"
 
 # Financial & Billing Page
-msgid "Financial & Billing - Elaani"
+msgid "Financial & Billing - PureSignage"
 msgstr "المالية والفواتير - إيلاني"
 
 msgid "Financial & Billing Management"
@@ -3067,7 +3067,7 @@ msgid "Filtering financial data for:"
 msgstr "تصفية البيانات المالية لـ:"
 
 # Home & Index Pages
-msgid "Elaani - Digital Screen Marketplace | Riyadh, KSA"
+msgid "PureSignage - Digital Screen Marketplace | Riyadh, KSA"
 msgstr "إيلاني - سوق الشاشات الرقمية | الرياض، المملكة العربية السعودية"
 
 msgid "Digital Screen Advertising Made Simple"
@@ -3094,7 +3094,7 @@ msgstr "الدعم"
 msgid "Uptime"
 msgstr "وقت التشغيل"
 
-msgid "How Elaani Works"
+msgid "How PureSignage Works"
 msgstr "كيف يعمل إيلاني"
 
 msgid "Simple steps to reach your audience"
@@ -3137,7 +3137,7 @@ msgid "Start Advertising"
 msgstr "ابدأ الإعلان"
 
 # Inventory Page
-msgid "Billboard Inventory - Elaani"
+msgid "Billboard Inventory - PureSignage"
 msgstr "مخزون اللوحات الإعلانية - إيلاني"
 
 msgid "Billboard Inventory Management"
@@ -3294,7 +3294,7 @@ msgid "Screen Details"
 msgstr "تفاصيل الشاشة"
 
 # Map Page
-msgid "Screens Map - Elaani"
+msgid "Screens Map - PureSignage"
 msgstr "خريطة الشاشات - إيلاني"
 
 msgid "Screens & Billboards Map"
@@ -3436,7 +3436,7 @@ msgid "No screens found"
 msgstr "لم يتم العثور على شاشات"
 
 # Marketing Page
-msgid "Marketing - Elaani"
+msgid "Marketing - PureSignage"
 msgstr "التسويق - إيلاني"
 
 msgid "Marketing & Customer Acquisition"
@@ -3641,7 +3641,7 @@ msgstr "إرسال الآن"
 # MARKETING PAGE - Complete Translations
 # ========================================
 
-msgid "Marketing - Elaani"
+msgid "Marketing - PureSignage"
 msgstr "التسويق - إيلاني"
 
 msgid "Marketing & Customer Acquisition"
@@ -4012,7 +4012,7 @@ msgstr "تم تهيئة لوحة تحكم التسويق"
 # OPERATIONS PAGE - Complete Translations
 # ========================================
 
-msgid "Operations - Elaani"
+msgid "Operations - PureSignage"
 msgstr "العمليات - إيلاني"
 
 msgid "Operations Management"
@@ -4344,10 +4344,10 @@ msgstr "تم تهيئة لوحة تحكم العمليات"
 # ADMIN DASHBOARD - Complete Translations
 # ========================================
 
-msgid "Admin Dashboard - Elaani"
+msgid "Admin Dashboard - PureSignage"
 msgstr "لوحة تحكم المسؤول - إيلاني"
 
-msgid "Elaani Admin"
+msgid "PureSignage Admin"
 msgstr "مسؤول إيلاني"
 
 msgid "Control Center"
@@ -4386,7 +4386,7 @@ msgstr "مسؤول النظام"
 msgid "Platform Overview"
 msgstr "نظرة عامة على المنصة"
 
-msgid "Monitor and manage the Elaani marketplace"
+msgid "Monitor and manage the PureSignage marketplace"
 msgstr "مراقبة وإدارة سوق إيلاني"
 
 msgid "System Online"
@@ -4616,7 +4616,7 @@ msgstr "رفض جماعي"
 # ADVERTISER DASHBOARD - Complete Translations
 # ========================================
 
-msgid "Advertiser Dashboard - Elaani"
+msgid "Advertiser Dashboard - PureSignage"
 msgstr "لوحة تحكم المعلن - إيلاني"
 
 msgid "Advertiser Dashboard"
@@ -4795,7 +4795,7 @@ msgstr "بإكمال هذا الحجز، فإنك توافق على شروط ا�
 # BROWSE SCREENS - Complete Translations
 # ========================================
 
-msgid "Browse Screens - Elaani"
+msgid "Browse Screens - PureSignage"
 msgstr "تصفح الشاشات - إيلاني"
 
 msgid "Browse Digital Screens"
@@ -4941,7 +4941,7 @@ msgstr "مملوكة من قبل"
 msgid "Book"
 msgstr "احجز"
 
-msgid "Elaani"
+msgid "PureSignage"
 msgstr "إيلاني"
 
 msgid "Complete Your Booking"
@@ -5271,7 +5271,7 @@ msgstr "مملوكة من قبل"
 msgid "Choose Your Role"
 msgstr "اختر دورك"
 
-msgid "Select how you want to use Elaani marketplace"
+msgid "Select how you want to use PureSignage marketplace"
 msgstr "اختر كيف تريد استخدام سوق إيلاني"
 
 msgid "I'm an Advertiser"
@@ -5563,7 +5563,7 @@ msgstr "إدراج شاشة جديدة"
 msgid "List Your Digital Screen"
 msgstr "أدرج شاشتك الرقمية"
 
-msgid "Add your screen to the Elaani marketplace and start earning"
+msgid "Add your screen to the PureSignage marketplace and start earning"
 msgstr "أضف شاشتك إلى سوق إيلاني وابدأ في الكسب"
 
 msgid "Basic Information"
@@ -5740,7 +5740,7 @@ msgstr "جمهور مختلط"
 msgid "Daily Impressions (Est.)"
 msgstr "الانطباعات اليومية (تقديري)"
 
-msgid "I confirm that I own this digital screen or have authorization to list it. I agree to Elaani's"
+msgid "I confirm that I own this digital screen or have authorization to list it. I agree to PureSignage's"
 msgstr "أؤكد أنني أملك هذه الشاشة الرقمية أو لدي تفويض لإدراجها. أوافق على"
 
 msgid "Screen Owner Agreement"
@@ -5797,7 +5797,7 @@ msgstr "الإحصائيات"
 msgid "Have More Screens?"
 msgstr "هل لديك المزيد من الشاشات؟"
 
-msgid "List additional digital screens to maximize your earning potential on Elaani."
+msgid "List additional digital screens to maximize your earning potential on PureSignage."
 msgstr "أدرج شاشات رقمية إضافية لزيادة إمكانات أرباحك على إيلاني."
 
 msgid "List Another Screen"
@@ -5846,7 +5846,7 @@ msgstr "24/7"
 msgid "99%"
 msgstr "99%"
 
-msgid "How Elaani Works"
+msgid "How PureSignage Works"
 msgstr "كيف يعمل إيلاني"
 
 msgid "Simple steps to reach your audience"
@@ -5895,7 +5895,7 @@ msgid "KSA"
 msgstr "المملكة العربية السعودية"
 
 # MARKETING PAGE
-msgid "Marketing - Elaani"
+msgid "Marketing - PureSignage"
 msgstr "التسويق - إيلاني"
 
 msgid "Marketing & Customer Acquisition"

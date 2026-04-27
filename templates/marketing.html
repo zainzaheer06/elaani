@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
-{% block title %}{{ _('Marketing - Elaani') }}{% endblock %}
+{% block title %}{{ _('Marketing - PureSignage') }}{% endblock %}
 
 {% block page_title %}{{ _('Marketing & Customer Acquisition') }}{% endblock %}
 {% block page_subtitle %}{{ _('Manage campaigns, track leads, and grow your digital display rental business in Saudi Arabia') }}{% endblock %}
@@ -11,7 +11,7 @@
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <button onclick="createCampaign()" 
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-megaphone {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                 {{ _('Create Campaign') }}
             </button>
@@ -29,7 +29,7 @@
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <!-- Campaign Status Filter -->
             <select id="campaignFilter" 
-                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                 <option value="all">{{ _('All Campaigns') }}</option>
                 <option value="active">{{ _('Active') }}</option>
                 <option value="paused">{{ _('Paused') }}</option>
@@ -132,7 +132,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('Track performance of ongoing marketing initiatives') }}</p>
                 </div>
                 <button onclick="viewAllCampaigns()" 
-                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                        class="text-puresignage-primary hover:text-puresignage-secondary text-sm font-medium transition-colors">
                     {{ _('View All') }}
                 </button>
             </div>
@@ -183,7 +183,7 @@
                             {{ _('Edit') }}
                         </button>
                         <button onclick="viewCampaignDetails('google-ads')" 
-                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                                class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-chart-line {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                             {{ _('Analytics') }}
                         </button>
@@ -234,7 +234,7 @@
                             {{ _('Edit') }}
                         </button>
                         <button onclick="viewCampaignDetails('social-media')" 
-                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                                class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-chart-line {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                             {{ _('Analytics') }}
                         </button>
@@ -402,7 +402,7 @@
                             {{ _('Follow Up') }}
                         </button>
                         <button onclick="convertLead()" 
-                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                                class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-handshake mr-1"></i>
                             {{ _('Convert') }}
                         </button>
@@ -423,7 +423,7 @@
                     <h3 class="text-xl font-semibold text-gray-900">{{ _('Marketing Channels') }}</h3>
                     <p class="text-sm text-gray-600 mt-1">{{ _('Performance by acquisition channel') }}</p>
                 </div>
-                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-elaani-primary">
+                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
                     <option>{{ _('This Month') }}</option>
                     <option>{{ _('Last Month') }}</option>
                     <option>{{ _('This Quarter') }}</option>
@@ -499,7 +499,7 @@
                 <div class="pt-4 border-t border-gray-200">
                     <div class="flex justify-between items-center">
                         <span class="font-medium text-gray-900">{{ _('Total Leads This Month') }}</span>
-                        <span class="text-xl font-bold text-elaani-primary">387</span>
+                        <span class="text-xl font-bold text-puresignage-primary">387</span>
                     </div>
                 </div>
             </div>
@@ -515,7 +515,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('SEO performance and content marketing') }}</p>
                 </div>
                 <button onclick="contentCalendar()" 
-                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                        class="text-puresignage-primary hover:text-puresignage-secondary text-sm font-medium transition-colors">
                     <i class="fas fa-calendar mr-1"></i>
                     {{ _('Content Calendar') }}
                 </button>
@@ -615,7 +615,7 @@
                             {{ _('Create Content') }}
                         </button>
                         <button onclick="schedulePosts()" 
-                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                                class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-clock mr-1"></i>
                             {{ _('Schedule Posts') }}
                         </button>

@@ -1,0 +1,362 @@
+﻿{% extends "base_customer.html" if viewer == 'customer' else "base.html" %}
+
+{% block title %}{{ screen.name }} — PureSignage{% endblock %}
+
+{% block page_title %}{{ screen.address }}{% endblock %}
+{% block page_subtitle %}{{ screen.district }}{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<style>
+    .spec-card {
+        background: #ffffff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 18px 20px;
+    }
+    .spec-card h4 {
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: underline;
+        margin-bottom: 10px;
+        color: #111827;
+    }
+    .spec-card .row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 0.875rem;
+        line-height: 1.6;
+        color: #1f2937;
+    }
+    .spec-card .label {
+        color: #1f2937;
+        font-weight: 500;
+    }
+    .spec-card .value {
+        color: #111827;
+        font-weight: 600;
+        text-align: end;
+    }
+    .spec-card .value.accent {
+        color: #b91c1c;
+        font-weight: 700;
+    }
+    .spec-card .value.brand {
+        color: #005430;
+        font-weight: 700;
+    }
+    .spec-card ul.bullet {
+        list-style: disc;
+        padding-inline-start: 1.25rem;
+        font-size: 0.875rem;
+        color: #1f2937;
+        line-height: 1.7;
+    }
+    .spec-card ul.bullet li b { font-weight: 700; }
+    .accent-divider { border-top: 1px solid #e5e7eb; margin: 10px 0; }
+    .red-strip {
+        width: 8px;
+        background: linear-gradient(180deg, #b91c1c, #dc2626);
+        border-radius: 8px 0 0 8px;
+    }
+    .screen-photo {
+        width: 100%;
+        aspect-ratio: 16/9;
+        object-fit: cover;
+        border-radius: 14px;
+        background: #f3f4f6;
+    }
+    .screen-photo-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #9ca3af;
+        font-size: 4rem;
+    }
+    #miniMap {
+        width: 100%;
+        height: 320px;
+        border-radius: 14px;
+        z-index: 0;
+    }
+    .leaflet-popup-content { font-family: inherit; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="mb-6">
+    <a href="{{ url_for('browse_displays') if viewer == 'customer' else url_for('screen_inventory') }}"
+       class="inline-flex items-center text-puresignage-primary hover:text-puresignage-secondary text-sm font-medium">
+        <i class="fas fa-arrow-{{ 'right' if session.get('lang') == 'ar' else 'left' }} {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
+        {{ _('Back to listings') }}
+    </a>
+</div>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+    <!-- LEFT COLUMN: photo + map -->
+    <div class="space-y-6">
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-3">
+            {% if screen.image %}
+            <img src="{{ url_for('static', filename='images/' + screen.image) }}"
+                 alt="{{ screen.address }}"
+                 class="screen-photo"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="screen-photo screen-photo-fallback" style="display:none;">
+                <i class="fas fa-tv"></i>
+            </div>
+            {% else %}
+            <div class="screen-photo screen-photo-fallback">
+                <i class="fas fa-tv"></i>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-3">
+            <div id="miniMap"></div>
+        </div>
+    </div>
+
+    <!-- RIGHT COLUMN: spec sheet -->
+    <div class="space-y-5">
+
+        <!-- Location -->
+        <div class="flex">
+            <div class="red-strip"></div>
+            <div class="flex-1 spec-card rounded-l-none">
+                <h4>{{ _('Location') }} :</h4>
+                {% if screen.gps %}
+                <div class="row"><span class="label">GPS :</span><span class="value">{{ screen.gps }}</span></div>
+                {% else %}
+                <div class="row"><span class="label">GPS :</span><span class="value text-gray-400">—</span></div>
+                {% endif %}
+                <div class="text-sm text-gray-700 mt-2">
+                    <strong>{{ screen.district }}</strong> — {{ screen.address }}
+                </div>
+                {% if screen.description %}
+                <div class="text-sm text-gray-600 mt-2">{{ screen.description }}</div>
+                {% endif %}
+                <div class="accent-divider"></div>
+                <div class="row">
+                    <span><b>{{ _('Est. Traffic') }} :</b> {{ screen.est_traffic or '—' }}</span>
+                    <span><b>{{ _('Est. Eyeballs') }} :</b> {{ screen.est_eyeballs or '—' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Media Type -->
+        <div class="flex">
+            <div class="red-strip"></div>
+            <div class="flex-1 spec-card rounded-l-none">
+                <h4>{{ _('Media Type') }} :</h4>
+                <ul class="bullet">
+                    <li>{{ screen.media_type or 'LED' }}</li>
+                    <li><b>{{ _('Panel Size') }} :</b> {{ screen.panel_size or screen.size }}</li>
+                    <li><b>{{ _('Sides') }} :</b> {{ screen.sides }}</li>
+                    {% if screen.quantity and screen.quantity > 1 %}
+                    <li><b>{{ _('Quantity') }} :</b> {{ screen.quantity }}</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+
+        <!-- 1 month Rate -->
+        <div class="flex">
+            <div class="red-strip"></div>
+            <div class="flex-1 spec-card rounded-l-none">
+                <h4>{{ _('1 month Rate') }} :</h4>
+                <div class="row">
+                    <span class="label accent" style="color:#b91c1c">{{ _('Availability') }}</span>
+                    <span class="value accent">: {{ screen.availability or 'IMMEDIATE' }}</span>
+                </div>
+                <div class="row mt-1">
+                    <span class="label">{{ _('Rate Card') }}</span>
+                    <span class="value">: {{ screen.rate_card|format_egp if screen.rate_card else '—' }}</span>
+                </div>
+                <div class="row mt-1">
+                    <span class="label accent" style="color:#b91c1c">{{ _('Promotion Rate') }}</span>
+                    <span class="value accent">: {{ screen.promotion_rate|format_egp }}</span>
+                </div>
+                <div class="row mt-1">
+                    <span class="label">{{ _('Content Mgmt') }}</span>
+                    <span class="value">: {{ screen.content_mgmt|format_egp if screen.content_mgmt else '—' }}</span>
+                </div>
+                <div class="accent-divider"></div>
+                <div class="row">
+                    <span class="label">{{ _('VAT') }} (14%)</span>
+                    <span class="value">: {{ screen.vat|format_egp }}</span>
+                </div>
+                <div class="row mt-1">
+                    <span class="label" style="font-weight:700">{{ _('Total') }}</span>
+                    <span class="value brand">: {{ screen.total|format_egp }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Screen Specification -->
+        <div class="flex">
+            <div class="red-strip"></div>
+            <div class="flex-1 spec-card rounded-l-none">
+                <h4>{{ _('Screen Specification') }} :</h4>
+                <ul class="bullet space-y-1">
+                    <li><b>{{ _('Type') }} :</b> {{ screen.type }}</li>
+                    <li><b>{{ _('Content Pixel') }} :</b> {{ screen.content_pixel or '—' }}</li>
+                    <li><b>{{ _('Duration per ad') }} :</b> {{ screen.duration_per_ad or '—' }}</li>
+                    <li><b>{{ _('No. of advertiser') }} :</b> {{ screen.no_advertiser or '—' }}</li>
+                    <li><b>{{ _('No. of slots') }} :</b> {{ screen.no_slots or '—' }}</li>
+                    <li><b>{{ _('Duration per loop') }} :</b> {{ screen.duration_per_loop or '—' }}</li>
+                    <li><b>{{ _('No. of loop per hour') }} :</b> {{ screen.no_loop_per_hour or '—' }}</li>
+                    <li><b>{{ _('No. exposures per day') }} :</b> {{ screen.no_exposures_per_day or '—' }}</li>
+                    <li><b>{{ _('Screening hours') }} :</b> {{ screen.screening_hours or '—' }}</li>
+                    <li><b>{{ _('Content Format') }} :</b> {{ screen.content_format or '—' }}</li>
+                    <li><b>{{ _('Timeline') }} :</b> {{ screen.timeline or '—' }}</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        {% if viewer == 'customer' %}
+        <button onclick="bookScreen({{ screen.id }})"
+                class="w-full bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-semibold py-4 rounded-xl shadow-lg transition-all">
+            <i class="fas fa-calendar-plus {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
+            {{ _('Request Quote / Book This Screen') }}
+        </button>
+        {% else %}
+        <div class="grid grid-cols-2 gap-3" id="edit">
+            <button onclick="openEditModal()"
+                    class="bg-blue-100 hover:bg-blue-200 text-blue-800 font-semibold py-3 rounded-xl transition-colors">
+                <i class="fas fa-edit {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
+                {{ _('Edit Screen') }}
+            </button>
+            <a href="{{ url_for('bookings_rentals') }}?screen_id={{ screen.id }}"
+               class="bg-puresignage-primary hover:bg-puresignage-secondary text-white font-semibold py-3 rounded-xl transition-colors text-center inline-flex items-center justify-center">
+                <i class="fas fa-chart-line {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
+                {{ _('View Bookings') }}
+            </a>
+        </div>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
+            <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-900">{{ _('Edit Screen') }} #{{ screen.id }}</h3>
+                    <button onclick="closeEditModal()" class="text-gray-400 hover:text-gray-600">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <form id="editForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('District') }}</label>
+                        <input type="text" name="district" value="{{ screen.district }}"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('Address') }}</label>
+                        <input type="text" name="address" value="{{ screen.address }}"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('Promotion Rate') }} (SAR)</label>
+                            <input type="number" name="promotion_rate" value="{{ screen.promotion_rate }}"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('VAT') }} (SAR)</label>
+                            <input type="number" name="vat" value="{{ screen.vat }}"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('Sides') }}</label>
+                            <input type="number" name="sides" value="{{ screen.sides }}"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('Size') }}</label>
+                            <input type="text" name="size" value="{{ screen.size }}"
+                                   class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">{{ _('GPS') }}</label>
+                        <input type="text" name="gps" value="{{ screen.gps }}" placeholder="e.g. 30.0444, 31.2357"
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
+                    </div>
+                    <div class="flex gap-3 pt-2">
+                        <button type="button" onclick="closeEditModal()"
+                                class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50">
+                            {{ _('Cancel') }}
+                        </button>
+                        <button type="submit"
+                                class="flex-1 px-4 py-2 bg-puresignage-primary text-white rounded-lg hover:bg-puresignage-secondary">
+                            {{ _('Save Changes') }}
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 text-center">{{ _('Note: this is a demo — changes reset on server restart.') }}</p>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function () {
+    const lat = {{ screen.lat | tojson }};
+    const lng = {{ screen.lng | tojson }};
+    const label = {{ (screen.district ~ ' — ' ~ screen.address) | tojson }};
+
+    const map = L.map('miniMap', { scrollWheelZoom: false }).setView([lat, lng], 14);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors',
+        maxZoom: 19
+    }).addTo(map);
+
+    L.marker([lat, lng]).addTo(map).bindPopup(label).openPopup();
+})();
+
+function bookScreen(id) {
+    alert({{ _('Quote request submitted for screen #') | tojson }} + id);
+}
+
+function openEditModal() {
+    const m = document.getElementById('editModal');
+    m.classList.remove('hidden');
+    m.classList.add('flex');
+}
+function closeEditModal() {
+    const m = document.getElementById('editModal');
+    m.classList.add('hidden');
+    m.classList.remove('flex');
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('editForm');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(form).entries());
+        fetch('/api/screen/{{ screen.id }}/update', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        }).then(r => r.json()).then(res => {
+            if (res.success) {
+                location.reload();
+            } else {
+                alert(res.error || 'Update failed');
+            }
+        }).catch(err => alert('Error: ' + err.message));
+    });
+    // Open modal automatically when URL has #edit
+    if (window.location.hash === '#edit') {
+        openEditModal();
+    }
+});
+</script>
+{% endblock %}

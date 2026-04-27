@@ -1,4 +1,4 @@
-# English translations for Elaani
+# English translations for PureSignage
 msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
@@ -39,8 +39,8 @@ msgid "Language"
 msgstr "Language"
 
 # Dashboard Page Titles
-msgid "Billboard Dashboard - Elaani"
-msgstr "Billboard Dashboard - Elaani"
+msgid "Billboard Dashboard - PureSignage"
+msgstr "Billboard Dashboard - PureSignage"
 
 msgid "Billboard Rental Dashboard"
 msgstr "Billboard Rental Dashboard"
@@ -199,8 +199,8 @@ msgid "Chart visualization coming soon"
 msgstr "Chart visualization coming soon"
 
 # Customer Dashboard
-msgid "Dashboard - Elaani Customer"
-msgstr "Dashboard - Elaani Customer"
+msgid "Dashboard - PureSignage Customer"
+msgstr "Dashboard - PureSignage Customer"
 
 msgid "Welcome back"
 msgstr "Welcome back"

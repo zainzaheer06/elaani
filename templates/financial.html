@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
-{% block title %}{{ _('Financial & Billing - Elaani') }}{% endblock %}
+{% block title %}{{ _('Financial & Billing - PureSignage') }}{% endblock %}
 
 {% block page_title %}{{ _('Financial & Billing Management') }}{% endblock %}
 {% block page_subtitle %}{{ _('Track revenue, manage invoices, and monitor financial performance in Saudi Arabia') }}{% endblock %}
@@ -11,7 +11,7 @@
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <button onclick="generateInvoice()" 
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-file-invoice {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                 {{ _('Generate Invoice') }}
             </button>
@@ -30,7 +30,7 @@
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <!-- Date Range Filter -->
             <select id="dateRange" 
-                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                 <option value="today">{{ _('Today') }}</option>
                 <option value="week">{{ _('This Week') }}</option>
                 <option value="month" selected>{{ _('This Month') }}</option>
@@ -134,7 +134,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('Monthly revenue trends and projections') }}</p>
                 </div>
                 <div class="flex space-x-2">
-                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-elaani-primary">
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-puresignage-primary">
                         {{ _('Revenue') }}
                     </button>
                     <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
@@ -180,7 +180,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('Outstanding and recent payments') }}</p>
                 </div>
                 <button onclick="viewAllPayments()" 
-                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                        class="text-puresignage-primary hover:text-puresignage-secondary text-sm font-medium transition-colors">
                     {{ _('View All') }}
                 </button>
             </div>
@@ -248,7 +248,7 @@
                             {{ _('Send Reminder') }}
                         </button>
                         <button onclick="markAsPaid()" 
-                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                                class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-check {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                             {{ _('Mark Paid') }}
                         </button>
@@ -269,7 +269,7 @@
             </div>
             <div class="flex space-x-2">
                 <button onclick="toggleInvoiceView('all')" id="allInvoicesBtn"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-puresignage-primary hover:bg-puresignage-secondary transition-colors">
                     {{ _('All Invoices') }}
                 </button>
                 <button onclick="toggleInvoiceView('outstanding')" id="outstandingBtn"
@@ -301,7 +301,7 @@
             <tbody class="bg-white divide-y divide-gray-200">
                 <tr class="hover:bg-gray-50 transition-colors">
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm font-medium text-elaani-primary">#INV-2025-0234</div>
+                        <div class="text-sm font-medium text-puresignage-primary">#INV-2025-0234</div>
                         <div class="text-sm text-gray-500">Sep 20, 2025</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
@@ -329,7 +329,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-{{ 'left' if session.get('lang', 'ar') == 'ar' else 'right' }} text-sm font-medium">
                         <div class="flex gap-3 {{ 'justify-start' if session.get('lang', 'ar') == 'ar' else 'justify-end' }}">
                             <button onclick="viewInvoice('INV-2025-0234')" 
-                                    class="text-elaani-primary hover:text-elaani-secondary transition-colors"
+                                    class="text-puresignage-primary hover:text-puresignage-secondary transition-colors"
                                     title="{{ _('View Invoice') }}">
                                 <i class="fas fa-eye"></i>
                             </button>
@@ -349,7 +349,7 @@
                 
                 <tr class="hover:bg-gray-50 transition-colors">
                     <td class="px-6 py-4 whitespace-nowrap">
-                        <div class="text-sm font-medium text-elaani-primary">#INV-2025-0235</div>
+                        <div class="text-sm font-medium text-puresignage-primary">#INV-2025-0235</div>
                         <div class="text-sm text-gray-500">Sep 22, 2025</div>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
@@ -377,7 +377,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <div class="flex space-x-2">
                             <button onclick="viewInvoice('INV-2025-0235')" 
-                                    class="text-elaani-primary hover:text-elaani-secondary transition-colors"
+                                    class="text-puresignage-primary hover:text-puresignage-secondary transition-colors"
                                     title="{{ _('View Invoice') }}">
                                 <i class="fas fa-eye"></i>
                             </button>
@@ -434,7 +434,7 @@
                 </div>
                 
                 <button onclick="generateVATReport()" 
-                        class="w-full bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium py-3 px-4 rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        class="w-full bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium py-3 px-4 rounded-lg hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                     <i class="fas fa-file-alt mr-2"></i>
                     {{ _('Generate VAT Report') }}
                 </button>
@@ -451,7 +451,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('Business expenses and costs') }}</p>
                 </div>
                 <button onclick="addExpense()" 
-                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                        class="text-puresignage-primary hover:text-puresignage-secondary text-sm font-medium transition-colors">
                     <i class="fas fa-plus {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                     {{ _('Add Expense') }}
                 </button>
@@ -563,7 +563,7 @@
         
         // Reset all buttons
         [allBtn, outstandingBtn, paidBtn].forEach(btn => {
-            btn.classList.remove('text-white', 'bg-elaani-primary');
+            btn.classList.remove('text-white', 'bg-puresignage-primary');
             btn.classList.add('text-gray-700', 'bg-gray-100');
         });
         
@@ -582,7 +582,7 @@
         }
         
         activeBtn.classList.remove('text-gray-700', 'bg-gray-100');
-        activeBtn.classList.add('text-white', 'bg-elaani-primary');
+        activeBtn.classList.add('text-white', 'bg-puresignage-primary');
         
         showNotification(`{{ _("Filtering invoices:") }} ${view}`, 'info');
     }

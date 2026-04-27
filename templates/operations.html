@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
-{% block title %}{{ _('Operations - Elaani') }}{% endblock %}
+{% block title %}{{ _('Operations - PureSignage') }}{% endblock %}
 
 {% block page_title %}{{ _('Operations Management') }}{% endblock %}
 {% block page_subtitle %}{{ _('Manage logistics, deliveries, installations, and field operations across Saudi Arabia') }}{% endblock %}
@@ -11,7 +11,7 @@
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <button onclick="scheduleDelivery()" 
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-truck mr-2"></i>
                 {{ _('Schedule Delivery') }}
             </button>
@@ -30,7 +30,7 @@
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <!-- Location Filter -->
             <select id="locationFilter" 
-                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    class="block w-full px-3 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                 <option value="">{{ _('All Locations') }}</option>
                 <option value="riyadh">{{ _('Riyadh') }}</option>
                 <option value="jeddah">{{ _('Jeddah') }}</option>
@@ -135,7 +135,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('Real-time tracking of vehicles and technicians') }}</p>
                 </div>
                 <div class="flex space-x-2">
-                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-elaani-primary">
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-puresignage-primary">
                         <i class="fas fa-truck mr-1"></i>
                         {{ _('Vehicles') }}
                     </button>
@@ -277,7 +277,7 @@
                             {{ _('Auto-Assign') }}
                         </button>
                         <button onclick="prioritizeTasks()" 
-                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                                class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-sort mr-1"></i>
                             {{ _('Prioritize') }}
                         </button>
@@ -298,7 +298,7 @@
             </div>
             <div class="flex space-x-2">
                 <button onclick="viewAvailableTeam()" 
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-puresignage-primary hover:bg-puresignage-secondary transition-colors">
                     <i class="fas fa-users mr-2"></i>
                     {{ _('Available Team') }}
                 </button>
@@ -360,7 +360,7 @@
                     
                     <div class="flex space-x-2">
                         <button onclick="assignTask('ahmed')" 
-                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                                class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-plus mr-1"></i>
                             {{ _('Assign') }}
                         </button>
@@ -505,7 +505,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('Vehicle status and maintenance') }}</p>
                 </div>
                 <button onclick="addVehicle()" 
-                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                        class="text-puresignage-primary hover:text-puresignage-secondary text-sm font-medium transition-colors">
                     <i class="fas fa-plus mr-1"></i>
                     {{ _('Add Vehicle') }}
                 </button>
@@ -581,7 +581,7 @@
                             {{ _('Schedule Service') }}
                         </button>
                         <button onclick="trackAllVehicles()" 
-                                class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                                class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                             <i class="fas fa-map mr-1"></i>
                             {{ _('Track All') }}
                         </button>
@@ -599,7 +599,7 @@
                     <h3 class="text-xl font-semibold text-gray-900">{{ _('Performance Metrics') }}</h3>
                     <p class="text-sm text-gray-600 mt-1">{{ _('Operations KPIs and analytics') }}</p>
                 </div>
-                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-elaani-primary">
+                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
                     <option>{{ _('This Week') }}</option>
                     <option>{{ _('This Month') }}</option>
                     <option>{{ _('This Quarter') }}</option>
@@ -660,7 +660,7 @@
                             <div class="text-xs text-gray-600">{{ _('Avg Cost/Delivery') }}</div>
                         </div>
                         <div>
-                            <div class="text-lg font-bold text-elaani-primary">2.3 hrs</div>
+                            <div class="text-lg font-bold text-puresignage-primary">2.3 hrs</div>
                             <div class="text-xs text-gray-600">{{ _('Avg Setup Time') }}</div>
                         </div>
                     </div>

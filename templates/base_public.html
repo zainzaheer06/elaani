@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{{ _('Elaani - Digital Screen Marketplace') }}{% endblock %}</title>
+    <title>{% block title %}{{ _('PureSignage - Digital Screen Marketplace') }}{% endblock %}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     {% if session.get('lang') == 'ar' %}
@@ -16,10 +16,10 @@
             theme: {
                 extend: {
                     colors: {
-                        'elaani-primary': '#005430',
-                        'elaani-secondary': '#057f48',
-                        'elaani-dark': '#003d24',
-                        'elaani-light': '#0a9960',
+                        'puresignage-primary': '#005430',
+                        'puresignage-secondary': '#057f48',
+                        'puresignage-dark': '#003d24',
+                        'puresignage-light': '#0a9960',
                     }
                 }
             }
@@ -28,32 +28,32 @@
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
-    <nav class="bg-white shadow-lg border-b-2 border-elaani-primary">
+    <nav class="bg-white shadow-lg border-b-2 border-puresignage-primary">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="{{ url_for('index') }}" class="flex items-center">
-                        <img src="{{ url_for('static', filename='elaani-logo2.png') }}" alt="Elaani Logo" class="h-15 w-40 mr-3">
+                        <img src="{{ url_for('static', filename='puresignage-logo2.png') }}" alt="PureSignage Logo" class="h-15 w-40 mr-3">
                     </a>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="{{ url_for('browse_screens') }}" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Browse Screens') }}</a>
-                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('How it Works') }}</a>
-                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Pricing') }}</a>
-                    <a href="#" class="text-gray-700 hover:text-elaani-primary transition-colors">{{ _('Support') }}</a>
+                    <a href="{{ url_for('browse_screens') }}" class="text-gray-700 hover:text-puresignage-primary transition-colors">{{ _('Browse Screens') }}</a>
+                    <a href="#" class="text-gray-700 hover:text-puresignage-primary transition-colors">{{ _('How it Works') }}</a>
+                    <a href="#" class="text-gray-700 hover:text-puresignage-primary transition-colors">{{ _('Pricing') }}</a>
+                    <a href="#" class="text-gray-700 hover:text-puresignage-primary transition-colors">{{ _('Support') }}</a>
                 </div>
 
                 <div class="flex items-center space-x-4">
-                    <a href="{{ url_for('login') }}" class="text-elaani-primary hover:text-elaani-dark transition-colors">{{ _('Login') }}</a>
-                    <a href="{{ url_for('register') }}" class="bg-elaani-primary hover:bg-elaani-dark text-white px-4 py-2 rounded-lg transition-colors">
+                    <a href="{{ url_for('login') }}" class="text-puresignage-primary hover:text-puresignage-dark transition-colors">{{ _('Login') }}</a>
+                    <a href="{{ url_for('register') }}" class="bg-puresignage-primary hover:bg-puresignage-dark text-white px-4 py-2 rounded-lg transition-colors">
                         {{ _('Get Started') }}
                     </a>
                 </div>
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button type="button" class="text-gray-700 hover:text-elaani-primary" onclick="toggleMobileMenu()">
+                    <button type="button" class="text-gray-700 hover:text-puresignage-primary" onclick="toggleMobileMenu()">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -63,10 +63,10 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="{{ url_for('browse_screens') }}" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Browse Screens') }}</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('How it Works') }}</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Pricing') }}</a>
-                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-elaani-primary">{{ _('Support') }}</a>
+                <a href="{{ url_for('browse_screens') }}" class="block px-3 py-2 text-gray-700 hover:text-puresignage-primary">{{ _('Browse Screens') }}</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-puresignage-primary">{{ _('How it Works') }}</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-puresignage-primary">{{ _('Pricing') }}</a>
+                <a href="#" class="block px-3 py-2 text-gray-700 hover:text-puresignage-primary">{{ _('Support') }}</a>
             </div>
         </div>
     </nav>
@@ -97,8 +97,8 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <div class="bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white px-4 py-2 rounded-lg font-bold text-xl mb-4 inline-block">
-                        Elaani
+                    <div class="bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white px-4 py-2 rounded-lg font-bold text-xl mb-4 inline-block">
+                        PureSignage
                     </div>
                     <p class="text-gray-400">{{ _('The premier digital screen advertising marketplace in Riyadh, KSA.') }}</p>
                 </div>
@@ -128,7 +128,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>{{ _('&copy; 2025 Elaani. All rights reserved. Made in Riyadh, KSA 🇸🇦') }}</p>
+                <p>{{ _('&copy; 2025 PureSignage. All rights reserved. Made in Riyadh, KSA 🇸🇦') }}</p>
             </div>
         </div>
     </footer>

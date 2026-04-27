@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
-{% block title %}{{ _('Screens Map - Elaani') }}{% endblock %}
+{% block title %}{{ _('Screens Map - PureSignage') }}{% endblock %}
 
 {% block page_title %}{{ _('Screens & Billboards Map') }}{% endblock %}
 {% block page_subtitle %}{{ _('View all available screens across Riyadh on an interactive map') }}{% endblock %}
@@ -75,7 +75,7 @@
         
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <div class="relative">
-                <select id="sortBy" class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary appearance-none text-gray-700 font-medium cursor-pointer hover:border-gray-400 transition-all duration-200">
+                <select id="sortBy" class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-puresignage-primary appearance-none text-gray-700 font-medium cursor-pointer hover:border-gray-400 transition-all duration-200">
                     <option value="name">{{ _('Sort by Name') }}</option>
                     <option value="price">{{ _('Sort by Price (Low-High)') }}</option>
                     <option value="rating">{{ _('Sort by Rating') }}</option>
@@ -138,7 +138,7 @@
     
     <div class="bg-white rounded-xl shadow-sm p-4 border border-gray-100">
         <div class="flex items-center">
-            <div class="w-10 h-10 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
+            <div class="w-10 h-10 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                 <i class="fas fa-tv text-white"></i>
             </div>
             <div>
@@ -170,101 +170,28 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
     // Sample screen data with translations
-    const screensData = [
-        {
-            id: 1,
-            title: "{{ _('King Fahd Road LED') }}",
-            location: "{{ _('King Fahd Road, Riyadh') }}",
-            status: "available",
-            type: "{{ _('LED Billboard') }}",
-            size: "15x8m",
-            price_per_day: 5000,
-            price_per_hour: 500,
-            rating: 4.8,
-            reviews: 127,
-            lat: 24.7136,
-            lng: 46.6753,
-            direction: "{{ _('North') }}"
-        },
-        {
-            id: 2,
-            title: "{{ _('Olaya Street Display') }}",
-            location: "{{ _('Olaya Street, Riyadh') }}",
-            status: "rented",
-            type: "{{ _('LED Screen') }}",
-            size: "12x6m",
-            price_per_day: 3500,
-            price_per_hour: 350,
-            rating: 4.6,
-            reviews: 98,
-            lat: 24.7280,
-            lng: 46.6850,
-            direction: "{{ _('East') }}"
-        },
-        {
-            id: 3,
-            title: "{{ _('Mall Indoor Screen') }}",
-            location: "{{ _('Riyadh Gallery Mall') }}",
-            status: "available",
-            type: "{{ _('Indoor LED') }}",
-            size: "10x5m",
-            price_per_day: 4200,
-            price_per_hour: 420,
-            rating: 4.9,
-            reviews: 156,
-            lat: 24.7400,
-            lng: 46.6600,
-            direction: "{{ _('West') }}"
-        },
-        {
-            id: 4,
-            title: "{{ _('Downtown Business Center') }}",
-            location: "{{ _('Downtown Riyadh') }}",
-            status: "maintenance",
-            type: "{{ _('LED Display') }}",
-            size: "14x7m",
-            price_per_day: 4800,
-            price_per_hour: 480,
+    // Screen data (server-rendered from Flask route)
+    const screensData = ({{ screens|tojson }}).map(function(s) {
+        return {
+            id: s.id,
+            title: s.address,
+            location: s.district + ', ' + s.address,
+            status: s.status,
+            type: s.type,
+            size: s.size,
+            price_per_day: s.price_per_day,
+            price_per_hour: Math.round(s.price_per_day / 18),
             rating: 4.7,
-            reviews: 143,
-            lat: 24.7500,
-            lng: 46.7000,
-            direction: "{{ _('South') }}"
-        },
-        {
-            id: 5,
-            title: "{{ _('Al Nakheel Mall Screen') }}",
-            location: "{{ _('Al Nakheel District') }}",
-            status: "available",
-            type: "{{ _('LED Screen') }}",
-            size: "11x6m",
-            price_per_day: 3800,
-            price_per_hour: 380,
-            rating: 4.5,
-            reviews: 87,
-            lat: 24.7000,
-            lng: 46.6500,
-            direction: "{{ _('North-East') }}"
-        },
-        {
-            id: 6,
-            title: "{{ _('Business Park Tower') }}",
-            location: "{{ _('Financial District') }}",
-            status: "available",
-            type: "{{ _('Digital Billboard') }}",
-            size: "13x7m",
-            price_per_day: 5500,
-            price_per_hour: 550,
-            rating: 4.8,
-            reviews: 112,
-            lat: 24.7200,
-            lng: 46.7100,
-            direction: "{{ _('North') }}"
-        }
-    ];
+            lat: s.lat,
+            lng: s.lng,
+            direction: '',
+            image: s.image,
+            total: s.total
+        };
+    });
 
     // Initialize map
-    let map = L.map('map-container').setView([24.7250, 46.6750], 12);
+    let map = L.map('map-container').setView([30.0444, 31.2357], 11);
 
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -405,7 +332,7 @@
                                 ${statusLabels[screen.status]}
                             </span>
                         </div>
-                        <p class="text-sm text-gray-600 mb-3"><i class="fas fa-map-marker-alt ${isRTL ? 'ml-2' : 'mr-2'} text-elaani-primary"></i>${screen.location}</p>
+                        <p class="text-sm text-gray-600 mb-3"><i class="fas fa-map-marker-alt ${isRTL ? 'ml-2' : 'mr-2'} text-puresignage-primary"></i>${screen.location}</p>
                         
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
                             <div>
@@ -418,7 +345,7 @@
                             </div>
                             <div>
                                 <p class="text-xs font-medium text-gray-600">{{ _('Direction') }}</p>
-                                <p class="text-sm font-semibold text-gray-900"><i class="fas fa-compass text-elaani-primary ${isRTL ? 'ml-2' : 'mr-2'}"></i>${screen.direction}</p>
+                                <p class="text-sm font-semibold text-gray-900"><i class="fas fa-compass text-puresignage-primary ${isRTL ? 'ml-2' : 'mr-2'}"></i>${screen.direction}</p>
                             </div>
                             <div>
                                 <p class="text-xs font-medium text-gray-600">{{ _('Rating') }}</p>
@@ -428,9 +355,9 @@
                     </div>
                     
                     <div class="text-${isRTL ? 'left' : 'right'} ${isRTL ? 'mr-4' : 'ml-4'}">
-                        <div class="text-2xl font-bold text-elaani-primary mb-2">${screen.price_per_day.toLocaleString()} {{ _('SAR') }}</div>
+                        <div class="text-2xl font-bold text-puresignage-primary mb-2">${screen.price_per_day.toLocaleString()} {{ _('SAR') }}</div>
                         <div class="text-xs text-gray-600 mb-3">${screen.price_per_hour} {{ _('SAR/hour') }}</div>
-                        <button onclick="quickBook(${screen.id})" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white text-sm font-medium rounded-lg hover:shadow-lg transition-all">
+                        <button onclick="quickBook(${screen.id})" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white text-sm font-medium rounded-lg hover:shadow-lg transition-all">
                             <i class="fas fa-calendar-plus ${isRTL ? 'ml-2' : 'mr-2'}"></i>
                             {{ _('Book Now') }}
                         </button>

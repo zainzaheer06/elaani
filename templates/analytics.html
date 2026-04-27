@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
-{% block title %}{{ _('Analytics') }} - Elaani{% endblock %}
+{% block title %}{{ _('Analytics') }} - PureSignage{% endblock %}
 
 {% block page_title %}{{ _('Business Analytics & Insights') }}{% endblock %}
 {% block page_subtitle %}{{ _('Track performance, analyze trends, and make data-driven decisions for your Saudi Arabia operations') }}{% endblock %}
@@ -11,7 +11,7 @@
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
         <div class="flex flex-wrap gap-2">
             <button onclick="generateReport()" 
-                    class="inline-flex items-center px-4 py-2 border border-transparent text-xs font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap">
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-xs font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap">
                 <i class="fas fa-chart-line me-2"></i>
                 {{ _('Generate Report') }}
             </button>
@@ -30,7 +30,7 @@
         <div class="flex flex-wrap gap-2">
             <!-- Date Range Filter -->
             <select id="analyticsDateRange" 
-                    class="block w-auto px-2 py-2 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    class="block w-auto px-2 py-2 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                 <option value="today">{{ _('Today') }}</option>
                 <option value="week">{{ _('This Week') }}</option>
                 <option value="month" selected>{{ _('This Month') }}</option>
@@ -135,7 +135,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('Monthly revenue performance over time') }}</p>
                 </div>
                 <div class="flex gap-2">
-                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-elaani-primary">
+                    <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-white bg-puresignage-primary">
                         {{ _('Revenue') }}
                     </button>
                     <button class="inline-flex items-center px-3 py-1 text-xs font-medium rounded-lg text-gray-700 bg-gray-100 hover:bg-gray-200 transition-colors">
@@ -183,7 +183,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('Customer segments and behavior analysis') }}</p>
                 </div>
                 <button onclick="viewCustomerDetails()"
-                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                        class="text-puresignage-primary hover:text-puresignage-secondary text-sm font-medium transition-colors">
                     {{ _('View Details') }}
                 </button>
             </div>
@@ -273,7 +273,7 @@
             </div>
             <div class="flex gap-2">
                 <button onclick="toggleEquipmentView('utilization')" id="utilizationBtn"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-puresignage-primary hover:bg-puresignage-secondary transition-colors">
                     {{ _('Utilization') }}
                 </button>
                 <button onclick="toggleEquipmentView('revenue')" id="revenueBtn"
@@ -419,7 +419,7 @@
                     <h3 class="text-xl font-semibold text-gray-900">{{ _('Seasonal Trends') }}</h3>
                     <p class="text-sm text-gray-600 mt-1">{{ _('Demand patterns and peak seasons') }}</p>
                 </div>
-                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-elaani-primary">
+                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
                     <option>2025</option>
                     <option>2024</option>
                     <option>2023</option>
@@ -458,6 +458,38 @@
                         <div class="text-sm text-yellow-600">{{ _('Holy Month Period') }}</div>
                     </div>
                     <div class="text-xl font-bold text-yellow-700">+20%</div>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-orange-50 to-orange-100 rounded-lg border border-orange-200">
+                    <div>
+                        <div class="font-medium text-orange-800">{{ _('Exhibition') }}</div>
+                        <div class="text-sm text-orange-600">{{ _('Trade Shows & Expos') }}</div>
+                    </div>
+                    <div class="text-xl font-bold text-orange-700">+35%</div>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-pink-50 to-pink-100 rounded-lg border border-pink-200">
+                    <div>
+                        <div class="font-medium text-pink-800">{{ _('Entertainment') }}</div>
+                        <div class="text-sm text-pink-600">{{ _('Concerts & Shows') }}</div>
+                    </div>
+                    <div class="text-xl font-bold text-pink-700">+28%</div>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-lg border border-indigo-200">
+                    <div>
+                        <div class="font-medium text-indigo-800">{{ _('Occasional Event') }}</div>
+                        <div class="text-sm text-indigo-600">{{ _('Special Occasions & Celebrations') }}</div>
+                    </div>
+                    <div class="text-xl font-bold text-indigo-700">+22%</div>
+                </div>
+
+                <div class="flex items-center justify-between p-4 bg-gradient-to-r from-red-50 to-red-100 rounded-lg border border-red-200">
+                    <div>
+                        <div class="font-medium text-red-800">{{ _('FnB') }}</div>
+                        <div class="text-sm text-red-600">{{ _('Food & Beverage Events') }}</div>
+                    </div>
+                    <div class="text-xl font-bold text-red-700">+18%</div>
                 </div>
             </div>
         </div>
@@ -586,7 +618,7 @@
         
         // Reset all buttons
         [utilizationBtn, revenueBtn, maintenanceBtn].forEach(btn => {
-            btn.classList.remove('text-white', 'bg-elaani-primary');
+            btn.classList.remove('text-white', 'bg-puresignage-primary');
             btn.classList.add('text-gray-700', 'bg-gray-100');
         });
         
@@ -605,7 +637,7 @@
         }
         
         activeBtn.classList.remove('text-gray-700', 'bg-gray-100');
-        activeBtn.classList.add('text-white', 'bg-elaani-primary');
+        activeBtn.classList.add('text-white', 'bg-puresignage-primary');
         
         showNotification(`Viewing equipment ${view} analytics`, 'info');
     }

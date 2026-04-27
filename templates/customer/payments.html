@@ -1,6 +1,6 @@
-{% extends "base_customer.html" %}
+﻿{% extends "base_customer.html" %}
 
-{% block title %}{{ _('Payments') }} - Elaani Customer{% endblock %}
+{% block title %}{{ _('Payments') }} - PureSignage Customer{% endblock %}
 
 {% block page_title %}{{ _('Payments & Invoices') }}{% endblock %}
 {% block page_subtitle %}{{ _('Manage your payments, invoices, and billing information') }}{% endblock %}
@@ -36,8 +36,8 @@
 
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
         <div class="flex items-center gap-4">
-            <div class="w-12 h-12 bg-elaani-light rounded-xl flex items-center justify-center">
-                <i class="fas fa-credit-card text-elaani-primary text-xl"></i>
+            <div class="w-12 h-12 bg-puresignage-light rounded-xl flex items-center justify-center">
+                <i class="fas fa-credit-card text-puresignage-primary text-xl"></i>
             </div>
             <div>
                 <p class="text-sm text-gray-600">{{ _('Total Spent') }}</p>
@@ -52,7 +52,7 @@
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
     <div class="border-b border-gray-200">
         <div class="flex">
-            <button onclick="switchTab('invoices')" class="payment-tab active px-6 py-4 text-sm font-medium text-elaani-primary border-b-2 border-elaani-primary">
+            <button onclick="switchTab('invoices')" class="payment-tab active px-6 py-4 text-sm font-medium text-puresignage-primary border-b-2 border-puresignage-primary">
                 <i class="fas fa-file-invoice {% if session.get('lang', 'ar') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Invoices') }}
             </button>
             <button onclick="switchTab('payments')" class="payment-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
@@ -163,7 +163,7 @@
                         <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ _('Sep 20, 2025') }}</td>
                         <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">#INV-003</td>
                         <td class="px-6 py-4 text-sm text-gray-600">{{ _('Corporate Event - Downtown') }}</td>
-                        <td class="px-6 py-4 text-sm font-bold text-elaani-primary whitespace-nowrap">8,400 SAR</td>
+                        <td class="px-6 py-4 text-sm font-bold text-puresignage-primary whitespace-nowrap">8,400 SAR</td>
                         <td class="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">{{ _('Credit Card') }}</td>
                         <td class="px-6 py-4 whitespace-nowrap"><span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ _('Success') }}</span></td>
                     </tr>
@@ -171,7 +171,7 @@
                         <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ _('Sep 10, 2025') }}</td>
                         <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">#INV-004</td>
                         <td class="px-6 py-4 text-sm text-gray-600">{{ _('Olaya Street Display') }}</td>
-                        <td class="px-6 py-4 text-sm font-bold text-elaani-primary whitespace-nowrap">7,500 SAR</td>
+                        <td class="px-6 py-4 text-sm font-bold text-puresignage-primary whitespace-nowrap">7,500 SAR</td>
                         <td class="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">{{ _('Bank Transfer') }}</td>
                         <td class="px-6 py-4 whitespace-nowrap"><span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ _('Success') }}</span></td>
                     </tr>
@@ -179,7 +179,7 @@
                         <td class="px-6 py-4 text-sm text-gray-900 whitespace-nowrap">{{ _('Aug 28, 2025') }}</td>
                         <td class="px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">#INV-005</td>
                         <td class="px-6 py-4 text-sm text-gray-600">{{ _('Al Nakheel Mall Display') }}</td>
-                        <td class="px-6 py-4 text-sm font-bold text-elaani-primary whitespace-nowrap">6,800 SAR</td>
+                        <td class="px-6 py-4 text-sm font-bold text-puresignage-primary whitespace-nowrap">6,800 SAR</td>
                         <td class="px-6 py-4 text-sm text-gray-600 whitespace-nowrap">{{ _('Credit Card') }}</td>
                         <td class="px-6 py-4 whitespace-nowrap"><span class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">{{ _('Success') }}</span></td>
                     </tr>
@@ -192,10 +192,10 @@
     <div id="methods-content" class="p-6 hidden">
         <div class="space-y-4">
             <!-- Default Credit Card -->
-            <div class="flex items-start p-4 bg-elaani-light border-2 border-elaani-primary rounded-xl">
+            <div class="flex items-start p-4 bg-puresignage-light border-2 border-puresignage-primary rounded-xl">
                 <div class="flex-1">
                     <div class="flex items-center gap-4">
-                        <i class="fas fa-credit-card text-elaani-primary text-2xl"></i>
+                        <i class="fas fa-credit-card text-puresignage-primary text-2xl"></i>
                         <div>
                             <h4 class="font-semibold text-gray-900">Visa • 4242</h4>
                             <p class="text-sm text-gray-600">Expires 12/26</p>
@@ -244,7 +244,7 @@
                 </button>
             </div>
 
-            <button class="w-full mt-4 px-6 py-3 border border-dashed border-elaani-primary text-elaani-primary font-medium rounded-lg hover:bg-elaani-light transition-all">
+            <button class="w-full mt-4 px-6 py-3 border border-dashed border-puresignage-primary text-puresignage-primary font-medium rounded-lg hover:bg-puresignage-light transition-all">
                 <i class="fas fa-plus {% if session.get('lang', 'ar') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Add Payment Method') }}
             </button>
         </div>
@@ -287,32 +287,32 @@
                 <form class="space-y-4">
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Full Name') }}</label>
-                        <input type="text" value="{{ current_user.name }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="text" value="{{ current_user.name }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Company Name') }}</label>
-                        <input type="text" value="{{ current_user.company }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="text" value="{{ current_user.company }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Street Address') }}</label>
-                        <input type="text" placeholder="{{ _('P.O. Box or Street') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="text" placeholder="{{ _('P.O. Box or Street') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('City') }}</label>
-                            <input type="text" value="Riyadh" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="text" value="Riyadh" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Postal Code') }}</label>
-                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                         </div>
                     </div>
 
                     <div class="flex gap-4 pt-4">
-                        <button type="submit" class="flex-1 px-4 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        <button type="submit" class="flex-1 px-4 py-2 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium rounded-lg hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                             {{ _('Save Changes') }}
                         </button>
                         <button type="button" onclick="closeModal('editBillingModal')" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
@@ -338,11 +338,11 @@
         
         // Update button styling
         document.querySelectorAll('.payment-tab').forEach(btn => {
-            btn.classList.remove('active', 'text-elaani-primary', 'border-b-elaani-primary');
+            btn.classList.remove('active', 'text-puresignage-primary', 'border-b-puresignage-primary');
             btn.classList.add('text-gray-600', 'border-b-transparent');
         });
         
-        event.target.closest('.payment-tab').classList.add('active', 'text-elaani-primary', 'border-b-elaani-primary');
+        event.target.closest('.payment-tab').classList.add('active', 'text-puresignage-primary', 'border-b-puresignage-primary');
         event.target.closest('.payment-tab').classList.remove('text-gray-600', 'border-b-transparent');
     }
 </script>

@@ -1,6 +1,6 @@
-{% extends "base_customer.html" %}
+﻿{% extends "base_customer.html" %}
 
-{% block title %}{{ _('Dashboard - Elaani Customer') }}{% endblock %}
+{% block title %}{{ _('Dashboard - PureSignage Customer') }}{% endblock %}
 
 {% block page_title %}{{ _('Welcome back') }}, {{ current_user.name }}!{% endblock %}
 {% block page_subtitle %}{{ _('Manage your bookings, find displays, and explore new opportunities') }}{% endblock %}
@@ -45,7 +45,7 @@
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
         <div class="flex items-center">
             <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-xl flex items-center justify-center">
+                <div class="w-12 h-12 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary rounded-xl flex items-center justify-center">
                     <i class="fas fa-coins text-white text-xl"></i>
                 </div>
             </div>
@@ -134,7 +134,7 @@
                 </div>
                 <p class="text-sm text-gray-600 mt-1">{{ _('Personalized suggestions based on your booking history and preferences') }}</p>
             </div>
-            <button class="text-elaani-primary hover:text-elaani-secondary font-medium text-sm">
+            <button class="text-puresignage-primary hover:text-puresignage-secondary font-medium text-sm">
                 <i class="fas fa-sync-alt {% if session.get('lang') == 'ar' %}ml-1{% else %}mr-1{% endif %}"></i>{{ _('Refresh') }}
             </button>
         </div>
@@ -249,7 +249,7 @@
         </div>
 
         <div class="mt-6 text-center">
-            <button class="text-elaani-primary hover:text-elaani-secondary font-semibold text-sm">
+            <button class="text-puresignage-primary hover:text-puresignage-secondary font-semibold text-sm">
                 <i class="fas fa-chevron-down {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Load More Recommendations') }}
             </button>
         </div>
@@ -266,7 +266,7 @@
                     <h3 class="text-xl font-semibold text-gray-900">{{ _('Your Active Bookings') }}</h3>
                     <p class="text-sm text-gray-600 mt-1">{{ _('Current and upcoming display rentals') }}</p>
                 </div>
-                <a href="{{ url_for('customer_bookings') }}" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                <a href="{{ url_for('customer_bookings') }}" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                     <i class="fas fa-arrow-right {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                     {{ _('View All') }}
                 </a>
@@ -331,37 +331,73 @@
 
     <!-- Loyalty & Profile -->
     <div class="space-y-6">
-        <!-- Loyalty Card -->
-        <div class="bg-gradient-to-br from-elaani-primary to-elaani-secondary rounded-2xl shadow-lg p-6 text-white">
-            <div class="flex items-start justify-between mb-8">
-                <div>
-                    <p class="text-elaani-light text-sm font-medium">{{ _('Loyalty Tier') }}</p>
-                    <h3 class="text-3xl font-bold mt-1">{{ current_user.loyalty_tier }}</h3>
-                </div>
-                <i class="fas fa-crown text-4xl opacity-20"></i>
+        <!-- Enhanced Loyalty Card -->
+        <div id="loyaltyCard" class="rounded-2xl shadow-2xl p-6 text-white relative overflow-hidden transform transition-all duration-300 hover:scale-105">
+            <!-- Dynamic background based on tier -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0 bg-gradient-to-br from-white to-transparent"></div>
             </div>
             
-            <div class="space-y-4 mb-6">
-                <div>
-                    <div class="flex justify-between mb-2">
-                        <span class="text-sm font-medium">{{ _('Points to Gold') }}</span>
-                        <span class="text-sm font-medium">{{ (150 - current_user.loyalty_points) }} {{ _('left') }}</span>
+            <div class="relative z-10">
+                <!-- Card Header -->
+                <div class="flex items-start justify-between mb-6">
+                    <div>
+                        <p class="text-white/80 text-xs font-medium uppercase tracking-wider">{{ _('PureSignage Loyalty') }}</p>
+                        <h3 class="text-3xl font-bold mt-1 flex items-center">
+                            <span id="tierName">{{ current_user.loyalty_tier }}</span>
+                            <i id="tierIcon" class="fas fa-crown ml-2"></i>
+                        </h3>
+                        <p class="text-white/70 text-xs mt-1" id="tierBenefits">{{ _('Exclusive member benefits') }}</p>
                     </div>
-                    <div class="w-full h-2 bg-white/20 rounded-full overflow-hidden">
-                        <div class="h-full bg-white rounded-full" style="width: {{ (current_user.loyalty_points / 150) * 100 }}%"></div>
+                    <div class="text-right">
+                        <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/30">
+                            <i id="tierBadge" class="fas fa-star text-3xl"></i>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/20">
-                <div>
-                    <p class="text-white/80 text-xs font-medium">{{ _('Available Points') }}</p>
-                    <p class="text-2xl font-bold">{{ current_user.loyalty_points }}</p>
+                
+                <!-- Member Info -->
+                <div class="mb-6 pb-4 border-b border-white/20">
+                    <p class="text-white/80 text-xs font-medium mb-1">{{ _('Member Name') }}</p>
+                    <p class="text-lg font-semibold">{{ current_user.name }}</p>
+                    <p class="text-white/70 text-xs mt-1">{{ _('Member since') }} 2024</p>
                 </div>
-                <div>
-                    <p class="text-white/80 text-xs font-medium">{{ _('Total Bookings') }}</p>
-                    <p class="text-2xl font-bold">{{ current_user.total_bookings }}</p>
+                
+                <!-- Progress to Next Tier -->
+                <div class="space-y-3 mb-6">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span class="text-sm font-medium" id="progressLabel">{{ _('Points to Gold') }}</span>
+                            <span class="text-sm font-bold" id="progressPoints">{{ (1500 - current_user.loyalty_points) }} {{ _('points left') }}</span>
+                        </div>
+                        <div class="w-full h-3 bg-white/20 rounded-full overflow-hidden backdrop-blur-sm">
+                            <div id="progressBar" class="h-full bg-white rounded-full transition-all duration-500 shadow-lg" style="width: {{ (current_user.loyalty_points / 1500) * 100 }}%"></div>
+                        </div>
+                        <p class="text-xs text-white/70 mt-1" id="progressHint">{{ _('Keep booking to unlock more rewards!') }}</p>
+                    </div>
                 </div>
+                
+                <!-- Stats Grid -->
+                <div class="grid grid-cols-3 gap-3">
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <p class="text-white/80 text-xs font-medium mb-1">{{ _('Points') }}</p>
+                        <p class="text-2xl font-bold">{{ current_user.loyalty_points }}</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <p class="text-white/80 text-xs font-medium mb-1">{{ _('Bookings') }}</p>
+                        <p class="text-2xl font-bold">{{ current_user.total_bookings }}</p>
+                    </div>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/20">
+                        <p class="text-white/80 text-xs font-medium mb-1">{{ _('Discount') }}</p>
+                        <p class="text-2xl font-bold" id="tierDiscount">5%</p>
+                    </div>
+                </div>
+                
+                <!-- View Benefits Button -->
+                <button onclick="openLoyaltyModal()" class="w-full mt-4 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg py-3 font-semibold hover:bg-white/30 transition-all flex items-center justify-center">
+                    <i class="fas fa-gift mr-2"></i>
+                    {{ _('View All Benefits') }}
+                </button>
             </div>
         </div>
 
@@ -369,12 +405,12 @@
         <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
             <h3 class="text-lg font-semibold text-gray-900 mb-4">{{ _('Quick Actions') }}</h3>
             <div class="space-y-3">
-                <a href="{{ url_for('map_view') }}" class="flex items-center p-3 bg-elaani-light rounded-xl hover:bg-opacity-100 transition-all hover:shadow-md group">
-                    <div class="w-10 h-10 bg-elaani-primary rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
+                <a href="{{ url_for('map_view') }}" class="flex items-center p-3 bg-puresignage-light rounded-xl hover:bg-opacity-100 transition-all hover:shadow-md group">
+                    <div class="w-10 h-10 bg-puresignage-primary rounded-lg flex items-center justify-center {% if session.get('lang') == 'ar' %}ml-3{% else %}mr-3{% endif %}">
                         <i class="fas fa-search text-white"></i>
                     </div>
                     <div>
-                        <p class="text-sm font-semibold text-elaani-primary group-hover:text-elaani-secondary">{{ _('Find Displays') }}</p>
+                        <p class="text-sm font-semibold text-puresignage-primary group-hover:text-puresignage-secondary">{{ _('Find Displays') }}</p>
                         <p class="text-xs text-gray-600">{{ _('Browse available screens') }}</p>
                     </div>
                 </a>
@@ -420,14 +456,14 @@
                     </button>
                 </div>
                 <div class="p-4">
-                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">{{ _('Downtown LED Screen') }}</h4>
+                    <h4 class="font-semibold text-gray-900 group-hover:text-puresignage-primary transition-all">{{ _('Downtown LED Screen') }}</h4>
                     <p class="text-sm text-gray-600 mt-1">{{ _('Downtown Riyadh') }}</p>
                     <div class="flex items-center justify-between mt-3">
                         <div>
                             <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">4,800 SAR</p>
+                            <p class="text-lg font-bold text-puresignage-primary">4,800 SAR</p>
                         </div>
-                        <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
+                        <button class="px-3 py-2 bg-puresignage-primary text-white text-sm rounded-lg hover:bg-puresignage-secondary transition-all">
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -443,14 +479,14 @@
                     </button>
                 </div>
                 <div class="p-4">
-                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">{{ _('Olaya Street Display') }}</h4>
+                    <h4 class="font-semibold text-gray-900 group-hover:text-puresignage-primary transition-all">{{ _('Olaya Street Display') }}</h4>
                     <p class="text-sm text-gray-600 mt-1">{{ _('Olaya Street') }}</p>
                     <div class="flex items-center justify-between mt-3">
                         <div>
                             <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">3,500 SAR</p>
+                            <p class="text-lg font-bold text-puresignage-primary">3,500 SAR</p>
                         </div>
-                        <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
+                        <button class="px-3 py-2 bg-puresignage-primary text-white text-sm rounded-lg hover:bg-puresignage-secondary transition-all">
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -466,14 +502,14 @@
                     </button>
                 </div>
                 <div class="p-4">
-                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">{{ _('Al Nakheel Mall') }}</h4>
+                    <h4 class="font-semibold text-gray-900 group-hover:text-puresignage-primary transition-all">{{ _('Al Nakheel Mall') }}</h4>
                     <p class="text-sm text-gray-600 mt-1">{{ _('Al Nakheel District') }}</p>
                     <div class="flex items-center justify-between mt-3">
                         <div>
                             <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">3,800 SAR</p>
+                            <p class="text-lg font-bold text-puresignage-primary">3,800 SAR</p>
                         </div>
-                        <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
+                        <button class="px-3 py-2 bg-puresignage-primary text-white text-sm rounded-lg hover:bg-puresignage-secondary transition-all">
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -489,14 +525,14 @@
                     </button>
                 </div>
                 <div class="p-4">
-                    <h4 class="font-semibold text-gray-900 group-hover:text-elaani-primary transition-all">{{ _('Business Tower LED') }}</h4>
+                    <h4 class="font-semibold text-gray-900 group-hover:text-puresignage-primary transition-all">{{ _('Business Tower LED') }}</h4>
                     <p class="text-sm text-gray-600 mt-1">{{ _('Financial District') }}</p>
                     <div class="flex items-center justify-between mt-3">
                         <div>
                             <p class="text-xs text-gray-600">{{ _('Starting at') }}</p>
-                            <p class="text-lg font-bold text-elaani-primary">5,500 SAR</p>
+                            <p class="text-lg font-bold text-puresignage-primary">5,500 SAR</p>
                         </div>
-                        <button class="px-3 py-2 bg-elaani-primary text-white text-sm rounded-lg hover:bg-elaani-secondary transition-all">
+                        <button class="px-3 py-2 bg-puresignage-primary text-white text-sm rounded-lg hover:bg-puresignage-secondary transition-all">
                             <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -510,13 +546,216 @@
 
 {% block extra_js %}
 <script>
+    // Loyalty Tier System Configuration
+    const loyaltyTiers = {
+        'Bronze': {
+            minPoints: 0,
+            maxPoints: 499,
+            nextTier: 'Silver',
+            discount: 0,
+            color: 'from-amber-600 to-amber-800',
+            icon: 'fa-medal',
+            badge: 'fa-star',
+            benefits: [
+                'Access to standard displays',
+                'Email support',
+                'Monthly newsletter',
+                'Basic booking management'
+            ]
+        },
+        'Silver': {
+            minPoints: 500,
+            maxPoints: 1499,
+            nextTier: 'Gold',
+            discount: 5,
+            color: 'from-gray-400 to-gray-600',
+            icon: 'fa-award',
+            badge: 'fa-star',
+            benefits: [
+                '5% discount on all bookings',
+                'Priority email support',
+                'Early access to new displays',
+                'Quarterly performance reports',
+                'Free campaign consultation (1x/year)'
+            ]
+        },
+        'Gold': {
+            minPoints: 1500,
+            maxPoints: 4999,
+            nextTier: 'Platinum',
+            discount: 10,
+            color: 'from-yellow-400 to-yellow-600',
+            icon: 'fa-crown',
+            badge: 'fa-gem',
+            benefits: [
+                '10% discount on all bookings',
+                '24/7 priority support',
+                'Dedicated account manager',
+                'Free display upgrades (subject to availability)',
+                'Monthly performance analytics',
+                'Free campaign consultation (3x/year)',
+                'Exclusive seasonal promotions'
+            ]
+        },
+        'Platinum': {
+            minPoints: 5000,
+            maxPoints: 9999,
+            nextTier: 'Diamond',
+            discount: 15,
+            color: 'from-slate-300 to-slate-500',
+            icon: 'fa-gem',
+            badge: 'fa-crown',
+            benefits: [
+                '15% discount on all bookings',
+                'VIP 24/7 concierge support',
+                'Personal account manager',
+                'Guaranteed display availability',
+                'Free premium display upgrades',
+                'Real-time analytics dashboard',
+                'Unlimited campaign consultations',
+                'Exclusive VIP events access',
+                'Custom contract terms'
+            ]
+        },
+        'Diamond': {
+            minPoints: 10000,
+            maxPoints: 999999,
+            nextTier: null,
+            discount: 20,
+            color: 'from-cyan-400 to-blue-600',
+            icon: 'fa-crown',
+            badge: 'fa-trophy',
+            benefits: [
+                '20% discount on all bookings',
+                'Elite 24/7 concierge support',
+                'Executive account team',
+                'First priority on all displays',
+                'Complimentary premium upgrades',
+                'AI-powered campaign optimization',
+                'Unlimited expert consultations',
+                'VIP lounge access',
+                'Flexible payment terms',
+                'Annual strategy session',
+                'Exclusive partnership opportunities'
+            ]
+        },
+        'VIP': {
+            minPoints: 15000,
+            maxPoints: 999999,
+            nextTier: null,
+            discount: 25,
+            color: 'from-purple-500 to-pink-600',
+            icon: 'fa-crown',
+            badge: 'fa-trophy',
+            benefits: [
+                '25% discount on all bookings',
+                'White-glove concierge service',
+                'Dedicated executive team',
+                'Guaranteed premium placement',
+                'All upgrades complimentary',
+                'Custom AI campaign strategies',
+                'Unlimited expert consultations',
+                'Private VIP events',
+                'Custom payment solutions',
+                'Quarterly executive reviews',
+                'Strategic partnership benefits',
+                'Media production support'
+            ]
+        },
+        'VIP Gold': {
+            minPoints: 25000,
+            maxPoints: 999999,
+            nextTier: null,
+            discount: 30,
+            color: 'from-yellow-300 via-yellow-500 to-yellow-700',
+            icon: 'fa-crown',
+            badge: 'fa-trophy',
+            benefits: [
+                '30% discount on all bookings',
+                'Ultimate white-glove service',
+                'C-level executive team',
+                'Exclusive display reservations',
+                'All services complimentary',
+                'Bespoke AI campaign solutions',
+                'Unlimited premium consultations',
+                'Private luxury events',
+                'Fully customized terms',
+                'Monthly executive briefings',
+                'Strategic alliance benefits',
+                'Full media production suite',
+                'International expansion support',
+                'Brand ambassador opportunities'
+            ]
+        }
+    };
+
+    // Get current user tier
+    const currentTierName = '{{ current_user.loyalty_tier }}';
+    const currentPoints = {{ current_user.loyalty_points }};
+    const currentTier = loyaltyTiers[currentTierName] || loyaltyTiers['Bronze'];
+
+    // Update loyalty card styling based on tier
+    function updateLoyaltyCard() {
+        const card = document.getElementById('loyaltyCard');
+        const tierName = document.getElementById('tierName');
+        const tierIcon = document.getElementById('tierIcon');
+        const tierBadge = document.getElementById('tierBadge');
+        const tierDiscount = document.getElementById('tierDiscount');
+        const tierBenefits = document.getElementById('tierBenefits');
+        const progressLabel = document.getElementById('progressLabel');
+        const progressPoints = document.getElementById('progressPoints');
+        const progressBar = document.getElementById('progressBar');
+        const progressHint = document.getElementById('progressHint');
+
+        // Update card gradient
+        card.className = `rounded-2xl shadow-2xl p-6 text-white relative overflow-hidden transform transition-all duration-300 hover:scale-105 bg-gradient-to-br ${currentTier.color}`;
+
+        // Update icons
+        tierIcon.className = `fas ${currentTier.icon} ml-2`;
+        tierBadge.className = `fas ${currentTier.badge} text-3xl`;
+
+        // Update discount
+        tierDiscount.textContent = `${currentTier.discount}%`;
+
+        // Update benefits text
+        tierBenefits.textContent = `${currentTier.benefits.length} exclusive benefits`;
+
+        // Update progress bar
+        if (currentTier.nextTier) {
+            const nextTier = loyaltyTiers[currentTier.nextTier];
+            const pointsNeeded = nextTier.minPoints - currentPoints;
+            const progress = ((currentPoints - currentTier.minPoints) / (nextTier.minPoints - currentTier.minPoints)) * 100;
+
+            progressLabel.textContent = `Points to ${currentTier.nextTier}`;
+            progressPoints.textContent = `${pointsNeeded} points left`;
+            progressBar.style.width = `${Math.min(progress, 100)}%`;
+            progressHint.textContent = `Unlock ${currentTier.nextTier} tier benefits!`;
+        } else {
+            progressLabel.textContent = 'Maximum Tier Achieved';
+            progressPoints.textContent = '🎉 Elite Status';
+            progressBar.style.width = '100%';
+            progressHint.textContent = 'You\'ve reached the highest tier!';
+        }
+    }
+
+    // Open loyalty benefits modal
+    function openLoyaltyModal() {
+        const modal = document.getElementById('loyaltyModal');
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close loyalty modal
+    function closeLoyaltyModal() {
+        const modal = document.getElementById('loyaltyModal');
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
     // AI Campaign Planner Functions
     function openCampaignPlanner() {
         showNotification('AI Campaign Planner is initializing...', 'info');
-
-        // Simulate AI processing
         setTimeout(() => {
-            // In production, this would open a modal or redirect to the campaign planner page
             window.location.href = "{{ url_for('event_planner') }}";
         }, 1000);
     }
@@ -529,38 +768,259 @@
             '📱 Combine digital billboards with social media for amplified reach',
             '💡 Holiday seasons offer 3x higher engagement rates'
         ];
-
         const randomTip = tips[Math.floor(Math.random() * tips.length)];
         showNotification(randomTip, 'info');
     }
 
-    // Auto-refresh AI recommendations every 30 seconds (simulated)
-    let recommendationsRefreshInterval;
-
-    function startRecommendationsRefresh() {
-        recommendationsRefreshInterval = setInterval(() => {
-            console.log('AI recommendations updated in background');
-            // In production, this would fetch new recommendations from the API
-        }, 30000);
-    }
-
     // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
-        startRecommendationsRefresh();
-
-        // Add click handlers for recommendation refresh button
-        document.querySelectorAll('[data-action="refresh-recommendations"]').forEach(btn => {
-            btn.addEventListener('click', function() {
-                showNotification('Refreshing AI recommendations...', 'info');
-                // In production, this would call the API to get fresh recommendations
-            });
-        });
+        updateLoyaltyCard();
     });
+</script>
 
-    // Cleanup on page unload
-    window.addEventListener('beforeunload', function() {
-        if (recommendationsRefreshInterval) {
-            clearInterval(recommendationsRefreshInterval);
+<!-- Loyalty Benefits Modal -->
+<div id="loyaltyModal" class="fixed inset-0 z-50 hidden">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-black bg-opacity-40" onclick="closeLoyaltyModal()"></div>
+    
+    <!-- Modal Container -->
+    <div class="fixed inset-0 overflow-y-auto">
+        <div class="flex min-h-full items-center justify-center p-4">
+            <!-- Modal Content -->
+            <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] flex flex-col">
+                <!-- Sticky Header -->
+                <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
+                    <h3 class="text-2xl font-semibold text-gray-900">
+                        <i class="fas fa-crown text-yellow-500 mr-2"></i>
+                        {{ _('Loyalty Program Benefits') }}
+                    </h3>
+                    <button type="button" onclick="closeLoyaltyModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Scrollable Content -->
+                <div class="overflow-y-auto flex-1">
+                    <div class="p-6 space-y-6">
+            
+            <!-- Current Tier Highlight -->
+            <div class="mb-8 p-6 bg-gradient-to-br rounded-xl text-white" id="currentTierHighlight">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-white/80 text-sm font-medium">{{ _('Your Current Tier') }}</p>
+                        <h4 class="text-3xl font-bold mt-1">{{ current_user.loyalty_tier }}</h4>
+                        <p class="text-white/90 mt-2">{{ current_user.loyalty_points }} {{ _('points') }} • {{ current_user.total_bookings }} {{ _('bookings') }}</p>
+                    </div>
+                    <div class="text-6xl opacity-20">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- All Tiers Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Bronze Tier -->
+                <div class="border-2 border-amber-200 rounded-xl p-5 hover:shadow-lg transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h5 class="text-xl font-bold text-gray-900">Bronze</h5>
+                            <p class="text-sm text-gray-600">0 - 499 points</p>
+                        </div>
+                        <i class="fas fa-medal text-3xl text-amber-600"></i>
+                    </div>
+                    <div class="mb-4">
+                        <span class="inline-block px-3 py-1 bg-amber-100 text-amber-800 text-xs font-semibold rounded-full">
+                            0% Discount
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Standard displays access</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Email support</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Monthly newsletter</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Basic booking tools</li>
+                    </ul>
+                </div>
+
+                <!-- Silver Tier -->
+                <div class="border-2 border-gray-300 rounded-xl p-5 hover:shadow-lg transition-all">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h5 class="text-xl font-bold text-gray-900">Silver</h5>
+                            <p class="text-sm text-gray-600">500 - 1,499 points</p>
+                        </div>
+                        <i class="fas fa-award text-3xl text-gray-500"></i>
+                    </div>
+                    <div class="mb-4">
+                        <span class="inline-block px-3 py-1 bg-gray-100 text-gray-800 text-xs font-semibold rounded-full">
+                            5% Discount
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>5% booking discount</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Priority support</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Early display access</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Quarterly reports</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>1 free consultation/year</li>
+                    </ul>
+                </div>
+
+                <!-- Gold Tier -->
+                <div class="border-2 border-yellow-300 rounded-xl p-5 hover:shadow-lg transition-all bg-yellow-50">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h5 class="text-xl font-bold text-gray-900">Gold</h5>
+                            <p class="text-sm text-gray-600">1,500 - 4,999 points</p>
+                        </div>
+                        <i class="fas fa-crown text-3xl text-yellow-500"></i>
+                    </div>
+                    <div class="mb-4">
+                        <span class="inline-block px-3 py-1 bg-yellow-200 text-yellow-900 text-xs font-semibold rounded-full">
+                            10% Discount
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>10% booking discount</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>24/7 priority support</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Account manager</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Free upgrades</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Monthly analytics</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>3 consultations/year</li>
+                    </ul>
+                </div>
+
+                <!-- Platinum Tier -->
+                <div class="border-2 border-slate-300 rounded-xl p-5 hover:shadow-lg transition-all bg-slate-50">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h5 class="text-xl font-bold text-gray-900">Platinum</h5>
+                            <p class="text-sm text-gray-600">5,000 - 9,999 points</p>
+                        </div>
+                        <i class="fas fa-gem text-3xl text-slate-500"></i>
+                    </div>
+                    <div class="mb-4">
+                        <span class="inline-block px-3 py-1 bg-slate-200 text-slate-900 text-xs font-semibold rounded-full">
+                            15% Discount
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>15% booking discount</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>VIP concierge support</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Personal manager</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Guaranteed availability</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Premium upgrades</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Real-time analytics</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Unlimited consultations</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>VIP events access</li>
+                    </ul>
+                </div>
+
+                <!-- Diamond Tier -->
+                <div class="border-2 border-cyan-300 rounded-xl p-5 hover:shadow-lg transition-all bg-cyan-50">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h5 class="text-xl font-bold text-gray-900">Diamond</h5>
+                            <p class="text-sm text-gray-600">10,000 - 14,999 points</p>
+                        </div>
+                        <i class="fas fa-trophy text-3xl text-cyan-500"></i>
+                    </div>
+                    <div class="mb-4">
+                        <span class="inline-block px-3 py-1 bg-cyan-200 text-cyan-900 text-xs font-semibold rounded-full">
+                            20% Discount
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>20% booking discount</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Elite concierge service</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Executive account team</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>First priority displays</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Complimentary upgrades</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>AI campaign optimization</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>VIP lounge access</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Flexible payment terms</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Annual strategy session</li>
+                    </ul>
+                </div>
+
+                <!-- VIP Tier -->
+                <div class="border-2 border-purple-300 rounded-xl p-5 hover:shadow-lg transition-all bg-purple-50">
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h5 class="text-xl font-bold text-gray-900">VIP</h5>
+                            <p class="text-sm text-gray-600">15,000 - 24,999 points</p>
+                        </div>
+                        <i class="fas fa-crown text-3xl text-purple-500"></i>
+                    </div>
+                    <div class="mb-4">
+                        <span class="inline-block px-3 py-1 bg-purple-200 text-purple-900 text-xs font-semibold rounded-full">
+                            25% Discount
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>25% booking discount</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>White-glove service</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Dedicated executive team</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Premium placement guaranteed</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>All upgrades complimentary</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Custom AI strategies</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Private VIP events</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Custom payment solutions</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Quarterly executive reviews</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Media production support</li>
+                    </ul>
+                </div>
+
+                <!-- VIP Gold Tier -->
+                <div class="border-4 border-yellow-400 rounded-xl p-5 hover:shadow-2xl transition-all bg-gradient-to-br from-yellow-50 to-yellow-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-lg">
+                        ULTIMATE
+                    </div>
+                    <div class="flex items-center justify-between mb-4">
+                        <div>
+                            <h5 class="text-xl font-bold text-gray-900">VIP Gold</h5>
+                            <p class="text-sm text-gray-600">25,000+ points</p>
+                        </div>
+                        <i class="fas fa-trophy text-4xl text-yellow-500"></i>
+                    </div>
+                    <div class="mb-4">
+                        <span class="inline-block px-3 py-1 bg-yellow-300 text-yellow-900 text-xs font-semibold rounded-full">
+                            30% Discount
+                        </span>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-700">
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>30% booking discount</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Ultimate white-glove service</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>C-level executive team</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Exclusive reservations</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>All services complimentary</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Bespoke AI solutions</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Private luxury events</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Fully customized terms</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Monthly executive briefings</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Full media production suite</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>International expansion support</li>
+                        <li><i class="fas fa-check text-green-500 mr-2"></i>Brand ambassador opportunities</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-8 text-center pb-4">
+                <button onclick="closeLoyaltyModal()" class="px-8 py-3 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-semibold rounded-lg hover:from-puresignage-secondary hover:to-puresignage-primary transition-all shadow-lg">
+                    {{ _('Close') }}
+                </button>
+            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Update current tier highlight in modal
+    document.addEventListener('DOMContentLoaded', function() {
+        const highlight = document.getElementById('currentTierHighlight');
+        if (highlight) {
+            highlight.className = `mb-8 p-6 rounded-xl text-white bg-gradient-to-br ${currentTier.color}`;
         }
     });
 </script>

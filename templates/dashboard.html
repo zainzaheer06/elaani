@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
-{% block title %}{{ _('Billboard Dashboard - Elaani') }}{% endblock %}
+{% block title %}{{ _('Billboard Dashboard - PureSignage') }}{% endblock %}
 
 {% block page_title %}{{ _('Billboard Rental Dashboard') }}{% endblock %}
 {% block page_subtitle %}{{ _('Manage your billboard advertising network across Saudi Arabia') }}{% endblock %}
@@ -11,7 +11,7 @@
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 {% if session.get('lang') == 'ar' %}sm:space-x-reverse{% endif %} sm:space-x-4">
             <button onclick="refreshDashboard()"
-                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-sync-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                 {{ _('Refresh Data') }}
             </button>
@@ -26,7 +26,7 @@
             <!-- Date Filter -->
             <div class="relative">
                 <select id="dateRange"
-                        class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary appearance-none text-gray-700 font-medium cursor-pointer hover:border-gray-400 transition-all duration-200">
+                        class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-puresignage-primary appearance-none text-gray-700 font-medium cursor-pointer hover:border-gray-400 transition-all duration-200">
                     <option value="today">{{ _('Today') }}</option>
                     <option value="week">{{ _('This Week') }}</option>
                     <option value="month" selected>{{ _('This Month') }}</option>
@@ -40,7 +40,7 @@
 
             <!-- Quick Actions -->
             <a href="{{ url_for('bookings_rentals') }}"
-               class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
+               class="inline-flex items-center justify-center px-6 py-3 border border-transparent text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
                 <i class="fas fa-plus {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                 {{ _('New Booking') }}
             </a>
@@ -93,13 +93,13 @@
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
         <div class="flex items-center {% if session.get('lang') == 'ar' %}space-x-reverse{% endif %}">
             <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-xl flex items-center justify-center">
+                <div class="w-12 h-12 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary rounded-xl flex items-center justify-center">
                     <i class="fas fa-coins text-white text-xl"></i>
                 </div>
             </div>
             <div class="{% if session.get('lang') == 'ar' %}mr-4{% else %}ml-4{% endif %} flex-1">
                 <div class="text-2xl font-bold text-gray-900">
-                    {{ stats.monthly_revenue|format_sar }}
+                    {{ stats.monthly_revenue|format_egp }}
                 </div>
                 <div class="text-sm font-medium text-gray-600">{{ _('Monthly Revenue') }}</div>
                 <div class="text-xs text-green-600 font-medium mt-1">
@@ -142,7 +142,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('September 2025 • Saudi Business Schedule') }}</p>
                 </div>
                 <button onclick="openFullCalendar()" 
-                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200">
+                        class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200">
                     <i class="fas fa-external-link-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                     {{ _('Full Calendar') }}
                 </button>
@@ -153,7 +153,7 @@
             <div class="flex items-center justify-between mb-6">
                 <div class="flex items-center {% if session.get('lang') == 'ar' %}space-x-reverse{% endif %} space-x-6 text-sm">
                     <div class="flex items-center">
-                        <div class="w-4 h-4 bg-elaani-secondary rounded {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></div>
+                        <div class="w-4 h-4 bg-puresignage-secondary rounded {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></div>
                         <span class="text-gray-600">{{ _('Booked') }}</span>
                     </div>
                     <div class="flex items-center">
@@ -177,21 +177,21 @@
                 <div class="text-center text-sm font-semibold text-gray-500 py-2">{{ _('Sat') }}</div>
             </div>
             <div class="grid grid-cols-7 gap-2">
-                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-elaani-light transition-colors border border-gray-200 hover:border-elaani-primary">15</div>
-                <div class="calendar-day booked h-10 flex items-center justify-center text-sm rounded-lg bg-elaani-secondary text-white font-medium">16</div>
-                <div class="calendar-day booked h-10 flex items-center justify-center text-sm rounded-lg bg-elaani-secondary text-white font-medium">17</div>
-                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-elaani-light transition-colors border border-gray-200 hover:border-elaani-primary">18</div>
-                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-elaani-light transition-colors border border-gray-200 hover:border-elaani-primary">19</div>
+                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-puresignage-light transition-colors border border-gray-200 hover:border-puresignage-primary">15</div>
+                <div class="calendar-day booked h-10 flex items-center justify-center text-sm rounded-lg bg-puresignage-secondary text-white font-medium">16</div>
+                <div class="calendar-day booked h-10 flex items-center justify-center text-sm rounded-lg bg-puresignage-secondary text-white font-medium">17</div>
+                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-puresignage-light transition-colors border border-gray-200 hover:border-puresignage-primary">18</div>
+                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-puresignage-light transition-colors border border-gray-200 hover:border-puresignage-primary">19</div>
                 <div class="calendar-day friday h-10 flex items-center justify-center text-sm rounded-lg bg-yellow-400 text-white font-medium">20</div>
-                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-elaani-light transition-colors border border-gray-200 hover:border-elaani-primary">21</div>
+                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-puresignage-light transition-colors border border-gray-200 hover:border-puresignage-primary">21</div>
                 
-                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-elaani-light transition-colors border border-gray-200 hover:border-elaani-primary">22</div>
-                <div class="calendar-day booked h-10 flex items-center justify-center text-sm rounded-lg bg-elaani-secondary text-white font-medium">23</div>
-                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-elaani-light transition-colors border border-gray-200 hover:border-elaani-primary">24</div>
-                <div class="calendar-day booked h-10 flex items-center justify-center text-sm rounded-lg bg-elaani-secondary text-white font-medium">25</div>
-                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-elaani-light transition-colors border border-gray-200 hover:border-elaani-primary">26</div>
+                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-puresignage-light transition-colors border border-gray-200 hover:border-puresignage-primary">22</div>
+                <div class="calendar-day booked h-10 flex items-center justify-center text-sm rounded-lg bg-puresignage-secondary text-white font-medium">23</div>
+                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-puresignage-light transition-colors border border-gray-200 hover:border-puresignage-primary">24</div>
+                <div class="calendar-day booked h-10 flex items-center justify-center text-sm rounded-lg bg-puresignage-secondary text-white font-medium">25</div>
+                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-puresignage-light transition-colors border border-gray-200 hover:border-puresignage-primary">26</div>
                 <div class="calendar-day friday h-10 flex items-center justify-center text-sm rounded-lg bg-yellow-400 text-white font-medium">27</div>
-                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-elaani-light transition-colors border border-gray-200 hover:border-elaani-primary">28</div>
+                <div class="calendar-day available h-10 flex items-center justify-center text-sm rounded-lg cursor-pointer hover:bg-puresignage-light transition-colors border border-gray-200 hover:border-puresignage-primary">28</div>
             </div>
         </div>
     </div>
@@ -205,7 +205,7 @@
                     <p class="text-sm text-gray-600 mt-1">{{ _('Latest updates and actions') }}</p>
                 </div>
                 <button onclick="viewAllActivity()" 
-                        class="text-elaani-primary hover:text-elaani-secondary text-sm font-medium transition-colors">
+                        class="text-puresignage-primary hover:text-puresignage-secondary text-sm font-medium transition-colors">
                     {{ _('View All') }}
                 </button>
             </div>
@@ -289,7 +289,7 @@
         <div class="p-6 border-b border-gray-200">
             <div class="flex items-center justify-between">
                 <h3 class="text-xl font-semibold text-gray-900">{{ _('Revenue Trend') }}</h3>
-                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-elaani-primary">
+                <select class="text-sm border border-gray-300 rounded-lg px-3 py-1 focus:outline-none focus:ring-2 focus:ring-puresignage-primary">
                     <option>{{ _('Last 7 days') }}</option>
                     <option>{{ _('Last 30 days') }}</option>
                     <option>{{ _('Last 3 months') }}</option>
@@ -317,7 +317,7 @@
                 <p class="text-sm text-gray-600 mt-1">Manage your digital display assets</p>
             </div>
             <a href="{{ url_for('screen_inventory') }}" 
-               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200">
+               class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200">
                 <i class="fas fa-cog mr-2"></i>
                 Manage Inventory
             </a>
@@ -326,7 +326,7 @@
     <div class="p-6">
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {% for screen in screens %}
-            <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300 hover:border-elaani-light">
+            <div class="border border-gray-200 rounded-xl p-4 hover:shadow-lg transition-all duration-300 hover:border-puresignage-light">
               
                 <div class="flex items-center justify-between mb-4">
                     <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
@@ -363,7 +363,7 @@
                         </div>
                         <div class="flex justify-between">
                             <span>Rate:</span>
-                            <span class="font-semibold">{{ screen.price_per_day|format_sar }}/day</span>
+                            <span class="font-semibold">{{ screen.price_per_day|format_egp }}/day</span>
                         </div>
                     </div>
                 </div>
@@ -409,7 +409,7 @@
                     </button>
                     {% if screen.status == 'available' %}
                     <button onclick="quickBookScreen({{ screen.id }})" 
-                            class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                            class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                         <i class="fas fa-calendar-plus mr-1"></i>
                         Book
                     </button>

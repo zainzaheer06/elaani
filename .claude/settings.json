@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(python app.py)",
+      "Bash(python -m flask run:*)",
+      "Bash(flask run:*)",
+      "Bash(pybabel extract:*)",
+      "Bash(pybabel update:*)",
+      "Bash(pybabel compile:*)",
+      "Bash(pybabel init:*)",
+      "Bash(pip install:*)",
+      "Bash(pip list)",
+      "Bash(pip freeze)",
+      "Bash(python -m pip install:*)",
+      "Bash(python -m venv:*)",
+      "Bash(python -V)",
+      "Bash(python --version)",
+      "Bash(python -c:*)",
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git branch:*)",
+      "Bash(git show:*)",
+      "Bash(git ls-files:*)",
+      "Bash(curl http://127.0.0.1:*)",
+      "Bash(curl http://localhost:*)",
+      "Bash(curl -s http://127.0.0.1:*)",
+      "Bash(curl -s http://localhost:*)"
+    ],
+    "deny": [
+      "Bash(rm -rf:*)",
+      "Bash(git push:*)",
+      "Bash(git push --force:*)",
+      "Bash(git reset --hard:*)",
+      "Bash(git clean -f:*)"
+    ]
+  }
+}

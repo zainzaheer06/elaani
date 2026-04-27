@@ -1,6 +1,6 @@
-{% extends "base_customer.html" %}
+﻿{% extends "base_customer.html" %}
 
-{% block title %}{{ _('My Bookings') }} - Elaani Customer{% endblock %}
+{% block title %}{{ _('My Bookings') }} - PureSignage Customer{% endblock %}
 
 {% block page_title %}{{ _('My Bookings') }}{% endblock %}
 {% block page_subtitle %}{{ _('Manage all your current and past display bookings') }}{% endblock %}
@@ -11,7 +11,7 @@
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-4 lg:space-y-0">
         <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
             <a href="{{ url_for('map_view') }}" 
-               class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl">
+               class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200 shadow-lg hover:shadow-xl">
                 <i class="fas fa-plus {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                 {{ _('New Booking') }}
             </a>
@@ -21,7 +21,7 @@
             <!-- Status Filter -->
             <div class="relative">
                 <select id="statusFilter" 
-                        class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary appearance-none text-gray-700 font-medium cursor-pointer">
+                        class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-puresignage-primary appearance-none text-gray-700 font-medium cursor-pointer">
                     <option value="all">{{ _('All Bookings') }}</option>
                     <option value="active">{{ _('Active') }}</option>
                     <option value="confirmed">{{ _('Confirmed') }}</option>
@@ -37,7 +37,7 @@
             <!-- Date Range Filter -->
             <div class="relative">
                 <select id="dateFilter" 
-                        class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-elaani-primary appearance-none text-gray-700 font-medium cursor-pointer">
+                        class="block w-full sm:w-48 px-4 py-3 border border-gray-300 rounded-xl bg-white shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-puresignage-primary appearance-none text-gray-700 font-medium cursor-pointer">
                     <option value="all">{{ _('All Dates') }}</option>
                     <option value="upcoming">{{ _('Upcoming') }}</option>
                     <option value="thismonth">{{ _('This Month') }}</option>
@@ -68,7 +68,7 @@
                 </div>
                 
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ _('King Fahd Road LED Screen') }}</h3>
-                <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('King Fahd Road, Riyadh') }}</p>
+                <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-puresignage-primary"></i>{{ _('King Fahd Road, Riyadh') }}</p>
                 
                 <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
@@ -94,7 +94,7 @@
             <div class="p-6 bg-gray-50 flex flex-col justify-between min-w-64">
                 <div>
                     <p class="text-xs text-gray-600 font-medium mb-2">{{ _('Total Amount') }}</p>
-                    <p class="text-3xl font-bold text-elaani-primary mb-4">5,000 SAR</p>
+                    <p class="text-3xl font-bold text-puresignage-primary mb-4">5,000 SAR</p>
                     
                     <div class="space-y-2 mb-6">
                         <div class="flex justify-between text-sm">
@@ -109,7 +109,7 @@
                 </div>
 
                 <div class="flex flex-col space-y-2">
-                    <button class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                    <button class="inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                         <i class="fas fa-eye {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('View Details') }}
                     </button>
                     <button class="inline-flex items-center justify-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-50 transition-all">
@@ -134,7 +134,7 @@
                 </div>
                 
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ _('Mall Indoor Display') }} (10x5m)</h3>
-                <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Riyadh Gallery Mall') }}</p>
+                <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-puresignage-primary"></i>{{ _('Riyadh Gallery Mall') }}</p>
                 
                 <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
@@ -199,7 +199,7 @@
                 </div>
                 
                 <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ _('Downtown Business LED Display') }}</h3>
-                <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Downtown Riyadh') }}</p>
+                <p class="text-sm text-gray-600 mb-4"><i class="fas fa-map-marker-alt {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-puresignage-primary"></i>{{ _('Downtown Riyadh') }}</p>
                 
                 <div class="grid grid-cols-2 gap-4 mb-4">
                     <div>
@@ -256,7 +256,7 @@
     <i class="fas fa-inbox text-6xl text-gray-300 mb-4"></i>
     <h3 class="text-xl font-semibold text-gray-900 mb-2">{{ _('No bookings found') }}</h3>
     <p class="text-gray-600 mb-6">{{ _('Start browsing displays and create your first booking') }}</p>
-    <a href="{{ url_for('map_view') }}" class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary">
+    <a href="{{ url_for('map_view') }}" class="inline-flex items-center px-6 py-3 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary">
         <i class="fas fa-search {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Browse Displays') }}
     </a>
 </div>

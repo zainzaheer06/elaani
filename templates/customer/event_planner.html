@@ -1,6 +1,6 @@
-{% extends "base_customer.html" %}
+﻿{% extends "base_customer.html" %}
 
-{% block title %}{{ _('Event Planner') }} - Elaani Customer{% endblock %}
+{% block title %}{{ _('Event Planner') }} - PureSignage Customer{% endblock %}
 
 {% block page_title %}{{ _('Event Planner') }}{% endblock %}
 {% block page_subtitle %}{{ _('Plan your event and find the perfect displays') }}{% endblock %}
@@ -216,16 +216,16 @@
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Total Budget') }}</label>
                             <div class="flex">
-                                <select class="px-4 py-2 border border-r-0 border-gray-300 rounded-l-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                <select class="px-4 py-2 border border-r-0 border-gray-300 rounded-l-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                                     <option>SAR</option>
                                 </select>
-                                <input type="number" placeholder="{{ _('0') }}" class="flex-1 px-4 py-2 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                <input type="number" placeholder="{{ _('0') }}" class="flex-1 px-4 py-2 border border-gray-300 rounded-r-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Special Requirements') }}</label>
-                            <textarea rows="3" placeholder="{{ _('Any special setup, installation, or technical requirements...') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                            <textarea rows="3" placeholder="{{ _('Any special setup, installation, or technical requirements...') }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent"></textarea>
                         </div>
 
                         <div>
@@ -260,23 +260,23 @@
     <!-- Recommendations Panel -->
     <div class="space-y-6">
         <!-- Quick Tips -->
-        <div class="bg-elaani-light rounded-2xl border border-elaani-primary p-6">
-            <h4 class="font-semibold text-elaani-primary mb-4">💡 {{ _('Planning Tips') }}</h4>
+        <div class="bg-puresignage-light rounded-2xl border border-puresignage-primary p-6">
+            <h4 class="font-semibold text-puresignage-primary mb-4">💡 {{ _('Planning Tips') }}</h4>
             <ul class="space-y-2 text-sm text-gray-700">
                 <li class="flex items-start">
-                    <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
+                    <i class="fas fa-check-circle text-puresignage-primary mr-3 mt-1 flex-shrink-0"></i>
                     <span>{{ _('Plan at least 2-3 weeks in advance for best availability') }}</span>
                 </li>
                 <li class="flex items-start">
-                    <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
+                    <i class="fas fa-check-circle text-puresignage-primary mr-3 mt-1 flex-shrink-0"></i>
                     <span>{{ _('Consider your venue size and audience viewing distance') }}</span>
                 </li>
                 <li class="flex items-start">
-                    <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
+                    <i class="fas fa-check-circle text-puresignage-primary mr-3 mt-1 flex-shrink-0"></i>
                     <span>{{ _('Higher resolution for close viewing, P6 for larger distances') }}</span>
                 </li>
                 <li class="flex items-start">
-                    <i class="fas fa-check-circle text-elaani-primary mr-3 mt-1 flex-shrink-0"></i>
+                    <i class="fas fa-check-circle text-puresignage-primary mr-3 mt-1 flex-shrink-0"></i>
                     <span>{{ _('Include setup/installation time in your planning') }}</span>
                 </li>
             </ul>
@@ -288,22 +288,22 @@
             <div class="space-y-3">
                 <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all group">
                     <div class="flex items-center justify-between">
-                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🎉 {{ _('Wedding Reception') }}</span>
-                        <i class="fas fa-arrow-right text-gray-400 group-hover:text-elaani-primary"></i>
+                        <span class="font-medium text-gray-900 group-hover:text-puresignage-primary">🎉 {{ _('Wedding Reception') }}</span>
+                        <i class="fas fa-arrow-right text-gray-400 group-hover:text-puresignage-primary"></i>
                     </div>
                     <p class="text-xs text-gray-600 mt-1">{{ _('Typical: 1-2 screens, 4-8 hours') }}</p>
                 </button>
                 <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all group">
                     <div class="flex items-center justify-between">
-                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🚀 {{ _('Product Launch') }}</span>
-                        <i class="fas fa-arrow-right text-gray-400 group-hover:text-elaani-primary"></i>
+                        <span class="font-medium text-gray-900 group-hover:text-puresignage-primary">🚀 {{ _('Product Launch') }}</span>
+                        <i class="fas fa-arrow-right text-gray-400 group-hover:text-puresignage-primary"></i>
                     </div>
                     <p class="text-xs text-gray-600 mt-1">{{ _('Typical: 2-4 screens, 1-2 days') }}</p>
                 </button>
                 <button class="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-all group">
                     <div class="flex items-center justify-between">
-                        <span class="font-medium text-gray-900 group-hover:text-elaani-primary">🎓 {{ _('Corporate Conference') }}</span>
-                        <i class="fas fa-arrow-right text-gray-400 group-hover:text-elaani-primary"></i>
+                        <span class="font-medium text-gray-900 group-hover:text-puresignage-primary">🎓 {{ _('Corporate Conference') }}</span>
+                        <i class="fas fa-arrow-right text-gray-400 group-hover:text-puresignage-primary"></i>
                     </div>
                     <p class="text-xs text-gray-600 mt-1">{{ _('Typical: 3-6 screens, 2-3 days') }}</p>
                 </button>
@@ -311,7 +311,7 @@
         </div>
 
         <!-- CTA -->
-        <a href="{{ url_for('customer_support') }}" class="block bg-gradient-to-br from-elaani-primary to-elaani-secondary rounded-2xl shadow-lg p-6 text-white text-center hover:shadow-xl transition-all">
+        <a href="{{ url_for('customer_support') }}" class="block bg-gradient-to-br from-puresignage-primary to-puresignage-secondary rounded-2xl shadow-lg p-6 text-white text-center hover:shadow-xl transition-all">
             <i class="fas fa-headset text-3xl mb-2"></i>
             <h4 class="font-semibold mb-1">{{ _('Need Expert Help?') }}</h4>
             <p class="text-sm text-white/80">{{ _('Talk to our specialists') }}</p>

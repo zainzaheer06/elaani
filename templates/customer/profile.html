@@ -1,6 +1,6 @@
-{% extends "base_customer.html" %}
+﻿{% extends "base_customer.html" %}
 
-{% block title %}{{ _('My Profile') }} - Elaani Customer{% endblock %}
+{% block title %}{{ _('My Profile') }} - PureSignage Customer{% endblock %}
 
 {% block page_title %}{{ _('My Profile') }}{% endblock %}
 {% block page_subtitle %}{{ _('Manage your personal information and account settings') }}{% endblock %}
@@ -10,7 +10,7 @@
 <div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-8">
     <div class="border-b border-gray-200">
         <div class="flex flex-wrap">
-            <button onclick="switchTab('personal')" class="profile-tab active px-6 py-4 text-sm font-medium text-elaani-primary border-b-2 border-elaani-primary">
+            <button onclick="switchTab('personal')" class="profile-tab active px-6 py-4 text-sm font-medium text-puresignage-primary border-b-2 border-puresignage-primary">
                 <i class="fas fa-user {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Personal Info') }}
             </button>
             <button onclick="switchTab('company')" class="profile-tab px-6 py-4 text-sm font-medium text-gray-600 border-b-2 border-transparent hover:text-gray-900 hover:border-gray-300">
@@ -33,7 +33,7 @@
             <form class="space-y-6">
                 <!-- Profile Photo -->
                 <div class="flex items-center {{ 'space-x-6' if session.get('lang') == 'en' else 'space-x-reverse space-x-6' }}">
-                    <div class="w-24 h-24 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-full flex items-center justify-center">
+                    <div class="w-24 h-24 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary rounded-full flex items-center justify-center">
                         <i class="fas fa-user text-white text-4xl"></i>
                     </div>
                     <div>
@@ -48,40 +48,40 @@
                 <div class="grid grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('First Name') }}</label>
-                        <input type="text" value="Omar" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="text" value="Omar" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Last Name') }}</label>
-                        <input type="text" value="Al-Rashid" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="text" value="Al-Rashid" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Email Address') }}</label>
-                    <input type="email" value="{{ current_user.email }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    <input type="email" value="{{ current_user.email }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                 </div>
 
                 <div class="grid grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Phone Number') }}</label>
-                        <input type="tel" value="{{ current_user.phone }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="tel" value="{{ current_user.phone }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Date of Birth') }}</label>
-                        <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="date" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Preferred Language') }}</label>
-                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                         <option selected>{{ _('English') }}</option>
                         <option>{{ _('Arabic') }}</option>
                     </select>
                 </div>
 
                 <div class="flex gap-4 pt-4">
-                    <button type="submit" class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                    <button type="submit" class="px-6 py-2 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium rounded-lg hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                         <i class="fas fa-check {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Save Changes') }}
                     </button>
                     <button type="button" class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
@@ -100,13 +100,13 @@
             <form class="space-y-6">
                 <div>
                     <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Company Name') }}</label>
-                    <input type="text" value="{{ current_user.company }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    <input type="text" value="{{ current_user.company }}" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                 </div>
 
                 <div class="grid grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Business Type') }}</label>
-                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <select class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                             <option selected>{{ _('Event Planning') }}</option>
                             <option>{{ _('Corporate') }}</option>
                             <option>{{ _('Retail') }}</option>
@@ -116,37 +116,37 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Industry') }}</label>
-                        <input type="text" placeholder="e.g., Technology, Fashion, etc." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="text" placeholder="e.g., Technology, Fashion, etc." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Business License Number') }}</label>
-                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                 </div>
 
                 <div class="grid grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Business Phone') }}</label>
-                        <input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="tel" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Business Website') }}</label>
-                        <input type="url" placeholder="https://example.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="url" placeholder="https://example.com" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Business Address') }}</label>
-                    <input type="text" placeholder="Street address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent mb-2">
+                    <input type="text" placeholder="Street address" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent mb-2">
                     <div class="grid grid-cols-2 gap-4">
-                        <input type="text" placeholder="City" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
-                        <input type="text" placeholder="Postal Code" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                        <input type="text" placeholder="City" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
+                        <input type="text" placeholder="Postal Code" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                 </div>
 
                 <div class="flex gap-4 pt-4">
-                    <button type="submit" class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                    <button type="submit" class="px-6 py-2 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium rounded-lg hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                         <i class="fas fa-check {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Save Changes') }}
                     </button>
                     <button type="button" class="px-6 py-2 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-all">
@@ -213,7 +213,7 @@
                 </div>
 
                 <div class="flex gap-4 pt-4">
-                    <button class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                    <button class="px-6 py-2 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium rounded-lg hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                         <i class="fas fa-check {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>{{ _('Save Preferences') }}
                     </button>
                 </div>
@@ -233,17 +233,17 @@
                     <form class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Current Password') }}</label>
-                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('New Password') }}</label>
-                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                         </div>
                         <div>
                             <label class="block text-sm font-medium text-gray-900 mb-2">{{ _('Confirm New Password') }}</label>
-                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                            <input type="password" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                         </div>
-                        <button type="submit" class="px-6 py-2 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg hover:from-elaani-secondary hover:to-elaani-primary transition-all">
+                        <button type="submit" class="px-6 py-2 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium rounded-lg hover:from-puresignage-secondary hover:to-puresignage-primary transition-all">
                             {{ _('Update Password') }}
                         </button>
                     </form>
@@ -266,7 +266,7 @@
                     <div class="space-y-3">
                         <div class="flex items-center justify-between p-3 bg-white rounded border border-gray-200">
                             <div>
-                                <p class="font-medium text-gray-900"><i class="fas fa-laptop {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Chrome on Windows') }}</p>
+                                <p class="font-medium text-gray-900"><i class="fas fa-laptop {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-puresignage-primary"></i>{{ _('Chrome on Windows') }}</p>
                                 <p class="text-sm text-gray-600">{{ _('Last active: 1 hour ago') }}</p>
                             </div>
                             <button class="text-red-600 hover:text-red-700 font-medium text-sm">
@@ -275,7 +275,7 @@
                         </div>
                         <div class="flex items-center justify-between p-3 bg-white rounded border border-gray-200">
                             <div>
-                                <p class="font-medium text-gray-900"><i class="fas fa-mobile {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-elaani-primary"></i>{{ _('Safari on iPhone') }}</p>
+                                <p class="font-medium text-gray-900"><i class="fas fa-mobile {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %} text-puresignage-primary"></i>{{ _('Safari on iPhone') }}</p>
                                 <p class="text-sm text-gray-600">{{ _('Last active: 3 days ago') }}</p>
                             </div>
                             <button class="text-red-600 hover:text-red-700 font-medium text-sm">
@@ -316,11 +316,11 @@
         
         // Update button styling
         document.querySelectorAll('.profile-tab').forEach(btn => {
-            btn.classList.remove('active', 'text-elaani-primary', 'border-b-elaani-primary');
+            btn.classList.remove('active', 'text-puresignage-primary', 'border-b-puresignage-primary');
             btn.classList.add('text-gray-600', 'border-b-transparent');
         });
         
-        event.target.closest('.profile-tab').classList.add('active', 'text-elaani-primary', 'border-b-elaani-primary');
+        event.target.closest('.profile-tab').classList.add('active', 'text-puresignage-primary', 'border-b-puresignage-primary');
         event.target.closest('.profile-tab').classList.remove('text-gray-600', 'border-b-transparent');
     }
 </script>

@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+﻿{% extends "base.html" %}
 
-{% block title %}{{ _('Clients & CRM') }} - {{ _('Elaani') }}{% endblock %}
+{% block title %}{{ _('Clients & CRM') }} - {{ _('PureSignage') }}{% endblock %}
 
 {% block page_title %}{{ _('Clients & CRM Management') }}{% endblock %}
 {% block page_subtitle %}{{ _('Manage client relationships, track interactions, and grow your business in Saudi Arabia') }}{% endblock %}
@@ -11,7 +11,7 @@
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
         <div class="flex flex-wrap gap-2">
             <button onclick="openModal('addClientModal')" 
-                    class="inline-flex items-center px-4 py-2 border border-transparent text-xs font-medium rounded-lg text-white bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap">
+                    class="inline-flex items-center px-4 py-2 border border-transparent text-xs font-medium rounded-lg text-white bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary transition-all duration-200 shadow-lg hover:shadow-xl whitespace-nowrap">
                 <i class="fas fa-user-plus me-2"></i>
                 {{ _('Add New Client') }}
             </button>
@@ -36,12 +36,12 @@
                 <input type="text" 
                        placeholder="{{ _('Search clients...') }}" 
                        id="clientSearch"
-                       class="block w-full sm:w-48 pl-9 pr-3 py-2 text-xs border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                       class="block w-full sm:w-48 pl-9 pr-3 py-2 text-xs border border-gray-300 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
             </div>
             
             <!-- Filters -->
             <select id="clientTypeFilter" 
-                    class="block w-auto px-2 py-2 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    class="block w-auto px-2 py-2 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                 <option value="">{{ _('All Types') }}</option>
                 <option value="Educational">{{ _('Educational') }}</option>
                 <option value="Corporate">{{ _('Corporate') }}</option>
@@ -51,7 +51,7 @@
             </select>
             
             <select id="clientStatusFilter" 
-                    class="block w-auto px-2 py-2 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                    class="block w-auto px-2 py-2 text-xs border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                 <option value="">{{ _('All Status') }}</option>
                 <option value="active">{{ _('Active') }}</option>
                 <option value="inactive">{{ _('Inactive') }}</option>
@@ -120,7 +120,7 @@
     <div class="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-all duration-300">
         <div class="flex items-center">
             <div class="flex-shrink-0">
-                <div class="w-12 h-12 bg-gradient-to-r from-elaani-primary to-elaani-secondary rounded-xl flex items-center justify-center">
+                <div class="w-12 h-12 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary rounded-xl flex items-center justify-center">
                     <i class="fas fa-chart-line text-white text-xl"></i>
                 </div>
             </div>
@@ -143,7 +143,7 @@
             <h3 class="text-xl font-semibold text-gray-900">{{ _('Client Directory') }}</h3>
             <div class="flex gap-2">
                 <button onclick="toggleView('grid')" id="gridViewBtn"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-elaani-primary hover:bg-elaani-secondary transition-colors">
+                        class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-puresignage-primary hover:bg-puresignage-secondary transition-colors">
                     <i class="fas fa-th me-2"></i>
                     {{ _('Grid View') }}
                 </button>
@@ -160,7 +160,7 @@
     <div id="gridView" class="p-6">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="clientGrid">
             <!-- Sample Client Cards -->
-            <div class="client-card border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-elaani-light" 
+            <div class="client-card border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-puresignage-light" 
                  data-type="educational" data-status="active" data-name="al-rajhi school">
                 <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center">
@@ -199,7 +199,7 @@
                             <div class="text-xs text-gray-600">{{ _('Bookings') }}</div>
                         </div>
                         <div>
-                            <div class="font-semibold text-elaani-primary">{% if session.get('lang') == 'ar' %}٥٤,٠٠٠ ريال{% else %}54,000 SAR{% endif %}</div>
+                            <div class="font-semibold text-puresignage-primary">{% if session.get('lang') == 'ar' %}٥٤,٠٠٠ ريال{% else %}54,000 SAR{% endif %}</div>
                             <div class="text-xs text-gray-600">{{ _('Total Spent') }}</div>
                         </div>
                     </div>
@@ -212,14 +212,14 @@
                         {{ _('View') }}
                     </button>
                     <button onclick="contactClient(1)" 
-                            class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                            class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                         <i class="fas fa-phone me-2"></i>
                         {{ _('Contact') }}
                     </button>
                 </div>
             </div>
 
-            <div class="client-card border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-elaani-light" 
+            <div class="client-card border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-puresignage-light" 
                  data-type="event planning" data-status="vip" data-name="riyadh events co">
                 <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center">
@@ -259,7 +259,7 @@
                             <div class="text-xs text-gray-600">{{ _('Bookings') }}</div>
                         </div>
                         <div>
-                            <div class="font-semibold text-elaani-primary">{% if session.get('lang') == 'ar' %}٧٢,٠٠٠ ريال{% else %}72,000 SAR{% endif %}</div>
+                            <div class="font-semibold text-puresignage-primary">{% if session.get('lang') == 'ar' %}٧٢,٠٠٠ ريال{% else %}72,000 SAR{% endif %}</div>
                             <div class="text-xs text-gray-600">{{ _('Total Spent') }}</div>
                         </div>
                     </div>
@@ -272,14 +272,14 @@
                         {{ _('View') }}
                     </button>
                     <button onclick="contactClient(2)" 
-                            class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                            class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                         <i class="fas fa-phone {% if session.get('lang') == 'ar' %}ml-2{% else %}mr-2{% endif %}"></i>
                         {{ _('Contact') }}
                     </button>
                 </div>
             </div>
 
-            <div class="client-card border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-elaani-light" 
+            <div class="client-card border border-gray-200 rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-puresignage-light" 
                  data-type="corporate" data-status="active" data-name="tech conference">
                 <div class="flex items-center justify-between mb-4">
                     <div class="flex items-center">
@@ -318,7 +318,7 @@
                             <div class="text-xs text-gray-600">{{ _('Bookings') }}</div>
                         </div>
                         <div>
-                            <div class="font-semibold text-elaani-primary">105,000 ريال</div>
+                            <div class="font-semibold text-puresignage-primary">105,000 ريال</div>
                             <div class="text-xs text-gray-600">{{ _('Total Spent') }}</div>
                         </div>
                     </div>
@@ -331,7 +331,7 @@
                         {{ _('View') }}
                     </button>
                     <button onclick="contactClient(3)" 
-                            class="flex-1 bg-gradient-to-r from-elaani-primary to-elaani-secondary hover:from-elaani-secondary hover:to-elaani-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
+                            class="flex-1 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary hover:from-puresignage-secondary hover:to-puresignage-primary text-white font-medium py-2 px-3 rounded-lg text-sm transition-all">
                         <i class="fas fa-phone mr-1"></i>
                         {{ _('Contact') }}
                     </button>
@@ -388,7 +388,7 @@
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                         <div class="flex space-x-2">
                             <button onclick="viewClientDetails(1)"
-                                    class="text-elaani-primary hover:text-elaani-secondary transition-colors"
+                                    class="text-puresignage-primary hover:text-puresignage-secondary transition-colors"
                                     title="{{ _('View Details') }}">
                                 <i class="fas fa-eye"></i>
                             </button>
@@ -412,31 +412,38 @@
 </div>
 
 <!-- Add Client Modal -->
-<div id="addClientModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
-    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
-        
-        <div class="inline-block align-bottom bg-white rounded-2xl px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-3xl sm:w-full sm:p-6">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="text-2xl font-semibold text-gray-900">{{ _('Add New Client') }}</h3>
-                <button type="button" onclick="closeModal('addClientModal')" 
-                        class="text-gray-400 hover:text-gray-600 transition-colors">
-                    <i class="fas fa-times text-xl"></i>
-                </button>
-            </div>
-            
-            <form id="addClientForm" class="space-y-6">
+<div id="addClientModal" class="fixed inset-0 z-50 hidden">
+    <!-- Backdrop -->
+    <div class="fixed inset-0 bg-black bg-opacity-40" onclick="closeModal('addClientModal')"></div>
+    
+    <!-- Modal Container -->
+    <div class="fixed inset-0 overflow-y-auto">
+        <div class="flex min-h-full items-center justify-center p-4">
+            <!-- Modal Content -->
+            <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col">
+                <!-- Sticky Header -->
+                <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
+                    <h3 class="text-2xl font-semibold text-gray-900">{{ _('Add New Client') }}</h3>
+                    <button type="button" onclick="closeModal('addClientModal')" 
+                            class="text-gray-400 hover:text-gray-600 transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Scrollable Content -->
+                <div class="overflow-y-auto flex-1">
+                    <form id="addClientForm" class="p-6 space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label for="clientName" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Company/Organization Name *') }}</label>
                         <input type="text" id="clientName" name="clientName" required
-                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                     
                     <div>
                         <label for="clientType" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Client Type *') }}</label>
                         <select id="clientType" name="clientType" required
-                                class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                             <option value="">{{ _('Select Type') }}</option>
                             <option value="Educational">{{ _('Educational') }}</option>
                             <option value="Corporate">{{ _('Corporate') }}</option>
@@ -449,25 +456,25 @@
                     <div>
                         <label for="contactPerson" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Contact Person *') }}</label>
                         <input type="text" id="contactPerson" name="contactPerson" required
-                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                     
                     <div>
                         <label for="clientPhone" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Phone Number *') }}</label>
                         <input type="tel" id="clientPhone" name="clientPhone" placeholder="{{ _('+966-XX-XXX-XXXX') }}" required
-                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                     
                     <div>
                         <label for="clientEmail" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Email Address *') }}</label>
                         <input type="email" id="clientEmail" name="clientEmail" required
-                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                               class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                     </div>
                     
                     <div>
                         <label for="clientCity" class="block text-sm font-medium text-gray-700 mb-2">{{ _('City *') }}</label>
                         <select id="clientCity" name="clientCity" required
-                                class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent">
+                                class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent">
                             <option value="">{{ _('Select City') }}</option>
                             <option value="Riyadh">{{ _('Riyadh') }}</option>
                             <option value="Jeddah">{{ _('Jeddah') }}</option>
@@ -483,14 +490,14 @@
                     <label for="clientAddress" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Address') }}</label>
                     <textarea id="clientAddress" name="clientAddress" rows="3"
                               placeholder="{{ _('Complete address...') }}"
-                              class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                              class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent"></textarea>
                 </div>
                 
                 <div>
                     <label for="clientNotes" class="block text-sm font-medium text-gray-700 mb-2">{{ _('Notes') }}</label>
                     <textarea id="clientNotes" name="clientNotes" rows="3"
                               placeholder="{{ _('Additional notes about the client...') }}"
-                              class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-elaani-primary focus:border-transparent"></textarea>
+                              class="block w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-puresignage-primary focus:border-transparent"></textarea>
                 </div>
                 
                 <!-- Modal Actions -->
@@ -500,11 +507,13 @@
                         {{ _('Cancel') }}
                     </button>
                     <button type="submit" 
-                            class="px-6 py-3 bg-gradient-to-r from-elaani-primary to-elaani-secondary text-white font-medium rounded-lg text-sm hover:from-elaani-secondary hover:to-elaani-primary transition-all shadow-lg hover:shadow-xl">
+                            class="px-6 py-3 bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white font-medium rounded-lg text-sm hover:from-puresignage-secondary hover:to-puresignage-primary transition-all shadow-lg hover:shadow-xl">
                         {{ _('Add Client') }}
                     </button>
                 </div>
             </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -568,19 +577,19 @@
             gridView.classList.remove('hidden');
             tableView.classList.add('hidden');
             
-            gridBtn.classList.add('text-white', 'bg-elaani-primary');
+            gridBtn.classList.add('text-white', 'bg-puresignage-primary');
             gridBtn.classList.remove('text-gray-700', 'bg-gray-100');
             
-            tableBtn.classList.remove('text-white', 'bg-elaani-primary');
+            tableBtn.classList.remove('text-white', 'bg-puresignage-primary');
             tableBtn.classList.add('text-gray-700', 'bg-gray-100');
         } else {
             gridView.classList.add('hidden');
             tableView.classList.remove('hidden');
             
-            tableBtn.classList.add('text-white', 'bg-elaani-primary');
+            tableBtn.classList.add('text-white', 'bg-puresignage-primary');
             tableBtn.classList.remove('text-gray-700', 'bg-gray-100');
             
-            gridBtn.classList.remove('text-white', 'bg-elaani-primary');
+            gridBtn.classList.remove('text-white', 'bg-puresignage-primary');
             gridBtn.classList.add('text-gray-700', 'bg-gray-100');
         }
         
