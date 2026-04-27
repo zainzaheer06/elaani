@@ -3,13 +3,13 @@ name: i18n-translations
 description: Add, update, or compile Arabic/English translations. Use when the user adds new user-facing strings, edits existing copy, asks for "Arabic translation" or "English translation", or reports missing/wrong translations on a page.
 ---
 
-# Updating PureSignage translations
+# Updating Pure Signage translations
 
 This project uses **Flask-Babel** with gettext `.po` (source) / `.mo` (compiled) files. Default locale is **Arabic (`ar`)**, fallback is English (`en`).
 
 ## Where translations live
 
-- `PureSignage/translations/{ar,en}/LC_MESSAGES/messages.{po,mo}`
+- `Pure Signage/translations/{ar,en}/LC_MESSAGES/messages.{po,mo}`
 
 ## Wrap, then extract
 
@@ -31,7 +31,7 @@ In Jinja templates:
 
 ## Workflow when adding new strings
 
-Run from the app root (`PureSignage/`):
+Run from the app root (`Pure Signage/`):
 
 ```bash
 # 1. Extract all _() / gettext() calls into messages.pot

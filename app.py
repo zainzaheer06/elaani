@@ -1,4 +1,4 @@
-# app.py - PureSignage Main Flask Application
+# app.py - Pure Signage Main Flask Application
 from flask import Flask, render_template, request, jsonify, session, redirect, url_for, abort
 from flask_babel import Babel, gettext
 from datetime import datetime, timedelta
@@ -10,7 +10,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 app = Flask(__name__,
             static_folder=os.path.join(basedir, 'static'),
             static_url_path='/static')
-app.secret_key = 'puresignage-bilingual-2025'
+app.secret_key = 'Pure Signage-bilingual-2025'
 
 app.config['BABEL_DEFAULT_LOCALE'] = 'ar'
 app.config['BABEL_TRANSLATION_DIRECTORIES'] = 'translations'

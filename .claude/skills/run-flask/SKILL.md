@@ -1,15 +1,15 @@
 ---
 name: run-flask
-description: Start the PureSignage Flask app and verify it boots. Use when the user asks to "run", "start", "launch", "preview", or "open" the app, or when you need to test changes against a live server.
+description: Start the Pure Signage Flask app and verify it boots. Use when the user asks to "run", "start", "launch", "preview", or "open" the app, or when you need to test changes against a live server.
 ---
 
-# Run the PureSignage Flask app
+# Run the Pure Signage Flask app
 
 Single app. Run from the project root.
 
 | Command | URL |
 |---|---|
-| `python app.py` from `PureSignage/` | http://127.0.0.1:5900 |
+| `python app.py` from `Pure Signage/` | http://127.0.0.1:5900 |
 
 ## Steps
 

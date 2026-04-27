@@ -1,4 +1,4 @@
-# PureSignage Loyalty System Enhancement
+# Pure Signage Loyalty System Enhancement
 
 ## Overview
 Complete professional loyalty card system with 7 tiers, dynamic styling, and comprehensive benefits.
@@ -122,7 +122,7 @@ April 27, 2026
 
 ## Files Modified
 
-1. **PureSignage/templates/customer/dashboard.html**
+1. **Pure Signage/templates/customer/dashboard.html**
    - Enhanced loyalty card section
    - Added loyalty benefits modal
    - Implemented JavaScript tier system

@@ -1,15 +1,15 @@
-# PureSignage Changes Summary
+# Pure Signage Changes Summary
 
 ## Changes Made on April 27, 2026
 
 ### 1. User Account Name Changed
-**File:** `PureSignage/app.py`
+**File:** `Pure Signage/app.py`
 - Changed user account name from "Omar Al-Rashid" to "Nour El-Masry" (Egyptian female name)
 - Updated email from "omar@example.com" to "nour@example.com"
 - Location: `inject_current_user()` function
 
 ### 2. Booking Details Page Enhancements
-**File:** `PureSignage/templates/bookings.html`
+**File:** `Pure Signage/templates/bookings.html`
 
 #### Added to Booking Details Modal:
 - **Number of Screens**: Displays how many screens are included in the booking
@@ -19,7 +19,7 @@
 These fields are now visible when viewing booking details via the "View Details" button.
 
 ### 3. Create New Booking Page Enhancements
-**File:** `PureSignage/templates/bookings.html`
+**File:** `Pure Signage/templates/bookings.html`
 
 #### Added Input Fields:
 - **Number of Screens**: Input field to specify how many screens are needed (default: 1)
@@ -30,7 +30,7 @@ These fields are now visible when viewing booking details via the "View Details"
 - Modified `calculateTotal()` function to automatically update the "Number of Days" field when dates are selected
 
 ### 4. Backend API Updates
-**File:** `PureSignage/app.py`
+**File:** `Pure Signage/app.py`
 
 Updated the `/api/booking/create` endpoint to accept and store new fields:
 - `details`: Event details/description
@@ -39,7 +39,7 @@ Updated the `/api/booking/create` endpoint to accept and store new fields:
 - `people_view_screen`: Estimated viewer count
 
 ### 5. Analytics Page - Seasonal Trends Enhancement
-**File:** `PureSignage/templates/analytics.html`
+**File:** `Pure Signage/templates/analytics.html`
 
 #### Added New Seasonal Trend Categories:
 1. **Exhibition** - Trade Shows & Expos (+35%)

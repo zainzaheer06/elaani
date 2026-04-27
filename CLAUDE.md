@@ -1,4 +1,4 @@
-# PureSignage — Claude Code Memory
+# Pure Signage — Claude Code Memory
 
 Bilingual (Arabic/English) digital signage marketplace. Connects screen owners (vendors), advertisers, and end customers. Inventory is Egyptian (Cairo / Alexandria / Obour) digital billboards, priced in EGP. This file is auto-loaded into Claude Code's context — keep it concise.
 
@@ -13,11 +13,11 @@ Bilingual (Arabic/English) digital signage marketplace. Connects screen owners (
 
 ## Repo layout
 
-Single Flask app, port 5900. (A second app `PureSignage-New/` was deleted on 2026-04-27 — only this app remains.)
+Single Flask app, port 5900. (A second app `Pure Signage-New/` was deleted on 2026-04-27 — only this app remains.)
 
 ```
-C:\Users\DELL\PureSignage\           (outer workspace folder)
-└── PureSignage\                     (project root — Flask app lives here)
+C:\Users\DELL\Pure Signage\           (outer workspace folder)
+└── Pure Signage\                     (project root — Flask app lives here)
     ├── app.py                   Main Flask app — port 5900, vendor + customer flows
     ├── templates/
     │   ├── base.html            Vendor sidebar layout
@@ -29,7 +29,7 @@ C:\Users\DELL\PureSignage\           (outer workspace folder)
     ├── static/
     │   ├── css/{ltr,rtl}.css    Direction-specific overrides
     │   ├── images/              Per-billboard photos (named by address+district)
-    │   └── puresignage-logo*.png
+    │   └── Pure Signage-logo*.png
     ├── translations/{ar,en}/LC_MESSAGES/messages.{po,mo}
     ├── generate_token.py        LiveKit JWT minter (PyJWT)
     ├── livekit-code.py          LiveKit REST API smoke test
@@ -38,15 +38,15 @@ C:\Users\DELL\PureSignage\           (outer workspace folder)
     ├── t.py / test-livekit.py   Ad-hoc test scripts
     ├── babel.cfg                pybabel extraction config
     ├── requirements.txt
-    ├── rename_script.py         (dormant — original Elaani→PureSignage rename utility)
-    ├── rename_to_puresignage.py (dormant — one-shot Elaani/Elanni→PureSignage rename)
+    ├── rename_script.py         (dormant — original Elaani→Pure Signage rename utility)
+    ├── rename_to_Pure Signage.py (dormant — one-shot Elaani/Elanni→Pure Signage rename)
     └── RENAME_INSTRUCTIONS.md   (obsolete — rename is done; safe to delete)
 ```
 
 ## How to run
 
 ```bash
-cd PureSignage
+cd Pure Signage
 python app.py            # http://127.0.0.1:5900
 
 # Compile translations after editing .po files
@@ -57,7 +57,7 @@ pybabel compile -d translations
 
 - **Currency:** Egyptian Pound (EGP). The custom Jinja filter `format_egp` appends `EGP`. Prices are monthly rentals; VAT is 14%.
 - **Locales:** `ar` (default, RTL) and `en` (LTR). Templates check `session.get('lang', 'ar')` to pick `rtl.css` vs `ltr.css`. Always wrap user-facing strings in `{{ _('...') }}` or `gettext('...')` in Python — never hardcode Arabic/English copy.
-- **Tailwind tokens:** Use the brand color classes `puresignage-primary` (#005430 dark green), `puresignage-secondary` (#057f48), `puresignage-light` (#e8f5e8). Defined inline in each `base*.html`'s `tailwind.config`.
+- **Tailwind tokens:** Use the brand color classes `Pure Signage-primary` (#005430 dark green), `Pure Signage-secondary` (#057f48), `Pure Signage-light` (#e8f5e8). Defined inline in each `base*.html`'s `tailwind.config`.
 - **Mock data lives in `app.py`** as module-level lists (`screens_data`, `bookings_data`, `clients_data`). The screen list is sourced from the Yafta Map quotation PDF dated 2026-01-13; ~75 entries, each tied to an image in `static/images/` named after its address. Mutating them in routes is fine for the demo but resets on server restart.
 - **No build step.** Tailwind is via CDN. Don't introduce a bundler unless the user asks.
 - **Template inheritance:** every page extends one of `base.html`, `base_customer.html`, or `base_public.html`. Don't create a new base layout — reuse one.
@@ -75,7 +75,7 @@ pybabel compile -d translations
 
 ## Brand rename history
 
-The project was renamed from **Elaani / Elanni** → **PureSignage** in April 2026 and the on-disk folder rename was finished on 2026-04-27. As of the latest sweep, the only remaining mentions of the old names live in `RENAME_INSTRUCTIONS.md`, `rename_script.py`, and `rename_to_puresignage.py` — all dormant historical files. Active code, templates, translations, and assets are clean.
+The project was renamed from **Elaani / Elanni** → **Pure Signage** in April 2026 and the on-disk folder rename was finished on 2026-04-27. As of the latest sweep, the only remaining mentions of the old names live in `RENAME_INSTRUCTIONS.md`, `rename_script.py`, and `rename_to_Pure Signage.py` — all dormant historical files. Active code, templates, translations, and assets are clean.
 
 ## Out of scope (don't volunteer)
 

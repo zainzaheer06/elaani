@@ -1,6 +1,6 @@
 ---
 name: jinja-template
-description: Create or edit a Jinja template (page or component) for PureSignage. Use when adding a new dashboard page, customer page, admin page, or shared component. Ensures the template inherits the right base, uses brand color tokens, wraps strings in gettext, and supports RTL.
+description: Create or edit a Jinja template (page or component) for Pure Signage. Use when adding a new dashboard page, customer page, admin page, or shared component. Ensures the template inherits the right base, uses brand color tokens, wraps strings in gettext, and supports RTL.
 ---
 
 # Adding/editing a Jinja template
@@ -24,7 +24,7 @@ Every page must `{% extends %}` one of these — don't create a new base.
 
 {% block content %}
 <div class="p-6">
-    <h1 class="text-2xl font-bold text-puresignage-primary mb-4">
+    <h1 class="text-2xl font-bold text-Pure Signage-primary mb-4">
         {{ _('Page Heading') }}
     </h1>
     <!-- content -->
@@ -36,14 +36,14 @@ Every page must `{% extends %}` one of these — don't create a new base.
 
 Use these custom Tailwind classes — they're defined inline in each base's `tailwind.config`:
 
-- `puresignage-primary` — `#005430` (dark green, primary actions, headings)
-- `puresignage-secondary` — `#057f48` (medium green, hover states, gradients)
-- `puresignage-light` — `#e8f5e8` (mint, backgrounds, badges)
+- `Pure Signage-primary` — `#005430` (dark green, primary actions, headings)
+- `Pure Signage-secondary` — `#057f48` (medium green, hover states, gradients)
+- `Pure Signage-light` — `#e8f5e8` (mint, backgrounds, badges)
 
 **Pattern for primary buttons:**
 
 ```html
-<button class="bg-puresignage-primary hover:bg-puresignage-secondary text-white px-6 py-3 rounded-lg font-semibold transition-colors">
+<button class="bg-Pure Signage-primary hover:bg-Pure Signage-secondary text-white px-6 py-3 rounded-lg font-semibold transition-colors">
     {{ _('Submit') }}
 </button>
 ```
@@ -51,7 +51,7 @@ Use these custom Tailwind classes — they're defined inline in each base's `tai
 **Pattern for gradient hero:**
 
 ```html
-<section class="bg-gradient-to-r from-puresignage-primary to-puresignage-secondary text-white">
+<section class="bg-gradient-to-r from-Pure Signage-primary to-Pure Signage-secondary text-white">
 ```
 
 ## i18n — every user-facing string
@@ -101,6 +101,6 @@ Hardcoded `<a href="/dashboard/customer">` will silently break if the route chan
 ## Common pitfalls
 
 - **Forgetting `{% extends %}`** — page renders without the layout, no sidebar, no nav.
-- **Hardcoding hex colors** instead of `puresignage-primary` — looks fine in isolation, drifts from brand over time.
+- **Hardcoding hex colors** instead of `Pure Signage-primary` — looks fine in isolation, drifts from brand over time.
 - **Using `left/right` margins** in RTL pages — layout breaks in Arabic.
 - **Skipping `_()`** — Arabic users see English text; you'll be asked to fix it later anyway.

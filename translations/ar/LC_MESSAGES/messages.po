@@ -7026,3 +7026,342 @@ msgstr "معلن"
 
 msgid "All time"
 msgstr "طوال الوقت"
+
+msgid "Exhibition"
+msgstr "معرض"
+
+msgid "Trade Shows & Expos"
+msgstr "المعارض التجارية والمؤتمرات"
+
+msgid "Entertainment"
+msgstr "الترفيه"
+
+msgid "Concerts & Shows"
+msgstr "الحفلات والعروض"
+
+msgid "Occasional Event"
+msgstr "المناسبات الخاصة"
+
+msgid "Special Occasions & Celebrations"
+msgstr "المناسبات والاحتفالات الخاصة"
+
+msgid "FnB"
+msgstr "الأطعمة والمشروبات"
+
+msgid "Food & Beverage Events"
+msgstr "فعاليات الأطعمة والمشروبات"
+
+msgid "Popular Events"
+msgstr "الفعاليات الشائعة"
+
+msgid "Wedding Reception"
+msgstr "حفل زفاف"
+
+msgid "Typical: 1-2 screens, 4-8 hours"
+msgstr "عادة: 1-2 شاشة، 4-8 ساعات"
+
+msgid "Product Launch"
+msgstr "إطلاق منتج"
+
+msgid "Typical: 2-4 screens, 1-2 days"
+msgstr "عادة: 2-4 شاشات، 1-2 يوم"
+
+msgid "Corporate Conference"
+msgstr "مؤتمر شركات"
+
+msgid "Typical: 3-6 screens, 2-3 days"
+msgstr "عادة: 3-6 شاشات، 2-3 أيام"
+
+msgid "PureSignage Loyalty"
+msgstr "برنامج ولاء بيور سيجنيج"
+
+msgid "Silver"
+msgstr "فضي"
+
+msgid "Gold"
+msgstr "ذهبي"
+
+msgid "Bronze"
+msgstr "برونزي"
+
+msgid "Platinum"
+msgstr "بلاتيني"
+
+msgid "Diamond"
+msgstr "ماسي"
+
+msgid "VIP"
+msgstr "في آي بي"
+
+msgid "VIP Gold"
+msgstr "في آي بي ذهبي"
+
+msgid "exclusive benefits"
+msgstr "مزايا حصرية"
+
+msgid "Member Name"
+msgstr "اسم العضو"
+
+msgid "Member since"
+msgstr "عضو منذ"
+
+msgid "Points to Gold"
+msgstr "نقاط للذهبي"
+
+msgid "points left"
+msgstr "نقطة متبقية"
+
+msgid "Unlock Gold tier benefits!"
+msgstr "افتح مزايا المستوى الذهبي!"
+
+msgid "Points"
+msgstr "النقاط"
+
+msgid "Bookings"
+msgstr "الحجوزات"
+
+msgid "Discount"
+msgstr "الخصم"
+
+msgid "0% Discount"
+msgstr "خصم 0%"
+
+msgid "5% Discount"
+msgstr "خصم 5%"
+
+msgid "10% Discount"
+msgstr "خصم 10%"
+
+msgid "15% Discount"
+msgstr "خصم 15%"
+
+msgid "20% Discount"
+msgstr "خصم 20%"
+
+msgid "25% Discount"
+msgstr "خصم 25%"
+
+msgid "30% Discount"
+msgstr "خصم 30%"
+
+msgid "Standard displays access"
+msgstr "الوصول إلى الشاشات القياسية"
+
+msgid "Email support"
+msgstr "الدعم عبر البريد الإلكتروني"
+
+msgid "Priority support"
+msgstr "الدعم ذو الأولوية"
+
+msgid "Account manager"
+msgstr "مدير حساب"
+
+msgid "Free upgrades"
+msgstr "ترقيات مجانية"
+
+msgid "Monthly analytics"
+msgstr "تحليلات شهرية"
+
+msgid "24/7 priority support"
+msgstr "دعم ذو أولوية على مدار الساعة"
+
+msgid "VIP concierge support"
+msgstr "دعم كونسيرج في آي بي"
+
+msgid "Premium displays access"
+msgstr "الوصول إلى الشاشات المميزة"
+
+msgid "Exclusive locations"
+msgstr "مواقع حصرية"
+
+msgid "Custom packages"
+msgstr "باقات مخصصة"
+
+msgid "Dedicated support team"
+msgstr "فريق دعم مخصص"
+
+msgid "Early access to new displays"
+msgstr "وصول مبكر للشاشات الجديدة"
+
+msgid "Flexible cancellation"
+msgstr "إلغاء مرن"
+
+msgid "Priority booking"
+msgstr "حجز ذو أولوية"
+
+msgid "Extended payment terms"
+msgstr "شروط دفع ممتدة"
+
+msgid "Loyalty Program Benefits"
+msgstr "مزايا برنامج الولاء"
+
+msgid "Your Current Level"
+msgstr "مستواك الحالي"
+
+msgid "points"
+msgstr "نقاط"
+
+msgid "Monthly newsletter"
+msgstr "النشرة الإخبارية الشهرية"
+
+msgid "Basic booking tools"
+msgstr "أدوات الحجز الأساسية"
+
+msgid "5% booking discount"
+msgstr "خصم 5% على الحجز"
+
+msgid "Early display access"
+msgstr "وصول مبكر للشاشات"
+
+msgid "Quarterly reports"
+msgstr "تقارير ربع سنوية"
+
+msgid "1 free consultation/year"
+msgstr "استشارة مجانية واحدة/سنة"
+
+msgid "10% booking discount"
+msgstr "خصم 10% على الحجز"
+
+msgid "3 consultations/year"
+msgstr "3 استشارات/سنة"
+
+msgid "15% booking discount"
+msgstr "خصم 15% على الحجز"
+
+msgid "VIP concierge support"
+msgstr "دعم كونسيرج في آي بي"
+
+msgid "Personal manager"
+msgstr "مدير شخصي"
+
+msgid "Guaranteed availability"
+msgstr "توفر مضمون"
+
+msgid "Premium upgrades"
+msgstr "ترقيات مميزة"
+
+msgid "Real-time analytics"
+msgstr "تحليلات فورية"
+
+msgid "Unlimited consultations"
+msgstr "استشارات غير محدودة"
+
+msgid "VIP events access"
+msgstr "الوصول لفعاليات في آي بي"
+
+msgid "20% booking discount"
+msgstr "خصم 20% على الحجز"
+
+msgid "Elite concierge service"
+msgstr "خدمة كونسيرج نخبة"
+
+msgid "Executive account team"
+msgstr "فريق حساب تنفيذي"
+
+msgid "First priority displays"
+msgstr "شاشات ذات أولوية أولى"
+
+msgid "Complimentary upgrades"
+msgstr "ترقيات مجانية"
+
+msgid "AI campaign optimization"
+msgstr "تحسين الحملات بالذكاء الاصطناعي"
+
+msgid "VIP lounge access"
+msgstr "الوصول لصالة في آي بي"
+
+msgid "Flexible payment terms"
+msgstr "شروط دفع مرنة"
+
+msgid "Annual strategy session"
+msgstr "جلسة استراتيجية سنوية"
+
+msgid "25% booking discount"
+msgstr "خصم 25% على الحجز"
+
+msgid "White-glove service"
+msgstr "خدمة راقية"
+
+msgid "Dedicated executive team"
+msgstr "فريق تنفيذي مخصص"
+
+msgid "Premium placement guaranteed"
+msgstr "موضع مميز مضمون"
+
+msgid "All upgrades complimentary"
+msgstr "جميع الترقيات مجانية"
+
+msgid "Custom AI strategies"
+msgstr "استراتيجيات ذكاء اصطناعي مخصصة"
+
+msgid "Private VIP events"
+msgstr "فعاليات في آي بي خاصة"
+
+msgid "Custom payment solutions"
+msgstr "حلول دفع مخصصة"
+
+msgid "Quarterly executive reviews"
+msgstr "مراجعات تنفيذية ربع سنوية"
+
+msgid "Media production support"
+msgstr "دعم إنتاج الوسائط"
+
+msgid "ULTIMATE"
+msgstr "النهائي"
+
+msgid "30% booking discount"
+msgstr "خصم 30% على الحجز"
+
+msgid "Ultimate white-glove service"
+msgstr "خدمة راقية نهائية"
+
+msgid "C-level executive team"
+msgstr "فريق تنفيذي من المستوى الأعلى"
+
+msgid "Exclusive reservations"
+msgstr "حجوزات حصرية"
+
+msgid "All services complimentary"
+msgstr "جميع الخدمات مجانية"
+
+msgid "Bespoke AI solutions"
+msgstr "حلول ذكاء اصطناعي مخصصة"
+
+msgid "Private luxury events"
+msgstr "فعاليات فاخرة خاصة"
+
+msgid "Fully customized terms"
+msgstr "شروط مخصصة بالكامل"
+
+msgid "Monthly executive briefings"
+msgstr "إحاطات تنفيذية شهرية"
+
+msgid "Full media production suite"
+msgstr "مجموعة إنتاج وسائط كاملة"
+
+msgid "International expansion support"
+msgstr "دعم التوسع الدولي"
+
+msgid "Brand ambassador opportunities"
+msgstr "فرص سفير العلامة التجارية"
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "View All Benefits"
+msgstr "عرض جميع المزايا"
+
+msgid "View All Benefit"
+msgstr "عرض جميع المزايا"
+
+msgid "Click to expand map"
+msgstr "انقر لتوسيع الخريطة"
+
+msgid "Screen Location"
+msgstr "موقع الشاشة"
+
+msgid "IT Events"
+msgstr "فعاليات تقنية المعلومات"
+
+msgid "Typical: 2-4 screens, 1-3 days"
+msgstr "عادة: 2-4 شاشات، 1-3 أيام"

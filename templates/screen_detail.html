@@ -113,8 +113,14 @@
             {% endif %}
         </div>
 
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-3">
-            <div id="miniMap"></div>
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-3 cursor-pointer hover:shadow-lg transition-shadow" onclick="openMapModal()">
+            <div id="miniMap" class="relative">
+                <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 hover:bg-opacity-10 transition-all z-10 rounded-2xl">
+                    <div class="bg-white px-4 py-2 rounded-lg shadow-lg opacity-0 hover:opacity-100 transition-opacity">
+                        <i class="fas fa-expand-alt mr-2"></i>{{ _('Click to expand map') }}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -302,6 +308,33 @@
         {% endif %}
     </div>
 </div>
+
+<!-- Map Modal -->
+<div id="mapModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl shadow-2xl w-full max-w-6xl h-[90vh] flex flex-col">
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <div>
+                <h3 class="text-2xl font-bold text-gray-900">{{ _('Screen Location') }}</h3>
+                <p class="text-sm text-gray-600 mt-1">{{ screen.district }} — {{ screen.address }}</p>
+            </div>
+            <button onclick="closeMapModal()" class="text-gray-400 hover:text-gray-600 transition-colors">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        <div class="flex-1 relative">
+            <div id="bigMap" class="w-full h-full"></div>
+        </div>
+        <div class="p-4 border-t border-gray-200 bg-gray-50 flex justify-between items-center">
+            <div class="text-sm text-gray-600">
+                <i class="fas fa-map-marker-alt text-puresignage-primary mr-2"></i>
+                <strong>GPS:</strong> {{ screen.gps or (screen.lat ~ ', ' ~ screen.lng) }}
+            </div>
+            <button onclick="closeMapModal()" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                {{ _('Close') }}
+            </button>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
@@ -312,7 +345,7 @@
     const lng = {{ screen.lng | tojson }};
     const label = {{ (screen.district ~ ' — ' ~ screen.address) | tojson }};
 
-    const map = L.map('miniMap', { scrollWheelZoom: false }).setView([lat, lng], 14);
+    const map = L.map('miniMap', { scrollWheelZoom: false, zoomControl: false, dragging: false }).setView([lat, lng], 14);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors',
         maxZoom: 19
@@ -320,6 +353,71 @@
 
     L.marker([lat, lng]).addTo(map).bindPopup(label).openPopup();
 })();
+
+let bigMap = null;
+
+function openMapModal() {
+    const modal = document.getElementById('mapModal');
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    
+    // Initialize big map if not already done
+    setTimeout(() => {
+        if (!bigMap) {
+            const lat = {{ screen.lat | tojson }};
+            const lng = {{ screen.lng | tojson }};
+            const label = {{ (screen.district ~ ' — ' ~ screen.address) | tojson }};
+            
+            bigMap = L.map('bigMap').setView([lat, lng], 15);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors',
+                maxZoom: 19
+            }).addTo(bigMap);
+            
+            // Add custom marker with icon
+            const markerIcon = L.divIcon({
+                html: '<div style="background: linear-gradient(135deg, #005430, #057f48); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"><i class="fas fa-tv" style="color: white; font-size: 24px;"></i></div>',
+                iconSize: [50, 50],
+                className: 'custom-marker'
+            });
+            
+            L.marker([lat, lng], { icon: markerIcon }).addTo(bigMap)
+                .bindPopup(`
+                    <div style="min-width: 250px;">
+                        <h4 style="margin: 0 0 8px 0; font-weight: bold; font-size: 16px; color: #005430;">
+                            <i class="fas fa-tv mr-2"></i>${label}
+                        </h4>
+                        <p style="margin: 0; font-size: 13px; color: #666;">
+                            <i class="fas fa-map-marker-alt mr-2 text-puresignage-primary"></i>
+                            {{ _('Screen Location') }}
+                        </p>
+                    </div>
+                `).openPopup();
+        } else {
+            bigMap.invalidateSize();
+        }
+    }, 100);
+}
+
+function closeMapModal() {
+    const modal = document.getElementById('mapModal');
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeMapModal();
+    }
+});
+
+// Close modal when clicking outside
+document.getElementById('mapModal')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeMapModal();
+    }
+});
 
 function bookScreen(id) {
     alert({{ _('Quote request submitted for screen #') | tojson }} + id);
